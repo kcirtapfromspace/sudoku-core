@@ -1,0 +1,19 @@
+[package]
+name = "sudoku-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Core Sudoku engine with solving, generation, and variant support"
+repository = "https://github.com/kcirtapfromspace/sudoku-core"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.10"
+getrandom = { version = "0.2", features = ["js"] }
+
+[dev-dependencies]
+serde_json = "1"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
