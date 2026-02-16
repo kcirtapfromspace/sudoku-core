@@ -47,7 +47,7 @@ Binary relations over nodes in *X*:
   *strong link* is structural (XOR — the two candidates are bound
   by an exactly-one-true relationship), whereas a *weak inference* is
   derived from the constraint that at-most-one-true holds. In the
-  implementation, the `LinkType::Weak` variant represents weak
+  implementation, the `LinkType::WeakInference` variant represents weak
   inferences. The terms are used interchangeably in older literature.
 
 Every strong link is also a weak inference, but not conversely.

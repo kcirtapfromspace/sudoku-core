@@ -142,13 +142,18 @@ pub enum Technique {
     HiddenRectangle,
 
     // Master (wings + chains + ALS-XZ + advanced patterns)
+    /// ALS-XZ specialization (1+1 cells). SE 4.2.
     XYWing,
+    /// ALS-XZ specialization (1+2 cells). SE 4.4.
     XYZWing,
+    /// ALS-XZ specialization (total 4 cells). SE 4.6.
     WXYZWing,
     WWing,
     XChain,
-    /// Legacy: 3D Medusa is strong-link-only AIC coloring, subsumed by general AIC.
+    /// RETIRED by community consensus (StrmCkr / Players Forum).
+    /// 3D Medusa is strong-link-only AIC coloring, fully subsumed by general AIC.
     /// Retained for SE rating compatibility (SE 5.0).
+    #[deprecated(note = "Subsumed by general AIC. Retained for SE rating compatibility (SE 5.0).")]
     ThreeDMedusa,
     SueDeCoq,
     AIC,
@@ -162,9 +167,13 @@ pub enum Technique {
     AlsXyWing,
     AlsChain,
     MutantFish,
-    /// Legacy: APE is subsumed by ALS chains. Retained for SE rating compatibility.
+    /// RETIRED by community consensus (StrmCkr / Players Forum).
+    /// APE is subsumed by ALS chains. Retained for SE rating compatibility (SE 6.2).
+    #[deprecated(note = "Subsumed by ALS chains. Retained for SE rating compatibility (SE 6.2).")]
     AlignedPairExclusion,
-    /// Legacy: ATE is subsumed by ALS chains. Retained for SE rating compatibility.
+    /// RETIRED by community consensus (StrmCkr / Players Forum).
+    /// ATE is subsumed by ALS chains. Retained for SE rating compatibility (SE 7.5).
+    #[deprecated(note = "Subsumed by ALS chains. Retained for SE rating compatibility (SE 7.5).")]
     AlignedTripletExclusion,
     DeathBlossom,
     NishioForcingChain,
@@ -175,7 +184,35 @@ pub enum Technique {
     Backtracking,
 }
 
+#[allow(deprecated)]
 impl Technique {
+    /// Whether this technique has been retired by community consensus.
+    ///
+    /// Legacy techniques are retained for SE rating compatibility but are
+    /// subsumed by more general methods (e.g., 3D Medusa → AIC,
+    /// APE/ATE → ALS chains). Downstream consumers can use this to
+    /// filter or flag legacy technique usage.
+    pub fn is_legacy(&self) -> bool {
+        matches!(
+            self,
+            Technique::ThreeDMedusa
+                | Technique::AlignedPairExclusion
+                | Technique::AlignedTripletExclusion
+        )
+    }
+
+    /// Whether this technique is a specialization of the ALS-XZ family.
+    ///
+    /// XY-Wing (1+1 cells), XYZ-Wing (1+2 cells), WXYZ-Wing (total 4 cells),
+    /// and general ALS-XZ are all the same ALS degree-of-freedom pattern
+    /// classified by cell count for SE rating sub-classification.
+    pub fn is_als_xz_family(&self) -> bool {
+        matches!(
+            self,
+            Technique::XYWing | Technique::XYZWing | Technique::WXYZWing | Technique::AlsXz
+        )
+    }
+
     /// Get the Sudoku Explainer (SE) numerical rating for this technique.
     /// This is the community-standard difficulty scale.
     pub fn se_rating(&self) -> f32 {
@@ -229,6 +266,7 @@ impl Technique {
     }
 }
 
+#[allow(deprecated)]
 impl std::fmt::Display for Technique {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {

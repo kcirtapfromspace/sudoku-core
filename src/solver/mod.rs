@@ -235,6 +235,8 @@ impl Solver {
         if let Some(f) = aic_engine::find_x_chain(&fab, &graph) {
             return Some(f);
         }
+        // Legacy: retained for SE compatibility, subsumed by AIC
+        #[allow(deprecated)]
         if let Some(f) = aic_engine::find_medusa(&fab, &graph) {
             return Some(f);
         }
@@ -270,9 +272,13 @@ impl Solver {
         if let Some(f) = fish_engine::find_mutant_fish(&fab) {
             return Some(f);
         }
+        // Legacy: retained for SE compatibility, subsumed by ALS chains
+        #[allow(deprecated)]
         if let Some(f) = als_engine::find_aligned_pair_exclusion(&fab) {
             return Some(f);
         }
+        // Legacy: retained for SE compatibility, subsumed by ALS chains
+        #[allow(deprecated)]
         if let Some(f) = als_engine::find_aligned_triplet_exclusion(&fab) {
             return Some(f);
         }
@@ -350,7 +356,11 @@ impl Solver {
                 .or_else(|| {
                     let graph = aic_engine::build_link_graph(&fab);
                     None.or_else(|| aic_engine::find_x_chain(&fab, &graph))
-                        .or_else(|| aic_engine::find_medusa(&fab, &graph))
+                        // Legacy: retained for SE compatibility, subsumed by AIC
+                        .or_else(|| {
+                            #[allow(deprecated)]
+                            aic_engine::find_medusa(&fab, &graph)
+                        })
                         .or_else(|| als_engine::find_sue_de_coq(&fab))
                         .or_else(|| aic_engine::find_aic(&fab, &graph))
                 })
@@ -363,8 +373,16 @@ impl Solver {
                 .or_else(|| als_engine::find_als_xy_wing(&fab))
                 .or_else(|| als_engine::find_als_chain(&fab))
                 .or_else(|| fish_engine::find_mutant_fish(&fab))
-                .or_else(|| als_engine::find_aligned_pair_exclusion(&fab))
-                .or_else(|| als_engine::find_aligned_triplet_exclusion(&fab))
+                // Legacy: retained for SE compatibility, subsumed by ALS chains
+                .or_else(|| {
+                    #[allow(deprecated)]
+                    als_engine::find_aligned_pair_exclusion(&fab)
+                })
+                // Legacy: retained for SE compatibility, subsumed by ALS chains
+                .or_else(|| {
+                    #[allow(deprecated)]
+                    als_engine::find_aligned_triplet_exclusion(&fab)
+                })
                 .or_else(|| als_engine::find_death_blossom(&fab))
                 // Forcing chains (singles propagation)
                 .or_else(|| {
@@ -403,6 +421,7 @@ impl Solver {
     }
 
     /// Map a technique + puzzle characteristics to a difficulty level.
+    #[allow(deprecated)]
     fn technique_to_difficulty(tech: Technique, empty_count: usize) -> Difficulty {
         match tech {
             Technique::NakedSingle => {
@@ -524,7 +543,11 @@ fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
             .or_else(|| {
                 let graph = aic_engine::build_link_graph(&fab);
                 None.or_else(|| aic_engine::find_x_chain(&fab, &graph))
-                    .or_else(|| aic_engine::find_medusa(&fab, &graph))
+                    // Legacy: retained for SE compatibility, subsumed by AIC
+                    .or_else(|| {
+                        #[allow(deprecated)]
+                        aic_engine::find_medusa(&fab, &graph)
+                    })
                     .or_else(|| als_engine::find_sue_de_coq(&fab))
                     .or_else(|| aic_engine::find_aic(&fab, &graph))
             })
@@ -536,8 +559,16 @@ fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
             .or_else(|| als_engine::find_als_xy_wing(&fab))
             .or_else(|| als_engine::find_als_chain(&fab))
             .or_else(|| fish_engine::find_mutant_fish(&fab))
-            .or_else(|| als_engine::find_aligned_pair_exclusion(&fab))
-            .or_else(|| als_engine::find_aligned_triplet_exclusion(&fab))
+            // Legacy: retained for SE compatibility, subsumed by ALS chains
+            .or_else(|| {
+                #[allow(deprecated)]
+                als_engine::find_aligned_pair_exclusion(&fab)
+            })
+            // Legacy: retained for SE compatibility, subsumed by ALS chains
+            .or_else(|| {
+                #[allow(deprecated)]
+                als_engine::find_aligned_triplet_exclusion(&fab)
+            })
             .or_else(|| als_engine::find_death_blossom(&fab));
         // Note: forcing chains excluded to avoid infinite recursion
 

@@ -142,17 +142,17 @@ fn find_rccs(fab: &CandidateFabric, als_a: &Als, als_b: &Als) -> Vec<u8> {
 
 // ==================== Wings (small ALS-XZ) ====================
 
-/// XY-Wing: two single-cell ALS connected by RCC.
+/// XY-Wing: ALS-XZ with 1+1 cells (SE sub-classification, SE 4.2).
 pub fn find_xy_wing(fab: &CandidateFabric) -> Option<Finding> {
     find_als_xz_filtered(fab, Some(Technique::XYWing))
 }
 
-/// XYZ-Wing: one single-cell + one 2-cell ALS connected by RCC.
+/// XYZ-Wing: ALS-XZ with 1+2 cells (SE sub-classification, SE 4.4).
 pub fn find_xyz_wing(fab: &CandidateFabric) -> Option<Finding> {
     find_als_xz_filtered(fab, Some(Technique::XYZWing))
 }
 
-/// WXYZ-Wing: total 4 cells across two ALS connected by RCC.
+/// WXYZ-Wing: ALS-XZ with total 4 cells (SE sub-classification, SE 4.6).
 pub fn find_wxyz_wing(fab: &CandidateFabric) -> Option<Finding> {
     find_als_xz_filtered(fab, Some(Technique::WXYZWing))
 }
@@ -257,7 +257,12 @@ fn find_als_xz_filtered(fab: &CandidateFabric, filter: Option<Technique>) -> Opt
     None
 }
 
-/// Classify an ALS pair based on cell sizes.
+/// Classify an ALS pair by cell sizes into SE rating sub-classifications of ALS-XZ.
+///
+/// XY-Wing (1+1), XYZ-Wing (1+2), WXYZ-Wing (total 4), and general ALS-XZ
+/// are all the same ALS degree-of-freedom pattern; the names are retained
+/// for Sudoku Explainer rating compatibility.
+#[allow(deprecated)]
 fn classify_als_pair(a: &Als, b: &Als) -> Technique {
     let total = a.cells.len() + b.cells.len();
     match (a.cells.len(), b.cells.len()) {
@@ -548,7 +553,8 @@ pub fn find_als_chain(fab: &CandidateFabric) -> Option<Finding> {
 
 // ==================== Sue de Coq ====================
 
-/// Sue de Coq: box/line intersection with ALS decomposition.
+/// Sue de Coq (DDS — Distributed Disjoint Subsets): ALS degree-of-freedom
+/// decomposition at box/line intersection.
 pub fn find_sue_de_coq(fab: &CandidateFabric) -> Option<Finding> {
     // For each box-line intersection (3 cells where a box meets a row/col)
     for box_idx in 0..9 {
@@ -730,7 +736,8 @@ fn find_local_als(fab: &CandidateFabric, cells: &[usize]) -> Vec<Als> {
 
 // ==================== Death Blossom ====================
 
-/// Death Blossom: stem cell + petal ALS (star graph topology).
+/// Death Blossom: ALS degree-of-freedom method with star topology
+/// (stem cell + petal ALS).
 pub fn find_death_blossom(fab: &CandidateFabric) -> Option<Finding> {
     let all_als = enumerate_als(fab);
 
@@ -912,6 +919,11 @@ fn try_death_blossom(
 
 /// Aligned Pair Exclusion: two mutually visible cells whose valid value pairs
 /// lock a candidate, eliminating it from common peers.
+///
+/// RETIRED by community consensus (StrmCkr / Players Forum): subsumed by
+/// ALS chains. Retained for SE rating compatibility (SE 6.2).
+#[deprecated(note = "Subsumed by ALS chains. Retained for SE rating compatibility (SE 6.2).")]
+#[allow(deprecated)]
 pub fn find_aligned_pair_exclusion(fab: &CandidateFabric) -> Option<Finding> {
     let empty: Vec<usize> = (0..81).filter(|&c| fab.values[c].is_none()).collect();
 
@@ -1008,6 +1020,11 @@ pub fn find_aligned_pair_exclusion(fab: &CandidateFabric) -> Option<Finding> {
 
 /// Aligned Triplet Exclusion: three mutually visible cells whose valid value
 /// triples lock a candidate, eliminating it from common peers.
+///
+/// RETIRED by community consensus (StrmCkr / Players Forum): subsumed by
+/// ALS chains. Retained for SE rating compatibility (SE 7.5).
+#[deprecated(note = "Subsumed by ALS chains. Retained for SE rating compatibility (SE 7.5).")]
+#[allow(deprecated)]
 pub fn find_aligned_triplet_exclusion(fab: &CandidateFabric) -> Option<Finding> {
     let empty: Vec<usize> = (0..81).filter(|&c| fab.values[c].is_none()).collect();
 

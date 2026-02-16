@@ -31,14 +31,15 @@ pub enum Polarity {
 
 /// Link type in an alternating inference chain.
 ///
-/// Community terminology: `Weak` represents a "weak inference" (NAND
-/// relationship), while `Strong` is a structural link (XOR). The variant
-/// name `Weak` is retained for brevity but denotes a weak inference.
+/// Community terminology (StrmCkr / Players Forum):
+/// - `Strong` = structural link (XOR): exactly one of the connected nodes is true.
+/// - `WeakInference` = weak inference (NAND): at most one of the connected nodes is true.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkType {
+    /// Strong link (XOR): exactly one of the connected nodes is true.
     Strong,
     /// Weak inference (NAND): at most one of the connected nodes is true.
-    Weak,
+    WeakInference,
 }
 
 /// Source of a forcing chain deduction.

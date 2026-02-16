@@ -410,9 +410,9 @@ pub fn find_w_wing(fab: &CandidateFabric) -> Option<Finding> {
                                     ],
                                     link_types: vec![
                                         LinkType::Strong,
-                                        LinkType::Weak,
+                                        LinkType::WeakInference,
                                         LinkType::Strong,
-                                        LinkType::Weak,
+                                        LinkType::WeakInference,
                                         LinkType::Strong,
                                     ],
                                 }),
@@ -564,7 +564,7 @@ fn find_aic_with_filter(
                                             if i % 2 == 0 {
                                                 LinkType::Strong
                                             } else {
-                                                LinkType::Weak
+                                                LinkType::WeakInference
                                             }
                                         })
                                         .collect();
@@ -626,7 +626,7 @@ fn find_aic_with_filter(
                                         if i % 2 == 0 {
                                             LinkType::Strong
                                         } else {
-                                            LinkType::Weak
+                                            LinkType::WeakInference
                                         }
                                     })
                                     .collect();
@@ -687,10 +687,16 @@ fn find_aic_with_filter(
 
 /// 3D Medusa: AIC subclass using 2-coloring on the strong-link subgraph.
 ///
+/// RETIRED by community consensus (StrmCkr / Players Forum): strong-link-only
+/// AIC coloring, fully subsumed by general AIC. Retained for SE rating
+/// compatibility (SE 5.0).
+///
 /// Medusa is equivalent to finding contradictions/eliminations via coloring
 /// connected components of the AIC polarity graph's strong links:
 /// - Contradiction: same color has two digits in one cell, or same digit+color in one unit
 /// - Elimination: uncolored candidate sees both colors of its digit
+#[deprecated(note = "Subsumed by general AIC. Retained for SE rating compatibility (SE 5.0).")]
+#[allow(deprecated)]
 pub fn find_medusa(fab: &CandidateFabric, graph: &LinkGraph) -> Option<Finding> {
     let mut globally_visited: HashSet<Node> = HashSet::new();
 
