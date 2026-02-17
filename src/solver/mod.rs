@@ -141,6 +141,14 @@ impl Solver {
         max_tech.se_rating()
     }
 
+    /// Analyze a puzzle: returns (difficulty, se_rating) with a single solve_with_techniques pass.
+    pub fn analyze(&self, grid: &Grid) -> (Difficulty, f32) {
+        let empty_count = grid.empty_positions().len();
+        let mut working = grid.deep_clone();
+        let max_tech = self.solve_with_techniques(&mut working);
+        (Self::technique_to_difficulty(max_tech, empty_count), max_tech.se_rating())
+    }
+
     // ==================== Internal dispatch ====================
 
     /// Find the first applicable technique for a hint (does not mutate grid).
