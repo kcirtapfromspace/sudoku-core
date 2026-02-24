@@ -13,6 +13,8 @@ mod fish_engine;
 mod types;
 mod uniqueness;
 
+use std::collections::HashMap;
+
 use crate::{Grid, Position};
 use explain::{Finding, InferenceResult};
 use fabric::{idx_to_pos, CandidateFabric};
@@ -147,6 +149,44 @@ impl Solver {
         let mut working = grid.deep_clone();
         let max_tech = self.solve_with_techniques(&mut working);
         (Self::technique_to_difficulty(max_tech, empty_count), max_tech.se_rating())
+    }
+
+    /// Collect a full technique profile by solving the puzzle step-by-step.
+    ///
+    /// Returns a map of technique display names to usage counts, along with the
+    /// hardest technique used and its SE rating. Returns `None` if the puzzle
+    /// string is invalid or the solver cannot make progress.
+    pub fn collect_technique_profile(
+        &self,
+        grid: &Grid,
+    ) -> Option<(HashMap<String, u32>, Technique)> {
+        let mut working = grid.deep_clone();
+        working.recalculate_candidates();
+
+        let mut techniques: HashMap<String, u32> = HashMap::new();
+        let mut max_technique = Technique::NakedSingle;
+
+        while !working.is_complete() {
+            if let Some(finding) = self.find_first_technique(&working) {
+                let tech = finding.technique;
+                *techniques.entry(tech.to_string()).or_insert(0) += 1;
+                if tech > max_technique {
+                    max_technique = tech;
+                }
+                apply_finding(&mut working, &finding);
+            } else if let Some(finding) = backtrack::find_backtracking_hint(&working) {
+                let tech = finding.technique;
+                *techniques.entry(tech.to_string()).or_insert(0) += 1;
+                if tech > max_technique {
+                    max_technique = tech;
+                }
+                apply_finding(&mut working, &finding);
+            } else {
+                return None;
+            }
+        }
+
+        Some((techniques, max_technique))
     }
 
     // ==================== Internal dispatch ====================
@@ -1084,5 +1124,36 @@ mod tests {
         for t in &sorted {
             println!("  {:?} (SE {:.1})", t, t.se_rating());
         }
+    }
+
+    #[test]
+    fn test_collect_technique_profile() {
+        let solver = Solver::new();
+
+        // Easy puzzle (naked singles only)
+        let grid = Grid::from_string(
+            "530070000600195000098000060800060003400803001700020006060000280000419005000080079",
+        )
+        .unwrap();
+        let (techs, max) = solver.collect_technique_profile(&grid).expect("should solve easy");
+        assert!(max.se_rating() <= 3.0);
+        assert!(techs.contains_key("Naked Single"));
+
+        // Expert puzzle (requires elimination techniques like UR / empty rectangle)
+        let grid = Grid::from_string(
+            "000704005020010070000080002090006250600070008053200010400090000030060090200301000",
+        )
+        .unwrap();
+        let (techs, max) = solver.collect_technique_profile(&grid).expect("should solve expert");
+        assert!(
+            max.se_rating() > 3.0,
+            "expert puzzle should have SE > 3.0, got {}",
+            max.se_rating()
+        );
+        assert!(
+            techs.len() > 2,
+            "expert puzzle should use multiple techniques, got: {:?}",
+            techs.keys().collect::<Vec<_>>()
+        );
     }
 }
