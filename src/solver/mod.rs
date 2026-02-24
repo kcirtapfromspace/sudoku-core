@@ -154,39 +154,29 @@ impl Solver {
     /// Collect a full technique profile by solving the puzzle step-by-step.
     ///
     /// Returns a map of technique display names to usage counts, along with the
-    /// hardest technique used and its SE rating. Returns `None` if the puzzle
-    /// string is invalid or the solver cannot make progress.
+    /// hardest technique used. Returns `None` if the puzzle cannot be solved.
     pub fn collect_technique_profile(
         &self,
         grid: &Grid,
     ) -> Option<(HashMap<String, u32>, Technique)> {
         let mut working = grid.deep_clone();
-        working.recalculate_candidates();
-
         let mut techniques: HashMap<String, u32> = HashMap::new();
-        let mut max_technique = Technique::NakedSingle;
+        let max = self.solve_with_techniques_inner(&mut working, Some(&mut techniques));
 
-        while !working.is_complete() {
-            if let Some(finding) = self.find_first_technique(&working) {
-                let tech = finding.technique;
-                *techniques.entry(tech.to_string()).or_insert(0) += 1;
-                if tech > max_technique {
-                    max_technique = tech;
-                }
-                apply_finding(&mut working, &finding);
-            } else if let Some(finding) = backtrack::find_backtracking_hint(&working) {
-                let tech = finding.technique;
-                *techniques.entry(tech.to_string()).or_insert(0) += 1;
-                if tech > max_technique {
-                    max_technique = tech;
-                }
-                apply_finding(&mut working, &finding);
-            } else {
-                return None;
-            }
+        if working.is_complete() {
+            return Some((techniques, max));
         }
 
-        Some((techniques, max_technique))
+        // The inline technique chain can fail when uniqueness techniques produce
+        // unsound eliminations on accumulated candidate state.  When backtracking
+        // can't recover, fall back to solving from the original grid.
+        if self.solve(grid).is_some() {
+            techniques.clear();
+            techniques.insert(Technique::Backtracking.to_string(), 1);
+            Some((techniques, Technique::Backtracking))
+        } else {
+            None
+        }
     }
 
     // ==================== Internal dispatch ====================
@@ -362,6 +352,15 @@ impl Solver {
 
     /// Solve the puzzle using human techniques, returning the hardest technique used.
     fn solve_with_techniques(&self, grid: &mut Grid) -> Technique {
+        self.solve_with_techniques_inner(grid, None)
+    }
+
+    /// Shared implementation: solve with techniques, optionally recording usage counts.
+    fn solve_with_techniques_inner(
+        &self,
+        grid: &mut Grid,
+        mut track: Option<&mut HashMap<String, u32>>,
+    ) -> Technique {
         grid.recalculate_candidates();
         let mut max_technique = Technique::NakedSingle;
 
@@ -452,6 +451,9 @@ impl Solver {
 
             match finding {
                 Some(f) => {
+                    if let Some(ref mut map) = track {
+                        *map.entry(f.technique.to_string()).or_insert(0) += 1;
+                    }
                     if f.technique > max_technique {
                         max_technique = f.technique;
                     }
@@ -460,6 +462,9 @@ impl Solver {
                 None => {
                     // No technique found, use backtracking to finish
                     backtrack::solve_recursive(grid);
+                    if let Some(ref mut map) = track {
+                        *map.entry(Technique::Backtracking.to_string()).or_insert(0) += 1;
+                    }
                     return Technique::Backtracking;
                 }
             }
@@ -1156,4 +1161,31 @@ mod tests {
             techs.keys().collect::<Vec<_>>()
         );
     }
+
+    /// Regression: extreme puzzles (SE 11.0) that need backtracking must not hang.
+    #[test]
+    fn test_collect_technique_profile_extreme() {
+        let solver = Solver::new();
+        let extremes = [
+            "020000000000380000095020810000000000840000070003601004002000000000010092600005003",
+            "400016005390000000000080070000000200009200700080004003502000060000500000000940100",
+            "701600000600000370000000008000100002090007800000405001500000100070300040002009000",
+        ];
+
+        for ps in &extremes {
+            let grid = Grid::from_string(ps).unwrap();
+            assert!(solver.has_unique_solution(&grid), "puzzle should have unique solution: {}", ps);
+
+            let result = solver.collect_technique_profile(&grid);
+            assert!(result.is_some(), "collect_technique_profile failed for: {}", ps);
+
+            let (techs, max) = result.unwrap();
+            assert!(
+                techs.contains_key("Backtracking"),
+                "extreme puzzle should need backtracking: {}", ps
+            );
+            assert_eq!(max, Technique::Backtracking);
+        }
+    }
+
 }
