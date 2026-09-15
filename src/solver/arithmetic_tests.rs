@@ -768,3 +768,352 @@ fn duplicate_placed_values_and_absent_sector_digits_are_rejected() {
         assert_arithmetic_rejects_grid(&grid, "no remaining position for a digit");
     }
 }
+
+fn residue_terms(scale: i8) -> Vec<ArithmeticTerm> {
+    let mut terms = sector_terms(&[12, 3, 10, 18, 1], &[scale; 5]);
+    terms.push(ArithmeticTerm {
+        requirement: ArithmeticRequirement::Cell { cell: 3 },
+        weight: 1,
+    });
+    terms
+}
+
+#[test]
+fn residue_certificate_refutes_the_native_six_source_obstruction() {
+    let grid = cell_obstruction();
+    let terms = residue_terms(2);
+    assert!(ArithmeticProof::from_terms(&grid, terms.clone(), 3, 2, false).is_none());
+    let proof = ArithmeticProof::from_residue_terms(&grid, terms, 3, 2, false, 4)
+        .expect("the new terminal must prove the fixed six-source deduction");
+    assert_eq!(proof.version, 2);
+    assert_eq!(proof.terminal, ArithmeticTerminal::Residue { modulus: 4 });
+    assert_eq!(
+        proof.check(&grid),
+        Some(ArithmeticCheck::Residue {
+            residual: 10,
+            modulus: 4,
+            required_residue: 2,
+            reachable_residues: vec![0, 1, 3],
+        })
+    );
+    // Existing independent exact-cover oracle preserves all 81 input masks.
+    assert_forced(&grid, 3, 2, false);
+    let snapshot = Snapshot::from_grid(&grid).unwrap();
+    let variables = [27, 270, 252, 9, 81, 108, 28, 29];
+    for (term, expected) in proof.terms.iter().zip([
+        vec![0, 1, 5],
+        vec![1, 2],
+        vec![2, 3],
+        vec![3, 4],
+        vec![4, 5],
+        vec![0, 6, 7],
+    ]) {
+        let mut expected: Vec<_> = expected.into_iter().map(|i| variables[i]).collect();
+        expected.sort_unstable();
+        let mut actual = snapshot.requirement_variables(term.requirement.id().unwrap());
+        actual.sort_unstable();
+        assert_eq!(actual, expected);
+    }
+    let finding = make_finding(&snapshot, proof.clone(), proof.check(&grid).unwrap()).to_hint();
+    assert!(finding.explanation.contains("remainder 2 modulo 4"));
+    assert!(finding.explanation.contains("{0, 1, 3}"));
+}
+
+#[test]
+fn residue_dp_matches_exhaustive_boolean_sums_including_duplicates_and_signs() {
+    for length in 0..=5u32 {
+        for mut encoding in 0..5usize.pow(length) {
+            let coefficients: Vec<i16> = (0..length)
+                .map(|_| {
+                    let coefficient = (encoding % 5) as i16 - 2;
+                    encoding /= 5;
+                    coefficient
+                })
+                .collect();
+            let sums: Vec<i32> = (0..1usize << length)
+                .map(|bits| {
+                    coefficients
+                        .iter()
+                        .enumerate()
+                        .filter(|(i, _)| bits & (1 << i) != 0)
+                        .map(|(_, &coefficient)| i32::from(coefficient))
+                        .sum()
+                })
+                .collect();
+            for modulus in 2..=16 {
+                let expected = sums.iter().fold(0u16, |bits, &sum| {
+                    bits | (1 << sum.rem_euclid(i32::from(modulus)))
+                });
+                assert_eq!(
+                    reachable_residues(coefficients.iter().copied(), modulus),
+                    expected
+                );
+            }
+        }
+    }
+    assert_eq!(reachable_residues([1, 1].into_iter(), 4), 0b0111);
+    assert_eq!(reachable_residues([-1, -1].into_iter(), 4), 0b1101);
+    assert_eq!(reachable_residues([15, -1, 1].into_iter(), 16), 0xc003);
+}
+
+#[test]
+fn version_one_json_and_semantics_remain_unchanged() {
+    let grid = guardian();
+    let proof = ArithmeticProof::from_terms(
+        &grid,
+        sector_terms(&[0, 12, 3, 10, 18], &[1; 5]),
+        20,
+        1,
+        true,
+    )
+    .unwrap();
+    let json = serde_json::to_value(&proof).unwrap();
+    assert_eq!(json["version"], 1);
+    assert!(json.get("terminal").is_none());
+    let decoded: ArithmeticProof = serde_json::from_value(json).unwrap();
+    assert_eq!(decoded, proof);
+    assert!(decoded.verify(&grid));
+    let mut wrong_version = decoded;
+    wrong_version.version = 2;
+    assert!(!wrong_version.verify(&grid));
+    wrong_version.version = 1;
+    wrong_version.terminal = ArithmeticTerminal::Residue { modulus: 2 };
+    assert!(!wrong_version.verify(&grid));
+    let mut larger_weights = proof;
+    for term in &mut larger_weights.terms {
+        term.weight *= 3;
+    }
+    assert!(!larger_weights.verify(&grid));
+}
+
+#[test]
+fn residue_verifier_rejects_tampering_and_round_trips_independently() {
+    let grid = cell_obstruction();
+    let proof =
+        ArithmeticProof::from_residue_terms(&grid, residue_terms(2), 3, 2, false, 4).unwrap();
+    let decoded: ArithmeticProof =
+        serde_json::from_str(&serde_json::to_string(&proof).unwrap()).unwrap();
+    assert_eq!(decoded, proof);
+    assert!(decoded.verify(&grid));
+    for modulus in [0, 1, 2, 3, 17, u8::MAX] {
+        let mut bad = proof.clone();
+        bad.terminal = ArithmeticTerminal::Residue { modulus };
+        assert!(!bad.verify(&grid), "modulus {modulus}");
+    }
+    for weight in [0, 9, -9, i8::MIN, i8::MAX] {
+        let mut bad = proof.clone();
+        bad.terms[0].weight = weight;
+        assert!(!bad.verify(&grid));
+    }
+    let mut bad = proof.clone();
+    bad.version = 1;
+    assert!(!bad.verify(&grid));
+    bad = proof.clone();
+    bad.value = true;
+    assert!(!bad.verify(&grid));
+    bad = proof.clone();
+    bad.terms[1].requirement = bad.terms[0].requirement.clone();
+    assert!(!bad.verify(&grid));
+    bad = proof.clone();
+    bad.terms.push(bad.terms[0].clone());
+    assert!(!bad.verify(&grid));
+    let mut changed = grid.clone();
+    changed.cell_mut(pos(80)).remove_candidate(9);
+    assert!(!proof.verify(&changed));
+    changed = grid.clone();
+    changed.cell_mut(pos(3)).add_candidate(4);
+    assert!(!proof.verify(&changed));
+    let negative_terms = proof
+        .terms
+        .iter()
+        .map(|term| ArithmeticTerm {
+            requirement: term.requirement.clone(),
+            weight: -term.weight,
+        })
+        .collect();
+    let negative =
+        ArithmeticProof::from_residue_terms(&grid, negative_terms, 3, 2, false, 4).unwrap();
+    assert_eq!(
+        negative.check(&grid),
+        Some(ArithmeticCheck::Residue {
+            residual: -10,
+            modulus: 4,
+            required_residue: 2,
+            reachable_residues: vec![0, 1, 3],
+        })
+    );
+}
+
+#[test]
+fn residue_certificates_reject_both_endpoints_without_changing_legacy_behavior() {
+    let mut grid = Grid::new_classic();
+    for cell in [0, 1] {
+        grid.cell_mut(pos(cell))
+            .set_candidates(BitSet::from_slice(&[1]));
+    }
+    restrict_one(&mut grid, 0, &[0, 1]);
+    // These inconsistent (but locally well-formed) premises yield 0=1.
+    let terms = vec![
+        ArithmeticTerm {
+            requirement: ArithmeticRequirement::Cell { cell: 0 },
+            weight: 1,
+        },
+        ArithmeticTerm {
+            requirement: ArithmeticRequirement::Cell { cell: 1 },
+            weight: 1,
+        },
+        ArithmeticTerm {
+            requirement: ArithmeticRequirement::SectorDigit {
+                sector: 0,
+                digit: 1,
+            },
+            weight: -1,
+        },
+    ];
+    assert!(ArithmeticProof::from_terms(&grid, terms.clone(), 2, 2, false).is_some());
+    assert!(ArithmeticProof::from_residue_terms(&grid, terms, 2, 2, false, 4).is_none());
+}
+
+#[test]
+fn parity_tail_compiler_covers_native_tail_sizes_and_rejects_near_misses() {
+    for size in 2..=9u8 {
+        let mut grid = cell_obstruction();
+        grid.cell_mut(pos(3))
+            .set_candidates(BitSet::from_slice(&(1..=size).collect::<Vec<_>>()));
+        let parity = ArithmeticProof::from_terms(
+            &grid,
+            sector_terms(&[12, 3, 10, 18, 1], &[1; 5]),
+            3,
+            1,
+            true,
+        )
+        .unwrap();
+        let compiled = parity.compile_parity_tail(&grid, ArithmeticRequirement::Cell { cell: 3 });
+        assert_eq!(compiled.len(), usize::from(size - 1));
+        for proof in compiled {
+            assert_eq!(
+                proof.terminal,
+                ArithmeticTerminal::Residue {
+                    modulus: 2 * (size - 1)
+                }
+            );
+            assert!(proof.verify(&grid));
+            assert_eq!(proof.terms[0].weight, (size - 1) as i8);
+            assert_forced(&grid, proof.cell, proof.digit, proof.value);
+        }
+        for scale in 1..size - 1 {
+            assert!(ArithmeticProof::from_residue_terms(
+                &grid,
+                residue_terms(scale as i8),
+                3,
+                2,
+                false,
+                2 * scale,
+            )
+            .is_none());
+        }
+        for bad_tail in [
+            ArithmeticRequirement::Cell { cell: 80 },
+            ArithmeticRequirement::Cell { cell: usize::MAX },
+            ArithmeticRequirement::SectorDigit {
+                sector: 12,
+                digit: 1,
+            },
+        ] {
+            assert!(parity.compile_parity_tail(&grid, bad_tail).is_empty());
+        }
+        let mut stale = grid.clone();
+        stale.cell_mut(pos(80)).remove_candidate(9);
+        assert!(parity
+            .compile_parity_tail(&stale, ArithmeticRequirement::Cell { cell: 3 })
+            .is_empty());
+    }
+}
+
+#[test]
+fn search_node_discovers_a_residue_terminal_and_rechecks_its_sources() {
+    let grid = cell_obstruction();
+    let result = Solver::new().search_arithmetic(&grid, &ArithmeticSearchOptions::default());
+    assert!(result.error.is_none());
+    assert!(result.tested_combinations <= ArithmeticSearchOptions::default().max_combinations);
+    let public_hint = result
+        .hint
+        .expect("public search discovers the compiled residue elimination");
+    let public_proof = hint_proof(&public_hint);
+    assert_eq!(public_proof.version, 2);
+    assert_eq!(
+        (public_proof.cell, public_proof.digit, public_proof.value),
+        (3, 2, false)
+    );
+    assert_eq!(
+        public_proof.terminal,
+        ArithmeticTerminal::Residue { modulus: 4 }
+    );
+    assert!(public_proof.verify(&grid));
+    let snapshot = Snapshot::from_grid(&grid).unwrap();
+    let terms: Vec<_> = residue_terms(2)
+        .iter()
+        .map(|term| (term.requirement.id().unwrap(), term.weight))
+        .collect();
+    let mut coefficients = [0; VARIABLE_COUNT];
+    for &(id, weight) in &terms {
+        for var in snapshot.requirement_variables(id) {
+            coefficients[var] += i16::from(weight);
+        }
+    }
+    let node = Node {
+        terms,
+        coefficients,
+        rhs: 11,
+    };
+    let hint = node
+        .finding(&snapshot)
+        .expect("residue search on the six-source combination")
+        .to_hint();
+    let proof = hint_proof(&hint);
+    assert_eq!(proof.version, 2);
+    assert!(proof.verify(&grid));
+    assert_forced(&grid, proof.cell, proof.digit, proof.value);
+    let mut corrupted = node;
+    corrupted.coefficients[28] = 100;
+    corrupted.rhs = 101;
+    if let Some(finding) = corrupted.finding(&snapshot) {
+        assert!(hint_proof(&finding.to_hint()).verify(&grid));
+    }
+}
+
+#[test]
+fn parity_tail_compiler_rejects_unsupported_or_unverified_premises() {
+    let grid = cell_obstruction();
+    let parity = ArithmeticProof::from_terms(
+        &grid,
+        sector_terms(&[12, 3, 10, 18, 1], &[1; 5]),
+        3,
+        1,
+        true,
+    )
+    .unwrap();
+    let tail = ArithmeticRequirement::Cell { cell: 3 };
+    let mut wrong_result = parity.clone();
+    wrong_result.value = false;
+    assert!(wrong_result
+        .compile_parity_tail(&grid, tail.clone())
+        .is_empty());
+    let doubled = ArithmeticProof::from_terms(
+        &grid,
+        sector_terms(&[12, 3, 10, 18, 1], &[2; 5]),
+        3,
+        1,
+        true,
+    )
+    .unwrap();
+    assert!(doubled.compile_parity_tail(&grid, tail.clone()).is_empty());
+    let mut too_many = parity.clone();
+    too_many.terms.push(ArithmeticTerm {
+        requirement: tail.clone(),
+        weight: 1,
+    });
+    assert!(too_many.compile_parity_tail(&grid, tail.clone()).is_empty());
+    let unrestored: Grid = serde_json::from_value(serde_json::to_value(&grid).unwrap()).unwrap();
+    assert!(parity.compile_parity_tail(&unrestored, tail).is_empty());
+}

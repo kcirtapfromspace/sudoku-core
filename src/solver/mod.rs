@@ -6,6 +6,7 @@
 mod aic_engine;
 mod als_engine;
 mod arithmetic;
+mod arithmetic_replay;
 pub(crate) mod backtrack;
 mod basic;
 pub(crate) mod explain;
@@ -22,8 +23,9 @@ use fabric::{idx_to_pos, CandidateFabric};
 
 pub use arithmetic::{
     ArithmeticCheck, ArithmeticProof, ArithmeticRequirement, ArithmeticSearchOptions,
-    ArithmeticSearchResult, ArithmeticTerm,
+    ArithmeticSearchResult, ArithmeticTerm, ArithmeticTerminal,
 };
+pub use arithmetic_replay::{ArithmeticReplay, ArithmeticState};
 pub use explain::{AlsProofDescriptor, ForcingSource, LinkType, Polarity, ProofCertificate};
 pub use types::{Difficulty, Hint, HintType, Technique};
 
