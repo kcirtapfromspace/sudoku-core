@@ -9,7 +9,7 @@
 
 use super::explain::{ExplanationData, Finding, InferenceResult, ProofCertificate};
 use super::fabric::{
-    idx_to_pos, sector_cells, CandidateFabric, SECTOR_BOX_BASE, SECTOR_COL_BASE, SECTOR_ROW_BASE,
+    sector_cells, CandidateFabric, SECTOR_BOX_BASE, SECTOR_COL_BASE, SECTOR_ROW_BASE,
 };
 use super::types::Technique;
 
@@ -60,6 +60,77 @@ fn sector_candidate_mask(fab: &CandidateFabric, sector: usize, digit: u8) -> u12
     mask
 }
 
+/// Visit independent sector combinations in lexicographic order. Overlapping
+/// partial groups cannot become independent by adding sectors, so reject them
+/// before enumerating the remaining choices. Reuse one prefix allocation.
+fn find_independent_combination(
+    pool: &[usize],
+    masks: &[u128; 27],
+    size: usize,
+    mut visit: impl FnMut(&[usize], u128) -> Option<Finding>,
+) -> Option<Finding> {
+    fn search(
+        pool: &[usize],
+        masks: &[u128; 27],
+        start: usize,
+        remaining: usize,
+        prefix: &mut Vec<usize>,
+        cells: u128,
+        visit: &mut impl FnMut(&[usize], u128) -> Option<Finding>,
+    ) -> Option<Finding> {
+        if remaining == 0 {
+            return visit(prefix, cells);
+        }
+        for index in start..=pool.len() - remaining {
+            let sector = pool[index];
+            let candidates = masks[sector];
+            // One placement in an overlap could satisfy two groups, invalidating
+            // the rank argument. This is the same independence check for both
+            // base sectors and cover sectors.
+            if cells & candidates != 0 {
+                continue;
+            }
+            prefix.push(sector);
+            let finding = search(
+                pool,
+                masks,
+                index + 1,
+                remaining - 1,
+                prefix,
+                cells | candidates,
+                visit,
+            );
+            prefix.pop();
+            if finding.is_some() {
+                return finding;
+            }
+        }
+        None
+    }
+    if size == 0 || size > pool.len() {
+        return None;
+    }
+    search(
+        pool,
+        masks,
+        0,
+        size,
+        &mut Vec::with_capacity(size),
+        0,
+        &mut visit,
+    )
+}
+
+/// Return the common box only when the nonempty fin set lies wholly inside it.
+fn fin_box(fins: u128, masks: &[u128; 27]) -> Option<usize> {
+    if fins == 0 {
+        return None;
+    }
+    let cell = fins.trailing_zeros() as usize;
+    let box_idx = (cell / 27) * 3 + (cell % 9) / 3;
+    (fins & !masks[SECTOR_BOX_BASE + box_idx] == 0).then_some(box_idx)
+}
+
 /// Search for fish patterns of a given size, sector constraint, and digit.
 fn search_fish_for_digit(
     fab: &CandidateFabric,
@@ -67,6 +138,7 @@ fn search_fish_for_digit(
     size: usize,
     constraint: SectorConstraint,
 ) -> Option<Finding> {
+    let masks = std::array::from_fn(|sector| sector_candidate_mask(fab, sector, digit));
     // Determine which sectors can be bases and covers
     let (base_sectors, cover_sectors) = match constraint {
         SectorConstraint::Basic => {
@@ -74,14 +146,16 @@ fn search_fish_for_digit(
             let rows: Vec<usize> = (SECTOR_ROW_BASE..SECTOR_ROW_BASE + 9).collect();
             let cols: Vec<usize> = (SECTOR_COL_BASE..SECTOR_COL_BASE + 9).collect();
             // Try both orientations
-            return search_fish_oriented(fab, digit, size, &rows, &cols, constraint)
-                .or_else(|| search_fish_oriented(fab, digit, size, &cols, &rows, constraint));
+            return search_fish_oriented(fab, &masks, digit, size, &rows, &cols, constraint)
+                .or_else(|| {
+                    search_fish_oriented(fab, &masks, digit, size, &cols, &rows, constraint)
+                });
         }
         SectorConstraint::Franken => {
             // Lines as bases, lines+boxes as covers
             let lines: Vec<usize> = (0..18).collect();
             let all: Vec<usize> = (0..27).collect();
-            return search_fish_oriented(fab, digit, size, &lines, &all, constraint);
+            return search_fish_oriented(fab, &masks, digit, size, &lines, &all, constraint);
         }
         SectorConstraint::Mutant => {
             let all: Vec<usize> = (0..27).collect();
@@ -89,110 +163,80 @@ fn search_fish_for_digit(
         }
     };
 
-    search_fish_oriented(fab, digit, size, &base_sectors, &cover_sectors, constraint)
+    search_fish_oriented(
+        fab,
+        &masks,
+        digit,
+        size,
+        &base_sectors,
+        &cover_sectors,
+        constraint,
+    )
 }
 
 fn search_fish_oriented(
     fab: &CandidateFabric,
+    masks: &[u128; 27],
     digit: u8,
     size: usize,
     base_pool: &[usize],
     cover_pool: &[usize],
     constraint: SectorConstraint,
 ) -> Option<Finding> {
-    // Filter base sectors: must have at least 2 candidates for this digit
     let eligible_bases: Vec<usize> = base_pool
         .iter()
         .filter(|&&s| fab.sector_cand_count(s, digit) >= 2)
         .copied()
         .collect();
 
-    if eligible_bases.len() < size {
-        return None;
-    }
-
-    // Enumerate base combos
-    for base_combo in combinations(&eligible_bases, size) {
-        let mut base_cells = 0u128;
-        for &bs in &base_combo {
-            base_cells |= sector_candidate_mask(fab, bs, digit);
-        }
-
+    find_independent_combination(&eligible_bases, masks, size, |base_combo, base_cells| {
         if base_cells.count_ones() < size as u32 {
-            continue;
+            return None;
         }
-
-        // Find cover sectors that overlap with base cells
         let eligible_covers: Vec<usize> = cover_pool
             .iter()
-            .filter(|&&s| {
-                !base_combo.contains(&s) && (sector_candidate_mask(fab, s, digit) & base_cells) != 0
-            })
+            .filter(|&&s| !base_combo.contains(&s) && masks[s] & base_cells != 0)
             .copied()
             .collect();
 
-        if eligible_covers.len() < size {
-            continue;
-        }
-
-        // For mutant/franken: ensure base and cover don't share same sector type pattern
-        // For basic: base and cover must be different types
-        for cover_combo in combinations(&eligible_covers, size) {
-            // Validate sector type constraints
-            if !validate_fish_types(&base_combo, &cover_combo, constraint) {
-                continue;
+        find_independent_combination(&eligible_covers, masks, size, |cover_combo, cover_cells| {
+            if !validate_fish_types(base_combo, cover_combo, constraint) {
+                return None;
             }
-
-            let mut cover_cells = 0u128;
-            for &cs in &cover_combo {
-                cover_cells |= sector_candidate_mask(fab, cs, digit);
-            }
-
             let fins = base_cells & !cover_cells;
             let eliminations = cover_cells & !base_cells;
-
-            if fins.count_ones() == 0 {
-                // Basic fish (no fins) - eliminate from cover_cells \ base_cells
-                if let Some(f) = make_fish_finding(
+            if fins == 0 {
+                make_fish_finding(
                     fab,
                     digit,
                     size,
-                    &base_combo,
-                    &cover_combo,
+                    base_combo,
+                    cover_combo,
                     &[],
                     eliminations,
                     constraint,
-                ) {
-                    return Some(f);
-                }
+                )
             } else {
-                // Finned fish: all fins must share one box
-                let fin_cells: Vec<usize> = (0..81).filter(|&i| fins & (1u128 << i) != 0).collect();
-                let fin_box = idx_to_pos(fin_cells[0]).box_index();
-                if fin_cells
-                    .iter()
-                    .all(|&c| idx_to_pos(c).box_index() == fin_box)
-                {
-                    // Eliminations restricted to cells in cover that are also in fin box
-                    let fin_box_mask = sector_candidate_mask(fab, SECTOR_BOX_BASE + fin_box, digit);
-                    let restricted_elims = eliminations & fin_box_mask;
-                    if let Some(f) = make_fish_finding(
-                        fab,
-                        digit,
-                        size,
-                        &base_combo,
-                        &cover_combo,
-                        &fin_cells,
-                        restricted_elims,
-                        constraint,
-                    ) {
-                        return Some(f);
-                    }
+                let box_idx = fin_box(fins, masks)?;
+                let restricted_elims = eliminations & masks[SECTOR_BOX_BASE + box_idx];
+                if restricted_elims == 0 {
+                    return None;
                 }
+                // Materialize evidence only once a finned pattern can eliminate.
+                let fin_cells: Vec<usize> = (0..81).filter(|&i| fins & (1u128 << i) != 0).collect();
+                make_fish_finding(
+                    fab,
+                    digit,
+                    size,
+                    base_combo,
+                    cover_combo,
+                    &fin_cells,
+                    restricted_elims,
+                    constraint,
+                )
             }
-        }
-    }
-    None
+        })
+    })
 }
 
 fn validate_fish_types(bases: &[usize], covers: &[usize], constraint: SectorConstraint) -> bool {
@@ -215,16 +259,11 @@ fn validate_fish_types(bases: &[usize], covers: &[usize], constraint: SectorCons
         }
         SectorConstraint::Mutant => {
             // At least 3 different sector types across all bases+covers
-            let mut types = std::collections::HashSet::new();
-            for &s in bases.iter().chain(covers.iter()) {
-                types.insert(sector_type(s));
-            }
-            types.len() >= 3
-                || (types.len() >= 2
-                    && bases
-                        .iter()
-                        .chain(covers.iter())
-                        .any(|&s| sector_type(s) == 2))
+            let types = bases
+                .iter()
+                .chain(covers.iter())
+                .fold(0u8, |types, &sector| types | (1 << sector_type(sector)));
+            types.count_ones() >= 3 || (types.count_ones() >= 2 && types & (1 << 2) != 0)
         }
     }
 }
@@ -331,12 +370,36 @@ fn make_fish_finding(
 
 // ==================== Siamese Fish ====================
 
+struct SectorCombination {
+    sectors: Vec<usize>,
+    cells: u128,
+    sector_bits: u32,
+}
+
+fn masked_combinations(pool: &[usize], size: usize, masks: &[u128; 27]) -> Vec<SectorCombination> {
+    combinations(pool, size)
+        .into_iter()
+        .map(|sectors| {
+            let cells = sectors
+                .iter()
+                .fold(0, |cells, &sector| cells | masks[sector]);
+            let sector_bits = sectors.iter().fold(0, |bits, &sector| bits | (1 << sector));
+            SectorCombination {
+                sectors,
+                cells,
+                sector_bits,
+            }
+        })
+        .collect()
+}
+
 /// Siamese Fish: two overlapping fish patterns that share fins.
 pub fn find_siamese_fish(fab: &CandidateFabric) -> Option<Finding> {
     // Siamese fish are detected as finned fish where two separate base combos
     // produce fin cells in the same box. We search for finned fish with an
     // additional constraint that there's a second valid fish pattern sharing the fin.
     for digit in 1..=9u8 {
+        let masks = std::array::from_fn(|sector| sector_candidate_mask(fab, sector, digit));
         for size in 2..=4usize {
             // Get all row-based fish patterns with fins
             let rows: Vec<usize> = (SECTOR_ROW_BASE..SECTOR_ROW_BASE + 9)
@@ -349,7 +412,8 @@ pub fn find_siamese_fish(fab: &CandidateFabric) -> Option<Finding> {
             }
 
             // Find pairs of base combos that produce fins in the same box
-            let all_combos = combinations(&rows, size);
+            let all_combos = masked_combinations(&rows, size, &masks);
+            let col_combos = masked_combinations(&cols, size, &masks);
             for i in 0..all_combos.len() {
                 for j in (i + 1)..all_combos.len() {
                     let combo_a = &all_combos[i];
@@ -357,7 +421,7 @@ pub fn find_siamese_fish(fab: &CandidateFabric) -> Option<Finding> {
 
                     // Check if these produce valid finned fish with shared fin box
                     if let Some(finding) =
-                        check_siamese_pair(fab, digit, size, combo_a, combo_b, &cols)
+                        check_siamese_pair(fab, &masks, digit, size, combo_a, combo_b, &col_combos)
                     {
                         return Some(finding);
                     }
@@ -374,16 +438,18 @@ pub fn find_siamese_fish(fab: &CandidateFabric) -> Option<Finding> {
                 continue;
             }
 
-            let all_col_combos = combinations(&eligible_cols, size);
+            let all_col_combos = masked_combinations(&eligible_cols, size, &masks);
+            let row_combos = masked_combinations(&row_covers, size, &masks);
             for i in 0..all_col_combos.len() {
                 for j in (i + 1)..all_col_combos.len() {
                     if let Some(finding) = check_siamese_pair(
                         fab,
+                        &masks,
                         digit,
                         size,
                         &all_col_combos[i],
                         &all_col_combos[j],
-                        &row_covers,
+                        &row_combos,
                     ) {
                         return Some(finding);
                     }
@@ -396,70 +462,37 @@ pub fn find_siamese_fish(fab: &CandidateFabric) -> Option<Finding> {
 
 fn check_siamese_pair(
     fab: &CandidateFabric,
+    masks: &[u128; 27],
     digit: u8,
     size: usize,
-    combo_a: &[usize],
-    combo_b: &[usize],
-    cover_pool: &[usize],
+    base_a: &SectorCombination,
+    base_b: &SectorCombination,
+    cover_combos: &[SectorCombination],
 ) -> Option<Finding> {
-    // Both combos must share at least one base sector (overlapping)
-    let shared = combo_a.iter().filter(|s| combo_b.contains(s)).count();
+    // Both combos must share at least one base sector (overlapping).
+    let shared = (base_a.sector_bits & base_b.sector_bits).count_ones() as usize;
     if shared == 0 || shared == size {
         return None;
     }
-
-    for cover_combo in combinations(cover_pool, size) {
-        let mut cover_cells_a = 0u128;
-        let mut cover_cells_b = 0u128;
-        let mut base_cells_a = 0u128;
-        let mut base_cells_b = 0u128;
-
-        for &cs in &cover_combo {
-            let mask = sector_candidate_mask(fab, cs, digit);
-            cover_cells_a |= mask;
-            cover_cells_b |= mask;
-        }
-        for &bs in combo_a {
-            base_cells_a |= sector_candidate_mask(fab, bs, digit);
-        }
-        for &bs in combo_b {
-            base_cells_b |= sector_candidate_mask(fab, bs, digit);
-        }
-
-        let fins_a = base_cells_a & !cover_cells_a;
-        let fins_b = base_cells_b & !cover_cells_b;
-
+    let combo_a = &base_a.sectors;
+    let combo_b = &base_b.sectors;
+    for cover in cover_combos {
+        let fins_a = base_a.cells & !cover.cells;
+        let fins_b = base_b.cells & !cover.cells;
         if fins_a == 0 || fins_b == 0 {
             continue;
         }
-
-        // Fins must be in the same box
+        let Some(box_idx) = fin_box(fins_a | fins_b, masks) else {
+            continue;
+        };
+        let combined =
+            cover.cells & !base_a.cells & !base_b.cells & masks[SECTOR_BOX_BASE + box_idx];
+        if combined == 0 {
+            continue;
+        }
+        let cover_combo = &cover.sectors;
         let fin_cells_a: Vec<usize> = (0..81).filter(|&i| fins_a & (1u128 << i) != 0).collect();
         let fin_cells_b: Vec<usize> = (0..81).filter(|&i| fins_b & (1u128 << i) != 0).collect();
-
-        let box_a = idx_to_pos(fin_cells_a[0]).box_index();
-        let box_b = idx_to_pos(fin_cells_b[0]).box_index();
-        if box_a != box_b {
-            continue;
-        }
-        if !fin_cells_a
-            .iter()
-            .all(|&c| idx_to_pos(c).box_index() == box_a)
-        {
-            continue;
-        }
-        if !fin_cells_b
-            .iter()
-            .all(|&c| idx_to_pos(c).box_index() == box_a)
-        {
-            continue;
-        }
-
-        // Combined eliminations: restricted to fin box
-        let fin_box_mask = sector_candidate_mask(fab, SECTOR_BOX_BASE + box_a, digit);
-        let elim_a = (cover_cells_a & !base_cells_a) & fin_box_mask;
-        let elim_b = (cover_cells_b & !base_cells_b) & fin_box_mask;
-        let combined = elim_a & elim_b;
 
         for cell in 0..81 {
             if combined & (1u128 << cell) != 0

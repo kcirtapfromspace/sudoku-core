@@ -607,107 +607,50 @@ pub fn find_hidden_rectangle(fab: &CandidateFabric) -> Option<Finding> {
                             let a = common_vec[di];
                             let b = common_vec[dj];
 
-                            for &digit in &[a, b] {
-                                let other = if digit == a { b } else { a };
-                                let d_idx = (digit - 1) as usize;
-
-                                // Check rows
-                                for &row in &[r1, r2] {
-                                    let row_sector = row;
-                                    let row_mask = fab.sector_digit_cells[row_sector][d_idx];
-                                    // Check if digit only appears in UR corners in this row
-                                    let _ur_cols_in_row: Vec<usize> = corners
-                                        .iter()
-                                        .filter(|&&c| c / 9 == row)
-                                        .map(|&c| c % 9)
-                                        .collect();
-                                    let other_row_cells: Vec<usize> = (0..9)
-                                        .filter(|&i| row_mask & (1 << i) != 0)
-                                        .map(|i| sector_cells(row_sector)[i])
-                                        .filter(|c| !corners.contains(c))
-                                        .collect();
-
-                                    if other_row_cells.is_empty() {
-                                        // digit is hidden in this row
-                                        let ur_row_corners: Vec<usize> = corners
-                                            .iter()
-                                            .filter(|&&c| c / 9 == row)
-                                            .copied()
-                                            .collect();
-                                        for &corner in &ur_row_corners {
-                                            if fab.cell_cands[corner].count() > 2
-                                                && fab.cell_cands[corner].contains(other)
-                                            {
-                                                let hr_floor: Vec<usize> = corners
-                                                    .iter()
-                                                    .filter(|&&c| c != corner)
-                                                    .copied()
-                                                    .collect();
-                                                return Some(Finding {
-                                                    technique: Technique::HiddenRectangle,
-                                                    inference: InferenceResult::Elimination {
-                                                        cell: corner,
-                                                        values: vec![other],
-                                                    },
-                                                    involved_cells: corners.to_vec(),
-                                                    explanation: ExplanationData::Uniqueness {
-                                                        variant: "Hidden Rectangle".into(),
-                                                    },
-                                                    proof: Some(ProofCertificate::Uniqueness {
-                                                        pattern: "Hidden Rectangle".into(),
-                                                        floor_cells: hr_floor,
-                                                        roof_cells: vec![corner],
-                                                    }),
-                                                });
-                                            }
-                                        }
-                                    }
+                            let pair = BitSet::from_slice(&[a, b]);
+                            for (index, &corner) in corners.iter().enumerate() {
+                                let diagonal = corners[3 - index];
+                                // If the eliminated digit occupied this corner,
+                                // the two conjugate links would force the other
+                                // digit in both adjacent corners. The opposite
+                                // bivalue corner would then complete a deadly
+                                // rectangle. One link alone proves nothing.
+                                if fab.cell_cands[diagonal] != pair
+                                    || fab.cell_cands[corner].count() <= 2
+                                {
+                                    continue;
                                 }
-
-                                // Check columns
-                                for &col in &[c1, c2] {
-                                    let col_sector = 9 + col;
-                                    let col_mask = fab.sector_digit_cells[col_sector][d_idx];
-                                    let other_col_cells: Vec<usize> = (0..9)
-                                        .filter(|&i| col_mask & (1 << i) != 0)
-                                        .map(|i| sector_cells(col_sector)[i])
-                                        .filter(|c| !corners.contains(c))
-                                        .collect();
-
-                                    if other_col_cells.is_empty() {
-                                        let ur_col_corners: Vec<usize> = corners
-                                            .iter()
-                                            .filter(|&&c| c % 9 == col)
-                                            .copied()
-                                            .collect();
-                                        for &corner in &ur_col_corners {
-                                            if fab.cell_cands[corner].count() > 2
-                                                && fab.cell_cands[corner].contains(other)
-                                            {
-                                                let hr_floor: Vec<usize> = corners
-                                                    .iter()
-                                                    .filter(|&&c| c != corner)
-                                                    .copied()
-                                                    .collect();
-                                                return Some(Finding {
-                                                    technique: Technique::HiddenRectangle,
-                                                    inference: InferenceResult::Elimination {
-                                                        cell: corner,
-                                                        values: vec![other],
-                                                    },
-                                                    involved_cells: corners.to_vec(),
-                                                    explanation: ExplanationData::Uniqueness {
-                                                        variant: "Hidden Rectangle".into(),
-                                                    },
-                                                    proof: Some(ProofCertificate::Uniqueness {
-                                                        pattern: "Hidden Rectangle".into(),
-                                                        floor_cells: hr_floor,
-                                                        roof_cells: vec![corner],
-                                                    }),
-                                                });
-                                            }
-                                        }
+                                for &digit in &[a, b] {
+                                    let other = if digit == a { b } else { a };
+                                    let di = (digit - 1) as usize;
+                                    let row = corner / 9;
+                                    let col = corner % 9;
+                                    if fab.sector_digit_cells[row][di].count_ones() != 2
+                                        || fab.sector_digit_cells[9 + col][di].count_ones() != 2
+                                    {
+                                        continue;
                                     }
+                                    let floor: Vec<usize> = corners
+                                        .iter()
+                                        .filter(|&&cell| cell != corner)
+                                        .copied()
+                                        .collect();
+                                    return Some(Finding {
+                                        technique: Technique::HiddenRectangle,
+                                        inference: InferenceResult::Elimination {
+                                            cell: corner,
+                                            values: vec![other],
+                                        },
+                                        involved_cells: corners.to_vec(),
+                                        explanation: ExplanationData::Uniqueness {
+                                            variant: "Hidden Rectangle".into(),
+                                        },
+                                        proof: Some(ProofCertificate::Uniqueness {
+                                            pattern: "Hidden Rectangle".into(),
+                                            floor_cells: floor,
+                                            roof_cells: vec![corner],
+                                        }),
+                                    });
                                 }
                             }
                         }
@@ -853,6 +796,37 @@ pub fn find_extended_unique_rectangle(fab: &CandidateFabric) -> Option<Finding> 
 
 // ==================== BUG (Bivalue Universal Grave) ====================
 
+/// Removing the proposed extras must leave an actual BUG pattern. Bivalue
+/// cells alone are insufficient: every still-missing digit must occur twice
+/// in each row, column and box. Otherwise odd counts can select a wrong value.
+fn is_bug_remainder(fab: &CandidateFabric, extras: &[(usize, Vec<u8>)]) -> bool {
+    let mut candidates = fab.cell_cands;
+    for (cell, values) in extras {
+        for &value in values {
+            candidates[*cell].remove(value);
+        }
+    }
+    for (cell, values) in candidates.iter().enumerate() {
+        if fab.values[cell].is_none() && values.count() != 2 {
+            return false;
+        }
+    }
+    for sector in 0..27 {
+        let cells = sector_cells(sector);
+        for digit in 1..=9 {
+            let placed = cells.iter().any(|&cell| fab.values[cell] == Some(digit));
+            let count = cells
+                .iter()
+                .filter(|&&cell| fab.values[cell].is_none() && candidates[cell].contains(digit))
+                .count();
+            if count != if placed { 0 } else { 2 } {
+                return false;
+            }
+        }
+    }
+    true
+}
+
 pub fn find_bug(fab: &CandidateFabric) -> Option<Finding> {
     let empty: Vec<usize> = (0..81).filter(|&c| fab.values[c].is_none()).collect();
     if empty.is_empty() {
@@ -894,7 +868,9 @@ pub fn find_bug(fab: &CandidateFabric) -> Option<Finding> {
             let col_count = fab.sector_digit_cells[9 + col][(val - 1) as usize].count_ones();
             let box_count = fab.sector_digit_cells[18 + box_idx][(val - 1) as usize].count_ones();
 
-            if row_count % 2 == 1 || col_count % 2 == 1 || box_count % 2 == 1 {
+            if (row_count % 2 == 1 || col_count % 2 == 1 || box_count % 2 == 1)
+                && is_bug_remainder(fab, &[(tri, vec![val])])
+            {
                 let bug_floor: Vec<usize> = empty.iter().filter(|&&c| c != tri).copied().collect();
                 return Some(Finding {
                     technique: Technique::BivalueUniversalGrave,
@@ -937,7 +913,20 @@ pub fn find_bug(fab: &CandidateFabric) -> Option<Finding> {
         cell_extras.push((idx, extras));
     }
 
+    if !is_bug_remainder(fab, &cell_extras) {
+        return None;
+    }
+
     for digit in 1..=9u8 {
+        // At least one extra must be true. Removing this digit from a common
+        // peer is justified only when it conflicts with every possible extra,
+        // including extras in other cells or of other digits.
+        if cell_extras
+            .iter()
+            .any(|(_, extras)| extras.iter().any(|&value| value != digit))
+        {
+            continue;
+        }
         let cells_with_digit: Vec<usize> = cell_extras
             .iter()
             .filter(|(_, exts)| exts.contains(&digit))
@@ -1089,3 +1078,7 @@ fn combinations(items: &[usize], k: usize) -> Vec<Vec<usize>> {
         }
     }
 }
+
+#[cfg(test)]
+#[path = "uniqueness_tests.rs"]
+mod tests;

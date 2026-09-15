@@ -284,41 +284,5 @@ fn combinations_u8(items: &[u8], k: usize) -> Vec<Vec<u8>> {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::Grid;
-
-    #[test]
-    fn test_naked_single() {
-        let puzzle =
-            "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
-        let grid = Grid::from_string(puzzle).unwrap();
-        let fab = CandidateFabric::from_grid(&grid);
-        let finding = find_naked_single(&fab);
-        assert!(finding.is_some());
-        let f = finding.unwrap();
-        assert_eq!(f.technique, Technique::NakedSingle);
-    }
-
-    #[test]
-    fn test_hidden_single() {
-        // Puzzle where hidden singles exist but no naked singles
-        let puzzle =
-            "020000600008020050500060020060000093003905100790000080050090004010070300006000010";
-        let grid = Grid::from_string(puzzle).unwrap();
-        let fab = CandidateFabric::from_grid(&grid);
-        // Should find either naked or hidden single
-        let ns = find_naked_single(&fab);
-        let hs = find_hidden_single(&fab);
-        assert!(ns.is_some() || hs.is_some());
-    }
-
-    #[test]
-    fn test_combinations() {
-        let items = vec![1usize, 2, 3, 4];
-        let combos = combinations_idx(&items, 2);
-        assert_eq!(combos.len(), 6);
-        assert!(combos.contains(&vec![1, 2]));
-        assert!(combos.contains(&vec![3, 4]));
-    }
-}
+#[path = "basic_tests.rs"]
+mod tests;

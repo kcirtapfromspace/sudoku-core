@@ -17,3 +17,9 @@ serde_json = "1"
 [[example]]
 name = "basic"
 path = "examples/basic.rs"
+
+# Run the complete deterministic soundness suite with optimization while keeping
+# debug assertions and overflow checks enabled for correctness checks.
+[profile.coverage]
+inherits = "test"
+opt-level = 2
