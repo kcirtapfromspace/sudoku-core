@@ -28,9 +28,16 @@ check() {
 }
 
 check python3 -m unittest discover -s scripts -p test_coverage.py -v
-# Shared coverage counters make concurrent solver searches substantially slower.
-# Run every test sequentially; soundness remains required on every acceptance run.
-check cargo llvm-cov --workspace --all-targets --all-features --profile coverage --locked --no-fail-fast --no-report -- --test-threads=1
+# Shared coverage counters make concurrent solver searches substantially slower
+# inside one test process. Nextest isolates every test in its own process, so
+# the suite can run in parallel without that contention; without nextest, fall
+# back to running every test sequentially. Soundness remains required on every
+# acceptance run either way.
+if command -v cargo-nextest >/dev/null; then
+  check cargo llvm-cov nextest --workspace --all-targets --all-features --cargo-profile coverage --locked --no-fail-fast --no-report
+else
+  check cargo llvm-cov --workspace --all-targets --all-features --profile coverage --locked --no-fail-fast --no-report -- --test-threads=1
+fi
 # Preserve reports on test failures so CI retains useful diagnostics.
 check cargo llvm-cov report --profile coverage --lcov --output-path target/coverage/lcov.info
 check cargo llvm-cov report --profile coverage --html --output-dir target/coverage/rust
