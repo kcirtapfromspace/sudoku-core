@@ -3,7 +3,7 @@
 `sudoku-core` is the shared Rust engine used by the TUI, WASM, and iOS targets. It provides:
 
 - A `Grid` model with constraint-aware candidate tracking
-- A solver with 45 human-style techniques plus backtracking
+- A solver with 45 logical solving techniques plus backtracking
 - A hint system (returns an explanation + affected cells)
 - A puzzle generator that targets a requested difficulty with SE rating bounds
 - Dual rating: technique-based difficulty tiers and Sudoku Explainer (SE) numerical ratings
@@ -36,9 +36,9 @@ The solver, validator, and candidate updates all operate through the active cons
 
 `Solver` (`src/solver/`) is organized as a modular directory with dedicated engine files for each technique family (fish, ALS, AIC/chains, uniqueness, etc.), plus `types.rs` for the `Technique` enum and `fabric.rs` for the dual-indexed candidate state. It has two layers:
 
-1. **Human-style techniques** (45 techniques, ordered by complexity)
+1. **Logical techniques** (45 techniques, ordered by complexity)
    - The solver can search for a concrete next step (a `Hint`) by trying techniques in increasing complexity.
-   - Techniques: Naked/Hidden Singles, Naked/Hidden Pairs/Triples, Pointing Pairs, Box-Line Reduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, Sue de Coq, AIC, Franken Fish, Siamese Fish, ALS-XZ, ALS-XY-Wing, ALS Chain, Unique Rectangle (Types 1-4), Hidden Rectangle, Extended Unique Rectangle, Mutant Fish, Aligned Pair Exclusion, Aligned Triplet Exclusion, BUG+1, Death Blossom, Nishio Forcing Chain, Kraken Fish, Region Forcing Chain, Cell Forcing Chain, Dynamic Forcing Chain.
+   - Techniques: Naked/Hidden Singles, Naked/Hidden Pairs/Triples, Pointing Pairs, Box-Line Reduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, Sue de Coq, AIC, Franken Fish, Siamese Fish, ALS-XZ, ALS-XY-Wing, ALS Chain, Unique Rectangle (Types 1-4), Hidden Rectangle, Extended Unique Rectangle, Mutant Fish, Aligned Pair Exclusion, Aligned Triplet Exclusion, BUG+1, Death Blossom, Arithmetic Counting, Nishio Forcing Chain, Kraken Fish, Region Forcing Chain, Cell Forcing Chain, Dynamic Forcing Chain.
 2. **Backtracking fallback**
    - `solve()` uses recursion with the MRV heuristic (choose the empty cell with the fewest candidates).
    - It tries each candidate, validates the grid, and recurses until solved.
@@ -50,6 +50,14 @@ The solver, validator, and candidate updates all operate through the active cons
 
 - Solve the puzzle fully
 - Return a "Backtracking" hint for the next empty cell (a forced placement from the known solution)
+
+### Arithmetic Counting certificates
+
+Arithmetic Counting combines up to six exactly-one equations and verifies each
+placement or elimination with an independently reconstructed interval or gcd
+contradiction. It runs after Death Blossom. `get_arithmetic_hint` and
+`search_arithmetic` also expose it directly while preserving stored candidate
+masks. See the [proof, API, examples, and search limits](docs/arithmetic-counting.md).
 
 ## Difficulty Rating
 
@@ -75,7 +83,7 @@ Final mapping is based on the hardest technique needed:
 | **Hard** | Pointing Pair / Box-Line Reduction |
 | **Expert** | Fish (X-Wing, Swordfish, Jellyfish, Finned variants), Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, Unique Rectangle, Hidden Rectangle |
 | **Master** | Wings (XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing), Chains (X-Chain, AIC), 3D Medusa, Sue de Coq, Franken/Siamese Fish, ALS-XZ, Extended UR, BUG+1 |
-| **Extreme** | ALS (XY-Wing, Chain), Mutant Fish, Aligned Pair/Triplet Exclusion, Death Blossom, Forcing Chains (Nishio, Kraken, Region, Cell, Dynamic), Backtracking |
+| **Extreme** | ALS (XY-Wing, Chain), Mutant Fish, Aligned Pair/Triplet Exclusion, Death Blossom, Arithmetic Counting, Forcing Chains (Nishio, Kraken, Region, Cell, Dynamic), Backtracking |
 
 This is intentionally technique-based, not purely "clue count" based (although clue count is used as a generation constraint).
 
@@ -113,8 +121,13 @@ This is intentionally technique-based, not purely "clue count" based (although c
 | Kraken Fish | 8.0 |
 | Cell Forcing Chain | 8.3 |
 | Death Blossom / Region Forcing Chain | 8.5 |
+| Arithmetic Counting (engine-local estimate) | 8.5 |
 | Dynamic Forcing Chain | 9.3 |
 | Backtracking | 11.0 |
+
+Arithmetic Counting uses an uncalibrated engine-local value of 8.5; it has no
+official Sudoku Explainer rating. Its inclusion can change puzzle ratings and
+generation results.
 
 **Note on SE vs Difficulty Tier ordering:** The SE system considers Hidden Singles (1.5) easier than Naked Singles (2.3), which inverts the Beginner/Easy vs Medium tier ordering. This is correct per the SE community standard — hidden singles are "last remaining in a house" (scanning), while naked singles require full candidate elimination. The two scales intentionally measure different axes: SE measures *technique complexity*, our tiers measure *pedagogical progression*.
 

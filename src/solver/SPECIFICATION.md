@@ -3,7 +3,8 @@
 Derived from first principles of constraint satisfaction over the four
 spaces of a standard 9x9 Sudoku grid. Every elimination theorem is proved
 from the constraint axioms; named techniques are exhibited as parameter
-instantiations of the three abstract engines.
+instantiations of the technique engines. Arithmetic Counting additionally uses
+weighted exactly-one equations and checked arithmetic certificates.
 
 ---
 
@@ -711,7 +712,7 @@ Dynamic FC ──────┘──► AIC Engine (full-propagation forcing)
 
 ### 4.3 Technique Coverage by Engine
 
-The solver dispatches 45 technique variants. Their engine ownership:
+The solver dispatches 46 technique variants, including backtracking. Their engine ownership:
 
 | Engine        | Count | Technique variants |
 |---------------|:-----:|---|
@@ -720,6 +721,7 @@ The solver dispatches 45 technique variants. Their engine ownership:
 | ALS           | 10 | XY-Wing, XYZ-Wing, WXYZ-Wing, ALS-XZ, ALS-XY-Wing, ALS Chain, Sue de Coq, Death Blossom, Aligned Pair Exclusion, Aligned Triplet Exclusion |
 | AIC           | 10 | Empty Rectangle, W-Wing, X-Chain, 3D Medusa, AIC, Nishio FC, Kraken Fish, Cell FC, Region FC, Dynamic FC |
 | Uniqueness    | 5 | Avoidable Rectangle, Unique Rectangle, Hidden Rectangle, Extended UR, BUG |
+| Arithmetic    | 1 | Arithmetic Counting |
 | Backtracking  | 1 | Backtracking |
 
 Note: Basic techniques (singles, subsets) are direct applications of the
@@ -779,16 +781,17 @@ BUG finding so subsequent techniques can continue.
 
 ## 5. Hint Delivery
 
-The solver exposes two hint methods with different safety properties.
+The main solver exposes two hint paths. Dedicated arithmetic APIs also expose
+checked deductions over the caller's exact candidate state (Section 8).
 
 ### 5.1 `get_hint()` — Display Hints
 
 `get_hint(grid)` returns the first applicable technique as a `Hint`.
 It may return either a `SetValue` (placement) or `EliminateCandidates`
 (elimination). **It does not verify the result against the backtracking
-solution.** This method is used for hint *display* — showing the user
-which technique applies and why — where an occasional unsound result
-is acceptable because no state is mutated.
+solution.** This method returns a hint and its available proof evidence without mutating the
+input. Every deduction must still be logically sound. Arithmetic findings are
+checked against their source equations before entering this path.
 
 ### 5.2 `get_next_placement()` — Verified Placement Hints
 
@@ -909,7 +912,8 @@ Master and Extreme are hidden tiers, unlocked by the player.
 
 **SE rating** (`rate_se`): The maximum SE rating among all techniques
 used to solve the puzzle. This is a continuous numerical score that
-maps directly to the Sudoku Explainer community standard.
+uses the engine's technique rating table. Arithmetic Counting has an engine-local,
+uncalibrated value of 8.5, not an official Sudoku Explainer rating.
 
 **Technique-based classification** (`technique_to_difficulty`): Maps
 the hardest technique used during solving to a difficulty tier. This
@@ -924,7 +928,7 @@ is a discrete classification based on the *kind* of reasoning required:
 | Hard        | PointingPair, BoxLineReduction |
 | Expert      | X-Wing (±fin), Swordfish (±fin), Jellyfish (±fin), NakedQuad, HiddenQuad, EmptyRectangle, AvoidableRectangle, UniqueRectangle, HiddenRectangle |
 | Master      | XY/XYZ/WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, SueDeCoq, AIC, FrankenFish, SiameseFish, ALS-XZ, ExtendedUR, BUG |
-| Extreme     | ALS-XY-Wing, ALS Chain, MutantFish, APE, ATE, DeathBlossom, Nishio/Kraken/Cell/Region/Dynamic FC, Backtracking |
+| Extreme     | ALS-XY-Wing, ALS Chain, MutantFish, APE, ATE, DeathBlossom, ArithmeticCounting, Nishio/Kraken/Cell/Region/Dynamic FC, Backtracking |
 
 **Generation cap** (`max_technique`): Limits which techniques the
 generator may require. This uses the `Technique` enum ordering (not SE
@@ -946,6 +950,28 @@ different: the generator uses a coarse enum-order gate to quickly
 reject puzzles during generation, while classification uses the full
 technique-to-tier mapping after solving. The SE range provides the
 continuous scale used by `generate_for_se()`.
+
+---
+
+## 8. Arithmetic Counting
+
+Select at most six distinct native cell or sector/digit exactly-one equations.
+Weight each by an integer in `{-2,-1,1,2}`, giving `a·x=β`. Assume the opposite
+Boolean value `b` for target `t` and form `R=β−a_t b`. Reject the assumption if:
+
+1. `R` is outside `[Σ(j≠t) min(0,a_j), Σ(j≠t) max(0,a_j)]`, or
+2. `gcd(|a_j| : j≠t)` does not divide `R` (zero divides only zero).
+
+Every Boolean contribution is inside its coefficient interval and every integer
+contribution is divisible by that gcd. Therefore either rejection proves the
+reported placement or elimination for every completion respecting the masks.
+
+The certificate records the source equations, weights, target, and an exact
+candidate-state hash. Its checker reconstructs the equations independently.
+Search uses a bounded connected beam and is incomplete. The technique runs after
+Death Blossom in hint and profile dispatch; it is omitted from recursive forcing
+propagation. See [Arithmetic Counting](../../docs/arithmetic-counting.md) for the
+full proof, examples, API, validation, assumptions, and attribution.
 
 ---
 

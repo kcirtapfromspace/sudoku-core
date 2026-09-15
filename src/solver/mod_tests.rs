@@ -529,7 +529,7 @@ fn test_technique_tier_coverage() {
     // Print coverage for diagnostics
     let mut sorted: Vec<_> = seen_techniques.iter().collect();
     sorted.sort();
-    println!("Technique coverage ({} of 45):", sorted.len());
+    println!("Technique coverage ({} observed):", sorted.len());
     for t in &sorted {
         println!("  {:?} (SE {:.1})", t, t.se_rating());
     }

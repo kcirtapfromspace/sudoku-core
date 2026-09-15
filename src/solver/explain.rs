@@ -3,6 +3,7 @@
 //! Engines return `Finding` structs. This module converts them to `Hint`
 //! with human-readable explanation strings.
 
+use super::arithmetic::ArithmeticProof;
 use super::fabric::idx_to_pos;
 use super::types::{Hint, HintType, Technique};
 use crate::Position;
@@ -66,14 +67,14 @@ pub struct AlsProofDescriptor {
 
 /// Proof certificate: structural evidence justifying a deduction.
 ///
-/// Each variant corresponds to one of the three abstract engines (or
-/// to basic / uniqueness / forcing / backtracking deductions).
-/// Together they partition the solution proof space:
+/// Each variant records the evidence supplied by an engine:
 ///
 /// - **Basic**: Direct constraint propagation in Cell×Candidate space.
 /// - **Fish**: Rank deficiency in the Sector×Candidate incidence matrix.
 /// - **Als**: Degree-of-freedom chain in the ALS subset graph.
 /// - **Aic**: Path in the bipartite ON/OFF polarity graph (Link space).
+/// - **Arithmetic**: A checked integer combination of native requirements,
+///   with an interval or divisibility contradiction for the opposite candidate.
 /// - **Uniqueness**: Relies on the meta-constraint that the puzzle has one solution.
 /// - **Forcing**: Multi-branch propagation proving a common conclusion.
 /// - **Backtracking**: No human technique found; trial-and-error.
@@ -101,6 +102,8 @@ pub enum ProofCertificate {
         /// Link types between consecutive nodes.
         link_types: Vec<LinkType>,
     },
+    /// Recomputable arithmetic certificate bound to the exact candidate state.
+    Arithmetic(ArithmeticProof),
     /// Uniqueness assumption: the puzzle has exactly one solution.
     Uniqueness {
         pattern: String,
@@ -174,8 +177,7 @@ pub enum ExplanationData {
     ForcingChain { variant: String, source_cell: usize },
     /// Backtracking (last resort)
     Backtracking { cell: usize, value: u8 },
-    /// Generic explanation string (for techniques being ported)
-    #[allow(dead_code)]
+    /// Explanation rendered by the engine.
     Raw(String),
 }
 

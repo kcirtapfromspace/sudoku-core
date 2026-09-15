@@ -376,6 +376,7 @@ fn technique_names_ratings_and_families_remain_compatible() {
         (AlignedPairExclusion, "Aligned Pair Exclusion", 6.2),
         (AlignedTripletExclusion, "Aligned Triplet Exclusion", 7.5),
         (DeathBlossom, "Death Blossom", 8.5),
+        (ArithmeticCounting, "Arithmetic Counting", 8.5),
         (NishioForcingChain, "Nishio Forcing Chain", 7.5),
         (KrakenFish, "Kraken Fish", 8.0),
         (RegionForcingChain, "Region Forcing Chain", 8.5),
@@ -400,5 +401,28 @@ fn technique_names_ratings_and_families_remain_compatible() {
             serde_json::from_value::<Technique>(serde_json::to_value(technique).unwrap()).unwrap(),
             technique
         );
+    }
+}
+
+#[test]
+fn arithmetic_technique_has_a_stable_wire_name_and_advanced_priority() {
+    assert!(Technique::DeathBlossom < Technique::ArithmeticCounting);
+    assert!(Technique::ArithmeticCounting < Technique::NishioForcingChain);
+    assert_eq!(
+        serde_json::to_value(Technique::ArithmeticCounting).unwrap(),
+        serde_json::json!("ArithmeticCounting")
+    );
+    assert!(!Technique::ArithmeticCounting.is_legacy());
+}
+
+#[test]
+fn arithmetic_hint_rejects_invalid_candidate_bits_before_building_solver_state() {
+    for raw in [0, 1, 1 << 10, (1 << 3) | (1 << 10)] {
+        let mut grid = Grid::new_classic();
+        grid.cell_mut(Position::new(0, 0))
+            .set_candidates(sudoku_core::BitSet::from_raw(raw));
+        let before = serde_json::to_value(&grid).unwrap();
+        assert!(Solver::new().get_arithmetic_hint(&grid).is_none());
+        assert_eq!(serde_json::to_value(&grid).unwrap(), before);
     }
 }

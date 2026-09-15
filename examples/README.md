@@ -58,3 +58,9 @@ cd crates/sudoku-ffi
 cargo build --release --target aarch64-linux-android
 cargo run --bin uniffi-bindgen generate --library ../target/release/libsudoku_ffi.so --language kotlin --out-dir ./generated
 ```
+
+## Arithmetic Counting
+
+`cargo run --release --example arithmetic_counting` constructs a Guardian candidate
+state, verifies its five-equation parity proof, and runs the engine's bounded
+arithmetic search. See [the proof and API](../docs/arithmetic-counting.md).

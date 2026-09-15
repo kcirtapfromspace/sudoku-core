@@ -44,6 +44,10 @@ fn each_difficulty_accepts_its_maximum_technique_with_the_clue_count_boundary() 
             difficulty
         );
     }
+    assert_eq!(
+        Solver::technique_to_difficulty(Technique::ArithmeticCounting, 81),
+        Difficulty::Extreme
+    );
 }
 
 #[test]
@@ -635,6 +639,53 @@ fn explanation_hint(explanation: ExplanationData) -> Hint {
         }),
     }
     .to_hint()
+}
+
+#[test]
+fn arithmetic_hint_conversion_preserves_a_verifiable_proof_and_raw_explanation() {
+    let mut grid = Grid::new_classic();
+    for digit in 1..=9 {
+        if digit != 3 {
+            grid.cell_mut(Position::new(0, 0)).remove_candidate(digit);
+        }
+    }
+    let proof = ArithmeticProof::from_terms(
+        &grid,
+        vec![ArithmeticTerm {
+            requirement: ArithmeticRequirement::Cell { cell: 0 },
+            weight: 1,
+        }],
+        0,
+        3,
+        true,
+    )
+    .expect("the sole candidate follows from its cell requirement");
+    let expected_proof = serde_json::to_value(&proof).unwrap();
+    let explanation = "Arithmetic Counting: the cell requirement forces 3.";
+    let hint = Finding {
+        technique: Technique::ArithmeticCounting,
+        inference: InferenceResult::Placement { cell: 0, value: 3 },
+        involved_cells: vec![0],
+        explanation: ExplanationData::Raw(explanation.into()),
+        proof: Some(ProofCertificate::Arithmetic(proof)),
+    }
+    .to_hint();
+
+    assert_eq!(hint.technique, Technique::ArithmeticCounting);
+    assert!(matches!(
+        hint.hint_type,
+        HintType::SetValue {
+            pos: Position { row: 0, col: 0 },
+            value: 3
+        }
+    ));
+    assert_eq!(hint.involved_cells, vec![Position::new(0, 0)]);
+    assert_eq!(hint.explanation, explanation);
+    let Some(ProofCertificate::Arithmetic(carried)) = hint.proof else {
+        panic!("arithmetic proof was lost during Finding-to-Hint conversion")
+    };
+    assert!(carried.verify(&grid));
+    assert_eq!(serde_json::to_value(carried).unwrap(), expected_proof);
 }
 
 #[test]

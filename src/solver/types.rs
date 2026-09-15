@@ -163,7 +163,7 @@ pub enum Technique {
     ExtendedUniqueRectangle,
     BivalueUniversalGrave,
 
-    // Extreme (ALS chains + advanced fish + forcing chains)
+    // Extreme (ALS chains + advanced fish + arithmetic + forcing chains)
     AlsXyWing,
     AlsChain,
     MutantFish,
@@ -176,6 +176,9 @@ pub enum Technique {
     #[deprecated(note = "Subsumed by ALS chains. Retained for SE rating compatibility (SE 7.5).")]
     AlignedTripletExclusion,
     DeathBlossom,
+    /// Verified integer combinations of native exactly-one requirements.
+    /// The numerical rating is an uncalibrated engine-local estimate.
+    ArithmeticCounting,
     NishioForcingChain,
     KrakenFish,
     RegionForcingChain,
@@ -213,8 +216,11 @@ impl Technique {
         )
     }
 
-    /// Get the Sudoku Explainer (SE) numerical rating for this technique.
-    /// This is the community-standard difficulty scale.
+    /// Get this technique's score on the engine's SE-style numerical scale.
+    ///
+    /// Arithmetic Counting's value of 8.5 is an approximate, uncalibrated
+    /// engine-local score, not a published SE rating. Technique ordering controls
+    /// dispatch priority independently of these numerical values.
     pub fn se_rating(&self) -> f32 {
         match self {
             Technique::HiddenSingle => 1.5,
@@ -259,6 +265,7 @@ impl Technique {
             Technique::KrakenFish => 8.0,
             Technique::CellForcingChain => 8.3,
             Technique::DeathBlossom => 8.5,
+            Technique::ArithmeticCounting => 8.5,
             Technique::RegionForcingChain => 8.5,
             Technique::DynamicForcingChain => 9.3,
             Technique::Backtracking => 11.0,
@@ -309,6 +316,7 @@ impl std::fmt::Display for Technique {
             Technique::AlignedTripletExclusion => write!(f, "Aligned Triplet Exclusion"),
             Technique::BivalueUniversalGrave => write!(f, "BUG+1"),
             Technique::DeathBlossom => write!(f, "Death Blossom"),
+            Technique::ArithmeticCounting => write!(f, "Arithmetic Counting"),
             Technique::NishioForcingChain => write!(f, "Nishio Forcing Chain"),
             Technique::KrakenFish => write!(f, "Kraken Fish"),
             Technique::RegionForcingChain => write!(f, "Region Forcing Chain"),

@@ -1,10 +1,11 @@
 //! Solver orchestrator.
 //!
-//! Dispatches to three abstract engines (Fish, ALS, AIC) plus basic techniques,
-//! uniqueness patterns, and backtracking.
+//! Dispatches to Fish, ALS, AIC, and arithmetic engines alongside basic
+//! techniques, uniqueness patterns, and backtracking.
 
 mod aic_engine;
 mod als_engine;
+mod arithmetic;
 pub(crate) mod backtrack;
 mod basic;
 pub(crate) mod explain;
@@ -19,6 +20,10 @@ use crate::{Grid, Position};
 use explain::{Finding, InferenceResult};
 use fabric::{idx_to_pos, CandidateFabric};
 
+pub use arithmetic::{
+    ArithmeticCheck, ArithmeticProof, ArithmeticRequirement, ArithmeticSearchOptions,
+    ArithmeticSearchResult, ArithmeticTerm,
+};
 pub use explain::{AlsProofDescriptor, ForcingSource, LinkType, Polarity, ProofCertificate};
 pub use types::{Difficulty, Hint, HintType, Technique};
 
@@ -79,6 +84,29 @@ impl Solver {
         None
     }
 
+    /// Find a verified arithmetic hint using the grid's current candidate masks.
+    ///
+    /// Existing candidate eliminations are preserved: this method does not
+    /// recalculate candidates or mutate the grid. The default search is bounded;
+    /// `None` does not establish that no arithmetic deduction exists. Use
+    /// [`Self::search_arithmetic`] for explicit search limits and budget status.
+    pub fn get_arithmetic_hint(&self, grid: &Grid) -> Option<Hint> {
+        arithmetic::search(grid, &ArithmeticSearchOptions::default()).hint
+    }
+
+    /// Search for an arithmetic hint with explicit resource limits.
+    ///
+    /// The search preserves the supplied candidate masks and reports work and
+    /// budget status alongside any verified hint. Returning no hint does not
+    /// prove that no arithmetic deduction exists; inspect the search status.
+    pub fn search_arithmetic(
+        &self,
+        grid: &Grid,
+        options: &ArithmeticSearchOptions,
+    ) -> ArithmeticSearchResult {
+        arithmetic::search(grid, options)
+    }
+
     /// Get the next placement hint by chaining through elimination techniques.
     ///
     /// Unlike `get_hint` which returns the first technique found (which may be
@@ -136,7 +164,10 @@ impl Solver {
         Self::technique_to_difficulty(max_tech, empty_count)
     }
 
-    /// Rate the puzzle using the Sudoku Explainer (SE) numerical scale.
+    /// Rate the puzzle using the engine's SE-style numerical scale.
+    ///
+    /// Arithmetic Counting uses an uncalibrated engine-local estimate, not a
+    /// published Sudoku Explainer rating. See [`Technique::se_rating`].
     pub fn rate_se(&self, grid: &Grid) -> f32 {
         let mut working = grid.deep_clone();
         let max_tech = self.solve_with_techniques(&mut working);
@@ -326,6 +357,9 @@ impl Solver {
         if let Some(f) = als_engine::find_death_blossom(&fab) {
             return Some(f);
         }
+        if let Some(f) = arithmetic::find(grid, &fab) {
+            return Some(f);
+        }
 
         // Forcing chains need the Grid for propagation
         let propagate_singles = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
@@ -434,6 +468,7 @@ impl Solver {
                     als_engine::find_aligned_triplet_exclusion(&fab)
                 })
                 .or_else(|| als_engine::find_death_blossom(&fab))
+                .or_else(|| arithmetic::find(grid, &fab))
                 // Forcing chains (singles propagation)
                 .or_else(|| {
                     let prop = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
@@ -524,6 +559,7 @@ impl Solver {
             | Technique::AlignedPairExclusion
             | Technique::AlignedTripletExclusion
             | Technique::DeathBlossom
+            | Technique::ArithmeticCounting
             | Technique::NishioForcingChain
             | Technique::KrakenFish
             | Technique::RegionForcingChain
@@ -551,10 +587,12 @@ fn apply_finding(grid: &mut Grid, finding: &Finding) {
     }
 }
 
-/// Propagate using the full technique set (for Dynamic Forcing Chains).
+/// Propagate using the established technique set (for Dynamic Forcing Chains).
 ///
 /// Makes an assumption (set cell value), then loops applying all techniques
 /// except forcing chains (to avoid infinite recursion) until no more progress.
+/// Arithmetic search is also omitted deliberately: its bounded search cost
+/// should not be repeated inside every forcing-chain assumption.
 fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
     let mut g = grid.deep_clone();
     g.set_cell_unchecked(pos, Some(val));

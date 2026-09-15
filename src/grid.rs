@@ -66,6 +66,9 @@ pub struct Grid {
     cells: [[Cell; 9]; 9],
     #[serde(skip)]
     constraints: Arc<Vec<ConstraintBox>>,
+    /// Provenance of the installed rules, independent of names and variant tags.
+    #[serde(skip)]
+    standard_sudoku_constraints: bool,
     /// Variant type for serialization
     variant: GridVariant,
     /// Killer cages (serialized separately)
@@ -93,6 +96,7 @@ impl Grid {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
             constraints: Arc::new(classic_constraints()),
+            standard_sudoku_constraints: true,
             variant: GridVariant::Classic,
             killer_cages: Vec::new(),
         }
@@ -103,6 +107,7 @@ impl Grid {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
             constraints: Arc::new(x_sudoku_constraints()),
+            standard_sudoku_constraints: true,
             variant: GridVariant::XSudoku,
             killer_cages: Vec::new(),
         }
@@ -113,6 +118,7 @@ impl Grid {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
             constraints: Arc::new(constraints),
+            standard_sudoku_constraints: false,
             variant: GridVariant::Classic,
             killer_cages: Vec::new(),
         }
@@ -131,6 +137,7 @@ impl Grid {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
             constraints: Arc::new(constraints),
+            standard_sudoku_constraints: true,
             variant: GridVariant::Killer,
             killer_cages,
         }
@@ -149,6 +156,15 @@ impl Grid {
                 constraints
             }
         });
+        self.standard_sudoku_constraints = true;
+    }
+
+    /// Whether the installed rules are known to include standard Sudoku rules.
+    ///
+    /// Custom constraint lists are conservatively unverified, regardless of their
+    /// names. Deserialized grids remain unverified until constraints are restored.
+    pub(crate) fn has_standard_sudoku_constraints(&self) -> bool {
+        self.standard_sudoku_constraints
     }
 
     /// Get the grid variant
@@ -512,6 +528,7 @@ impl Grid {
             // Constraint definitions are immutable and may be custom implementations.
             // Preserve them while keeping every cell and its candidates independent.
             constraints: Arc::clone(&self.constraints),
+            standard_sudoku_constraints: self.standard_sudoku_constraints,
             variant: self.variant,
             killer_cages: self.killer_cages.clone(),
         }
