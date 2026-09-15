@@ -153,7 +153,7 @@ After an acceptance run:
   pass/fail status, missing mappings and uncovered source lines.
 - `target/coverage/lcov.info` contains raw Rust coverage records.
 - `target/coverage/rust/html/index.html` is LLVM's browsable report. Its aggregate
-  percentages use different accounting and include test code.
+  percentages use different accounting from the production gate.
 
 Test the collector itself with
 `python3 -m unittest discover -s scripts -p test_coverage.py -v`.
