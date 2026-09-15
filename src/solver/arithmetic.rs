@@ -13,9 +13,12 @@ use sha2::{Digest, Sha256};
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
 
-const VERSION: u8 = 1;
+const LEGACY_VERSION: u8 = 1;
+const RESIDUE_VERSION: u8 = 2;
 const SOURCE_LIMIT: usize = 6;
 const WEIGHT_LIMIT: i8 = 2;
+const RESIDUE_WEIGHT_LIMIT: i8 = 8;
+const MODULUS_LIMIT: u8 = 16;
 const VARIABLE_COUNT: usize = 729;
 // Bound materialized children independently of the evaluation budget.
 const FRONTIER_LIMIT: usize = 8192;
@@ -78,14 +81,33 @@ pub struct ArithmeticTerm {
     pub weight: i8,
 }
 
+/// The independently reconstructed contradiction required by a certificate.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub enum ArithmeticTerminal {
+    /// Version-one interval and gcd semantics, also the default for old JSON.
+    #[default]
+    IntervalGcd,
+    /// Version-two Boolean attainable remainders, with a modulus from 2 to 16.
+    Residue { modulus: u8 },
+}
+
+impl ArithmeticTerminal {
+    fn is_legacy(&self) -> bool {
+        matches!(self, Self::IntervalGcd)
+    }
+}
+
 /// A certificate bound to the exact values and candidate masks of one grid.
 ///
-/// Verification supports at most six distinct native requirements with nonzero
-/// integer weights of magnitude at most two. This is a proof format limit, not
-/// a claim that these certificates express every Sudoku deduction.
+/// Both versions support at most six distinct native requirements. Version one
+/// accepts nonzero weights of magnitude at most two; version two accepts at most
+/// eight to support parity-tail compression. These are proof format limits,
+/// not a claim that these certificates express every Sudoku deduction.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ArithmeticProof {
     pub version: u8,
+    #[serde(default, skip_serializing_if = "ArithmeticTerminal::is_legacy")]
+    pub terminal: ArithmeticTerminal,
     pub state_hash: String,
     pub terms: Vec<ArithmeticTerm>,
     pub cell: usize,
@@ -106,6 +128,13 @@ pub enum ArithmeticCheck {
         residual: i32,
         divisor: i32,
     },
+    Residue {
+        residual: i32,
+        modulus: u8,
+        required_residue: u8,
+        /// Recomputed from the source equations, never supplied by the proof.
+        reachable_residues: Vec<u8>,
+    },
 }
 
 impl ArithmeticProof {
@@ -117,9 +146,51 @@ impl ArithmeticProof {
         digit: u8,
         value: bool,
     ) -> Option<Self> {
+        Self::from_terms_with_terminal(
+            grid,
+            terms,
+            cell,
+            digit,
+            value,
+            ArithmeticTerminal::IntervalGcd,
+        )
+    }
+
+    /// Construct a bounded residue certificate, independently checked on this grid.
+    pub fn from_residue_terms(
+        grid: &Grid,
+        terms: Vec<ArithmeticTerm>,
+        cell: usize,
+        digit: u8,
+        value: bool,
+        modulus: u8,
+    ) -> Option<Self> {
+        Self::from_terms_with_terminal(
+            grid,
+            terms,
+            cell,
+            digit,
+            value,
+            ArithmeticTerminal::Residue { modulus },
+        )
+    }
+
+    pub fn from_terms_with_terminal(
+        grid: &Grid,
+        terms: Vec<ArithmeticTerm>,
+        cell: usize,
+        digit: u8,
+        value: bool,
+        terminal: ArithmeticTerminal,
+    ) -> Option<Self> {
         let snapshot = Snapshot::from_grid(grid).ok()?;
         let proof = Self {
-            version: VERSION,
+            version: if terminal.is_legacy() {
+                LEGACY_VERSION
+            } else {
+                RESIDUE_VERSION
+            },
+            terminal,
             state_hash: snapshot.hash.clone(),
             terms,
             cell,
@@ -140,8 +211,16 @@ impl ArithmeticProof {
     }
 
     fn check_snapshot(&self, snapshot: &Snapshot) -> Option<ArithmeticCheck> {
-        if self.version != VERSION
-            || self.state_hash != snapshot.hash
+        let weight_limit = match (&self.terminal, self.version) {
+            (ArithmeticTerminal::IntervalGcd, LEGACY_VERSION) => WEIGHT_LIMIT,
+            (ArithmeticTerminal::Residue { modulus }, RESIDUE_VERSION)
+                if (2..=MODULUS_LIMIT).contains(modulus) =>
+            {
+                RESIDUE_WEIGHT_LIMIT
+            }
+            _ => return None,
+        };
+        if self.state_hash != snapshot.hash
             || self.cell >= 81
             || !(1..=9).contains(&self.digit)
             || snapshot.placed[self.cell] != 0
@@ -155,7 +234,7 @@ impl ArithmeticProof {
         let mut coefficients = [0i16; VARIABLE_COUNT];
         let mut rhs = 0;
         for term in &self.terms {
-            if !matches!(term.weight, -2 | -1 | 1 | 2) {
+            if term.weight == 0 || !(-weight_limit..=weight_limit).contains(&term.weight) {
                 return None;
             }
             let id = term.requirement.id()?;
@@ -169,12 +248,80 @@ impl ArithmeticProof {
             }
             rhs += i32::from(term.weight);
         }
-        contradiction(
-            &coefficients,
-            rhs,
-            self.cell * 9 + usize::from(self.digit - 1),
-            !self.value,
-        )
+        let target = self.cell * 9 + usize::from(self.digit - 1);
+        match self.terminal {
+            ArithmeticTerminal::IntervalGcd => {
+                contradiction(&coefficients, rhs, target, !self.value)
+            }
+            ArithmeticTerminal::Residue { modulus } => {
+                residue_contradiction(&coefficients, rhs, target, !self.value, modulus)
+            }
+        }
+    }
+
+    /// Compress a checked unit-weight parity placement and one distinct incident
+    /// exactly-one rule into direct residue eliminations. The union must contain
+    /// at most six sources; tail cardinalities 2..9 give moduli 2..16 and weights
+    /// at most eight. Invalid premises or unsupported shapes return no proofs.
+    pub fn compile_parity_tail(&self, grid: &Grid, tail: ArithmeticRequirement) -> Vec<Self> {
+        let Ok(snapshot) = Snapshot::from_grid(grid) else {
+            return Vec::new();
+        };
+        self.compile_tail_snapshot(&snapshot, tail)
+    }
+
+    fn compile_tail_snapshot(&self, snapshot: &Snapshot, tail: ArithmeticRequirement) -> Vec<Self> {
+        if !self.value
+            || self.terms.len() >= SOURCE_LIMIT
+            || self.terms.iter().any(|term| !matches!(term.weight, -1 | 1))
+            || !matches!(self.check_snapshot(snapshot),
+                Some(ArithmeticCheck::Divisibility { residual, divisor })
+                    if residual % 2 != 0 && divisor != 0 && divisor % 2 == 0)
+        {
+            return Vec::new();
+        }
+        let Some(id) = tail.id() else {
+            return Vec::new();
+        };
+        if self.terms.iter().any(|term| term.requirement == tail) {
+            return Vec::new();
+        }
+        let guardian = self.cell * 9 + usize::from(self.digit - 1);
+        let variables = snapshot.requirement_variables(id);
+        if !(2..=9).contains(&variables.len()) || !variables.contains(&guardian) {
+            return Vec::new();
+        }
+        let scale = (variables.len() - 1) as i8;
+        let mut terms: Vec<_> = self
+            .terms
+            .iter()
+            .map(|term| ArithmeticTerm {
+                requirement: term.requirement.clone(),
+                weight: term.weight * scale,
+            })
+            .collect();
+        terms.push(ArithmeticTerm {
+            requirement: tail,
+            weight: 1,
+        });
+        variables
+            .into_iter()
+            .filter(|&var| var != guardian)
+            .filter_map(|var| {
+                let proof = Self {
+                    version: RESIDUE_VERSION,
+                    terminal: ArithmeticTerminal::Residue {
+                        modulus: 2 * scale as u8,
+                    },
+                    state_hash: snapshot.hash.clone(),
+                    terms: terms.clone(),
+                    cell: var / 9,
+                    digit: (var % 9 + 1) as u8,
+                    value: false,
+                };
+                proof.check_snapshot(snapshot).map(|_| proof)
+            })
+            .collect()
     }
 }
 
@@ -330,6 +477,60 @@ fn check_bounds(residual: i32, lower: i32, upper: i32, divisor: i32) -> Option<A
     }
 }
 
+// Rotating a bitset by a coefficient implements choosing that Boolean variable
+// once. Use the previous set, preserve duplicate coefficients, and reduce signed
+// coefficients with Euclidean remainders. u32 intermediates handle modulus 16.
+fn add_residue_coefficient(reachable: u16, coefficient: i16, modulus: u8) -> u16 {
+    let shift = i32::from(coefficient).rem_euclid(i32::from(modulus)) as u32;
+    let bits = u32::from(reachable);
+    let mask = (1u32 << modulus) - 1;
+    (bits | ((bits << shift | bits >> (u32::from(modulus) - shift)) & mask)) as u16
+}
+
+fn reachable_residues(coefficients: impl Iterator<Item = i16>, modulus: u8) -> u16 {
+    debug_assert!((2..=MODULUS_LIMIT).contains(&modulus));
+    let full = ((1u32 << modulus) - 1) as u16;
+    let mut reachable = 1;
+    for coefficient in coefficients {
+        reachable = add_residue_coefficient(reachable, coefficient, modulus);
+        if reachable == full {
+            break;
+        }
+    }
+    reachable
+}
+
+fn residue_contradiction(
+    coefficients: &[i16; VARIABLE_COUNT],
+    rhs: i32,
+    target: usize,
+    assumed: bool,
+    modulus: u8,
+) -> Option<ArithmeticCheck> {
+    let reachable = reachable_residues(
+        coefficients
+            .iter()
+            .enumerate()
+            .filter(|&(var, &coefficient)| var != target && coefficient != 0)
+            .map(|(_, &coefficient)| coefficient),
+        modulus,
+    );
+    let residual = rhs - i32::from(coefficients[target]) * i32::from(assumed);
+    let required_residue = residual.rem_euclid(i32::from(modulus)) as u8;
+    let other = (rhs - i32::from(coefficients[target]) * i32::from(!assumed))
+        .rem_euclid(i32::from(modulus)) as u8;
+    // Version two refuses certificates that reject both candidate endpoints.
+    if reachable & (1 << required_residue) != 0 || reachable & (1 << other) == 0 {
+        return None;
+    }
+    Some(ArithmeticCheck::Residue {
+        residual,
+        modulus,
+        required_residue,
+        reachable_residues: (0..modulus).filter(|r| reachable & (1 << r) != 0).collect(),
+    })
+}
+
 #[derive(Clone)]
 struct Node {
     terms: Vec<(usize, i8)>,
@@ -409,7 +610,8 @@ impl Node {
                 continue;
             }
             let proof = ArithmeticProof {
-                version: VERSION,
+                version: LEGACY_VERSION,
+                terminal: ArithmeticTerminal::IntervalGcd,
                 state_hash: snapshot.hash.clone(),
                 terms: self
                     .terms
@@ -426,6 +628,57 @@ impl Node {
             // Reconstruct independently; search calculations alone never authorize a hint.
             if let Some(check) = proof.check_snapshot(snapshot) {
                 return Some(make_finding(snapshot, proof, check));
+            }
+        }
+        // Bounds and gcd remain the cheap first pass. Removing any one of two
+        // coefficients equal modulo q leaves the same remainder set, so cache
+        // the DP by coefficient residue rather than recomputing per candidate.
+        for modulus in 2..=MODULUS_LIMIT {
+            let mut without_residue = [None; MODULUS_LIMIT as usize];
+            for &(var, &coefficient) in &support {
+                let cell = var / 9;
+                if snapshot.placed[cell] != 0 {
+                    continue;
+                }
+                let residue = i32::from(coefficient).rem_euclid(i32::from(modulus)) as usize;
+                if residue == 0 {
+                    continue;
+                }
+                let reachable = *without_residue[residue].get_or_insert_with(|| {
+                    reachable_residues(
+                        support
+                            .iter()
+                            .filter(|&&(other, _)| other != var)
+                            .map(|&(_, &c)| c),
+                        modulus,
+                    )
+                });
+                let zero = self.rhs.rem_euclid(i32::from(modulus)) as u8;
+                let one = (self.rhs - i32::from(coefficient)).rem_euclid(i32::from(modulus)) as u8;
+                let zero_rejected = reachable & (1 << zero) == 0;
+                let one_rejected = reachable & (1 << one) == 0;
+                if zero_rejected == one_rejected {
+                    continue;
+                }
+                let proof = ArithmeticProof {
+                    version: RESIDUE_VERSION,
+                    terminal: ArithmeticTerminal::Residue { modulus },
+                    state_hash: snapshot.hash.clone(),
+                    terms: self
+                        .terms
+                        .iter()
+                        .map(|&(id, weight)| ArithmeticTerm {
+                            requirement: ArithmeticRequirement::from_id(id),
+                            weight,
+                        })
+                        .collect(),
+                    cell,
+                    digit: (var % 9 + 1) as u8,
+                    value: zero_rejected,
+                };
+                if let Some(check) = proof.check_snapshot(snapshot) {
+                    return Some(make_finding(snapshot, proof, check));
+                }
             }
         }
         None
@@ -460,6 +713,19 @@ fn make_finding(snapshot: &Snapshot, proof: ArithmeticProof, check: ArithmeticCh
         }
         ArithmeticCheck::Divisibility { residual, divisor } => {
             format!("the remaining coefficients are divisible by {divisor}, but their required sum {residual} is not")
+        }
+        ArithmeticCheck::Residue {
+            residual,
+            modulus,
+            required_residue,
+            reachable_residues,
+        } => {
+            let reachable = reachable_residues
+                .iter()
+                .map(u8::to_string)
+                .collect::<Vec<_>>()
+                .join(", ");
+            format!("the remaining sum would be {residual}, which has remainder {required_residue} modulo {modulus}, but the remaining candidates can produce only remainders {{{reachable}}}")
         }
     };
     let conclusion = if proof.value {
@@ -588,6 +854,43 @@ fn search_inner(
             }
             result.tested_combinations += 1;
             if let Some(finding) = node.finding(&snapshot) {
+                // A checked parity placement can supply a small, motivated
+                // extension without widening the beam or increasing its weight
+                // range. Each distinct tail combination uses the same budget.
+                if let Some(ProofCertificate::Arithmetic(proof)) = &finding.proof {
+                    if proof.value && proof.terms.len() < options.max_sources {
+                        let guardian = proof.cell * 9 + usize::from(proof.digit - 1);
+                        for &id in &incidence[guardian] {
+                            if result.tested_combinations == options.max_combinations {
+                                break;
+                            }
+                            let tail = ArithmeticRequirement::from_id(id);
+                            if sources[id].len() < 2
+                                || sources[id].len() - 1 > options.max_weight as usize
+                                || proof.terms.iter().any(|term| term.requirement == tail)
+                                || proof
+                                    .terms
+                                    .iter()
+                                    .any(|term| !matches!(term.weight, -1 | 1))
+                            {
+                                continue;
+                            }
+                            result.tested_combinations += 1;
+                            if let Some(compiled) = proof
+                                .compile_tail_snapshot(&snapshot, tail)
+                                .into_iter()
+                                .next()
+                            {
+                                if let Some(check) = compiled.check_snapshot(&snapshot) {
+                                    return (
+                                        Some(make_finding(&snapshot, compiled, check)),
+                                        result,
+                                    );
+                                }
+                            }
+                        }
+                    }
+                }
                 return (Some(finding), result);
             }
             if evaluated.len() < options.beam_width {
