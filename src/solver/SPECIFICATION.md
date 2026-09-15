@@ -81,7 +81,11 @@ Given the axioms, we may perform two operations:
 **Definition 1.1 (Fish Configuration).**
 Fix a digit *d*. Let *B = {B₁, ..., Bₙ}* be a set of *n* sectors
 (the *base set*) and *K = {K₁, ..., Kₙ}* be a set of *n* sectors
-(the *cover set*) such that *B ∩ K = ∅*. Define:
+(the *cover set*) such that *B ∩ K = ∅*. The candidate sets within
+each collection must be pairwise disjoint:
+*X_d(Bᵢ) ∩ X_d(Bⱼ) = ∅* and *X_d(Kᵢ) ∩ X_d(Kⱼ) = ∅* for *i ≠ j*.
+Distinct sector names alone do not establish independence: a row and
+box can share a candidate cell. Define:
 
 - *Base cells*:  *β = ⋃ᵢ X_d(Bᵢ)*  (cells with candidate *d* in
   base sectors)
@@ -107,10 +111,11 @@ If *φ = ∅* (no fins), then for every cell *c ∈ ε*, we may eliminate
 
 *Proof sketch.*
 By the Uniqueness axiom, digit *d* must appear exactly once in each base
-sector *Bᵢ*. So *d* appears in exactly *n* cells among *β*. Since
-*φ = ∅*, all of *β ⊆ κ*. The cover sectors *K₁, ..., Kₙ* together
-also require exactly *n* occurrences of *d* (by the Uniqueness axiom for
-each *Kⱼ*). These *n* occurrences are exactly the cells in *β ∩ κ = β*.
+sector *Bᵢ*. Pairwise disjoint base candidate sets make these exactly
+*n* distinct placements among *β*. Since *φ = ∅*, all of *β ⊆ κ*.
+Each placement belongs to exactly one cover candidate set, and each
+cover allows at most one placement. Thus all *n* covers are occupied
+by the placements in *β*.
 Therefore no cell in *ε = κ \ β* can contain *d*. ∎
 
 **Theorem 1.2 (Finned Fish Elimination).**
@@ -141,7 +146,8 @@ constraint, fin status):
 
 **Siamese Fish** are two overlapping finned fish configurations sharing
 a fin box. Both fish independently restrict eliminations to the fin box;
-their intersection yields strictly more eliminations than either alone.
+the implementation returns eliminations common to both patterns. An
+intersection cannot add eliminations beyond either individual pattern.
 
 ### 1.4 Degenerate Case: Pointing Pairs and Box/Line Reduction
 
@@ -174,17 +180,15 @@ They need not be implemented separately.
 
 ### 1.5 Sector-Rank Interpretation
 
-The fish argument has a clean linear-algebraic reading. Construct the
-*base incidence matrix* **M** ∈ {0,1}^{n × m} where **M**[i,j] = 1 iff
-base sector *Bᵢ* contains cell *cⱼ* (restricted to *d*-candidates).
-The rank condition for a valid fish is:
+The implementation uses the sufficient counting conditions of Definition
+1.1, checked by `find_independent_combination`. A candidate may occur in at
+most one base group and at most one cover group. This makes the distinct
+placement count in Theorem 1.1 valid for mixed row/column/box sectors too.
 
-> rank(**M**) = *n* and the column space is contained in the span of the
-> cover sectors.
-
-This means the *n* base sectors "use up" exactly *n* degrees of freedom
-for digit *d*, and the cover sectors fully account for those degrees.
-Excess cells in the cover (ε) cannot participate.
+Full matrix rank alone does not justify that count: overlapping sectors
+can share a placement. Configurations needing additional overlap or rank
+reasoning are rejected by this implementation. This restriction avoids
+false eliminations while retaining independent Franken and Mutant fish.
 
 ---
 
@@ -193,7 +197,7 @@ Excess cells in the cover (ε) cannot participate.
 ### 2.1 Mathematical Objects
 
 **Definition 2.1 (Almost Locked Set).**
-A set *A* of *n* cells within a single sector, such that
+A set *A* of *n* empty cells within a single sector, such that
 |⋃_{c ∈ A} X(c)| = *n* + 1. That is, *n* cells collectively have
 exactly *n* + 1 distinct candidates. We write *cands(A)* for this
 union.
@@ -208,9 +212,11 @@ Given two non-overlapping ALS *A* and *B*, a digit *x* is an RCC of
 - *x* ∈ *cands(A)* ∩ *cands(B)*, and
 - every *x*-cell in *A* sees every *x*-cell in *B*.
 
-When *A* and *B* are linked by RCC *x*, at most one of them can "use"
-*x* to fill its surplus. If *A* uses *x*, then *A*'s remaining *n*
-candidates lock *n* cells (a naked subset). Similarly for *B*.
+When *A* and *B* are linked by RCC *x*, they cannot both contain a
+placed *x*. Thus at least one of them omits *x* in every solution;
+both may omit it. An ALS of *n* cells that omits one of its *n* + 1
+candidates must use all *n* remaining digits, since its cells share
+a sector and therefore take distinct values.
 
 ### 2.2 Core Theorem
 
@@ -220,73 +226,69 @@ by RCC *x*. Let *z* ∈ *cands(A)* ∩ *cands(B)*, *z ≠ x*. Then for
 any cell *c* ∉ *A* ∪ *B* that sees every *z*-cell in *A* and every
 *z*-cell in *B*, we may eliminate *(c, z)*.
 
-*Proof sketch.*
-In any solution, consider the digit *x*:
+*Proof.*
+The RCC prevents *A* and *B* from both containing *x*. At least one
+ALS therefore omits *x* and must use every remaining digit in its
+candidate union, including *z* because *z ≠ x*. Cell *c* sees every
+possible *z*-placement in either ALS, so it cannot hold *z*. ∎
 
-**Case 1**: *x* is placed in some cell of *A*.
-Then *A* \ {*x*-cell} has *n* − 1 cells needing *n* other values from
-*cands(A)* \ {*x*}. Since |*cands(A)* \ {*x*}| = *n*, this is a
-locked set. In particular, *z* is confined to the *z*-cells of *A*.
-Since *c* sees all *z*-cells of *A*, cell *c* cannot hold *z*.
+This argument holds in every solution and does not assume the puzzle
+has a unique solution.
 
-**Case 2**: *x* is placed in some cell of *B*.
-Symmetrically, *z* is confined to the *z*-cells of *B*, and *c* sees
-all of them.
-
-**Case 3**: *x* is placed in neither *A* nor *B*.
-Since *x* is an RCC, every *x*-cell in *A* sees every *x*-cell in *B*.
-By the Uniqueness axiom, *x* can appear in at most one cell among
-*A ∪ B* per sector. But if *x* appears in neither, then *A* has *n*
-cells with *n* remaining candidates *cands(A)* \ ∅ — wait, *A* still
-has *n* + 1 candidates. However, the RCC constraint means the *x*-cells
-of *A* and *B* share a sector, and *x* must appear somewhere in that
-sector. The constraint forces *x* into *A* or *B* (since all other
-*x*-positions in the shared sectors are eliminated or occupied). ∎
-
-More precisely: because *x* is an RCC, the mutual visibility of all
-*x*-cells means that in any solution, at most one of *A ∪ B* holds *x*.
-Since both *A* and *B* must each resolve to exactly *n* (resp. *m*)
-values, and each has one surplus candidate, exactly one of them absorbs
-*x*. The remaining ALS becomes fully locked, confining *z*.
-
-### 2.3 Named Techniques as Special Cases
+### 2.3 Named Techniques in the Implementation
 
 | A size | B size | Links | Technique     | SE   |
 |--------|--------|-------|---------------|------|
 | 1      | 1      | 1 RCC | XY-Wing       | 4.2  |
 | 1      | 2      | 1 RCC | XYZ-Wing      | 4.4  |
-| ≤2     | ≤2     | 1 RCC, total=4 | WXYZ-Wing | 4.6 |
-| any    | any    | 1 RCC | ALS-XZ        | 5.5  |
+| 2      | 1      | 1 RCC | XYZ-Wing      | 4.4  |
+| any    | any    | 1 RCC, total=4 | WXYZ-Wing | 4.6 |
+| any    | any    | 1 RCC, other sizes | ALS-XZ | 5.5 |
 
-**Wings are small ALS-XZ.**
-An XY-Wing consists of two bivalue cells (size-1 ALS, since 1 cell
-with 2 candidates = *n* + 1). The pivot-wing structure is exactly the
-RCC geometry: the pivot cell shares one value with each wing, and the
-RCC is the shared candidate between pivot and wing.
+These are the size-based labels returned by `classify_als_pair` for
+the shared ALS-XZ detector. Every returned elimination must satisfy
+Theorem 2.1. The labels do not establish equivalence to every pattern
+conventionally called a wing; in particular, the `(1, 1)` label here
+describes two cells, not a three-cell pivot-and-wings construction.
 
 #### 2.3.1 ALS Chains (Generalized)
 
 **Theorem 2.2 (ALS Chain Elimination).**
-Given a chain *A₁ - A₂ - ... - Aₖ* where consecutive ALS are
-connected by distinct RCCs *x₁, x₂, ..., x_{k-1}* (each *xᵢ* is
-an RCC of *(Aᵢ, Aᵢ₊₁)*), and *z* ∈ *cands(A₁)* ∩ *cands(Aₖ)*,
-*z ∉ {x₁, ..., x_{k-1}}*:
+Given a chain of distinct ALS *A₁ - A₂ - ... - Aₖ*, *k ≥ 2*, let
+*xᵢ* be an RCC of *(Aᵢ, Aᵢ₊₁)*. Consecutive ALS are disjoint as
+required by the RCC definition, and the endpoints are disjoint.
+Require consecutive link digits to differ: *xᵢ ≠ xᵢ₊₁*.
+Let *z* ∈ *cands(A₁)* ∩ *cands(Aₖ)* with
+*z ≠ x₁* and *z ≠ x_{k-1}*.
 
-For any cell *c* that sees all *z*-cells in *A₁* and all *z*-cells
-in *Aₖ*, we may eliminate *(c, z)*.
+For any cell *c* outside the two endpoints that sees all *z*-cells in
+*A₁* and all *z*-cells in *Aₖ*, we may eliminate *(c, z)*. Membership
+in an intermediate ALS does not invalidate the implication below.
 
-*Proof sketch.*
-By induction on chain length. The base case *k = 2* is Theorem 2.1.
-For the inductive step: in any solution, the RCC *x₁* is absorbed
-by either *A₁* or *A₂*. If *A₁* absorbs it, *A₁* becomes locked
-and confines *z*. If *A₂* absorbs it, then *A₂*'s surplus shifts
-to *x₂*, propagating the same argument down the chain. ∎
+*Proof.*
+For *k = 2*, apply Theorem 2.1. For *k ≥ 3*, suppose *c = z*.
+Both endpoints must omit *z*. Hence *A₁* must use
+*x₁*, which makes *A₂* omit *x₁*. Since consecutive link digits
+differ, *A₂* must then use *x₂*. Repeating this implication makes
+*Aₖ* omit *x_{k-1}*. But *Aₖ* already omits the distinct digit *z*:
+its *n* cells would have at most *n* − 1 available digits, contrary
+to sector consistency. Therefore *c ≠ z*. ∎
+
+For the three-ALS detector, *z* must differ from **both** link digits
+*x* and *y*. Allowing *z = y* invalidates the last counting step and
+can remove a candidate from a valid completion. For a four-ALS chain,
+*z* may equal the middle link digit: only the two endpoint link digits
+must differ from *z*. These deductions require no unique-solution
+assumption.
 
 | Chain length | Technique     | SE   |
 |-------------|---------------|------|
 | 2           | ALS-XZ        | 5.5  |
 | 3           | ALS-XY-Wing   | 7.0  |
-| 4+          | ALS Chain     | 7.5  |
+| 4           | ALS Chain     | 7.5  |
+
+The implementation currently searches three- and four-ALS chains;
+the theorem itself applies to longer chains meeting the same conditions.
 
 ### 2.4 Sue de Coq as ALS Decomposition
 
@@ -302,15 +304,26 @@ Then:
 - Eliminate *cands(B)* from rest-of-line cells not in *B*.
 
 *Proof.*
-The intersection cells must collectively hold values from *cands(I)*.
-The disjoint partition *cands(A) ⊔ cands(B) = cands(I)* means:
-*A* and *I* together form a locked set on *cands(A)* within the box,
-and *B* and *I* together form a locked set on *cands(B)* within the
-line. Standard locked-set elimination applies. ∎
+Write *U = cands(A)* and *V = cands(B)*. In any solution, the
+*|U| − 1* cells of *A* use that many distinct digits of *U*. Since
+every intersection cell sees all of *A*, at most one intersection
+cell can use a digit of *U*. Similarly, at most one can use *V*.
+The intersection has at least two cells and uses only *U ∪ V*, so a
+solution requires exactly two intersection cells, one using the digit
+of *U* omitted by *A* and the other the digit of *V* omitted by *B*.
+Thus every digit of *U* occurs in *A ∪ I* within the box, and every
+digit of *V* occurs in *B ∪ I* within the line. The stated eliminations
+follow from sector consistency. A three-cell intersection with these
+particular two disjoint ALS contributions admits no solution. ∎
 
-Sue de Coq is an ALS technique because the key objects *A* and *B* are
-ALS found in the remainder sectors, and the elimination logic is a
-locked-set (= fully resolved ALS) argument.
+The proof certificate records three descriptors: the intersection,
+the box ALS, and the line ALS. Each descriptor's `sector` must contain
+its cells: the intersection uses the line sector, the box ALS uses the
+actual box sector (18..26), and the line ALS uses the actual row or
+column sector (0..17). The intersection is a described region, not
+necessarily an ALS under Definition 2.1. Here `rcc_values` stores the
+two disjoint candidate contributions and `z_value` is absent; these
+fields do not encode an ordinary RCC chain.
 
 ### 2.5 Death Blossom as ALS Star Graph
 
@@ -318,87 +331,65 @@ locked-set (= fully resolved ALS) argument.
 Let *s* be a stem cell with candidates *{d₁, ..., dₖ}*. For each
 *dᵢ*, let *Pᵢ* be an ALS (a petal) such that:
 - *s ∉ Pᵢ* and the petals are pairwise non-overlapping.
-- *dᵢ* ∈ *cands(Pᵢ)* and the *dᵢ*-cells of *Pᵢ* see *s*.
+- *dᵢ* ∈ *cands(Pᵢ)* and **every** cell of *Pᵢ* containing candidate
+  *dᵢ* sees *s*.
 
-If *z* ∈ ⋂ᵢ *cands(Pᵢ)*, *z ∉ {d₁,...,dₖ}*, and cell *c* sees all
-*z*-cells in every petal, then eliminate *(c, z)*.
+If *z* ∈ ⋂ᵢ *cands(Pᵢ)*, *z ∉ {d₁,...,dₖ}*, and cell *c* outside
+the stem and petals sees all *z*-cells in every petal, then eliminate
+*(c, z)*.
 
 *Proof sketch.*
 In any solution, *s* takes some value *dⱼ*. Then petal *Pⱼ* cannot
-use *dⱼ* (since a *dⱼ*-cell of *Pⱼ* sees *s*), so *Pⱼ* becomes
+use *dⱼ* (since every *dⱼ*-cell of *Pⱼ* sees *s*), so *Pⱼ* becomes
 fully locked on its remaining *n* candidates. The value *z* is
 confined to *z*-cells of *Pⱼ*. Since *c* sees all of them, *c ≠ z*.
 This holds for every possible *dⱼ*, so the elimination is valid. ∎
 
+Checking only that some linking-digit occurrence sees the stem is
+insufficient: an unseen occurrence may retain *dⱼ*, leaving the petal
+unlocked. The detector checks all occurrences before selecting petals.
+Its current search tries only the first available petal per stem digit;
+it may miss another usable combination, but every returned combination
+must meet the above conditions.
+
 ### 2.6 Distributed Disjoint Subset (DDS)
 
-**Definition 2.6 (DDS).**
-A Distributed Disjoint Subset unifies Sue de Coq (Theorem 2.3) and
-Death Blossom (Theorem 2.4) under a single framework: a stem region
-whose candidates are partitioned into disjoint ALS contributions from
-surrounding sectors.
+DDS is used here as an organizational description for deductions
+involving a stem region and surrounding candidate sets. The implemented
+Sue de Coq and Death Blossom searches have different proof obligations:
+Sue de Coq uses disjoint candidate partitions and box/line capacity;
+Death Blossom uses a restricted link for every possible stem value.
+In the latter, the chosen stem value locks its corresponding petal;
+it need not lock every other petal.
 
-In Sue de Coq, the stem is a box/line intersection and the two ALS
-provide a disjoint partition of its candidate union. In Death Blossom,
-the stem is a single cell and each candidate value connects to a petal
-ALS. Both exploit the same degree-of-freedom argument: exactly one
-ALS absorbs the excess candidate, locking all others.
+Candidate-union containment alone, or an unspecified partition of
+"degrees of freedom", does not imply an elimination. There is no
+separate generalized DDS detector or elimination theorem established
+here. A finding must satisfy the concrete hypotheses of Theorem 2.3
+or Theorem 2.4, including their visibility and cardinality requirements.
 
-**Theorem 2.5 (DDS Elimination).**
-Let *I* be a stem region (intersection or cell) with candidate set
-*cands(I)*. Let *{A₁, ..., Aₖ}* be ALS contributions from surrounding
-sectors such that:
-- *⋃ᵢ cands(Aᵢ) ⊇ cands(I)*
-- The contributions partition the stem's degrees of freedom
+### 2.7 Aligned Pair/Triplet Exclusion (Legacy)
 
-Then for any digit *z* appearing in multiple ALS contributions, and
-any cell *c* ∉ *I* ∪ *⋃ᵢ Aᵢ* that sees all *z*-cells across all
-relevant ALS, eliminate *(c, z)*.
-
-This generalizes both Sue de Coq and Death Blossom. The implementation
-handles them as separate techniques for SE rating purposes, but the
-underlying proof mechanism is identical.
-
-### 2.7 Aligned Pair/Triplet Exclusion as ALS (Legacy)
-
-**Theorem 2.6 (APE/ATE Subsumption).**
-Aligned Pair Exclusion (APE) and Aligned Triplet Exclusion (ATE)
-are special cases of the ALS framework.
-
-*Legacy status*: APE and ATE are considered retired by the community
-(StrmCkr, Sudopedia). Their eliminations are fully subsumed by ALS
-chains. The implementation retains them for SE rating compatibility
-but they should not be treated as independent techniques.
+**Theorem 2.6 (Enumerated Assignment Elimination).**
+Let *P* contain two or three mutually visible cells. Enumerate all
+assignments choosing a candidate for each cell, with distinct digits
+in every pair of cells. If this collection is nonempty and every
+assignment uses digit *z*, eliminate *z* from any cell outside *P*
+that sees every cell in *P*.
 
 *Proof.*
-**APE**: Two mutually visible cells *{p₁, p₂}* with candidate sets
-*C₁, C₂*. APE eliminates candidate *v* from a common peer *t* if
-every valid pair *(v₁, v₂)* ∈ *C₁ × C₂* with *v₁ ≠ v₂* has
-*v ∈ {v₁, v₂}*.
+Every solution restricts to one of the enumerated assignments, because
+it respects the candidate sets and pairwise visibility. Hence some cell
+in *P* contains *z* in every solution. A common peer cannot also contain
+*z*. ∎
 
-Recast: The pair *{p₁, p₂}* forms an almost-locked structure.
-Consider the ALS *A = {p₁}* (bivalue cell, size 1 with 2 candidates)
-and *A' = {p₂}*. The valid-pair enumeration is equivalent to checking
-which values are forced when each RCC is resolved. Specifically:
-
-For every candidate *v₁* of *p₁*, define the ALS constraint: if
-*p₁ = v₁*, then *p₂* cannot be *v₁* (visibility), so *p₂*'s
-effective candidate set shrinks. The condition "every valid pair
-includes *v*" means that *v* is locked into *{p₁, p₂}* under all
-case splits — which is a DoF argument on the pair viewed as a
-two-cell ALS with restricted assignments.
-
-More directly, if *{p₁, p₂}* has *|C₁ ∪ C₂| = 3* and we consider
-the pair as a near-ALS with mutual visibility, the APE elimination
-follows from Theorem 2.1 with appropriate RCC choice.
-
-**ATE** extends identically to 3 mutually visible cells. The brute-
-force enumeration of valid triples is the exhaustive version of the
-chain-of-ALS locking argument. ∎
-
-The practical consequence: APE/ATE can be retired by extending the
-ALS catalog to handle mutually-visible cell groups and checking all
-locking configurations.
+This is the direct proof of the legacy APE/ATE detectors in this engine.
+It does not require that *P* or each individual cell be an ALS: the pair
+search admits cells with 2–5 candidates, and the triplet search admits
+2–4. Their `Als` certificate descriptors record these candidate sets;
+the certificate variant does not itself prove Definition 2.1 holds.
+The public functions remain deprecated for compatibility. No complete
+subsumption by the bounded ALS-chain search is established here.
 
 ### 2.8 Almost Locked Candidates (ALC)
 
@@ -407,15 +398,12 @@ ALS: *n* candidates each appearing in at most *n* + 1 cells within a
 sector's intersection region. Where ALS reasons about cells having a
 surplus candidate, ALC reasons about digits having a surplus position.
 
-The basic ALC cases are exactly Pointing Pairs and Box/Line Reductions
-(Section 1.4): a digit confined to an intersection has one "extra"
-position, and the intersection constraint forces eliminations. More
-complex ALC patterns (with ALS/AHS variations) are subsumed by the
-ALS chain framework (Section 2.3) through RCC linking, and by the
-fish engine through finned fish patterns.
-
-The implementation does not enumerate ALC as a separate technique
-because its eliminations are fully covered by the existing engines.
+The implementation does not enumerate ALC as a separate technique.
+Some intersection deductions have the direct sector-containment proof
+given for Pointing Pairs and Box/Line Reductions in Section 1.4. A digit
+having a small number of possible positions alone does not establish
+such an elimination. This specification does not prove that the bounded
+ALS and fish searches cover every more general ALC pattern.
 
 ---
 
@@ -448,79 +436,87 @@ alternate between strong and weak:
 
     p₁ ==[strong]== p₂ --[weak]-- p₃ ==[strong]== p₄ -- ... -- pₖ
 
-The chain starts with a strong link and traverses
-strong → weak → strong → weak → ...
+The search starts with a strong link and traverses
+strong → weak → strong → weak → ... . For the endpoint eliminations
+below, the final edge must also be strong, so the chain has an even
+number of nodes. The implementation checks these endpoints after
+arriving by a strong link and requires at least four nodes.
 
-We say the chain has *strong polarity* at odd-indexed nodes (arrived
-via strong link) and *weak polarity* at even-indexed nodes.
+Under the assumption *p₁* = false, propagation assigns OFF to
+odd-indexed nodes and ON to even-indexed nodes (using the one-based
+indices above). These are conditional truth values, not descriptions
+of the edge type. The emitted general AIC/X-Chain certificates follow
+this OFF → ON → OFF → ON order.
 
 ### 3.2 Core Theorem
 
 **Theorem 3.1 (AIC Elimination, Type 1: Shared Digit, Different Cells).**
-If an AIC exists from *(c₁, d)* (strong start) through alternating
-links to a node *(c₂, d)* (arriving via weak inference), where *c₁ ≠ c₂*
-and *d* is the same digit, then:
+If an alternating chain starts and ends with strong links, with
+endpoints *(c₁, d)* and *(c₂, d)* where *c₁ ≠ c₂*, then:
 
 For any cell *c* ∉ {c₁, c₂} that sees both *c₁* and *c₂*, eliminate
 *(c, d)*.
 
-*Proof sketch.*
-Interpret the chain as a logical implication chain. At the start node
-*(c₁, d)*: consider two cases.
+*Proof.*
+Consider the first endpoint *p₁ = (c₁, d)*.
 
-**Case A**: *(c₁, d)* is true (cell *c₁* holds *d*). Then *c* sees
-*c₁*, so *c* cannot hold *d*.
+**Case A**: *p₁* is true. Since *c* sees *c₁*, *c* cannot hold *d*.
 
-**Case B**: *(c₁, d)* is false. The alternating chain logic
-propagates:
+**Case B**: *p₁* is false. The alternating implications are:
 
 - ¬*p₁* → *p₂* (strong link: one must be true)
-- *p₂* → ¬*p₃* (weak inference: at most one true)
+- *p₂* → ¬*p₃* (weak inference: at most one is true)
 - ¬*p₃* → *p₄* (strong link)
 - ...continuing alternation...
-- ¬*p₁* → *pₖ₋₁* (strong polarity: true)
+- ¬*pₖ₋₁* → *pₖ* (the final strong link)
 
-At this point *pₖ₋₁* is true. The weak inference to *pₖ = (c₂, d)*
-tells us ¬*pₖ₋₁* ∨ ¬*pₖ*, but we need a stronger conclusion.
+Thus *pₖ = (c₂, d)* is true, and *c* cannot hold *d* because it sees
+*c₂*. In both cases at least one endpoint is true, so the elimination
+holds. No additional loop-closing assumption is needed. ∎
 
-The key insight is that we do **not** need to prove *pₖ* is true.
-Instead, we observe that the chain establishes a **discontinuous
-nice loop**: *p₁* and *pₖ* share digit *d*, and the chain from
-*p₁* through *pₖ* means **at least one of *p₁, pₖ* must be true**.
-
-*Proof of this claim*: Suppose both *(c₁, d)* and *(c₂, d)* are
-false. Then ¬*p₁* → *p₂* → ¬*p₃* → ... → *pₖ₋₁* (true). But
-*pₖ₋₁* being true and *(c₂, d)* being false means *pₖ₋₁* occupies
-its cell or sector position, which combined with ¬*pₖ* still
-allows a consistent state — *unless* we close the loop: ¬*pₖ* =
-¬*(c₂, d)*, and the chain would need to continue back to *(c₁, d)*,
-creating a contradiction with our assumption ¬*p₁*. The
-discontinuity at the endpoints (same digit, no direct link) forces
-at least one endpoint true.
-
-Since at least one of *(c₁, d)* or *(c₂, d)* is true, any cell *c*
-seeing both *c₁* and *c₂* cannot hold *d* (by the at-most-one-per-
-sector constraint). ∎
+A final **weak** inference would instead force the last endpoint OFF
+under Case B. It does not establish that either endpoint is true and
+cannot justify this elimination. For example, an S-W-S-W path admits
+the assignment OFF, ON, OFF, ON, OFF: every XOR/NAND edge is satisfied
+while both endpoints are false.
 
 **Theorem 3.2 (AIC Elimination, Type 2: Same Cell, Different Digits).**
-If an AIC exists from *(c, d₁)* (strong start) to *(c, d₂)* (weak
-arrival) where the cell is the same, then eliminate all candidates
-of *c* except *d₁* and *d₂*.
+If an alternating chain starts and ends with strong links, with
+endpoints *(c, d₁)* and *(c, d₂)* where *d₁ ≠ d₂*, then eliminate all
+candidates of *c* except *d₁* and *d₂*.
 
 *Proof.*
-The chain establishes: at least one of *(c, d₁)* or *(c, d₂)* is
-true. Since a cell holds exactly one value, *σ(c) ∈ {d₁, d₂}*.
+The same implication argument establishes that at least one endpoint
+is true. Since a cell holds exactly one value, *σ(c) ∈ {d₁, d₂}*.
 All other candidates of *c* are eliminated. ∎
 
 ### 3.3 Named Techniques as Special Cases
 
-**Empty Rectangle** (single-digit ERI chain):
-A 2-strong-link single-digit chain using a box's L/T-shaped candidate
-distribution as an ERI (Empty Rectangle Intersection) pivot. The box's
-candidate pattern provides a strong link between a row and column within
-the box, which combines with a conjugate pair on a crossing line.
-Community classification: "Single Digit Patterns" (Sudopedia), not a
-uniqueness technique. StrmCkr taxonomy: bilocal type 2-5. SE: 4.6.
+**Empty Rectangle** (grouped single-digit inference):
+For digit *d*, all candidates in a box must lie in the union of a row
+arm and a column arm, with a candidate on each arm outside their
+intersection. The intersection itself may contain a candidate.
+A conjugate pair in a column outside the box connects the row arm to
+another row outside the box. Eliminate *d* at the intersection of that
+other row and the box's column arm, if it is a candidate. The transposed
+pattern exchanges rows and columns. This uses ordinary Sudoku
+constraints and does not assume a unique puzzle solution. SE: 4.6.
+
+For example, let the box-1 candidates for *d* be r1c2, r2c1 and r3c1,
+and let column 5 have exactly two candidates for *d*: r1c5 and r5c5.
+Then r5c1 cannot hold *d*. If it did, it would remove *d* from r2c1,
+r3c1 and r5c5. Box 1 would force r1c2 = *d*, while column 5 would force
+r1c5 = *d*, contradicting row 1.
+
+The box arm is a **group** of candidates. It does not create an
+exactly-one-true link between arbitrary individual cells in that arm.
+The implementation records the complete grouped evidence using a
+`Fish` certificate: the box and external conjugate column are the two
+base sectors, the two crossing rows are cover sectors, and the box's
+column-arm candidates outside the row cover are fins. In the example,
+these are bases {box 1, column 5}, covers {row 1, row 5}, and fins
+{r2c1, r3c1}; the eliminated cell sees every fin. The deduction remains
+classified as `EmptyRectangle` in the AIC engine.
 
 **X-Chain** (single-digit AIC):
 An AIC where every node concerns the same digit *d*. All links are
@@ -731,6 +727,54 @@ axioms and do not require an engine. Uniqueness techniques rely on the
 assumption that the puzzle has a unique solution (an additional axiom
 beyond the standard constraint set).
 
+### 4.4 Uniqueness Proof Requirements
+
+For classic Sudoku, uniqueness deductions require a uniquely solvable puzzle
+and a candidate state that retains its solution. The engine receives that
+assumption from its caller; these detectors do not establish uniqueness by
+counting solutions themselves.
+The following conditions are checked in addition to that assumption.
+The swap arguments below preserve rows, columns and boxes. Additional variant
+constraints require a separate justification that the swap preserves them too.
+
+**Hidden Rectangle.** Let four empty corners occupy two rows, two columns and
+exactly two boxes, with candidates *a* and *b* present at every corner. For a
+target corner *T*, the diagonally opposite corner must have exactly `{a, b}`.
+Candidate *b* must form a conjugate pair between *T* and the adjacent corner in
+**both** T's row and T's column. Then *a* can be removed from *T*.
+
+Proof: if *T = a*, those two strong links force *b* into both adjacent corners.
+The opposite bivalue corner must therefore contain *a*. Swapping *a* and *b*
+at all four corners preserves every row, column and box and changes no given,
+creating a second solution. This contradicts uniqueness. A single row or column
+strong link, or an opposite corner with additional candidates, does not prove
+this result and must not trigger this inference.
+
+**BUG remainder.** For proposed extra candidates *E*, removing *E* must leave
+exactly two candidates in every empty cell. In every sector, every digit not
+already placed must occur in exactly two candidate cells; a placed digit must
+occur in none. Merely finding odd candidate counts or mostly bivalue cells
+does not establish this pattern. `is_bug_remainder` validates the entire state.
+
+Proof: any solution confined to such a remainder has a distinct partner obtained
+by swapping each empty cell to its other candidate. Each sector-digit pair
+occurs at two cells, so the swap moves the digit between those cells and keeps
+the sector valid. Given cells remain fixed. The remainder can therefore have
+zero or multiple solutions, but cannot contain the puzzle's unique solution
+alone. At least one candidate in *E* must be true.
+
+- **BUG+1:** if *E* contains one candidate, place it in its cell.
+- **BUG+n:** the implemented common-unit elimination requires every extra to
+  be the same digit *d*. If all extra cells share a row, column or box, remove
+  *d* from other candidate cells in that unit. Such a target conflicts with
+  every possible extra, and at least one extra must hold. Extras of another
+  digit or outside the common unit invalidate this particular deduction.
+
+The implementation bounds BUG analysis to at most six extras. Odd counts are
+used to propose extras, followed by the complete remainder check; they are not
+the proof. Cases the proposal or common-unit rule cannot establish return no
+BUG finding so subsequent techniques can continue.
+
 ---
 
 ## 5. Hint Delivery
@@ -776,13 +820,18 @@ metadata for visualization:
 | `Basic`       | involved cells                                |
 | `Fish`        | base sectors, cover sectors, fin cells, digit |
 | `Als`         | ALS chain (cells + candidates per ALS)        |
-| `Aic`         | chain of (cell, digit, polarity) nodes        |
+| `Aic`         | chain of (cell, digit, polarity) nodes and link types |
 | `Uniqueness`  | floor cells, roof cells                       |
 | `Forcing`     | source cell, branches                         |
 | `Backtracking`| (no fields)                                   |
 
 Frontends use these to render proof-detail overlays (e.g., base/cover
 sector highlighting for fish, on/off coloring for AIC chains).
+General AIC/X-Chain certificates start with the first candidate OFF and
+alternate conditional truth values along the implication described in
+Section 3.2. Empty Rectangle uses the `Fish` representation to preserve
+all candidates in its grouped box arm (Section 3.3); a certificate's
+variant need not have the same name as the hint technique.
 
 ---
 
@@ -792,20 +841,24 @@ sector highlighting for fish, on/off coloring for AIC chains).
 
 Each engine's eliminations are sound if the axioms hold:
 
-- **Fish**: Sound by Theorems 1.1 and 1.2. Depends only on the
-  Uniqueness axiom for sectors.
+- **Fish**: Theorems 1.1 and 1.2 require the sector uniqueness axiom
+  and the pairwise candidate-set independence in Definition 1.1.
 - **ALS**: Sound by Theorems 2.1, 2.2, 2.3, 2.4. Depends on the
   Uniqueness axiom and Completeness axiom.
 - **AIC**: Sound by Theorems 3.1, 3.2, 3.4. Depends on the logical
   semantics of strong links and weak inferences, which are derived from all
   three axioms.
+- **Uniqueness**: additionally requires a unique solution. Hidden Rectangle
+  and BUG must satisfy the complete pattern conditions in Section 4.4.
 
 ### 6.2 Implementation Verification
 
 Three test suites verify soundness empirically:
 
-- `test_hint_soundness`: For a battery of puzzles, every hint from
-  `get_hint()` is checked against the unique solution. A placement
+- `test_hint_soundness`: For uniquely solvable fixtures, every finding
+  in a stored-candidate technique chain is checked against the solution.
+  Public `get_hint()` behavior is tested separately: it deliberately
+  recalculates candidates for each independent request. A placement
   *(c, v)* must match the solution, and an elimination *(c, v)* must
   not remove the solution value.
 - `test_hint_soundness_all_tiers`: Extends coverage across all

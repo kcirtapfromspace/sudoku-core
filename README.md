@@ -171,6 +171,13 @@ The `PuzzleId` module (`src/puzzle_id.rs`) encodes puzzle parameters (seed, diff
 
 Use `Generator::with_seed(seed)` to generate deterministic sequences for tests and debugging.
 
+## Tests and coverage
+
+Run `./scripts/test-coverage.sh` to run every test, including soundness checks, and
+enforce coverage goals for production code. See
+[coverage goals and setup](docs/coverage-goals.md) for thresholds, tool versions,
+measurement rules and report locations.
+
 ## Minimal Usage
 
 ```rust
@@ -186,4 +193,3 @@ let rated = solver.rate_difficulty(&puzzle);
 let se = solver.rate_se(&puzzle);
 println!("Requested: Expert, Rated: {rated}, SE: {se}");
 ```
-

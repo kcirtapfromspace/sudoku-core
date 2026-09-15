@@ -422,33 +422,38 @@ impl Generator {
         // Track which positions have been tried
         let mut tried = [[false; 9]; 9];
 
-        // Remove cells in symmetry pairs
+        // Remove complete symmetry groups. A 90-degree rotation has four cells
+        // in its orbit; removing only a pair would break the requested pattern.
         for pos in positions {
             if tried[pos.row][pos.col] {
                 continue;
             }
 
-            let symmetric_pos = self.symmetric_position(pos);
-            tried[pos.row][pos.col] = true;
-            if let Some(sym) = symmetric_pos {
-                tried[sym.row][sym.col] = true;
+            let mut group = vec![pos];
+            let mut current = pos;
+            while let Some(next) = self.symmetric_position(current) {
+                if group.contains(&next) {
+                    break;
+                }
+                group.push(next);
+                current = next;
             }
-
-            // Store current values
-            let value1 = grid.get(pos);
-            let value2 = symmetric_pos.and_then(|p| grid.get(p));
+            for &member in &group {
+                tried[member.row][member.col] = true;
+            }
+            let removed: Vec<_> = group
+                .into_iter()
+                .filter_map(|member| grid.get(member).map(|value| (member, value)))
+                .collect();
 
             // Skip if already empty
-            if value1.is_none() {
+            if removed.is_empty() {
                 continue;
             }
 
             // Temporarily remove
-            grid.set_cell_unchecked(pos, None);
-            if let Some(sym) = symmetric_pos {
-                if sym != pos {
-                    grid.set_cell_unchecked(sym, None);
-                }
+            for &(member, _) in &removed {
+                grid.set_cell_unchecked(member, None);
             }
 
             // Check if still has unique solution
@@ -479,31 +484,20 @@ impl Generator {
                 }
 
                 // Check if we have enough givens
-                if grid.given_count() <= self.config.min_givens {
-                    // Restore and stop
-                    if let Some(v) = value1 {
-                        grid.set_given(pos, v);
+                if grid.given_count() < self.config.min_givens {
+                    // A later, smaller symmetry group may still fit the budget.
+                    for &(member, value) in &removed {
+                        grid.set_given(member, value);
                     }
-                    if let Some(sym) = symmetric_pos {
-                        if sym != pos {
-                            if let Some(v) = value2 {
-                                grid.set_given(sym, v);
-                            }
-                        }
-                    }
+                    continue;
+                }
+                if grid.given_count() == self.config.min_givens {
                     break;
                 }
             } else {
                 // Restore values
-                if let Some(v) = value1 {
-                    grid.set_given(pos, v);
-                }
-                if let Some(sym) = symmetric_pos {
-                    if sym != pos {
-                        if let Some(v) = value2 {
-                            grid.set_given(sym, v);
-                        }
-                    }
+                for &(member, value) in &removed {
+                    grid.set_given(member, value);
                 }
             }
         }
@@ -583,86 +577,5 @@ impl SimpleRng {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_generate_easy() {
-        let mut generator = Generator::with_seed(42);
-        let grid = generator.generate(Difficulty::Easy);
-
-        assert!(grid.given_count() >= 30);
-        assert!(grid.given_count() <= 50);
-
-        let solver = Solver::new();
-        assert!(solver.has_unique_solution(&grid));
-    }
-
-    #[test]
-    fn test_generate_medium() {
-        let mut generator = Generator::with_seed(42);
-        let grid = generator.generate(Difficulty::Medium);
-
-        let solver = Solver::new();
-        assert!(solver.has_unique_solution(&grid));
-    }
-
-    #[test]
-    fn test_for_se_rating_config() {
-        // Low SE → Beginner tier, many givens
-        let config = GeneratorConfig::for_se_rating(1.5);
-        assert_eq!(config.difficulty, Difficulty::Beginner);
-        assert!(config.min_givens >= 42);
-        assert!(config.min_se_rating.unwrap() >= 1.2);
-        assert!(config.max_se_rating.unwrap() <= 1.8);
-
-        // Mid SE → Hard tier
-        let config = GeneratorConfig::for_se_rating(4.0);
-        assert_eq!(config.difficulty, Difficulty::Hard);
-        assert_eq!(config.symmetry, SymmetryType::Rotational180);
-
-        // High SE → no symmetry
-        let config = GeneratorConfig::for_se_rating(7.0);
-        assert_eq!(config.difficulty, Difficulty::Extreme);
-        assert_eq!(config.symmetry, SymmetryType::None);
-
-        // Extreme SE → clamped to 11.0
-        let config = GeneratorConfig::for_se_rating(15.0);
-        assert!(config.min_se_rating.unwrap() <= 11.0);
-
-        // Very low → clamped to 1.5
-        let config = GeneratorConfig::for_se_rating(0.5);
-        assert!(config.min_se_rating.unwrap() >= 1.2);
-    }
-
-    #[test]
-    fn test_generate_for_se() {
-        let mut generator = Generator::with_seed(42);
-        let grid = generator.generate_for_se(3.0);
-
-        // Should produce a valid puzzle with unique solution
-        let solver = Solver::new();
-        assert!(solver.has_unique_solution(&grid));
-        assert!(grid.given_count() >= 17);
-    }
-
-    #[test]
-    fn test_symmetry() {
-        let mut generator = Generator::with_seed(42);
-        generator.config.symmetry = SymmetryType::Rotational180;
-        let grid = generator.generate(Difficulty::Easy);
-
-        // Check rotational symmetry
-        for row in 0..9 {
-            for col in 0..9 {
-                let pos1 = Position::new(row, col);
-                let pos2 = Position::new(8 - row, 8 - col);
-
-                let has1 = grid.cell(pos1).is_given();
-                let has2 = grid.cell(pos2).is_given();
-
-                assert_eq!(has1, has2, "Symmetry broken at {:?} and {:?}", pos1, pos2);
-            }
-        }
-    }
-}
+#[path = "generator_tests.rs"]
+mod tests;

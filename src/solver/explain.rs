@@ -268,8 +268,8 @@ impl Finding {
                 to_sector,
             } => {
                 format!(
-                    "{}: {} is confined to {} in {}, eliminating from rest of {}.",
-                    kind, digit, from_sector, to_sector, to_sector
+                    "{}: in {}, {} is confined to {}, eliminating from rest of {}.",
+                    kind, from_sector, digit, to_sector, to_sector
                 )
             }
             ExplanationData::Fish {

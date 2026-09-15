@@ -195,12 +195,20 @@ pub fn count_solutions_recursive(grid: &mut Grid, count: &mut usize, limit: usiz
 // ==================== Inline simple technique appliers ====================
 
 fn apply_naked_singles(grid: &mut Grid) {
+    // Preserve the first rebuild, which discards incoming pencil eliminations.
+    // After that, only new values are added, so updating their peers is enough.
+    let mut rebuilt = false;
     loop {
         let mut progress = false;
         for pos in grid.empty_positions() {
             if let Some(v) = grid.get_candidates(pos).single_value() {
                 grid.set_cell_unchecked(pos, Some(v));
-                grid.recalculate_candidates();
+                if rebuilt {
+                    grid.update_candidates_after_move(pos, v);
+                } else {
+                    grid.recalculate_candidates();
+                    rebuilt = true;
+                }
                 progress = true;
                 break;
             }
@@ -212,6 +220,8 @@ fn apply_naked_singles(grid: &mut Grid) {
 }
 
 fn apply_hidden_singles(grid: &mut Grid) {
+    // Match the first-rebuild behavior of the naked-single pass above.
+    let mut rebuilt = false;
     loop {
         let mut progress = false;
         'outer: for unit in 0..27 {
@@ -236,7 +246,12 @@ fn apply_hidden_singles(grid: &mut Grid) {
                 }
                 if candidates.len() == 1 {
                     grid.set_cell_unchecked(candidates[0], Some(value));
-                    grid.recalculate_candidates();
+                    if rebuilt {
+                        grid.update_candidates_after_move(candidates[0], value);
+                    } else {
+                        grid.recalculate_candidates();
+                        rebuilt = true;
+                    }
                     progress = true;
                     break 'outer;
                 }

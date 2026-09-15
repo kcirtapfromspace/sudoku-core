@@ -337,7 +337,7 @@ pub fn find_als_xy_wing(fab: &CandidateFabric) -> Option<Finding> {
                         }
 
                         for z in common_ac.iter() {
-                            if z == x {
+                            if z == x || z == y {
                                 continue;
                             }
 
@@ -612,8 +612,8 @@ pub fn find_sue_de_coq(fab: &CandidateFabric) -> Option<Finding> {
                 // For SdC: candidates in intersection = A ∪ B where
                 // A is an ALS from rest-of-line and B is an ALS from rest-of-box
                 // Try to find ALS pairs that cover the intersection candidates
-                let box_als = find_local_als(fab, &rest_box);
-                let line_als = find_local_als(fab, &rest_line);
+                let box_als = find_local_als(fab, &rest_box, SECTOR_BOX_BASE + box_idx);
+                let line_als = find_local_als(fab, &rest_line, line_sector);
 
                 for ba in &box_als {
                     for la in &line_als {
@@ -715,7 +715,7 @@ pub fn find_sue_de_coq(fab: &CandidateFabric) -> Option<Finding> {
 }
 
 /// Find ALS within a specific set of cells (not a full sector scan).
-fn find_local_als(fab: &CandidateFabric, cells: &[usize]) -> Vec<Als> {
+fn find_local_als(fab: &CandidateFabric, cells: &[usize], sector: usize) -> Vec<Als> {
     let mut result = Vec::new();
     for n in 1..=cells.len().min(4) {
         for combo in combinations_usize(cells, n) {
@@ -726,7 +726,7 @@ fn find_local_als(fab: &CandidateFabric, cells: &[usize]) -> Vec<Als> {
                 result.push(Als {
                     cells: combo,
                     candidates: union,
-                    sector: 0, // local, not a standard sector
+                    sector,
                 });
             }
         }
@@ -753,7 +753,7 @@ pub fn find_death_blossom(fab: &CandidateFabric) -> Option<Finding> {
         // For each candidate of the stem, find an ALS that:
         // 1. Contains that candidate
         // 2. Doesn't contain the stem cell
-        // 3. Has exactly one cell seeing the stem for this candidate (restricted link)
+        // 3. Every occurrence of that candidate sees the stem (restricted link)
         let cand_vec: Vec<u8> = stem_cands.iter().collect();
 
         // Try to assign one petal ALS per stem candidate
@@ -769,14 +769,14 @@ pub fn find_death_blossom(fab: &CandidateFabric) -> Option<Finding> {
                 if !als.candidates.contains(d) {
                     continue;
                 }
-                // Check restricted link: exactly the d-cells in ALS that see stem
+                // Choosing d at the stem must remove d from the entire petal.
                 let d_cells: Vec<usize> = als
                     .cells
                     .iter()
-                    .filter(|&&c| fab.cell_cands[c].contains(d) && fab.sees(c, stem))
+                    .filter(|&&c| fab.cell_cands[c].contains(d))
                     .copied()
                     .collect();
-                if !d_cells.is_empty() {
+                if !d_cells.is_empty() && d_cells.iter().all(|&c| fab.sees(c, stem)) {
                     options.push(idx);
                 }
             }
@@ -1170,3 +1170,7 @@ fn combinations_usize(items: &[usize], k: usize) -> Vec<Vec<usize>> {
         }
     }
 }
+
+#[cfg(test)]
+#[path = "als_engine_tests.rs"]
+mod tests;

@@ -3,6 +3,7 @@ use crate::{
     BitSet, Cell, ConstraintBox, KillerCageConstraint, Position,
 };
 use serde::{Deserialize, Serialize};
+use std::sync::Arc;
 
 /// Error that can occur when making a move
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -64,7 +65,7 @@ impl ValidationResult {
 pub struct Grid {
     cells: [[Cell; 9]; 9],
     #[serde(skip)]
-    constraints: Vec<ConstraintBox>,
+    constraints: Arc<Vec<ConstraintBox>>,
     /// Variant type for serialization
     variant: GridVariant,
     /// Killer cages (serialized separately)
@@ -91,7 +92,7 @@ impl Grid {
     pub fn new_classic() -> Self {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
-            constraints: classic_constraints(),
+            constraints: Arc::new(classic_constraints()),
             variant: GridVariant::Classic,
             killer_cages: Vec::new(),
         }
@@ -101,7 +102,7 @@ impl Grid {
     pub fn new_x_sudoku() -> Self {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
-            constraints: x_sudoku_constraints(),
+            constraints: Arc::new(x_sudoku_constraints()),
             variant: GridVariant::XSudoku,
             killer_cages: Vec::new(),
         }
@@ -111,7 +112,7 @@ impl Grid {
     pub fn new_with_constraints(constraints: Vec<ConstraintBox>) -> Self {
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
-            constraints,
+            constraints: Arc::new(constraints),
             variant: GridVariant::Classic,
             killer_cages: Vec::new(),
         }
@@ -129,7 +130,7 @@ impl Grid {
 
         Self {
             cells: std::array::from_fn(|_| std::array::from_fn(|_| Cell::new_empty())),
-            constraints,
+            constraints: Arc::new(constraints),
             variant: GridVariant::Killer,
             killer_cages,
         }
@@ -137,7 +138,7 @@ impl Grid {
 
     /// Restore constraints after deserialization
     pub fn restore_constraints(&mut self) {
-        self.constraints = match self.variant {
+        self.constraints = Arc::new(match self.variant {
             GridVariant::Classic => classic_constraints(),
             GridVariant::XSudoku => x_sudoku_constraints(),
             GridVariant::Killer => {
@@ -147,7 +148,7 @@ impl Grid {
                 }
                 constraints
             }
-        };
+        });
     }
 
     /// Get the grid variant
@@ -198,7 +199,7 @@ impl Grid {
 
         // Check constraints
         let values = self.values();
-        for constraint in &self.constraints {
+        for constraint in self.constraints.iter() {
             if !constraint.validate(&values, pos, value) {
                 return Err(MoveError::ConstraintViolation(
                     constraint.name().to_string(),
@@ -206,8 +207,12 @@ impl Grid {
             }
         }
 
+        let previous = self.cells[pos.row][pos.col].value();
         self.cells[pos.row][pos.col].set_value(Some(value));
         self.update_candidates_after_move(pos, value);
+        if let Some(previous) = previous.filter(|&old| old != value) {
+            self.restore_candidates_after_clear(pos, previous);
+        }
         Ok(())
     }
 
@@ -224,12 +229,17 @@ impl Grid {
 
     /// Clear a cell (if not given)
     pub fn clear_cell(&mut self, pos: Position) -> Result<(), MoveError> {
+        if pos.row >= 9 || pos.col >= 9 {
+            return Err(MoveError::PositionOutOfBounds);
+        }
+
         if self.cells[pos.row][pos.col].is_given() {
             return Err(MoveError::CellIsGiven);
         }
 
         let old_value = self.cells[pos.row][pos.col].value();
         self.cells[pos.row][pos.col].clear();
+        self.cells[pos.row][pos.col].set_candidates(self.compute_candidates(pos));
 
         // Restore candidates that may have been removed by this cell
         if let Some(value) = old_value {
@@ -241,7 +251,7 @@ impl Grid {
 
     /// Update candidates in affected cells after a move
     pub fn update_candidates_after_move(&mut self, pos: Position, value: u8) {
-        for constraint in &self.constraints {
+        for constraint in self.constraints.iter() {
             for affected_pos in constraint.affected_cells(pos) {
                 self.cells[affected_pos.row][affected_pos.col].remove_candidate(value);
             }
@@ -252,10 +262,14 @@ impl Grid {
     fn restore_candidates_after_clear(&mut self, pos: Position, value: u8) {
         let values = self.values();
 
-        for constraint in &self.constraints {
+        for constraint in self.constraints.iter() {
             for affected_pos in constraint.affected_cells(pos) {
-                // Only restore if no other cell in the constraint's scope has this value
-                let can_restore = constraint.validate(&values, affected_pos, value);
+                // A cleared row/column can overlap another constraint that still
+                // forbids this value. Restored candidates must satisfy every rule.
+                let can_restore = self
+                    .constraints
+                    .iter()
+                    .all(|rule| rule.validate(&values, affected_pos, value));
                 if can_restore && self.cells[affected_pos.row][affected_pos.col].is_empty() {
                     self.cells[affected_pos.row][affected_pos.col].add_candidate(value);
                 }
@@ -271,7 +285,7 @@ impl Grid {
         }
         let mut candidates = BitSet::all_9();
         let values = self.values();
-        for constraint in &self.constraints {
+        for constraint in self.constraints.iter() {
             for affected_pos in constraint.affected_cells(pos) {
                 if let Some(v) = values[affected_pos.row][affected_pos.col] {
                     candidates.remove(v);
@@ -304,7 +318,7 @@ impl Grid {
             for col in 0..9 {
                 if let Some(value) = values[row][col] {
                     let pos = Position::new(row, col);
-                    for constraint in &self.constraints {
+                    for constraint in self.constraints.iter() {
                         for affected_pos in constraint.affected_cells(pos) {
                             self.cells[affected_pos.row][affected_pos.col].remove_candidate(value);
                         }
@@ -336,7 +350,7 @@ impl Grid {
                 if let Some(value) = values[row][col] {
                     let pos = Position::new(row, col);
 
-                    for constraint in &self.constraints {
+                    for constraint in self.constraints.iter() {
                         // Temporarily remove the value to check if it conflicts
                         let mut test_values = values;
                         test_values[row][col] = None;
@@ -434,7 +448,7 @@ impl Grid {
         }
 
         let values = self.values();
-        for constraint in &self.constraints {
+        for constraint in self.constraints.iter() {
             if !constraint.validate(&values, pos, value) {
                 return false;
             }
@@ -493,26 +507,14 @@ impl Grid {
 
     /// Create a deep clone with constraints
     pub fn deep_clone(&self) -> Self {
-        let mut new_grid = match self.variant {
-            GridVariant::Classic => Grid::new_classic(),
-            GridVariant::XSudoku => Grid::new_x_sudoku(),
-            GridVariant::Killer => {
-                let cages: Vec<KillerCageConstraint> = self
-                    .killer_cages
-                    .iter()
-                    .map(|(cells, sum)| KillerCageConstraint::new(cells.clone(), *sum))
-                    .collect();
-                Grid::new_killer(cages)
-            }
-        };
-
-        for row in 0..9 {
-            for col in 0..9 {
-                new_grid.cells[row][col] = self.cells[row][col].clone();
-            }
+        Self {
+            cells: self.cells.clone(),
+            // Constraint definitions are immutable and may be custom implementations.
+            // Preserve them while keeping every cell and its candidates independent.
+            constraints: Arc::clone(&self.constraints),
+            variant: self.variant,
+            killer_cages: self.killer_cages.clone(),
         }
-
-        new_grid
     }
 }
 
@@ -561,65 +563,5 @@ impl std::fmt::Display for Grid {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_new_classic() {
-        let grid = Grid::new_classic();
-        assert_eq!(grid.empty_count(), 81);
-        assert_eq!(grid.given_count(), 0);
-    }
-
-    #[test]
-    fn test_set_cell() {
-        let mut grid = Grid::new_classic();
-        let pos = Position::new(0, 0);
-
-        assert!(grid.set_cell(pos, 5).is_ok());
-        assert_eq!(grid.get(pos), Some(5));
-
-        // Can't set duplicate in same row
-        assert!(grid.set_cell(Position::new(0, 5), 5).is_err());
-    }
-
-    #[test]
-    fn test_given_cell() {
-        let mut grid = Grid::new_classic();
-        let pos = Position::new(0, 0);
-
-        grid.set_given(pos, 5);
-        assert!(grid.cell(pos).is_given());
-        assert!(grid.set_cell(pos, 3).is_err());
-    }
-
-    #[test]
-    fn test_from_string() {
-        let puzzle =
-            "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
-        let grid = Grid::from_string(puzzle).unwrap();
-
-        assert_eq!(grid.get(Position::new(0, 0)), Some(5));
-        assert_eq!(grid.get(Position::new(0, 1)), Some(3));
-        assert_eq!(grid.get(Position::new(0, 2)), None);
-    }
-
-    #[test]
-    fn test_candidates() {
-        let mut grid = Grid::new_classic();
-        grid.set_given(Position::new(0, 0), 5);
-
-        // Cell in same row should not have 5 as candidate
-        let candidates = grid.get_candidates(Position::new(0, 5));
-        assert!(!candidates.contains(5));
-        assert!(candidates.contains(3));
-    }
-
-    #[test]
-    fn test_is_complete() {
-        let solved =
-            "534678912672195348198342567859761423426853791713924856961537284287419635345286179";
-        let grid = Grid::from_string(solved).unwrap();
-        assert!(grid.is_complete());
-    }
-}
+#[path = "grid_tests.rs"]
+mod tests;
