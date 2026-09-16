@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
   CARGO_TERM_COLOR: always
@@ -47,10 +47,10 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: . -> target/coverage-build
-      - name: Install coverage tool
+      - name: Install coverage and test-runner tools
         uses: taiki-e/install-action@v2
         with:
-          tool: cargo-llvm-cov@0.9.1
+          tool: cargo-llvm-cov@0.9.1,nextest
       - name: Run every test and enforce production coverage
         run: ./scripts/test-coverage.sh
       - name: Upload coverage reports
