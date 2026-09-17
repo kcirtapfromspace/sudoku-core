@@ -191,6 +191,30 @@ enforce coverage goals for production code. See
 [coverage goals and setup](docs/coverage-goals.md) for thresholds, tool versions,
 measurement rules and report locations.
 
+## Formal Verification
+
+The `verification/` directory contains machine-checked [Verus](https://github.com/verus-lang/verus)
+proofs for the engine's kernel:
+
+- `verification/bitset.rs` — the candidate `BitSet` proven against a set model:
+  every operation's contract, popcount cardinality, and full functional
+  correctness of `single_value`. Out-of-range values (a shift-overflow panic in
+  the production code) are compile-time errors here.
+- `verification/grid.rs` — a spec-level definition of sudoku validity, with the
+  classic `Constraint::validate` loops, the `has_contradiction` duplicate scan
+  (proven exact: true **iff** the board is invalid), and a backtracking solver
+  proven sound: a `true` return guarantees a complete, valid solution that
+  preserves every given.
+- `verification/arithmetic.rs` — the Arithmetic Counting soundness theorem from
+  [docs/arithmetic-counting.md](docs/arithmetic-counting.md), machine-checked:
+  the certificate checker's interval, gcd, and residue-set terminals each prove
+  that no Boolean assignment satisfies the weighted equation, so a verified
+  certificate refutes the assumed candidate value in every completion.
+
+Run `./scripts/verify.sh` (requires a [Verus release](https://github.com/verus-lang/verus/releases)
+and its pinned Rust toolchain; see the script header). CI runs the proofs via
+`.github/workflows/verify.yml`.
+
 ## Minimal Usage
 
 ```rust
