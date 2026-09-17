@@ -8,6 +8,13 @@ normal hint and technique-profile paths.
 
 ## Soundness theorem
 
+The contradiction arguments below are machine-checked with
+[Verus](https://github.com/verus-lang/verus) in `verification/arithmetic.rs`:
+mirrors of `contradiction` and `residue_contradiction` carry proven contracts
+that a reported contradiction rules out every Boolean assignment of the
+remaining candidates (the equation reconstruction from the grid snapshot is the
+remaining trusted step). Run `./scripts/verify.sh` to check the proofs.
+
 Give every allowed candidate a Boolean indicator `x_j`: one if it is selected in
 a completion, zero otherwise. A placed cell is represented by its singleton
 value, irrespective of its stored pencil marks. The 81 cell requirements and

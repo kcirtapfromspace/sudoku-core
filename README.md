@@ -205,6 +205,11 @@ proofs for the engine's kernel:
   (proven exact: true **iff** the board is invalid), and a backtracking solver
   proven sound: a `true` return guarantees a complete, valid solution that
   preserves every given.
+- `verification/arithmetic.rs` — the Arithmetic Counting soundness theorem from
+  [docs/arithmetic-counting.md](docs/arithmetic-counting.md), machine-checked:
+  the certificate checker's interval, gcd, and residue-set terminals each prove
+  that no Boolean assignment satisfies the weighted equation, so a verified
+  certificate refutes the assumed candidate value in every completion.
 
 Run `./scripts/verify.sh` (requires a [Verus release](https://github.com/verus-lang/verus/releases)
 and its pinned Rust toolchain; see the script header). CI runs the proofs via
