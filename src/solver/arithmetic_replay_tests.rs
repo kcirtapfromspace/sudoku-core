@@ -1,5 +1,7 @@
 use super::*;
-use crate::{ArithmeticRequirement, ArithmeticTerm};
+use crate::{ArithmeticRequirement, ArithmeticTerm, BitSet};
+
+const ALL: u16 = 0x1ff;
 
 fn naked_single() -> (Grid, ArithmeticProof) {
     let mut grid = Grid::new_classic();

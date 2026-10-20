@@ -9,9 +9,11 @@ mod arithmetic;
 mod arithmetic_replay;
 pub(crate) mod backtrack;
 mod basic;
+mod candidate_state;
 pub(crate) mod explain;
 pub(crate) mod fabric;
 mod fish_engine;
+mod three_house;
 mod types;
 mod uniqueness;
 
@@ -26,7 +28,12 @@ pub use arithmetic::{
     ArithmeticSearchResult, ArithmeticTerm, ArithmeticTerminal,
 };
 pub use arithmetic_replay::{ArithmeticReplay, ArithmeticState};
+pub use candidate_state::CandidateState;
 pub use explain::{AlsProofDescriptor, ForcingSource, LinkType, Polarity, ProofCertificate};
+pub use three_house::{
+    HallObstruction, ThreeHouseCheck, ThreeHouseProof, ThreeHouseReplay, ThreeHouseSearchOptions,
+    ThreeHouseSearchResult,
+};
 pub use types::{Difficulty, Hint, HintType, Technique};
 
 /// Unit struct solver — stateless, all state is per-call.
@@ -113,6 +120,28 @@ impl Solver {
         options: &ArithmeticSearchOptions,
     ) -> ArithmeticSearchResult {
         arithmetic::search(grid, options)
+    }
+
+    /// Find an exact three-house matching elimination using stored candidates.
+    ///
+    /// No candidates are recalculated and no uniqueness assumption is used.
+    /// This dedicated API checks up to all 81 crossing triples. The general
+    /// hint/rating ladder also tries it before Arithmetic Counting and forcing.
+    pub fn get_three_house_hint(&self, grid: &Grid) -> Option<Hint> {
+        self.search_three_house(grid, &ThreeHouseSearchOptions::default())
+            .hint
+    }
+
+    /// Search a bounded prefix of crossing triples and return a Hall certificate.
+    /// A missing hint is not a Sudoku completeness result. Infeasible triples
+    /// are skipped rather than used for vacuous eliminations. Invalid native
+    /// premises return an error.
+    pub fn search_three_house(
+        &self,
+        grid: &Grid,
+        options: &ThreeHouseSearchOptions,
+    ) -> ThreeHouseSearchResult {
+        three_house::search(grid, options)
     }
 
     /// Get the next placement hint by chaining through elimination techniques.
@@ -365,6 +394,9 @@ impl Solver {
         if let Some(f) = als_engine::find_death_blossom(&fab) {
             return Some(f);
         }
+        if let Some(f) = three_house::find(grid) {
+            return Some(f);
+        }
         if let Some(f) = arithmetic::find(grid, &fab) {
             return Some(f);
         }
@@ -476,6 +508,7 @@ impl Solver {
                     als_engine::find_aligned_triplet_exclusion(&fab)
                 })
                 .or_else(|| als_engine::find_death_blossom(&fab))
+                .or_else(|| three_house::find(grid))
                 .or_else(|| arithmetic::find(grid, &fab))
                 // Forcing chains (singles propagation)
                 .or_else(|| {
@@ -568,6 +601,7 @@ impl Solver {
             | Technique::AlignedTripletExclusion
             | Technique::DeathBlossom
             | Technique::ArithmeticCounting
+            | Technique::ThreeHouseMatching
             | Technique::NishioForcingChain
             | Technique::KrakenFish
             | Technique::RegionForcingChain
@@ -599,7 +633,7 @@ fn apply_finding(grid: &mut Grid, finding: &Finding) {
 ///
 /// Makes an assumption (set cell value), then loops applying all techniques
 /// except forcing chains (to avoid infinite recursion) until no more progress.
-/// Arithmetic search is also omitted deliberately: its bounded search cost
+/// Arithmetic and three-house search are also omitted deliberately: their cost
 /// should not be repeated inside every forcing-chain assumption.
 fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
     let mut g = grid.deep_clone();

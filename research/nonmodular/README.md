@@ -3,8 +3,23 @@
 Three agents investigated structural matching, nonlinear certificates, and
 trades/variant interactions. This directory preserves a concrete inference
 fixture, exact verification scripts, and the limits of the engine comparison.
-It is research code under the repository's MIT license, not an installed solver
-technique. No historical mathematical novelty is established.
+Research artifacts use the repository's MIT license. The verified matching
+inferences are now integrated as Three-House Matching in the production engine,
+with independently checked Hall certificates and exact-state replay. See the
+[production theorem and API](../../docs/three-house-matching.md).
+No historical mathematical novelty is established.
+
+The follow-up [finite classification](three_house_classification.md) separates
+26 pair-reducible and seven three-house-irreducible eliminations in the retained
+33-target synthetic sample. All 33 admit ordinary Hall/GAC refutation after one
+assumption; fixture 847 also has standard seven-cell ALS-XZ and eleven-source
+linear counting proofs. These findings reject a new-solving-principle claim.
+
+The [real-game experiment](real_game_notes.md) independently verified 106 unique
+published puzzles. Eight exact stalled states contain 15 distinct additional
+eliminations beyond the tested structural baseline and default arithmetic search.
+All 25 recorded center/candidate certificates verify in production. This is
+useful bounded engine coverage, not a separation from all known methods.
 
 ## Findings and priorities
 
@@ -91,7 +106,8 @@ In particular, this does not prove a separation from all known ALS, MSLS,
 The public `get_hint()` rebuilds candidates, so it is unsuitable for comparing
 this stored-mask fixture. The comparison script copies the source into a
 temporary directory and adds a private test probe there. It leaves the checkout
-unchanged and reports if a future engine version closes the gap.
+unchanged. It preserves the original 34-detector comparison and additionally
+checks that the integrated three-house detector closes the stored-state gap.
 
 The bounded discovery experiment used seed 83920 and 1,000 completion-preserving
 random states, inspecting 1,080 row/column/box clusters. It found 33 eliminations
@@ -128,7 +144,9 @@ For a cell's row, column, and box, the six atoms have sizes 1,2,2,6,6,4.
 The boundary can be represented by a center digit and two disjoint two-digit
 sets, giving at most `9 * C(8,2) * C(6,2) = 3,780` signatures. Failed matchings
 can be certified by explicit Hall deficiencies. This is the proposed bounded
-proof-search mechanism; a production checker is not included here.
+proof-search mechanism now implemented in `src/solver/three_house.rs`; its
+checker uses Hall cardinality and exhaustive signature coverage without invoking
+the search matching DP.
 
 ## Nonlinear and geometric baselines
 
@@ -165,6 +183,9 @@ Python 3 and its standard library are sufficient for the mathematical checks:
 python3 research/nonmodular/verify_three_house.py
 python3 research/nonmodular/verify_quadratic_baseline.py
 python3 research/nonmodular/verify_graph_exclusions.py
+python3 research/nonmodular/audit_three_house_independent.py
+python3 research/nonmodular/three_house_classification.py --no-canonical --permutation-check
+python3 research/nonmodular/real_game_verify.py
 ```
 
 The comparison additionally requires Cargo and the engine's locked dependencies:
@@ -174,8 +195,9 @@ python3 research/nonmodular/compare_engine.py
 ```
 
 Do not use Python's `-O` flag; the checkers reject it because they use assertions.
-The artifacts are not a formal verification of a production implementation.
-The three mathematical scripts run in the dedicated research CI workflow.
+The research models are not a formal verification of the production implementation.
+Verus separately checks the abstract Hall/coverage core. The dedicated research
+CI also runs the independent audit, finite classifier and real-game trace checks.
 The comparison remains manual: a future detector closing the gap should be
 reported, not treated as an engine correctness regression.
 
@@ -200,9 +222,9 @@ reported, not treated as an engine correctness regression.
 - [Berthier's author-maintained examples](https://github.com/denis-berthier/CSP-Rules-Examples)
   include automated tridagon proofs and hard puzzle collections for comparison.
 
-The next task is to minimize the three-house fixture, compare it against those
-broader methods, and mine a recurring family with a short general proof. A second
-track can seek exact quadratic/quartic certificates on mixed-list or four-digit
-supports. Publish precise degree/support/rule budgets and negative searches.
-Only a surviving, independently reviewed family should be described as a
-potential mathematical discovery.
+Minimization and broader comparison now explain the original three-house gap
+using established ALS-XZ, counting and failed-literal methods. Future work can
+seek exact quadratic/quartic certificates on mixed-list or four-digit supports
+and test additional overlap geometries. Publish precise degree/support/rule
+budgets and negative searches. Only a surviving, independently reviewed family
+should be described as a potential mathematical discovery.

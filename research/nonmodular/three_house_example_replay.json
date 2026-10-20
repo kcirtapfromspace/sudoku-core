@@ -1,0 +1,539 @@
+{
+  "version": 1,
+  "state": {
+    "version": 1,
+    "values": [
+      0,
+      0,
+      8,
+      4,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      9,
+      0,
+      0,
+      0,
+      0,
+      1,
+      5,
+      7,
+      4,
+      7,
+      9,
+      0,
+      0,
+      0,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      7,
+      0,
+      0,
+      5,
+      1,
+      4,
+      0,
+      9,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      9,
+      0,
+      6,
+      0,
+      0,
+      0,
+      2,
+      6,
+      5,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      9,
+      0,
+      0,
+      5,
+      6
+    ],
+    "domains": [
+      18,
+      99,
+      128,
+      8,
+      82,
+      290,
+      291,
+      4,
+      257,
+      26,
+      99,
+      73,
+      4,
+      82,
+      306,
+      419,
+      417,
+      385,
+      256,
+      38,
+      6,
+      162,
+      130,
+      1,
+      16,
+      64,
+      8,
+      64,
+      256,
+      50,
+      51,
+      27,
+      128,
+      37,
+      41,
+      5,
+      134,
+      134,
+      38,
+      35,
+      15,
+      64,
+      289,
+      297,
+      16,
+      1,
+      8,
+      52,
+      256,
+      20,
+      52,
+      192,
+      2,
+      192,
+      140,
+      197,
+      256,
+      209,
+      32,
+      28,
+      197,
+      129,
+      2,
+      32,
+      16,
+      65,
+      195,
+      135,
+      6,
+      8,
+      385,
+      453,
+      142,
+      199,
+      73,
+      193,
+      256,
+      12,
+      197,
+      16,
+      32
+    ]
+  },
+  "proof": {
+    "version": 1,
+    "state_hash": "21c31875fc360a4c017b73ccfb889ed070bf0d91a796a13a70da37e00b0d5ac3",
+    "center": 72,
+    "cell": 73,
+    "digit": 3,
+    "witness": [
+      5,
+      4,
+      9,
+      7,
+      8,
+      1,
+      3,
+      8,
+      9,
+      6,
+      5,
+      7,
+      2,
+      1,
+      4,
+      7,
+      9,
+      3,
+      8,
+      5,
+      6
+    ],
+    "blockers": [
+      {
+        "atom": 2,
+        "digits": 24,
+        "cells": 2
+      },
+      {
+        "atom": 4,
+        "digits": 469,
+        "cells": 3
+      },
+      {
+        "atom": 2,
+        "digits": 48,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 72,
+        "cells": 2
+      },
+      {
+        "atom": 2,
+        "digits": 80,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 96,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 136,
+        "cells": 2
+      },
+      {
+        "atom": 2,
+        "digits": 144,
+        "cells": 2
+      },
+      {
+        "atom": 5,
+        "digits": 344,
+        "cells": 9
+      },
+      {
+        "atom": 2,
+        "digits": 192,
+        "cells": 2
+      },
+      {
+        "atom": 2,
+        "digits": 264,
+        "cells": 2
+      },
+      {
+        "atom": 2,
+        "digits": 272,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 288,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 320,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 384,
+        "cells": 2
+      },
+      {
+        "atom": 1,
+        "digits": 9,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 17,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 33,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 65,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 129,
+        "cells": 2
+      },
+      {
+        "atom": 3,
+        "digits": 497,
+        "cells": 4
+      },
+      {
+        "atom": 2,
+        "digits": 257,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 17,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 20,
+        "cells": 2
+      },
+      {
+        "atom": 1,
+        "digits": 24,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 33,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 36,
+        "cells": 2
+      },
+      {
+        "atom": 1,
+        "digits": 40,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 48,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 65,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 9,
+        "cells": 2
+      },
+      {
+        "atom": 5,
+        "digits": 281,
+        "cells": 9
+      },
+      {
+        "atom": 1,
+        "digits": 72,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 80,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 96,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 129,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 132,
+        "cells": 2
+      },
+      {
+        "atom": 1,
+        "digits": 136,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 144,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 160,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 192,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 257,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 260,
+        "cells": 2
+      },
+      {
+        "atom": 1,
+        "digits": 264,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 272,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 288,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 320,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 384,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 3,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 10,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 18,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 34,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 66,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 130,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 258,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 18,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 34,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 66,
+        "cells": 1
+      },
+      {
+        "atom": 2,
+        "digits": 130,
+        "cells": 2
+      },
+      {
+        "atom": 3,
+        "digits": 498,
+        "cells": 4
+      },
+      {
+        "atom": 2,
+        "digits": 258,
+        "cells": 1
+      },
+      {
+        "atom": 1,
+        "digits": 6,
+        "cells": 2
+      },
+      {
+        "atom": 2,
+        "digits": 3,
+        "cells": 1
+      },
+      {
+        "atom": 3,
+        "digits": 435,
+        "cells": 4
+      },
+      {
+        "atom": 2,
+        "digits": 10,
+        "cells": 2
+      },
+      {
+        "atom": 3,
+        "digits": 378,
+        "cells": 9
+      },
+      {
+        "atom": 3,
+        "digits": 315,
+        "cells": 9
+      }
+    ]
+  }
+}

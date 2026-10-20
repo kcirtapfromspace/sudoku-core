@@ -16,6 +16,8 @@ with tempfile.TemporaryDirectory(prefix="sudoku-nonmodular-") as folder:
     for name in ["Cargo.toml", "Cargo.lock"]:
         shutil.copy2(repository / name, temporary / name)
     shutil.copytree(repository / "src", temporary / "src")
+    # Production unit tests include committed research fixtures at compile time.
+    shutil.copytree(here, temporary / "research/nonmodular", ignore=shutil.ignore_patterns("__pycache__"))
     module = temporary / "src/solver/mod.rs"
     path_literal = json.dumps(str(here / "probe_existing_engine.rs"))
     with module.open("a") as output:

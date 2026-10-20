@@ -1,0 +1,850 @@
+[
+  {
+    "id": "norvig-top95-001",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 1,
+    "puzzle": "4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-002",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 2,
+    "puzzle": "52...6.........7.13...........4..8..6......5...........418.........3..2...87.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-003",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 3,
+    "puzzle": "6.....8.3.4.7.................5.4.7.3..2.....1.6.......2.....5.....8.6......1....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-004",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 4,
+    "puzzle": "48.3............71.2.......7.5....6....2..8.............1.76...3.....4......5....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-005",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 5,
+    "puzzle": "....14....3....2...7..........9...3.6.1.............8.2.....1.4....5.6.....7.8...",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-006",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 6,
+    "puzzle": "......52..8.4......3...9...5.1...6..2..7........3.....6...1..........7.4.......3.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-007",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 7,
+    "puzzle": "6.2.5.........3.4..........43...8....1....2........7..5..27...........81...6.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-008",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 8,
+    "puzzle": ".524.........7.1..............8.2...3.....6...9.5.....1.6.3...........897........",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-009",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 9,
+    "puzzle": "6.2.5.........4.3..........43...8....1....2........7..5..27...........81...6.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-010",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 10,
+    "puzzle": ".923.........8.1...........1.7.4...........658.........6.5.2...4.....7.....9.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-011",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 11,
+    "puzzle": "6..3.2....5.....1..........7.26............543.........8.15........4.2........7..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-012",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 12,
+    "puzzle": ".6.5.1.9.1...9..539....7....4.8...7.......5.8.817.5.3.....5.2............76..8...",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-013",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 13,
+    "puzzle": "..5...987.4..5...1..7......2...48....9.1.....6..2.....3..6..2.......9.7.......5..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-014",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 14,
+    "puzzle": "3.6.7...........518.........1.4.5...7.....6.....2......2.....4.....8.3.....5.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-015",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 15,
+    "puzzle": "1.....3.8.7.4..............2.3.1...........958.........5.6...7.....8.2...4.......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-016",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 16,
+    "puzzle": "6..3.2....4.....1..........7.26............543.........8.15........4.2........7..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-017",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 17,
+    "puzzle": "....3..9....2....1.5.9..............1.2.8.4.6.8.5...2..75......4.1..6..3.....4.6.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-018",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 18,
+    "puzzle": "45.....3....8.1....9...........5..9.2..7.....8.........1..4..........7.2...6..8..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-019",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 19,
+    "puzzle": ".237....68...6.59.9.....7......4.97.3.7.96..2.........5..47.........2....8.......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-020",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 20,
+    "puzzle": "..84...3....3.....9....157479...8........7..514.....2...9.6...2.5....4......9..56",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-021",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 21,
+    "puzzle": ".98.1....2......6.............3.2.5..84.........6.........4.8.93..5...........1..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-022",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 22,
+    "puzzle": "..247..58..............1.4.....2...9528.9.4....9...1.........3.3....75..685..2...",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-023",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 23,
+    "puzzle": "4.....8.5.3..........7......2.....6.....5.4......1.......6.3.7.5..2.....1.9......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-024",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 24,
+    "puzzle": ".2.3......63.....58.......15....9.3....7........1....8.879..26......6.7...6..7..4",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-025",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 25,
+    "puzzle": "1.....7.9.4...72..8.........7..1..6.3.......5.6..4..2.........8..53...7.7.2....46",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-026",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 26,
+    "puzzle": "4.....3.....8.2......7........1...8734.......6........5...6........1.4...82......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-027",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 27,
+    "puzzle": ".......71.2.8........4.3...7...6..5....2..3..9........6...7.....8....4......5....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-028",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 28,
+    "puzzle": "6..3.2....4.....8..........7.26............543.........8.15........8.2........7..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-029",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 29,
+    "puzzle": ".47.8...1............6..7..6....357......5....1..6....28..4.....9.1...4.....2.69.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-030",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 30,
+    "puzzle": "......8.17..2........5.6......7...5..1....3...8.......5......2..4..8....6...3....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-031",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 31,
+    "puzzle": "38.6.......9.......2..3.51......5....3..1..6....4......17.5..8.......9.......7.32",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-032",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 32,
+    "puzzle": "...5...........5.697.....2...48.2...25.1...3..8..3.........4.7..13.5..9..2...31..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-033",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 33,
+    "puzzle": ".2.......3.5.62..9.68...3...5..........64.8.2..47..9....3.....1.....6...17.43....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-034",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 34,
+    "puzzle": ".8..4....3......1........2...5...4.69..1..8..2...........3.9....6....5.....2.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-035",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 35,
+    "puzzle": "..8.9.1...6.5...2......6....3.1.7.5.........9..4...3...5....2...7...3.8.2..7....4",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-036",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 36,
+    "puzzle": "4.....5.8.3..........7......2.....6.....5.8......1.......6.3.7.5..2.....1.8......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-037",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 37,
+    "puzzle": "1.....3.8.6.4..............2.3.1...........958.........5.6...7.....8.2...4.......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-038",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 38,
+    "puzzle": "1....6.8..64..........4...7....9.6...7.4..5..5...7.1...5....32.3....8...4........",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-039",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 39,
+    "puzzle": "249.6...3.3....2..8.......5.....6......2......1..4.82..9.5..7....4.....1.7...3...",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-040",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 40,
+    "puzzle": "...8....9.873...4.6..7.......85..97...........43..75.......3....3...145.4....2..1",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-041",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 41,
+    "puzzle": "...5.1....9....8...6.......4.1..........7..9........3.8.....1.5...2..4.....36....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-042",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 42,
+    "puzzle": "......8.16..2........7.5......6...2..1....3...8.......2......7..3..8....5...4....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-043",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 43,
+    "puzzle": ".476...5.8.3.....2.....9......8.5..6...1.....6.24......78...51...6....4..9...4..7",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-044",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 44,
+    "puzzle": ".....7.95.....1...86..2.....2..73..85......6...3..49..3.5...41724................",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-045",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 45,
+    "puzzle": ".4.5.....8...9..3..76.2.....146..........9..7.....36....1..4.5..6......3..71..2..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-046",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 46,
+    "puzzle": ".834.........7..5...........4.1.8..........27...3.....2.6.5....5.....8........1..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-047",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 47,
+    "puzzle": "..9.....3.....9...7.....5.6..65..4.....3......28......3..75.6..6...........12.3.8",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-048",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 48,
+    "puzzle": ".26.39......6....19.....7.......4..9.5....2....85.....3..2..9..4....762.........4",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-049",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 49,
+    "puzzle": "2.3.8....8..7...........1...6.5.7...4......3....1............82.5....6...1.......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-050",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 50,
+    "puzzle": "6..3.2....1.....5..........7.26............843.........8.15........8.2........7..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-051",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 51,
+    "puzzle": "1.....9...64..1.7..7..4.......3.....3.89..5....7....2.....6.7.9.....4.1....129.3.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-052",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 52,
+    "puzzle": ".........9......84.623...5....6...453...1...6...9...7....1.....4.5..2....3.8....9",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-053",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 53,
+    "puzzle": ".2....5938..5..46.94..6...8..2.3.....6..8.73.7..2.........4.38..7....6..........5",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-054",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 54,
+    "puzzle": "9.4..5...25.6..1..31......8.7...9...4..26......147....7.......2...3..8.6.4.....9.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-055",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 55,
+    "puzzle": "...52.....9...3..4......7...1.....4..8..453..6...1...87.2........8....32.4..8..1.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-056",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 56,
+    "puzzle": "53..2.9...24.3..5...9..........1.827...7.........981.............64....91.2.5.43.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-057",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 57,
+    "puzzle": "1....786...7..8.1.8..2....9........24...1......9..5...6.8..........5.9.......93.4",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-058",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 58,
+    "puzzle": "....5...11......7..6.....8......4.....9.1.3.....596.2..8..62..7..7......3.5.7.2..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-059",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 59,
+    "puzzle": ".47.2....8....1....3....9.2.....5...6..81..5.....4.....7....3.4...9...1.4..27.8..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-060",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 60,
+    "puzzle": "......94.....9...53....5.7..8.4..1..463...........7.8.8..7.....7......28.5.26....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-061",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 61,
+    "puzzle": ".2......6....41.....78....1......7....37.....6..412....1..74..5..8.5..7......39..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-062",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 62,
+    "puzzle": "1.....3.8.6.4..............2.3.1...........758.........7.5...6.....8.2...4.......",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-063",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 63,
+    "puzzle": "2....1.9..1..3.7..9..8...2.......85..6.4.........7...3.2.3...6....5.....1.9...2.5",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-064",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 64,
+    "puzzle": "..7..8.....6.2.3...3......9.1..5..6.....1.....7.9....2........4.83..4...26....51.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-065",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 65,
+    "puzzle": "...36....85.......9.4..8........68.........17..9..45...1.5...6.4....9..2.....3...",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-066",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 66,
+    "puzzle": "34.6.......7.......2..8.57......5....7..1..2....4......36.2..1.......9.......7.82",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-067",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 67,
+    "puzzle": "......4.18..2........6.7......8...6..4....3...1.......6......2..5..1....7...3....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-068",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 68,
+    "puzzle": ".4..5..67...1...4....2.....1..8..3........2...6...........4..5.3.....8..2........",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-069",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 69,
+    "puzzle": ".......4...2..4..1.7..5..9...3..7....4..6....6..1..8...2....1..85.9...6.....8...3",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-070",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 70,
+    "puzzle": "8..7....4.5....6............3.97...8....43..5....2.9....6......2...6...7.71..83.2",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-071",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 71,
+    "puzzle": ".8...4.5....7..3............1..85...6.....2......4....3.26............417........",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-072",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 72,
+    "puzzle": "....7..8...6...5...2...3.61.1...7..2..8..534.2..9.......2......58...6.3.4...1....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-073",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 73,
+    "puzzle": "......8.16..2........7.5......6...2..1....3...8.......2......7..4..8....5...3....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-074",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 74,
+    "puzzle": ".2..........6....3.74.8.........3..2.8..4..1.6..5.........1.78.5....9..........4.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-075",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 75,
+    "puzzle": ".52..68.......7.2.......6....48..9..2..41......1.....8..61..38.....9...63..6..1.9",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-076",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 76,
+    "puzzle": "....1.78.5....9..........4..2..........6....3.74.8.........3..2.8..4..1.6..5.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-077",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 77,
+    "puzzle": "1.......3.6.3..7...7...5..121.7...9...7........8.1..2....8.64....9.2..6....4.....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-078",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 78,
+    "puzzle": "4...7.1....19.46.5.....1......7....2..2.3....847..6....14...8.6.2....3..6...9....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-079",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 79,
+    "puzzle": "......8.17..2........5.6......7...5..1....3...8.......5......2..3..8....6...4....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-080",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 80,
+    "puzzle": "963......1....8......2.5....4.8......1....7......3..257......3...9.2.4.7......9..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-081",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 81,
+    "puzzle": "15.3......7..4.2....4.72.....8.........9..1.8.1..8.79......38...........6....7423",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-082",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 82,
+    "puzzle": "..........5724...98....947...9..3...5..9..12...3.1.9...6....25....56.....7......6",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-083",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 83,
+    "puzzle": "....75....1..2.....4...3...5.....3.2...8...1.......6.....1..48.2........7........",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-084",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 84,
+    "puzzle": "6.....7.3.4.8.................5.4.8.7..2.....1.3.......2.....5.....7.9......1....",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-085",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 85,
+    "puzzle": "....6...4..6.3....1..4..5.77.....8.5...8.....6.8....9...2.9....4....32....97..1..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-086",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 86,
+    "puzzle": ".32.....58..3.....9.428...1...4...39...6...5.....1.....2...67.8.....4....95....6.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-087",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 87,
+    "puzzle": "...5.3.......6.7..5.8....1636..2.......4.1.......3...567....2.8..4.7.......2..5..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-088",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 88,
+    "puzzle": ".5.3.7.4.1.........3.......5.8.3.61....8..5.9.6..1........4...6...6927....2...9..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-089",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 89,
+    "puzzle": "..5..8..18......9.......78....4.....64....9......53..2.6.........138..5....9.714.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-090",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 90,
+    "puzzle": "..........72.6.1....51...82.8...13..4.........37.9..1.....238..5.4..9.........79.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-091",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 91,
+    "puzzle": "...658.....4......12............96.7...3..5....2.8...3..19..8..3.6.....4....473..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-092",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 92,
+    "puzzle": ".2.3.......6..8.9.83.5........2...8.7.9..5........6..4.......1...1...4.22..7..8.9",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-093",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 93,
+    "puzzle": ".5..9....1.....6.....3.8.....8.4...9514.......3....2..........4.8...6..77..15..6.",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-094",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 94,
+    "puzzle": ".....2.......7...17..3...9.8..7......2.89.6...13..6....9..5.824.....891..........",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-top95-095",
+    "source_url": "https://www.norvig.com/top95.txt",
+    "source_index_1based": 95,
+    "puzzle": "3...8.......7....51..............36...2..4....7...........6.13..452...........8..",
+    "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-001",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 1,
+    "puzzle": "85...24..72......9..4.........1.7..23.5...9...4...........8..7..17..........36.4.",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-002",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 2,
+    "puzzle": "..53.....8......2..7..1.5..4....53...1..7...6..32...8..6.5....9..4....3......97..",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-003",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 3,
+    "puzzle": "12..4......5.69.1...9...5.........7.7...52.9..3......2.9.6...5.4..9..8.1..3...9.4",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-004",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 4,
+    "puzzle": "...57..3.1......2.7...234......8...4..7..4...49....6.5.42...3.....7..9....18.....",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-005",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 5,
+    "puzzle": "7..1523........92....3.....1....47.8.......6............9...5.6.4.9.7...8....6.1.",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-006",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 6,
+    "puzzle": "1....7.9..3..2...8..96..5....53..9...1..8...26....4...3......1..4......7..7...3..",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-007",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 7,
+    "puzzle": "1...34.8....8..5....4.6..21.18......3..1.2..6......81.52..7.9....6..9....9.64...2",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-008",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 8,
+    "puzzle": "...92......68.3...19..7...623..4.1....1...7....8.3..297...8..91...5.72......64...",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-009",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 9,
+    "puzzle": ".6.5.4.3.1...9...8.........9...5...6.4.6.2.7.7...4...5.........4...8...1.5.2.3.4.",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-010",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 10,
+    "puzzle": "7.....4...2..7..8...3..8.799..5..3...6..2..9...1.97..6...3..9...3..4..6...9..1.35",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  },
+  {
+    "id": "norvig-hardest-011",
+    "source_url": "https://www.norvig.com/hardest.txt",
+    "source_index_1based": 11,
+    "puzzle": "....7..2.8.......6.1.2.5...9.54....8.........3....85.1...3.2.8.4.......9.7..6....",
+    "source_sha256": "398e1e5df4f50723078e3b510e00ea7eb9e104c521a9a186b4c20cd066c0459f",
+    "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+  }
+]

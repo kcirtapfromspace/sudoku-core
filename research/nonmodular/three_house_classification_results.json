@@ -1,0 +1,1052 @@
+{
+  "canonical_irreducible_classes": 7,
+  "cases": [
+    {
+      "category": "pair_reducible",
+      "cell": 9,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 6,
+      "known_als_xz": {
+        "elimination_digit": 6,
+        "first": [
+          0,
+          27,
+          45,
+          54,
+          63,
+          72
+        ],
+        "maximum_als_size": 6,
+        "rcc_digit": 5,
+        "second": [
+          1,
+          10,
+          20
+        ],
+        "total_cells": 9
+      },
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 72
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 54,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 7,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 91
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 11,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "RB"
+      ],
+      "single_refutations": [],
+      "trial": 160
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 9,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 2,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "RB"
+      ],
+      "single_refutations": [],
+      "trial": 175
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 19,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 4,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 415
+    },
+    {
+      "canonical_fingerprint": "a28fcbef56453bdb15ec796a382a27e10118061a862e6588191ae7a769cc097f",
+      "category": "three_house_irreducible",
+      "cell": 27,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 4,
+      "known_als_xz": null,
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 416
+    },
+    {
+      "canonical_fingerprint": "b2627ddde2435cd20e41a5a49114d03b74e626696b076093a152d38ad8f5fd70",
+      "category": "three_house_irreducible",
+      "cell": 72,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 4,
+      "known_als_xz": null,
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 416
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 18,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 2,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "RB"
+      ],
+      "single_refutations": [],
+      "trial": 440
+    },
+    {
+      "canonical_fingerprint": "d6e18942049a401cfc8c4281efd15f294911e1492c8a723f91eb6f82e3197c35",
+      "category": "three_house_irreducible",
+      "cell": 4,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 1,
+      "known_als_xz": null,
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 442
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 11,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 1,
+      "known_als_xz": {
+        "elimination_digit": 1,
+        "first": [
+          0,
+          9,
+          18,
+          27,
+          45,
+          54,
+          63,
+          72
+        ],
+        "maximum_als_size": 8,
+        "rcc_digit": 5,
+        "second": [
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "total_cells": 15
+      },
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 442
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 72,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 4,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 486
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 9,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 9,
+      "known_als_xz": {
+        "elimination_digit": 9,
+        "first": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "maximum_als_size": 8,
+        "rcc_digit": 1,
+        "second": [
+          18,
+          27,
+          36,
+          45,
+          54,
+          63,
+          72
+        ],
+        "total_cells": 15
+      },
+      "pair_refutations": [
+        "RB"
+      ],
+      "single_refutations": [],
+      "trial": 509
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 27,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 8,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 510
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 11,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 4,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 511
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 11,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 4,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 524
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 18,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 4,
+      "known_als_xz": {
+        "elimination_digit": 4,
+        "first": [
+          0,
+          9,
+          27,
+          36,
+          45,
+          54,
+          63,
+          72
+        ],
+        "maximum_als_size": 8,
+        "rcc_digit": 7,
+        "second": [
+          1,
+          2,
+          5,
+          6,
+          7,
+          8
+        ],
+        "total_cells": 14
+      },
+      "pair_refutations": [
+        "RB"
+      ],
+      "single_refutations": [],
+      "trial": 678
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 0,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 7,
+      "known_als_xz": {
+        "elimination_digit": 7,
+        "first": [
+          1,
+          10,
+          11,
+          18,
+          20
+        ],
+        "maximum_als_size": 5,
+        "rcc_digit": 3,
+        "second": [
+          54
+        ],
+        "total_cells": 6
+      },
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 712
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 36,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 2,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 762
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 72,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 2,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 762
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 0,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": {
+        "elimination_digit": 3,
+        "first": [
+          1,
+          2
+        ],
+        "maximum_als_size": 6,
+        "rcc_digit": 2,
+        "second": [
+          9,
+          18,
+          36,
+          45,
+          54,
+          72
+        ],
+        "total_cells": 8
+      },
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 9,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "canonical_fingerprint": "38825912d783684bc5fcb488435f79e6d4f2f87ec54db8f6b3703d42f83699ca",
+      "category": "three_house_irreducible",
+      "cell": 3,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 1,
+      "known_als_xz": {
+        "elimination_digit": 1,
+        "first": [
+          0,
+          9,
+          18,
+          36,
+          45,
+          54,
+          72
+        ],
+        "maximum_als_size": 7,
+        "rcc_digit": 2,
+        "second": [
+          1,
+          2
+        ],
+        "total_cells": 9
+      },
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "canonical_fingerprint": "f8870e3f1893f026b1830a9b2794af0f86e82c7d0aa4711238c16410603c0085",
+      "category": "three_house_irreducible",
+      "cell": 3,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "canonical_fingerprint": "a326297a6e1cb6113bb30feea9ae1b97bd2d744acaae5433482d8f11670e9594",
+      "category": "three_house_irreducible",
+      "cell": 5,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "canonical_fingerprint": "13350d235ba03d58492999fc40ea2f23801fd69ace87441c77d25227181e4c4e",
+      "category": "three_house_irreducible",
+      "cell": 8,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 27,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 27,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 5,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 63,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 63,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 9,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 11,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 1,
+      "known_als_xz": {
+        "elimination_digit": 1,
+        "first": [
+          0,
+          9,
+          18,
+          36,
+          45,
+          54,
+          72
+        ],
+        "maximum_als_size": 7,
+        "rcc_digit": 2,
+        "second": [
+          1,
+          2
+        ],
+        "total_cells": 9
+      },
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 11,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 20,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 2,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 2,
+      "digit": 3,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "CB"
+      ],
+      "single_refutations": [],
+      "trial": 847
+    },
+    {
+      "category": "pair_reducible",
+      "cell": 7,
+      "conditional_hall_locked_refutes": true,
+      "conditional_hall_locked_rounds": 1,
+      "conditional_hall_refutes": true,
+      "conditional_hall_rounds": 1,
+      "digit": 1,
+      "known_als_xz": null,
+      "pair_refutations": [
+        "RB"
+      ],
+      "single_refutations": [],
+      "trial": 998
+    }
+  ],
+  "categories": {
+    "pair_reducible": 26,
+    "three_house_irreducible": 7
+  },
+  "conditional_hall_locked_refutable": 33,
+  "conditional_hall_refutable": 33,
+  "eliminations": 33,
+  "fixture_847_certificate_statistics": {
+    "covered_signatures": 3780,
+    "distinct_hall_witnesses": 12,
+    "first_failing_atom_counts": {
+      "0": 1680,
+      "1": 1965,
+      "2": 108,
+      "3": 25,
+      "4": 2
+    }
+  },
+  "fixture_847_compact_subset_cover": {
+    "greedy_blockers": [
+      {
+        "atom": 1,
+        "cells": 3,
+        "neighbor_union": 7,
+        "newly_covered": 1965
+      },
+      {
+        "atom": 3,
+        "cells": 1,
+        "neighbor_union": 1,
+        "newly_covered": 105
+      },
+      {
+        "atom": 2,
+        "cells": 1,
+        "neighbor_union": 14,
+        "newly_covered": 25
+      },
+      {
+        "atom": 2,
+        "cells": 3,
+        "neighbor_union": 462,
+        "newly_covered": 3
+      },
+      {
+        "atom": 4,
+        "cells": 46,
+        "neighbor_union": 476,
+        "newly_covered": 2
+      }
+    ],
+    "minimum_cardinality_established": false,
+    "potential_nonempty_subsets": 147,
+    "signatures": 2100
+  },
+  "fixture_847_known_als_xz": {
+    "elimination_digit": 1,
+    "first": [
+      0,
+      9,
+      18,
+      36,
+      45,
+      54,
+      72
+    ],
+    "maximum_als_size": 7,
+    "rcc_digit": 2,
+    "second": [
+      1,
+      2
+    ],
+    "total_cells": 9
+  },
+  "fixture_847_minimized": [
+    {
+      "checks": 67,
+      "classification": {
+        "category": "three_house_irreducible",
+        "conditional_hall_locked_refutes": true,
+        "conditional_hall_locked_rounds": 2,
+        "conditional_hall_refutes": true,
+        "conditional_hall_rounds": 2,
+        "pair_refutations": [],
+        "single_refutations": []
+      },
+      "domains": [
+        479,
+        7,
+        7,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        478,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        478,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511
+      ],
+      "excluded_candidates": 29,
+      "order": "ascending",
+      "restricted_cells": 9
+    },
+    {
+      "checks": 67,
+      "classification": {
+        "category": "three_house_irreducible",
+        "conditional_hall_locked_refutes": true,
+        "conditional_hall_locked_rounds": 2,
+        "conditional_hall_refutes": true,
+        "conditional_hall_rounds": 2,
+        "pair_refutations": [],
+        "single_refutations": []
+      },
+      "domains": [
+        479,
+        7,
+        7,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        478,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        478,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        476,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511,
+        511
+      ],
+      "excluded_candidates": 29,
+      "order": "descending",
+      "restricted_cells": 9
+    }
+  ],
+  "independent_permutation_checks": [
+    {
+      "cell": 27,
+      "column_box": 9,
+      "digit": 4,
+      "individual_assignments": [
+        36,
+        6,
+        204
+      ],
+      "row_box": 174,
+      "row_column_digits": [
+        1
+      ],
+      "trial": 416,
+      "triple_join": 0
+    },
+    {
+      "cell": 72,
+      "column_box": 9,
+      "digit": 4,
+      "individual_assignments": [
+        36,
+        6,
+        204
+      ],
+      "row_box": 174,
+      "row_column_digits": [
+        1
+      ],
+      "trial": 416,
+      "triple_join": 0
+    },
+    {
+      "cell": 4,
+      "column_box": 68,
+      "digit": 1,
+      "individual_assignments": [
+        44,
+        168,
+        156
+      ],
+      "row_box": 23,
+      "row_column_digits": [
+        2,
+        3,
+        8,
+        9
+      ],
+      "trial": 442,
+      "triple_join": 0
+    },
+    {
+      "cell": 3,
+      "column_box": 92,
+      "digit": 1,
+      "individual_assignments": [
+        28,
+        300,
+        180
+      ],
+      "row_box": 10,
+      "row_column_digits": [
+        4,
+        8
+      ],
+      "trial": 847,
+      "triple_join": 0
+    },
+    {
+      "cell": 3,
+      "column_box": 92,
+      "digit": 3,
+      "individual_assignments": [
+        28,
+        300,
+        180
+      ],
+      "row_box": 54,
+      "row_column_digits": [
+        4,
+        8
+      ],
+      "trial": 847,
+      "triple_join": 0
+    },
+    {
+      "cell": 5,
+      "column_box": 92,
+      "digit": 3,
+      "individual_assignments": [
+        16,
+        300,
+        180
+      ],
+      "row_box": 54,
+      "row_column_digits": [
+        4,
+        8
+      ],
+      "trial": 847,
+      "triple_join": 0
+    },
+    {
+      "cell": 8,
+      "column_box": 92,
+      "digit": 3,
+      "individual_assignments": [
+        18,
+        300,
+        180
+      ],
+      "row_box": 54,
+      "row_column_digits": [
+        4,
+        8
+      ],
+      "trial": 847,
+      "triple_join": 0
+    }
+  ],
+  "known_als_xz_explanations": 8,
+  "known_als_xz_minimum_maximum_sizes": {
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 3
+  },
+  "schema_version": 1,
+  "states": 18
+}

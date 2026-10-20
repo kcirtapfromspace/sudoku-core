@@ -66,6 +66,13 @@ fn compare_stored_candidate_fixture() {
         result.hint.is_none(),
         "Arithmetic baseline now finds a step"
     );
+    let added = Solver::new().get_three_house_hint(&grid).expect("integrated detector closes the gap");
+    let proof = match added.proof.as_ref().unwrap() {
+        ProofCertificate::ThreeHouse(proof) => proof,
+        other => panic!("unexpected proof: {other:?}"),
+    };
+    assert!(proof.verify(&grid));
+    println!("Integrated Three-House Matching verifies: cell {} != {}", proof.cell, proof.digit);
     assert_eq!(serde_json::to_value(&grid).unwrap(), before);
     println!("No finding from {checked} tested non-forcing, uniqueness-independent detectors.");
     println!(

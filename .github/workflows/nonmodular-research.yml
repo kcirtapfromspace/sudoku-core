@@ -5,11 +5,17 @@ on:
     branches: [main]
     paths:
       - 'research/nonmodular/**'
+      - 'src/solver/three_house*'
+      - 'src/solver/candidate_state.rs'
+      - 'verification/three_house.rs'
       - '.github/workflows/nonmodular-research.yml'
   pull_request:
     branches: [main]
     paths:
       - 'research/nonmodular/**'
+      - 'src/solver/three_house*'
+      - 'src/solver/candidate_state.rs'
+      - 'verification/three_house.rs'
       - '.github/workflows/nonmodular-research.yml'
   workflow_dispatch:
 
@@ -32,3 +38,6 @@ jobs:
           python3 research/nonmodular/verify_three_house.py
           python3 research/nonmodular/verify_quadratic_baseline.py
           python3 research/nonmodular/verify_graph_exclusions.py
+          python3 research/nonmodular/audit_three_house_independent.py
+          python3 research/nonmodular/three_house_classification.py --no-canonical --permutation-check
+          python3 research/nonmodular/real_game_verify.py

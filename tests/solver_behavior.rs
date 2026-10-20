@@ -377,6 +377,7 @@ fn technique_names_ratings_and_families_remain_compatible() {
         (AlignedTripletExclusion, "Aligned Triplet Exclusion", 7.5),
         (DeathBlossom, "Death Blossom", 8.5),
         (ArithmeticCounting, "Arithmetic Counting", 8.5),
+        (ThreeHouseMatching, "Three-House Matching", 8.5),
         (NishioForcingChain, "Nishio Forcing Chain", 7.5),
         (KrakenFish, "Kraken Fish", 8.0),
         (RegionForcingChain, "Region Forcing Chain", 8.5),

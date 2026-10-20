@@ -29,6 +29,7 @@ pub use puzzle_id::PuzzleId;
 pub use solver::{
     AlsProofDescriptor, ArithmeticCheck, ArithmeticProof, ArithmeticReplay, ArithmeticRequirement,
     ArithmeticSearchOptions, ArithmeticSearchResult, ArithmeticState, ArithmeticTerm,
-    ArithmeticTerminal, Difficulty, ForcingSource, Hint, HintType, LinkType, Polarity,
-    ProofCertificate, Solver, Technique,
+    ArithmeticTerminal, CandidateState, Difficulty, ForcingSource, HallObstruction, Hint, HintType,
+    LinkType, Polarity, ProofCertificate, Solver, Technique, ThreeHouseCheck, ThreeHouseProof,
+    ThreeHouseReplay, ThreeHouseSearchOptions, ThreeHouseSearchResult,
 };

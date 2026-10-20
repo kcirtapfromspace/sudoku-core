@@ -16,7 +16,7 @@ every production implementation; callers such as Ukodus have separate coverage.
 
 Foundations includes grid, cells, bitsets, positions, constraints, hashing, puzzle
 IDs, candidate fabric, technique types and proof explanations. Advanced engines
-are AIC, ALS, Arithmetic Counting, fish and uniqueness. `scripts/coverage.py`
+are AIC, ALS, Arithmetic Counting, Three-House Matching, fish and uniqueness. `scripts/coverage.py`
 lists the exact files for each group. Any new production source remains part of
 the crate-wide gate and must have coverage mappings, even before it is assigned
 a group.
