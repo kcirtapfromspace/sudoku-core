@@ -58,8 +58,7 @@ impl ArithmeticReplay {
         let mut next = grid.deep_clone();
         let pos = position(self.proof.cell);
         if self.proof.value {
-            next.set_cell_unchecked(pos, Some(self.proof.digit));
-            next.update_candidates_after_move(pos, self.proof.digit);
+            next.place_solver_value(pos, self.proof.digit);
         } else {
             next.cell_mut(pos).remove_candidate(self.proof.digit);
         }
