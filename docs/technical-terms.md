@@ -69,6 +69,7 @@ API identifiers and published technique names retain their original spelling.
 | serialization | Conversion of structured data to a stored or transmitted format. |
 | setup state | The placed values and candidate masks supplied before the displayed deduction. |
 | proof bundle | Original givens, setup premises, and replayable certificates stored together. |
+| named pattern certificate | A state-bound structural witness that checks a specified technique rule and its conclusion. |
 | independent deduction validation | A check of the proposed result that does not call the named detector. |
 | scene | Portable display data for a grid explanation and its evidence status. |
 | frame | One board snapshot with related descriptions, highlights, and links. |

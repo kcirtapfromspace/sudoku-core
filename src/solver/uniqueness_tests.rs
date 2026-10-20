@@ -11,8 +11,6 @@ const TYPE3: &str =
     "004008902002090348098342567809061423426803791713924856961537284287419635345286179";
 const TYPE4: &str =
     "034008902072095348098342567859061423426853791713924856961537284287419635345286179";
-const EXTENDED: &str =
-    "034070912072090348198342567859761423426853791713924856961037284287419635345280179";
 
 fn transform(cell: usize, transpose: bool) -> usize {
     if transpose {
@@ -215,20 +213,32 @@ fn unique_rectangle_type_four_uses_a_real_conjugate_pair() {
 #[test]
 fn extended_rectangle_checks_both_orientations_with_unique_puzzles() {
     for transpose in [false, true] {
-        let (grid, solution) = fixture(
-            EXTENDED,
-            &[
-                (0, &[5, 6]),
-                (3, &[5, 6]),
-                (5, &[5, 6, 8]),
-                (9, &[5, 6]),
-                (12, &[1, 5, 6]),
-                (14, &[5, 6]),
-            ],
-            transpose,
-        );
+        let corpus: crate::TechniqueExampleCorpus =
+            serde_json::from_str(include_str!("../../tests/fixtures/technique_examples.json"))
+                .unwrap();
+        let e = corpus
+            .examples
+            .iter()
+            .find(|e| e.hint.technique == Technique::ExtendedUniqueRectangle)
+            .unwrap();
+        let puzzle = &corpus.puzzles[e.puzzle];
+        let mut state = e.state.clone();
+        let mut text = vec![b'0'; 81];
+        for c in 0..81 {
+            let next = transform(c, transpose);
+            state.values[next] = e.state.values[c];
+            state.domains[next] = e.state.domains[c];
+            text[next] = puzzle.givens.as_bytes()[c];
+        }
+        let mut grid = state.to_grid().unwrap();
+        let givens = Grid::from_string(std::str::from_utf8(&text).unwrap()).unwrap();
+        let solution = Solver::new().solve(&givens).unwrap();
+        for c in 0..81 {
+            let p = idx_to_pos(c);
+            grid.cell_mut(p).set_given(givens.get(p).is_some());
+        }
         let finding = find_extended_unique_rectangle(&CandidateFabric::from_grid(&grid)).unwrap();
-        assert_elimination(&finding, &grid, &solution, "Extended UR");
+        assert_elimination(&finding, &grid, &solution, "Extended UR Type 1");
         assert_eq!(finding.involved_cells.len(), 6);
     }
 }

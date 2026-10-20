@@ -255,15 +255,18 @@ fn validate_fish_types(bases: &[usize], covers: &[usize], constraint: SectorCons
             // At least one base and one cover must be different types
             let has_box_cover = covers.iter().any(|&s| sector_type(s) == 2);
             let bases_are_lines = bases.iter().all(|&s| sector_type(s) != 2);
-            bases_are_lines && has_box_cover
+            bases_are_lines
+                && has_box_cover
+                && !(covers.iter().any(|&s| s < 9) && covers.iter().any(|&s| (9..18).contains(&s)))
+                && bases
+                    .iter()
+                    .all(|&s| sector_type(s) == sector_type(bases[0]))
         }
         SectorConstraint::Mutant => {
-            // At least 3 different sector types across all bases+covers
-            let types = bases
-                .iter()
-                .chain(covers.iter())
-                .fold(0u8, |types, &sector| types | (1 << sector_type(sector)));
-            types.count_ones() >= 3 || (types.count_ones() >= 2 && types & (1 << 2) != 0)
+            let mixed = |sectors: &[usize]| {
+                sectors.iter().any(|&s| s < 9) && sectors.iter().any(|&s| (9..18).contains(&s))
+            };
+            mixed(bases) || mixed(covers)
         }
     }
 }
@@ -393,157 +396,77 @@ fn masked_combinations(pool: &[usize], size: usize, masks: &[u128; 27]) -> Vec<S
         .collect()
 }
 
-/// Siamese Fish: two overlapping fish patterns that share fins.
+/// Siamese Fish: equal bases and two finned covers that differ by one house.
 pub fn find_siamese_fish(fab: &CandidateFabric) -> Option<Finding> {
-    // Siamese fish are detected as finned fish where two separate base combos
-    // produce fin cells in the same box. We search for finned fish with an
-    // additional constraint that there's a second valid fish pattern sharing the fin.
     for digit in 1..=9u8 {
-        let masks = std::array::from_fn(|sector| sector_candidate_mask(fab, sector, digit));
-        for size in 2..=4usize {
-            // Get all row-based fish patterns with fins
-            let rows: Vec<usize> = (SECTOR_ROW_BASE..SECTOR_ROW_BASE + 9)
-                .filter(|&s| fab.sector_cand_count(s, digit) >= 2)
-                .collect();
-            let cols: Vec<usize> = (SECTOR_COL_BASE..SECTOR_COL_BASE + 9).collect();
-
-            if rows.len() < size + 1 {
-                continue;
-            }
-
-            // Find pairs of base combos that produce fins in the same box
-            let all_combos = masked_combinations(&rows, size, &masks);
-            let col_combos = masked_combinations(&cols, size, &masks);
-            for i in 0..all_combos.len() {
-                for j in (i + 1)..all_combos.len() {
-                    let combo_a = &all_combos[i];
-                    let combo_b = &all_combos[j];
-
-                    // Check if these produce valid finned fish with shared fin box
-                    if let Some(finding) =
-                        check_siamese_pair(fab, &masks, digit, size, combo_a, combo_b, &col_combos)
-                    {
-                        return Some(finding);
-                    }
-                }
-            }
-
-            // Column-based
-            let eligible_cols: Vec<usize> = (SECTOR_COL_BASE..SECTOR_COL_BASE + 9)
-                .filter(|&s| fab.sector_cand_count(s, digit) >= 2)
-                .collect();
-            let row_covers: Vec<usize> = (SECTOR_ROW_BASE..SECTOR_ROW_BASE + 9).collect();
-
-            if eligible_cols.len() < size + 1 {
-                continue;
-            }
-
-            let all_col_combos = masked_combinations(&eligible_cols, size, &masks);
-            let row_combos = masked_combinations(&row_covers, size, &masks);
-            for i in 0..all_col_combos.len() {
-                for j in (i + 1)..all_col_combos.len() {
-                    if let Some(finding) = check_siamese_pair(
-                        fab,
-                        &masks,
-                        digit,
-                        size,
-                        &all_col_combos[i],
-                        &all_col_combos[j],
-                        &row_combos,
-                    ) {
-                        return Some(finding);
-                    }
-                }
-            }
-        }
-    }
-    None
-}
-
-fn check_siamese_pair(
-    fab: &CandidateFabric,
-    masks: &[u128; 27],
-    digit: u8,
-    size: usize,
-    base_a: &SectorCombination,
-    base_b: &SectorCombination,
-    cover_combos: &[SectorCombination],
-) -> Option<Finding> {
-    // Both combos must share at least one base sector (overlapping).
-    let shared = (base_a.sector_bits & base_b.sector_bits).count_ones() as usize;
-    if shared == 0 || shared == size {
-        return None;
-    }
-    let combo_a = &base_a.sectors;
-    let combo_b = &base_b.sectors;
-    for cover in cover_combos {
-        let fins_a = base_a.cells & !cover.cells;
-        let fins_b = base_b.cells & !cover.cells;
-        if fins_a == 0 || fins_b == 0 {
-            continue;
-        }
-        let Some(box_idx) = fin_box(fins_a | fins_b, masks) else {
-            continue;
-        };
-        let combined =
-            cover.cells & !base_a.cells & !base_b.cells & masks[SECTOR_BOX_BASE + box_idx];
-        if combined == 0 {
-            continue;
-        }
-        let cover_combo = &cover.sectors;
-        let fin_cells_a: Vec<usize> = (0..81).filter(|&i| fins_a & (1u128 << i) != 0).collect();
-        let fin_cells_b: Vec<usize> = (0..81).filter(|&i| fins_b & (1u128 << i) != 0).collect();
-
-        for cell in 0..81 {
-            if combined & (1u128 << cell) != 0
-                && fab.values[cell].is_none()
-                && fab.cell_cands[cell].contains(digit)
-            {
-                let mut involved = Vec::new();
-                for &bs in combo_a.iter().chain(combo_b.iter()) {
-                    for &c in &sector_cells(bs) {
-                        if fab.values[c].is_none()
-                            && fab.cell_cands[c].contains(digit)
-                            && !involved.contains(&c)
-                        {
-                            involved.push(c);
+        let masks = std::array::from_fn(|h| sector_candidate_mask(fab, h, digit));
+        for size in 2..=4 {
+            for row_based in [true, false] {
+                let bases: Vec<_> = (if row_based { 0..9 } else { 9..18 })
+                    .filter(|&h| fab.sector_cand_count(h, digit) >= 2)
+                    .collect();
+                let covers: Vec<_> = (if row_based { 9..18 } else { 0..9 }).collect();
+                let covers = masked_combinations(&covers, size, &masks);
+                for base in masked_combinations(&bases, size, &masks) {
+                    let mut found: Vec<(&SectorCombination, u128, u128)> = vec![];
+                    for cover in &covers {
+                        let fins = base.cells & !cover.cells;
+                        if fin_box(fins, &masks).is_none() {
+                            continue;
                         }
+                        let mut eliminations = cover.cells & !base.cells;
+                        for c in 0..81 {
+                            if eliminations & (1 << c) != 0
+                                && (0..81).any(|f| fins & (1 << f) != 0 && !fab.sees(c, f))
+                            {
+                                eliminations &= !(1 << c);
+                            }
+                        }
+                        if eliminations == 0 {
+                            continue;
+                        }
+                        for (other, _, other_elims) in &found {
+                            if (cover.sector_bits & !other.sector_bits).count_ones() != 1
+                                || eliminations == *other_elims
+                            {
+                                continue;
+                            }
+                            let fin_cells: Vec<_> =
+                                (0..81).filter(|&c| fins & (1 << c) != 0).collect();
+                            if let Some(mut finding) = make_fish_finding(
+                                fab,
+                                digit,
+                                size,
+                                &base.sectors,
+                                &cover.sectors,
+                                &fin_cells,
+                                eliminations,
+                                SectorConstraint::Basic,
+                            ) {
+                                finding.technique = Technique::SiameseFish;
+                                finding.explanation = ExplanationData::Fish {
+                                    size,
+                                    digit,
+                                    base_sectors: base
+                                        .sectors
+                                        .iter()
+                                        .map(|&h| sector_name(h))
+                                        .collect(),
+                                    cover_sectors: cover
+                                        .sectors
+                                        .iter()
+                                        .chain(&other.sectors)
+                                        .map(|&h| sector_name(h))
+                                        .collect(),
+                                    fins: fin_cells,
+                                    variant: "Siamese".into(),
+                                };
+                                return Some(finding);
+                            }
+                        }
+                        found.push((cover, fins, eliminations));
                     }
                 }
-                return Some(Finding {
-                    technique: Technique::SiameseFish,
-                    inference: InferenceResult::Elimination {
-                        cell,
-                        values: vec![digit],
-                    },
-                    involved_cells: involved,
-                    explanation: ExplanationData::Fish {
-                        size,
-                        digit,
-                        base_sectors: combo_a
-                            .iter()
-                            .chain(combo_b.iter())
-                            .map(|&s| sector_name(s))
-                            .collect(),
-                        cover_sectors: cover_combo.iter().map(|&s| sector_name(s)).collect(),
-                        fins: fin_cells_a
-                            .iter()
-                            .chain(fin_cells_b.iter())
-                            .copied()
-                            .collect(),
-                        variant: "Siamese".into(),
-                    },
-                    proof: Some(ProofCertificate::Fish {
-                        digit,
-                        base_sectors: combo_a.iter().chain(combo_b.iter()).copied().collect(),
-                        cover_sectors: cover_combo.clone(),
-                        fins: fin_cells_a
-                            .iter()
-                            .chain(fin_cells_b.iter())
-                            .copied()
-                            .collect(),
-                    }),
-                });
             }
         }
     }

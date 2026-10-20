@@ -8,7 +8,7 @@ Checked native certificates add assumption and contradiction frames.
 The browser example displays the exported scenes without a network connection.
 The library includes real Norvig and Mith515 states, a synthetic arithmetic fixture, and deliberate rejection examples.
 The library contains a frozen real-puzzle example for every registered technique.
-Independent certificates establish all 48 deductions and their original setup premises.
+Independent certificates establish all 48 named patterns, deductions, and original setup premises.
 The [independent validation guide](independent-validation.md) defines the proof, scope, and source records.
 
 ```mermaid
@@ -114,6 +114,7 @@ Unsupported link metadata is omitted.
 | Status | Meaning |
 | --- | --- |
 | `checked_certificate` | A native checker accepted the certificate and the hint's exact endpoint. |
+| `checked_pattern_and_deduction` | Separate checkers accepted the named structural witness and exact deduction. |
 | `checked_deduction` | An independent exact-cover certificate establishes the endpoint; the named pattern remains detector metadata. |
 | `metadata_only` | The scene shows detector evidence without independent deduction verification. |
 | `rejected` | Evidence failed, the endpoint differed, or the proposed result violated a checked input or application condition. |
@@ -123,10 +124,11 @@ Unsupported link metadata is omitted.
 Exact checkers cover Arithmetic, Three-House, Global Coloring, native forcing, and retained guardian propagation.
 These proofs remain conditional on the supplied candidate premises.
 They do not authenticate earlier imported eliminations or establish historical novelty.
-They also do not certify a caller's technique label.
+A separate `NamedPatternProof` verifies the supported technique variant and binds its exact conclusion.
+The [named pattern guide](named-pattern-proofs.md) specifies those rules.
 The constructor checks the proposed result against installed rules before it displays an applied conclusion.
 
-Basic, Fish, ALS, AIC, Uniqueness, legacy Forcing, and Backtracking descriptions remain metadata.
+Legacy Basic, Fish, ALS, AIC, Uniqueness, Forcing, and Backtracking descriptions remain metadata without a named certificate.
 `ExactCoverProof::certify_hint()` adds independent deduction validation while retaining those descriptions.
 Ordinary `Hint` serialization omits the original proof object.
 A hint restored from that JSON cannot recover the missing certificate through its technique name.

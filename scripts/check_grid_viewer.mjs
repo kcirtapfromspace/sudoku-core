@@ -19,7 +19,7 @@ assert.equal(get('examples').children.length, entries.length);
 const certified = entries.filter(e => e.proof_bundle);
 assert.equal(certified.length, 48);
 assert.equal(new Set(certified.map(e => e.scene.technique)).size, 48);
-assert(certified.every(e => e.scene.evidence.status === 'checked_deduction'));
+assert(certified.every(e => e.scene.evidence.status === 'checked_pattern_and_deduction'));
 let frames = 0;
 for (let i = 0; i < entries.length; i++) {
   get('examples').children[i].click();

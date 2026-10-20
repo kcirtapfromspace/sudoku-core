@@ -55,7 +55,7 @@ The [solver-state API](docs/solver-state.md) describes those rules and the forci
 `GridScene::from_hint()` exports board frames, candidate highlights, structural links, and available proof results for every technique.
 The [grid explanation guide](docs/grid-scenes.md) defines the scene format and evidence status.
 The browser example displays real puzzle states and deliberate invalidation cases.
-All 48 technique IDs have frozen real-puzzle examples with independent deduction certificates.
+All 48 technique IDs have frozen real-puzzle examples with independent named-pattern and deduction certificates.
 Original-givens uniqueness proofs also authenticate each example's setup placements and candidate removals.
 The [independent validation guide](docs/independent-validation.md) describes the Rust and Python replay checkers.
 

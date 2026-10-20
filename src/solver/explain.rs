@@ -134,9 +134,11 @@ pub enum ProofCertificate {
     Guardian(super::global_coloring::GuardianPropagation),
     /// Backtracking: no human technique found.
     Backtracking,
-    /// Independent deduction proof plus the original detector's pattern data.
-    /// The proof checks the endpoint, not the classification of the named method.
+    /// Independent deduction proof, optional independently checked named witness,
+    /// and the original detector description. A missing named witness checks only the endpoint.
     Certified {
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        named: Option<Box<crate::NamedPatternProof>>,
         pattern: Option<Box<ProofCertificate>>,
         deduction: crate::ExactCoverProof,
     },

@@ -69,7 +69,8 @@ impl TechniqueExampleCorpus {
     }
 
     fn check(&self, complete: bool) -> Result<(), String> {
-        if self.version != 1
+        if !matches!(self.version, 1 | 2)
+            || (complete && self.version != 2)
             || self.examples.is_empty()
             || self.examples.len() > Technique::all().len()
             || (complete && self.examples.len() != Technique::all().len())
@@ -121,7 +122,12 @@ impl TechniqueExampleCorpus {
                     ));
                 }
             }
-            let ProofCertificate::Certified { pattern, deduction } = &e.certificate else {
+            let ProofCertificate::Certified {
+                pattern,
+                deduction,
+                named,
+            } = &e.certificate
+            else {
                 return Err("Example lacks independent validation".into());
             };
             if pattern
@@ -134,6 +140,12 @@ impl TechniqueExampleCorpus {
                     "Independent deduction proof rejected: {:?}",
                     e.hint.technique
                 ));
+            }
+            if self.version == 2 && named.is_none() {
+                return Err("Example lacks a named pattern certificate".into());
+            }
+            if let Some(p) = named {
+                p.check(&grid, &e.hint)?;
             }
             if e.hint
                 .involved_cells

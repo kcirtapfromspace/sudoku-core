@@ -1,8 +1,9 @@
 //! Freeze mined detector examples with exact uniqueness and deduction certificates.
 use std::{collections::HashMap, env, fs};
 use sudoku_core::{
-    CandidateState, ExactCoverProof, ExactCoverSearchOptions, Grid, Hint, ProofCertificate,
-    Technique, TechniqueExample, TechniqueExampleCorpus, TechniqueExamplePuzzle,
+    CandidateState, ExactCoverProof, ExactCoverSearchOptions, Grid, Hint, NamedPatternProof,
+    PatternUniqueness, PatternWitness, ProofCertificate, Technique, TechniqueExample,
+    TechniqueExampleCorpus, TechniqueExamplePuzzle,
 };
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -12,7 +13,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .ok_or("Pass the mined-example directory and output JSON path")?;
     let output = args.get(2).ok_or("Pass an output JSON path")?;
     let mut corpus = TechniqueExampleCorpus {
-        version: 1,
+        version: 2,
         puzzles: vec![],
         examples: vec![],
     };
@@ -61,7 +62,45 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         };
         let grid = stub.grid(&corpus.puzzles[index])?;
         let checked = ExactCoverProof::certify_hint(&grid, &hint, &options)?;
-        let certificate = checked.proof.unwrap();
+        let mut certificate = checked.proof.unwrap();
+        if let Some(raw) = record.get("named_pattern").filter(|v| !v.is_null()) {
+            let witness: PatternWitness = if raw.as_str() == Some("Search") {
+                let ProofCertificate::Certified { deduction, .. } = &certificate else {
+                    unreachable!()
+                };
+                PatternWitness::Search {
+                    proof: deduction.clone(),
+                }
+            } else {
+                serde_json::from_value(raw.clone())?
+            };
+            if let ProofCertificate::Certified {
+                named, deduction, ..
+            } = &mut certificate
+            {
+                let unique = matches!(
+                    technique,
+                    Technique::UniqueRectangle
+                        | Technique::HiddenRectangle
+                        | Technique::AvoidableRectangle
+                        | Technique::ExtendedUniqueRectangle
+                        | Technique::BivalueUniversalGrave
+                );
+                let proof = NamedPatternProof {
+                    version: 1,
+                    state_hash: deduction.state_hash.clone(),
+                    technique,
+                    conclusion: deduction.purpose.clone(),
+                    witness,
+                    uniqueness: unique.then(|| PatternUniqueness {
+                        givens: givens.into(),
+                        proof: corpus.puzzles[index].uniqueness.clone(),
+                    }),
+                };
+                proof.check(&grid, &hint)?;
+                *named = Some(Box::new(proof));
+            }
+        }
         if let ProofCertificate::Certified { deduction, .. } = &certificate {
             eprintln!("{technique:?}: {} refutation nodes", deduction.nodes.len());
         }

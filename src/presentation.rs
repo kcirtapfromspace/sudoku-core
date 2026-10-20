@@ -96,6 +96,7 @@ pub struct SceneFrame {
 pub enum EvidenceStatus {
     CheckedCertificate,
     CheckedDeduction,
+    CheckedPatternAndDeduction,
     MetadataOnly,
     Rejected,
     RulesSatisfied,
@@ -196,15 +197,24 @@ fn endpoint(hint: &Hint) -> Result<(usize, Vec<u8>, bool), String> {
 }
 
 fn evidence(grid: &Grid, hint: &Hint, cell: usize, digits: &[u8], value: bool) -> SceneEvidence {
-    if let Some(ProofCertificate::Certified { pattern, deduction }) = &hint.proof {
+    if let Some(ProofCertificate::Certified {
+        pattern,
+        deduction,
+        named,
+    }) = &hint.proof
+    {
         let checked = pattern
             .as_deref()
             .is_none_or(|p| !matches!(p, ProofCertificate::Certified { .. }))
             && deduction.matches_hint(hint)
-            && deduction.verify(grid);
-        return SceneEvidence { status: if checked { EvidenceStatus::CheckedDeduction } else { EvidenceStatus::Rejected },
-            message: if checked { "The independent exact-cover checker verified this deduction from the supplied candidates. Technique labels and pattern structure are detector descriptions." }
-                else { "Independent deduction certificate rejected: wrong premises, conclusion or proof tree." }.into() };
+            && deduction.verify(grid)
+            && named.as_deref().is_none_or(|p| p.verify(grid, hint));
+        return SceneEvidence {
+            status: if !checked {EvidenceStatus::Rejected} else if named.is_some() {EvidenceStatus::CheckedPatternAndDeduction} else {EvidenceStatus::CheckedDeduction},
+            message: if !checked {"Certificate rejected: the state, named pattern or deduction does not verify."}
+                else if named.is_some() {"Independent checkers verified the named pattern and its exact deduction from these candidates. Complete example bundles also authenticate the original puzzle and setup premises."}
+                else {"The independent exact-cover checker verified this deduction. The technique name and pattern remain detector descriptions."}.into(),
+        };
     }
     let matches = |c, d, v| c == cell && digits == [d] && v == value;
     let checked = match &hint.proof {
@@ -328,7 +338,9 @@ impl GridScene {
         }
         if matches!(
             scene.evidence.status,
-            EvidenceStatus::CheckedCertificate | EvidenceStatus::CheckedDeduction
+            EvidenceStatus::CheckedCertificate
+                | EvidenceStatus::CheckedDeduction
+                | EvidenceStatus::CheckedPatternAndDeduction
         ) {
             scene.proof_frames(grid, hint.proof.as_ref().unwrap(), cell, digits[0], value);
         }
@@ -336,7 +348,9 @@ impl GridScene {
         conclusion.kind = FrameKind::Conclusion;
         conclusion.title = if matches!(
             scene.evidence.status,
-            EvidenceStatus::CheckedCertificate | EvidenceStatus::CheckedDeduction
+            EvidenceStatus::CheckedCertificate
+                | EvidenceStatus::CheckedDeduction
+                | EvidenceStatus::CheckedPatternAndDeduction
         ) {
             "Apply the checked conclusion"
         } else {
@@ -862,8 +876,12 @@ fn structural_link(
 
 fn annotate(frame: &mut SceneFrame, proof: Option<&ProofCertificate>, technique: Technique) {
     match proof {
-        Some(ProofCertificate::Certified { pattern, .. }) => {
-            annotate(frame, pattern.as_deref(), technique)
+        Some(ProofCertificate::Certified { pattern, named, .. }) => {
+            if let Some(p) = named {
+                annotate_named(frame, &p.witness, technique);
+            } else {
+                annotate(frame, pattern.as_deref(), technique);
+            }
         }
         Some(ProofCertificate::Fish {
             digit,
@@ -990,5 +1008,159 @@ fn annotate(frame: &mut SceneFrame, proof: Option<&ProofCertificate>, technique:
             }
         }
         _ => {}
+    }
+}
+
+fn annotate_named(frame: &mut SceneFrame, w: &crate::PatternWitness, technique: Technique) {
+    use crate::PatternWitness::*;
+    let cells = |frame: &mut SceneFrame, cs: &[usize], role| {
+        for &c in cs {
+            mark(frame, c, None, role);
+        }
+    };
+    let fish = |frame: &mut SceneFrame, f: &crate::PatternFish| {
+        for &h in &f.bases {
+            house(frame, h, Some(f.digit), HighlightRole::Base);
+        }
+        for &h in &f.covers {
+            house(frame, h, Some(f.digit), HighlightRole::Cover);
+        }
+        for &c in &f.fins {
+            mark(frame, c, Some(f.digit), HighlightRole::Fin);
+        }
+    };
+    match w {
+        Subset {
+            cells: cs, digits, ..
+        } => {
+            cells(frame, cs, HighlightRole::Pattern);
+            for &c in cs {
+                for &d in digits {
+                    if c < 81 && frame.cells[c].candidates.contains(&d) {
+                        mark(frame, c, Some(d), HighlightRole::On);
+                    }
+                }
+            }
+        }
+        Fish { parts } => {
+            for f in parts {
+                fish(frame, f);
+            }
+        }
+        Wing { cells: cs, digits } => {
+            cells(frame, cs, HighlightRole::Cover);
+            if let Some(&p) = cs.first() {
+                mark(frame, p, None, HighlightRole::Base);
+            }
+            for &c in cs {
+                if c < 81 {
+                    for &d in digits {
+                        if frame.cells[c].candidates.contains(&d) {
+                            mark(frame, c, Some(d), HighlightRole::On);
+                        }
+                    }
+                }
+            }
+        }
+        Als { sets, .. } => {
+            for a in sets {
+                cells(frame, &a.cells, HighlightRole::Pattern);
+            }
+        }
+        Chain {
+            nodes,
+            strong,
+            colors,
+        } => {
+            for (i, &n) in nodes.iter().enumerate() {
+                mark(
+                    frame,
+                    usize::from(n / 9),
+                    Some((n % 9 + 1) as u8),
+                    if colors.get(i).copied().unwrap_or(i % 2 == 1) {
+                        HighlightRole::On
+                    } else {
+                        HighlightRole::Off
+                    },
+                );
+            }
+            for i in 0..nodes.len() {
+                for j in i + 1..nodes.len() {
+                    let a = SceneCandidate {
+                        cell: usize::from(nodes[i] / 9),
+                        digit: (nodes[i] % 9 + 1) as u8,
+                    };
+                    let b = SceneCandidate {
+                        cell: usize::from(nodes[j] / 9),
+                        digit: (nodes[j] % 9 + 1) as u8,
+                    };
+                    let kind = if colors.is_empty() {
+                        if j != i + 1 {
+                            continue;
+                        }
+                        if strong.get(i) == Some(&true) {
+                            SceneLinkKind::Strong
+                        } else {
+                            SceneLinkKind::Weak
+                        }
+                    } else {
+                        SceneLinkKind::Strong
+                    };
+                    if structural_link(&frame.cells, a, b, kind) {
+                        frame.links.push(SceneLink {
+                            from: a,
+                            to: b,
+                            kind,
+                        });
+                    }
+                }
+            }
+        }
+        Trade { cells: cs, digits } => {
+            for &c in cs {
+                if c < 81 {
+                    let roof = frame.cells[c]
+                        .candidates
+                        .iter()
+                        .any(|d| !digits.contains(d));
+                    mark(
+                        frame,
+                        c,
+                        None,
+                        if roof {
+                            HighlightRole::Roof
+                        } else {
+                            HighlightRole::Floor
+                        },
+                    );
+                }
+            }
+        }
+        Aligned {
+            cells: cs,
+            exclusions,
+        } => {
+            cells(frame, cs, HighlightRole::Base);
+            for cs in exclusions {
+                cells(frame, cs, HighlightRole::Cover);
+            }
+        }
+        Forcing {
+            fish: f, branches, ..
+        } => {
+            if let Some(f) = f {
+                fish(frame, f);
+            }
+            for b in branches {
+                mark(
+                    frame,
+                    usize::from(b.assumption / 9),
+                    Some((b.assumption % 9 + 1) as u8),
+                    HighlightRole::Assumption,
+                );
+            }
+        }
+        Native { proof } => annotate(frame, Some(proof), technique),
+        Bug | Search { .. } => {}
     }
 }

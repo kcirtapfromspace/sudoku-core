@@ -3,10 +3,10 @@ name: Grid viewer
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'examples/**', 'tests/exact_cover.rs', 'tests/fixtures/technique_examples.json', 'tests/presentation.rs', 'scripts/*technique*', 'scripts/check_grid_viewer.mjs', '.github/workflows/grid-viewer.yml']
+    paths: ['src/**', 'examples/**', 'tests/exact_cover.rs', 'tests/named_patterns.rs', 'tests/fixtures/technique_examples.json', 'tests/presentation.rs', 'scripts/*technique*', 'scripts/*named*', 'scripts/check_grid_viewer.mjs', '.github/workflows/grid-viewer.yml']
   pull_request:
     branches: [main, 'codex/**']
-    paths: ['src/**', 'examples/**', 'tests/exact_cover.rs', 'tests/fixtures/technique_examples.json', 'tests/presentation.rs', 'scripts/*technique*', 'scripts/check_grid_viewer.mjs', '.github/workflows/grid-viewer.yml']
+    paths: ['src/**', 'examples/**', 'tests/exact_cover.rs', 'tests/named_patterns.rs', 'tests/fixtures/technique_examples.json', 'tests/presentation.rs', 'scripts/*technique*', 'scripts/*named*', 'scripts/check_grid_viewer.mjs', '.github/workflows/grid-viewer.yml']
   workflow_dispatch:
 
 permissions:
@@ -25,11 +25,13 @@ jobs:
         with:
           node-version: '24'
       - name: Check scene contracts and proof results
-        run: cargo test --release --locked --test presentation --test exact_cover
+        run: cargo test --release --locked --test presentation --test exact_cover --test named_patterns
       - name: Replay all real-puzzle certificates without discovery
         run: cargo run --release --locked --example verify_examples
       - name: Check certificates with the independent Python verifier
-        run: python3 scripts/verify_technique_examples.py
+        run: |
+          python3 scripts/verify_technique_examples.py
+          python3 -m unittest discover -s scripts -p test_named_patterns.py -v
       - name: Generate the real-puzzle viewer
         run: cargo run --release --locked --example grid_viewer
       - name: Install the DOM test dependency

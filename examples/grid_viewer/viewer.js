@@ -7,7 +7,7 @@
   let frameIndex = 0;
   const completeLibrary = new Set(entries.filter(e=>e.proof_bundle).map(e=>e.scene.technique)).size === 48;
   if(!completeLibrary)$("coverage-note").textContent="This file shows selected steps from one unique puzzle. Each step has downloadable independent evidence.";
-  const statusLabels = {checked_certificate:"✓ Certificate verified", checked_deduction:"✓ Deduction verified", metadata_only:"? Metadata only", rejected:"! Evidence rejected", rules_satisfied:"✓ Placed values valid", rule_violation:"! Rule violation"};
+  const statusLabels = {checked_certificate:"✓ Certificate verified", checked_deduction:"✓ Deduction verified", checked_pattern_and_deduction:"✓ Pattern and deduction verified", metadata_only:"? Metadata only", rejected:"! Evidence rejected", rules_satisfied:"✓ Placed values valid", rule_violation:"! Rule violation"};
   const palette = {
     pattern:["#e6edff","#244dae"],base:["#d9e7ff","#224b9b"],cover:["#e4e9fc","#4d3b94"],
     fin:["#ffebbf","#825100"],floor:["#d9e7ff","#224b9b"],roof:["#ffebbf","#825100"],

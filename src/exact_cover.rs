@@ -83,7 +83,7 @@ pub struct ExactCoverCheck {
     pub solutions: usize,
 }
 
-fn hash(state: &CandidateState) -> String {
+pub(crate) fn hash(state: &CandidateState) -> String {
     let mut h = Sha256::new();
     h.update(b"sudoku-exact-cover-v1-native");
     for (&v, &d) in state.values.iter().zip(&state.domains) {
@@ -93,7 +93,7 @@ fn hash(state: &CandidateState) -> String {
     format!("{:x}", h.finalize())
 }
 
-fn purpose(hint: &Hint) -> Option<ExactPurpose> {
+pub(crate) fn purpose(hint: &Hint) -> Option<ExactPurpose> {
     let (p, digits, placement) = match &hint.hint_type {
         HintType::SetValue { pos, value } => (*pos, vec![*value], true),
         HintType::EliminateCandidates { pos, values } => (*pos, values.clone(), false),
@@ -183,6 +183,7 @@ impl ExactCoverProof {
         let mut checked = hint.clone();
         let pattern = checked.proof.take().map(Box::new);
         checked.proof = Some(ProofCertificate::Certified {
+            named: None,
             pattern,
             deduction: proof,
         });

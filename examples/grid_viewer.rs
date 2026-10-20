@@ -173,7 +173,7 @@ fn gallery() -> Result<Vec<Example>, Box<dyn std::error::Error>> {
             .filter(|&c| entry.state.values[c] == 0)
             .map(|c| (start.domains[c] & !entry.state.domains[c]).count_ones())
             .sum();
-        let origin = format!("{} Original-givens uniqueness proof authenticates {placements} setup placements and {removals} candidate removals. This selected detector can coexist with easier steps.", source.attribution);
+        let origin = format!("{}. Original-givens uniqueness proof authenticates {placements} setup placements and {removals} candidate removals. This selected detector can coexist with easier steps.", source.attribution.trim_end_matches('.'));
         let mut item = example(
             &format!("{} · {}", h.technique, source.id),
             &origin,
@@ -184,7 +184,7 @@ fn gallery() -> Result<Vec<Example>, Box<dyn std::error::Error>> {
         let mut single = entry.clone();
         single.puzzle = 0;
         item.proof_bundle = Some(sudoku_core::TechniqueExampleCorpus {
-            version: 1,
+            version: 2,
             puzzles: vec![source.clone()],
             examples: vec![single],
         });

@@ -41,7 +41,10 @@ fn all_48_real_examples_have_replayable_deductions_and_authenticated_setup() {
         let state = CandidateState::capture(&grid).unwrap();
         let hint = case.checked_hint();
         let scene = GridScene::from_hint(&grid, &hint).unwrap();
-        assert_eq!(scene.evidence.status, EvidenceStatus::CheckedDeduction);
+        assert_eq!(
+            scene.evidence.status,
+            EvidenceStatus::CheckedPatternAndDeduction
+        );
         assert!(scene
             .frames
             .iter()
@@ -74,7 +77,7 @@ fn all_48_real_examples_have_replayable_deductions_and_authenticated_setup() {
                 },
             )
             .unwrap()
-            .expect("frozen state must still trigger its named detector");
+            .unwrap_or_else(|| panic!("Frozen state must trigger {:?}", hint.technique));
         assert_eq!(current.technique, hint.technique);
         ExactCoverProof::certify_hint(&grid, &current, &ExactCoverSearchOptions::default())
             .unwrap();
@@ -281,9 +284,12 @@ fn corpus_verification_rejects_coverage_gaps_and_forged_setup_even_with_a_valid_
     example.state.domains[cell] &= !(1 << (witness[cell] - 1));
     assert!(setup.verify().is_err());
     let mut nested = original.clone();
-    if let ProofCertificate::Certified { pattern, deduction } = &mut nested.examples[0].certificate
+    if let ProofCertificate::Certified {
+        pattern, deduction, ..
+    } = &mut nested.examples[0].certificate
     {
         *pattern = Some(Box::new(ProofCertificate::Certified {
+            named: None,
             pattern: None,
             deduction: deduction.clone(),
         }));

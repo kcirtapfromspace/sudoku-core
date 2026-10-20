@@ -216,26 +216,37 @@ fn pencil_grid_with_five(transpose: bool) -> Grid {
 #[test]
 fn overlapping_finned_fish_preserve_the_solution_in_both_orientations() {
     for transpose in [false, true] {
-        let mut grid = pencil_grid_with_five(transpose);
-        for row in [0, 3, 8] {
-            for col in 0..9 {
-                if ![0, 1].contains(&col) && !(row == 8 && col == 2) {
-                    let pos = if transpose {
-                        Position::new(col, row)
-                    } else {
-                        Position::new(row, col)
-                    };
-                    grid.cell_mut(pos).remove_candidate(5);
-                }
-            }
+        let corpus: crate::TechniqueExampleCorpus =
+            serde_json::from_str(include_str!("../../tests/fixtures/technique_examples.json"))
+                .unwrap();
+        let e = corpus
+            .examples
+            .iter()
+            .find(|e| e.hint.technique == Technique::SiameseFish)
+            .unwrap();
+        let puzzle = &corpus.puzzles[e.puzzle];
+        let mut state = e.state.clone();
+        let mut text = vec![b'0'; 81];
+        for c in 0..81 {
+            let next = if transpose { c % 9 * 9 + c / 9 } else { c };
+            state.values[next] = e.state.values[c];
+            state.domains[next] = e.state.domains[c];
+            text[next] = puzzle.givens.as_bytes()[c];
         }
+        let grid = state.to_grid().unwrap();
+        let givens = Grid::from_string(std::str::from_utf8(&text).unwrap()).unwrap();
+        let solution = crate::Solver::new().solve(&givens).unwrap();
         let finding = fish_engine::find_siamese_fish(&CandidateFabric::from_grid(&grid)).unwrap();
         assert_eq!(finding.technique, Technique::SiameseFish);
-        assert_sound_elimination(&finding, &grid, transpose);
+        if let InferenceResult::Elimination { cell, values } = &finding.inference {
+            assert!(!values.contains(&solution.get(Position::new(cell / 9, cell % 9)).unwrap()));
+        } else {
+            panic!("Expected fish elimination");
+        }
         let Some(ProofCertificate::Fish { digit, fins, .. }) = finding.proof else {
             panic!("Siamese proof missing")
         };
-        assert_eq!(digit, 5);
+        assert!((1..=9).contains(&digit));
         assert!(!fins.is_empty());
     }
 }

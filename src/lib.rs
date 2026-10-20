@@ -50,3 +50,9 @@ pub use solver::{
     ThreeHouseSearchOptions, ThreeHouseSearchResult,
 };
 pub use technique_examples::{TechniqueExample, TechniqueExampleCorpus, TechniqueExamplePuzzle};
+
+mod named_patterns;
+pub use named_patterns::{
+    NamedPatternProof, PatternBranch, PatternFish, PatternSet, PatternStep, PatternUniqueness,
+    PatternWitness,
+};

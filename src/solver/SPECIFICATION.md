@@ -161,10 +161,9 @@ constraint, fin status):
 | * | * | Franken | Franken Fish | 5.5 |
 | * | * | Mutant | Mutant Fish | 6.5 |
 
-**Siamese Fish** are two overlapping finned fish configurations sharing
-a fin box. Both fish independently restrict eliminations to the fin box;
-the implementation returns eliminations common to both patterns. An
-intersection cannot add eliminations beyond either individual pattern.
+**Siamese Fish** share the same bases and differ by one cover house.
+Both constituent fish have fins and independently valid eliminations.
+The frozen certificate retains and checks both constituents.
 
 ### 1.4 Degenerate Case: Pointing Pairs and Box/Line Reduction
 
@@ -254,19 +253,15 @@ has a unique solution.
 
 ### 2.3 Named Techniques in the Implementation
 
-| A size | B size | Links | Technique | SE |
-|--------|--------|-------|---------------|------|
-| 1 | 1 | 1 RCC | XY-Wing | 4.2 |
-| 1 | 2 | 1 RCC | XYZ-Wing | 4.4 |
-| 2 | 1 | 1 RCC | XYZ-Wing | 4.4 |
-| any | any | 1 RCC, total=4 | WXYZ-Wing | 4.6 |
-| any | any | 1 RCC, other sizes | ALS-XZ | 5.5 |
+XY-Wing uses a bivalue pivot and two bivalue pincers.
+XYZ-Wing adds the shared elimination digit to the pivot.
+Both detectors now check the canonical three-cell geometry.
+A naked pair is no longer classified as XY-Wing.
 
-These are the size-based labels returned by `classify_als_pair` for
-the shared ALS-XZ detector. Every returned elimination must satisfy
-Theorem 2.1. These labels do not establish equivalence to every published wing pattern.
-The `(1, 1)` label here describes two cells.
-It does not describe a three-cell pivot-and-wings construction.
+WXYZ-Wing retains the four-cell ALS specialization.
+The frozen named certificate also checks its four-digit restricted-location theorem.
+General ALS-XZ uses Theorem 2.1.
+The [named proof specification](../../docs/named-pattern-proofs.md) defines the independently checked examples.
 
 #### 2.3.1 ALS Chains (Generalized)
 
@@ -847,7 +842,7 @@ The related method guide defines the acceptance conditions.
 | `Guardian` | A retained guardian relation and checked current-state propagation. |
 | `Forcing` | Historical internal source and branch metadata; not a checked public forcing hint. |
 | `Backtracking`| (no fields) |
-| `Certified` | Original detector metadata and an independent exact-cover deduction proof. |
+| `Certified` | Optional named structural witness, legacy metadata, and independent exact-cover deduction proof. |
 
 `Certified` verifies the conclusion independently of the named method's classification.
 The [validation guide](../../docs/independent-validation.md) states the exhaustive-tree theorem, limits, and setup authentication conditions.

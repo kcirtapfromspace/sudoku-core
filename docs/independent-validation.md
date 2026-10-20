@@ -74,16 +74,16 @@ The verifier rejects a correct endpoint when its setup authentication fails.
 
 ## Interpret the technique label
 
-The checker proves the deduction, independently of the named detector.
-It does not certify the detector's classification, its local pattern description, or its minimum difficulty.
-The browser uses **Deduction verified** for this evidence.
-The pattern frame retains the original detector data.
-The independent proof frames show the separate validation argument.
+Every default example has a separate named structural witness and an exact-cover deduction proof.
+The Rust and Python checkers verify both against the same state and conclusion.
+The browser displays **Pattern and deduction verified** only when both checks pass.
+The [named pattern guide](named-pattern-proofs.md) defines every supported rule and its proof argument.
 
-The teaching API requests one detector directly.
-Earlier techniques can also apply in the selected state.
+The pattern frame uses the checked named witness.
+The independent proof frames show the separate exact-cover validation argument.
+Earlier techniques can also apply in a selected state.
+A certificate does not establish minimum difficulty, technique necessity, or historical novelty.
 The source library's original test label can differ from the requested engine technique.
-Regression tests confirm that every frozen state still triggers its recorded engine detector.
 
 ## Use the Rust API
 
@@ -97,7 +97,7 @@ let checked = ExactCoverProof::certify_hint(
 let scene = GridScene::from_hint(&grid, &checked)?;
 ```
 
-`ProofCertificate::Certified` retains the pattern data beside the independent deduction proof.
+`ProofCertificate::Certified` retains optional named evidence beside the legacy description and independent deduction proof.
 Pattern certificates support serialization and deserialization.
 `Basic` stores its `kind` label as `String`.
 Use `.into()` for literal labels in manual constructors.
@@ -129,7 +129,7 @@ The normal solving ladder retains its existing behavior.
 
 The frozen [corpus](../tests/fixtures/technique_examples.json) stores the givens, setup states, detector evidence, and proof trees.
 The Rust corpus verifier requires all 48 distinct registered techniques.
-It checks every original-puzzle uniqueness proof and every deduction proof.
+It checks every original-puzzle uniqueness proof, named pattern witness, and deduction proof.
 
 ```sh
 cargo run --release --locked --example verify_examples
@@ -153,10 +153,9 @@ Source line numbers and the complete source-file SHA-256 are recorded in the cor
 The [library file](https://hodoku.sourceforge.net/libraries/reglib-1.3.txt) records givens, earlier placements, and candidate removals.
 The importer preserves those distinctions.
 
-The Extended Unique Rectangle example uses the engine's existing constructed unique regression puzzle.
-Its candidates come directly from its givens.
-It does not require imported setup eliminations.
-The source points to the earlier repository revision containing that puzzle.
+The Extended Unique Rectangle example uses [Andrew Stuart's published Type 1 example](https://www.sudokuwiki.org/Extended_Unique_Rectangles).
+Its original givens and published setup are recorded separately.
+Its three-digit structural witness replaces the earlier constructed pair-based example.
 
 The implementations use newly written Rust and Python.
 The corpus stores factual puzzle and candidate data with source attribution.
@@ -169,10 +168,13 @@ After obtaining the source file, check its recorded states or run a fresh offlin
 python3 scripts/import_technique_sources.py target/hodoku-reglib-1.3.txt --check tests/fixtures/technique_examples.json
 python3 scripts/import_technique_sources.py target/hodoku-reglib-1.3.txt --output target/hodoku-states.json --include-constructed
 cargo run --release --locked --example mine_techniques -- target/hodoku-states.json target/technique-mining
-cargo run --release --locked --example certify_examples -- target/technique-mining target/technique-examples.json
+python3 scripts/certify_named_patterns.py
+cargo run --release --locked --example certify_examples -- target/named-patterns target/technique-examples.json
 ```
 
 The search can select different valid endpoints because some existing detectors use unordered collections.
 The committed corpus remains fixed.
-The import option adds the existing constructed rectangle puzzle and rebuilds its candidates from givens.
+The legacy import option also adds the frozen external rectangle source and its setup state.
+The named witness producer uses the frozen corpus as its reproducible input.
+A fresh detector search requires separate named witness discovery before version-two certification.
 The replay commands require no source download or discovery run.
