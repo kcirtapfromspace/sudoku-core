@@ -42,7 +42,7 @@ The solver, validator, and candidate updates all operate through the active cons
 2. **Backtracking fallback**
    - `solve()` uses recursion with the MRV heuristic (choose the empty cell with the fewest candidates).
    - It tries each candidate, validates the grid, and recurses until solved.
-   - `count_solutions(limit)` uses the same approach but counts solutions up to a cap (used for uniqueness checks).
+   - `count_solutions(limit)` uses an allocation-free row/column/box bitmask search for built-in classic grids, stopping at the requested cap. Variants and custom constraints retain the general constraint-aware search.
 
 ### Hints
 
@@ -145,7 +145,7 @@ Generation is "generate-and-test" with best-candidate tracking:
    - After each removal, check the puzzle still has **exactly 1 solution** (`Solver::has_unique_solution`, which counts up to 2).
    - Stop removing once we're around the minimum givens threshold.
 3. **Rate and filter**
-   - Run `Solver::rate_difficulty()` on the candidate puzzle.
+   - Run `Solver::analyze()` once to obtain both difficulty and SE ratings for the candidate puzzle.
    - Accept puzzles whose rated difficulty is **equal to the target or one step easier**, whose number of givens falls within the configured range, and whose SE rating (if bounds are configured) falls within the specified range.
 4. **Best-candidate fallback**
    - If no perfect match is found within the attempt budget, the generator returns the **closest candidate seen** (measured by distance from target difficulty) rather than a random last attempt.
@@ -183,6 +183,12 @@ The `PuzzleId` module (`src/puzzle_id.rs`) encodes puzzle parameters (seed, diff
 ## Reproducibility
 
 Use `Generator::with_seed(seed)` to generate deterministic sequences for tests and debugging.
+
+## Performance measurements
+
+Run `cargo run --release --locked --example performance` for fixed-seed generation
+and capped solution-counting timings. See [performance notes](docs/performance.md)
+for the measured improvements, implementation scope, and comparison method.
 
 ## Tests and coverage
 

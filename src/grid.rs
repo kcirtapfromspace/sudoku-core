@@ -167,6 +167,13 @@ impl Grid {
         self.standard_sudoku_constraints
     }
 
+    /// Whether the installed rules are exactly the built-in classic rules.
+    /// Variant tags or constraint names alone cannot establish this for custom
+    /// or deserialized grids.
+    pub(crate) fn has_classic_sudoku_constraints(&self) -> bool {
+        self.standard_sudoku_constraints && self.variant == GridVariant::Classic
+    }
+
     /// Get the grid variant
     pub fn variant(&self) -> GridVariant {
         self.variant

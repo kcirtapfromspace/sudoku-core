@@ -57,6 +57,12 @@ impl Solver {
 
     /// Count solutions up to a limit.
     pub fn count_solutions(&self, grid: &Grid, limit: usize) -> usize {
+        if limit == 0 {
+            return 0;
+        }
+        if grid.has_classic_sudoku_constraints() {
+            return backtrack::count_classic_solutions(grid, limit);
+        }
         let mut working = grid.deep_clone();
         working.recalculate_candidates();
         let mut count = 0;

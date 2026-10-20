@@ -3,7 +3,96 @@
 //! Contains: solve_recursive, count_solutions_recursive,
 //! propagate_singles, propagate_full, has_contradiction.
 
-use crate::{Grid, Position};
+use crate::{BitSet, Grid, Position};
+
+/// Count classic Sudoku completions using only occupancy masks and empty cells.
+/// Stored pencil marks and given flags do not restrict solution counting. The
+/// caller must establish that the installed constraints are exactly classic.
+pub(super) fn count_classic_solutions(grid: &Grid, limit: usize) -> usize {
+    let mut state = ClassicCounter {
+        rows: [0; 9],
+        columns: [0; 9],
+        boxes: [0; 9],
+        empty: [Position::new(0, 0); 81],
+    };
+    let mut empty_count = 0;
+    for pos in Position::all_9x9() {
+        if let Some(value) = grid.get(pos) {
+            if !(1..=9).contains(&value) {
+                return 0;
+            }
+            let bit = 1 << value;
+            let box_index = pos.box_index();
+            if (state.rows[pos.row] | state.columns[pos.col] | state.boxes[box_index]) & bit != 0 {
+                return 0;
+            }
+            state.rows[pos.row] |= bit;
+            state.columns[pos.col] |= bit;
+            state.boxes[box_index] |= bit;
+        } else {
+            state.empty[empty_count] = pos;
+            empty_count += 1;
+        }
+    }
+    state.count(empty_count, limit)
+}
+
+struct ClassicCounter {
+    rows: [u16; 9],
+    columns: [u16; 9],
+    boxes: [u16; 9],
+    empty: [Position; 81],
+}
+
+impl ClassicCounter {
+    fn candidates(&self, pos: Position) -> u16 {
+        BitSet::all_9().as_raw()
+            & !(self.rows[pos.row] | self.columns[pos.col] | self.boxes[pos.box_index()])
+    }
+
+    fn count(&mut self, remaining: usize, limit: usize) -> usize {
+        if remaining == 0 {
+            return 1;
+        }
+
+        // MRV also propagates forced placements by trying singleton masks first.
+        let mut best = 0;
+        let mut candidates = self.candidates(self.empty[0]);
+        for index in 1..remaining {
+            if candidates.count_ones() <= 1 {
+                break;
+            }
+            let mask = self.candidates(self.empty[index]);
+            if mask.count_ones() < candidates.count_ones() {
+                best = index;
+                candidates = mask;
+            }
+        }
+        if candidates == 0 {
+            return 0;
+        }
+
+        // Remove the chosen cell from the active prefix, restoring the ordering
+        // and all occupancy masks on return, including when the cap is reached.
+        self.empty.swap(best, remaining - 1);
+        let pos = self.empty[remaining - 1];
+        let box_index = pos.box_index();
+        let mut count = 0;
+        while candidates != 0 && count < limit {
+            let bit = 1 << candidates.trailing_zeros();
+            candidates &= candidates - 1;
+            self.rows[pos.row] |= bit;
+            self.columns[pos.col] |= bit;
+            self.boxes[box_index] |= bit;
+            count += self.count(remaining - 1, limit - count);
+            self.rows[pos.row] &= !bit;
+            self.columns[pos.col] &= !bit;
+            self.boxes[box_index] &= !bit;
+        }
+        self.empty.swap(best, remaining - 1);
+        count
+    }
+}
 
 /// Check if a grid has a contradiction.
 pub fn has_contradiction(grid: &Grid) -> bool {
@@ -282,3 +371,7 @@ pub fn find_backtracking_hint(grid: &Grid) -> Option<super::explain::Finding> {
     }
     None
 }
+
+#[cfg(test)]
+#[path = "backtrack_tests.rs"]
+mod tests;
