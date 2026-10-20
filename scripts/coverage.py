@@ -25,7 +25,8 @@ SOLVER = ("src/solver/mod.rs", "src/solver/basic.rs", "src/solver/backtrack.rs")
 GENERATION = ("src/generator.rs", "src/diversity.rs")
 ADVANCED = (
     "src/solver/aic_engine.rs", "src/solver/als_engine.rs",
-    "src/solver/arithmetic.rs", "src/solver/fish_engine.rs", "src/solver/uniqueness.rs",
+    "src/solver/arithmetic.rs", "src/solver/arithmetic_partition.rs",
+    "src/solver/fish_engine.rs", "src/solver/uniqueness.rs",
 )
 THRESHOLDS = {
     "production": (("",), 75.0),

@@ -973,6 +973,17 @@ Death Blossom in hint and profile dispatch; it is omitted from recursive forcing
 propagation. See [Arithmetic Counting](../../docs/arithmetic-counting.md) for the
 full proof, examples, API, validation, assumptions, and attribution.
 
+The opt-in `search_partition_arithmetic` API supports version-three certificates.
+For one partition (cells, row/digits, column/digits, or box/digits), it chooses
+exactly one available candidate coefficient per group, including zeros, and
+computes attainable full-sum residues. It restricts the target group under each
+Boolean assumption and refutes an endpoint only when the required residue is
+absent there and present at the other endpoint. Search connects equations through
+shared partition groups; the checker independently rebuilds both source equations
+and groups. See [partition residues](../../docs/partition-residues.md) for the
+soundness and containment proofs, strictness fixture, limits, and prior art.
+This extension does not participate in the default technique ladder.
+
 ---
 
 ## Appendix A: Notation Summary

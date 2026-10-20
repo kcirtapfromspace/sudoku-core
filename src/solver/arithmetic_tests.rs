@@ -3,7 +3,7 @@ use crate::{BitSet, Grid, Hint, HintType, Position, ProofCertificate, Solver};
 
 const ALL: u16 = 0x1ff;
 
-fn pos(cell: usize) -> Position {
+pub(super) fn pos(cell: usize) -> Position {
     Position::new(cell / 9, cell % 9)
 }
 
@@ -16,7 +16,7 @@ fn sector_contains(sector: usize, cell: usize) -> bool {
     }
 }
 
-fn restrict_one(grid: &mut Grid, sector: usize, retained: &[usize]) {
+pub(super) fn restrict_one(grid: &mut Grid, sector: usize, retained: &[usize]) {
     for cell in 0..81 {
         if sector_contains(sector, cell) && !retained.contains(&cell) {
             grid.cell_mut(pos(cell)).remove_candidate(1);
@@ -24,7 +24,7 @@ fn restrict_one(grid: &mut Grid, sector: usize, retained: &[usize]) {
     }
 }
 
-fn sector_terms(sectors: &[usize], weights: &[i8]) -> Vec<ArithmeticTerm> {
+pub(super) fn sector_terms(sectors: &[usize], weights: &[i8]) -> Vec<ArithmeticTerm> {
     assert_eq!(sectors.len(), weights.len());
     sectors
         .iter()
@@ -50,7 +50,7 @@ fn guardian() -> Grid {
     grid
 }
 
-fn xwing() -> Grid {
+pub(super) fn xwing() -> Grid {
     let mut grid = Grid::new_classic();
     restrict_one(&mut grid, 0, &[0, 6]);
     restrict_one(&mut grid, 1, &[9, 15]);
@@ -210,7 +210,7 @@ fn oracle_search(
     OracleResult::Unsat
 }
 
-fn assert_forced(grid: &Grid, cell: usize, digit: u8, value: bool) {
+pub(super) fn assert_forced(grid: &Grid, cell: usize, digit: u8, value: bool) {
     match oracle(grid, Some((cell, digit, value))) {
         OracleResult::Sat(completion) => assert_completion(grid, &completion),
         other => panic!("expected a compatible full completion, got {other:?}"),

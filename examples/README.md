@@ -74,3 +74,9 @@ cargo run --release --locked --example performance
 Pass `count` or `generate` after `--` to time one workload. Generation uses seeds
 42, 99, and 314 and prints a puzzle fingerprint so results can be compared across
 revisions. See [performance notes](../docs/performance.md) for methodology.
+
+## Partition residue certificates
+
+`cargo run --release --example partition_residues > partition-proof.json`
+discovers, verifies, and replays a version-three deduction while exporting all
+candidate premises as JSON. See [the proofs and prior-art review](../docs/partition-residues.md).
