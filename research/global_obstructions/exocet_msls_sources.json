@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-20",
+  "sources": [
+    {
+      "title": "Allan Barker, Basic Principles",
+      "url": "https://sudoku.allanbarker.com/sweb/general.htm",
+      "role": "Primary author definition of native truths/covers, rank, and separate triplet/dark extensions",
+      "direct_fetch_status": "unavailable",
+      "direct_fetch_error": "HTTP Error 406: Not Acceptable",
+      "status": "read-via-web-tool",
+      "retrieval": "Full author page returned by browser search/open tool; direct client fetch unavailable. No raw-page hash retained."
+    },
+    {
+      "title": "Andrew Stuart, Exocet",
+      "url": "https://www.sudokuwiki.org/Exocet",
+      "role": "Primary implementation documentation quoting Bird and specifying basic Junior geometry",
+      "direct_fetch_status": "unavailable",
+      "direct_fetch_error": "HTTP Error 403: Forbidden",
+      "status": "read-via-web-tool",
+      "retrieval": "Full author page returned by browser search/open tool; direct client fetch unavailable. No raw-page hash retained."
+    },
+    {
+      "title": "Tom Collyer, The MSLS: Revolutions",
+      "url": "https://tcollyer.blogspot.com/2020/10/the-msls-revolutions.html",
+      "role": "Primary author discussion: MSLS counting and lack of a universally agreed definition",
+      "sha256": "b2f2dda3d02e9699727d864b2b8a3e647346fdbfe9c9bc6f45a8b90d23bb8f51",
+      "status": "read",
+      "bulk_cache": "target/exocet-msls-sources/collyer-msls.html"
+    },
+    {
+      "title": "kyoyama-kazusa/Sudoku author-maintained src/Sudoku.Analytics/Analytics/StepSearchers/Exocets/ExocetStepSearcher.cs",
+      "url": "https://github.com/kyoyama-kazusa/Sudoku/blob/89667e24c67384a8234f40972d46776ce791ce6d/src/Sudoku.Analytics/Analytics/StepSearchers/Exocets/ExocetStepSearcher.cs",
+      "commit": "89667e24c67384a8234f40972d46776ce791ce6d",
+      "sha256": "d6050158535f9e1996aa96731a1556fcca46d09233fb0a4fb6841f9fd218000a",
+      "status": "read",
+      "role": "Author code/tutorial; source comparison only, external .NET executable was not run"
+    },
+    {
+      "title": "kyoyama-kazusa/Sudoku author-maintained src/Sudoku.Analytics/Analytics/StepSearchers/LockedSets/MultisectorLockedSetsStepSearcher.cs",
+      "url": "https://github.com/kyoyama-kazusa/Sudoku/blob/89667e24c67384a8234f40972d46776ce791ce6d/src/Sudoku.Analytics/Analytics/StepSearchers/LockedSets/MultisectorLockedSetsStepSearcher.cs",
+      "commit": "89667e24c67384a8234f40972d46776ce791ce6d",
+      "sha256": "cd35db9263a6a88f7d8d30156fa6785b441e0f8e8251c54ca6ac932c243f7c05",
+      "status": "read",
+      "role": "Author code/tutorial; source comparison only, external .NET executable was not run"
+    },
+    {
+      "title": "kyoyama-kazusa/Sudoku author-maintained src/Sudoku.Analytics/Analytics/Construction/Patterns/MultisectorLockedSetPattern.cs",
+      "url": "https://github.com/kyoyama-kazusa/Sudoku/blob/89667e24c67384a8234f40972d46776ce791ce6d/src/Sudoku.Analytics/Analytics/Construction/Patterns/MultisectorLockedSetPattern.cs",
+      "commit": "89667e24c67384a8234f40972d46776ce791ce6d",
+      "sha256": "53e6d40e0b1eed0645bdccda7d81d8e88144ad539b2ac03cf143387ad7c2daf0",
+      "status": "read",
+      "role": "Author code/tutorial; source comparison only, external .NET executable was not run"
+    },
+    {
+      "title": "kyoyama-kazusa/Sudoku author-maintained docs/tutorial/exocet/01-reasoning-of-exocet.md",
+      "url": "https://github.com/kyoyama-kazusa/Sudoku/blob/89667e24c67384a8234f40972d46776ce791ce6d/docs/tutorial/exocet/01-reasoning-of-exocet.md",
+      "commit": "89667e24c67384a8234f40972d46776ce791ce6d",
+      "sha256": "55f7d55c3bc45bb4cd4fb6986ba78cafd7eb88a6d18eac86779c217085586242",
+      "status": "read",
+      "role": "Author code/tutorial; source comparison only, external .NET executable was not run"
+    },
+    {
+      "title": "kyoyama-kazusa/Sudoku author-maintained docs/tutorial/rank-theory/06-multisector-locked-set/02-reasoning-of-multisector-locked-set.md",
+      "url": "https://github.com/kyoyama-kazusa/Sudoku/blob/89667e24c67384a8234f40972d46776ce791ce6d/docs/tutorial/rank-theory/06-multisector-locked-set/02-reasoning-of-multisector-locked-set.md",
+      "commit": "89667e24c67384a8234f40972d46776ce791ce6d",
+      "sha256": "a276c7a5540192ea45440cd9b132d4e2e9147dcd3eb73eb21d154410c3bbd9f8",
+      "status": "read",
+      "role": "Author code/tutorial; source comparison only, external .NET executable was not run"
+    },
+    {
+      "title": "David P Bird, JExocet Compendium",
+      "url": "https://forum.enjoysudoku.com/jexocet-compendium-t32370.html",
+      "status": "unavailable",
+      "observed": "Web tool internal error; direct public HTTP client connection refused. No claim to have read the underlying compendium/thread."
+    },
+    {
+      "title": "David P Bird, Using Multi-Sector Locked Sets",
+      "url": "https://forum.enjoysudoku.com/using-multi-sector-locked-sets-t31222.html",
+      "status": "unavailable",
+      "observed": "Web tool internal error; direct public HTTP client connection refused. No claim to have read the underlying compendium/thread."
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # Different-obstruction campaign: independent classification and limits
 
+**Follow-up:** the [expanded audit](novelty20_report.md) verifies a published
+EL12c38 tridagon followed by one cell split as a complete explanation of
+r1c8≠3. A separate [seven-node local-only forcing certificate](deeper_forcing_report.md)
+uses two additional split levels. The earlier one-pivot no-hit here does not
+exclude either stronger explanation.
+
 Audit date: 2026-10-20. This is a bounded search and classification report, not
 a claim of a new mathematical principle or 100% originality. The previously
 studied uniform native-27 incidence is excluded from this campaign.

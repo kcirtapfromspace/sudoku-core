@@ -1,5 +1,12 @@
 # Search for a different obstruction in a unique puzzle
 
+**Follow-up: the known EL12c38 tridagon plus one cell split explains the
+20-cell deduction.** The [expanded novelty audit](novelty20_report.md) verifies
+that complete chain and a separate seven-node local-only forcing tree. The
+85-node engine certificate and unique-puzzle stall remain valid; this case
+does not demonstrate a new solving principle. The earlier one-pivot no-hit
+below remains a precisely scoped result without the additional catalogue lemma.
+
 **A different 20-cell list obstruction is certified in a unique puzzle, with
 historical novelty unresolved.** It supplies an 85-node proof of r1c8≠3 in a
 forcing-inclusive older-engine stall. No new mathematical family is claimed:
@@ -189,3 +196,7 @@ witnesses. SAT/optimizer answers alone never promote a deduction.
 The open question is whether the certified mixed-digit lead has an established
 named explanation or an earlier equivalent pattern. The other unclassified
 cases and broader mixed-digit correlations also require further work.
+
+The follow-up resolves the first part with the established forcing composition
+above; it does not establish the historical first appearance of this exact
+20-cell incidence.

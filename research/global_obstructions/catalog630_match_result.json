@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "fixture_sha256": "45d6f8e79f9dfb859ba6827dadb3934a1cc5c1b1ada822537b5346b926941358",
+  "catalogue_sha256": "0c26bd8b5481d05c882337684b94515a209f64b70615dd342459adc27e06e3af",
+  "public_patterns": 592,
+  "runs": {
+    "selected20_raw_opposite": {
+      "occurrences": [],
+      "eligible_triple_hosts": [
+        {
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "cells": [
+            2,
+            3,
+            9,
+            13,
+            19,
+            30,
+            31,
+            54,
+            57,
+            64,
+            66,
+            68,
+            74,
+            76
+          ]
+        }
+      ],
+      "orientation_search_calls": 1184,
+      "search_complete": true,
+      "scope": "All592 public strict all-three-candidate rules under standard Sudoku geometry symmetries and transpose. This is not an OR-chain closure.",
+      "domains_sha256": "54800b2374ef52420b4958de5e342a65ee5e86c1791995cfc1219205a35e5ae1"
+    },
+    "selected20_closed_opposite": {
+      "occurrences": [],
+      "eligible_triple_hosts": [
+        {
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "cells": [
+            9,
+            13,
+            19,
+            30,
+            31,
+            54,
+            57,
+            64,
+            66,
+            68,
+            74,
+            76
+          ]
+        }
+      ],
+      "orientation_search_calls": 1184,
+      "search_complete": true,
+      "scope": "All592 public strict all-three-candidate rules under standard Sudoku geometry symmetries and transpose. This is not an OR-chain closure.",
+      "domains_sha256": "3831d5ebc3b52a67bfc22ff19d234f8943d9125e4550bc30524ac0a6ade84565"
+    },
+    "full_base": {
+      "occurrences": [
+        {
+          "id": "EL12c38",
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "transpose": false,
+          "mapping": [
+            [
+              5,
+              19
+            ],
+            [
+              8,
+              23
+            ],
+            [
+              13,
+              2
+            ],
+            [
+              16,
+              3
+            ],
+            [
+              21,
+              9
+            ],
+            [
+              24,
+              13
+            ],
+            [
+              32,
+              64
+            ],
+            [
+              35,
+              68
+            ],
+            [
+              40,
+              74
+            ],
+            [
+              42,
+              76
+            ],
+            [
+              48,
+              54
+            ],
+            [
+              52,
+              57
+            ]
+          ],
+          "guardians": [
+            [
+              68,
+              7
+            ]
+          ]
+        }
+      ],
+      "eligible_triple_hosts": [
+        {
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "cells": [
+            2,
+            3,
+            9,
+            13,
+            19,
+            23,
+            30,
+            31,
+            32,
+            41,
+            54,
+            57,
+            62,
+            64,
+            66,
+            68,
+            71,
+            74,
+            76,
+            80
+          ]
+        }
+      ],
+      "orientation_search_calls": 1184,
+      "search_complete": true,
+      "scope": "All592 public strict all-three-candidate rules under standard Sudoku geometry symmetries and transpose. This is not an OR-chain closure.",
+      "domains_sha256": "6e05b234888b01d1e0d9f89ca19771285d4c0a15a494a890f69b3dc14f763085"
+    },
+    "full_raw_opposite": {
+      "occurrences": [
+        {
+          "id": "EL12c38",
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "transpose": false,
+          "mapping": [
+            [
+              5,
+              19
+            ],
+            [
+              8,
+              23
+            ],
+            [
+              13,
+              2
+            ],
+            [
+              16,
+              3
+            ],
+            [
+              21,
+              9
+            ],
+            [
+              24,
+              13
+            ],
+            [
+              32,
+              64
+            ],
+            [
+              35,
+              68
+            ],
+            [
+              40,
+              74
+            ],
+            [
+              42,
+              76
+            ],
+            [
+              48,
+              54
+            ],
+            [
+              52,
+              57
+            ]
+          ],
+          "guardians": [
+            [
+              68,
+              7
+            ]
+          ]
+        }
+      ],
+      "eligible_triple_hosts": [
+        {
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "cells": [
+            2,
+            3,
+            9,
+            13,
+            19,
+            23,
+            30,
+            31,
+            32,
+            41,
+            54,
+            57,
+            62,
+            64,
+            66,
+            68,
+            71,
+            74,
+            76,
+            80
+          ]
+        }
+      ],
+      "orientation_search_calls": 1184,
+      "search_complete": true,
+      "scope": "All592 public strict all-three-candidate rules under standard Sudoku geometry symmetries and transpose. This is not an OR-chain closure.",
+      "domains_sha256": "54800b2374ef52420b4958de5e342a65ee5e86c1791995cfc1219205a35e5ae1"
+    },
+    "full_closed_opposite": {
+      "occurrences": [],
+      "eligible_triple_hosts": [
+        {
+          "palette": [
+            3,
+            4,
+            8
+          ],
+          "cells": [
+            9,
+            13,
+            19,
+            23,
+            30,
+            31,
+            32,
+            54,
+            57,
+            62,
+            64,
+            66,
+            68,
+            71,
+            74,
+            76,
+            80
+          ]
+        }
+      ],
+      "orientation_search_calls": 1184,
+      "search_complete": true,
+      "scope": "All592 public strict all-three-candidate rules under standard Sudoku geometry symmetries and transpose. This is not an OR-chain closure.",
+      "domains_sha256": "3831d5ebc3b52a67bfc22ff19d234f8943d9125e4550bc30524ac0a6ade84565"
+    }
+  },
+  "seconds": 1.433019333
+}

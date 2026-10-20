@@ -62,6 +62,11 @@ jobs:
           python3 -S research/global_obstructions/different_audit_verify.py
           python3 -S research/global_obstructions/different_structural_verify.py
           python3 -S research/global_obstructions/different_corpus_manifest.py verify --count
+          python3 -S research/global_obstructions/deeper_forcing_verify.py --mutations
+          python3 -S research/global_obstructions/exocet_msls_verify.py
+          python3 -S research/global_obstructions/novelty20_triplets.py
+          python3 -S research/global_obstructions/catalog630_verify.py --rescan
+          python3 -S research/global_obstructions/deeper_forcing_catalogue_chain.py --mutations
 
   frozen-old-engine:
     name: Fresh forcing-inclusive older-engine comparison
