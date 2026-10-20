@@ -21,6 +21,17 @@ eliminations beyond the tested structural baseline and default arithmetic search
 All 25 recorded center/candidate certificates verify in production. This is
 useful bounded engine coverage, not a separation from all known methods.
 
+
+```mermaid
+flowchart TD
+    A[Recorded candidate state] --> B[Check native-house Hall support]
+    B --> C[Check crossing three-house support]
+    C --> D[Construct a finite certificate]
+    D --> E[Replay the premise trace and certificate]
+    E --> F[Compare the specified older methods]
+    F --> G[Audit earlier mathematical explanations]
+```
+
 ## Findings and priorities
 
 | Priority | Research target | Precise question |
@@ -143,10 +154,9 @@ a general matching/constraint decomposition argument; priority is unverified.
 For a cell's row, column, and box, the six atoms have sizes 1,2,2,6,6,4.
 The boundary can be represented by a center digit and two disjoint two-digit
 sets, giving at most `9 * C(8,2) * C(6,2) = 3,780` signatures. Failed matchings
-can be certified by explicit Hall deficiencies. This is the proposed bounded
-proof-search mechanism now implemented in `src/solver/three_house.rs`; its
-checker uses Hall cardinality and exhaustive signature coverage without invoking
-the search matching DP.
+can be certified by explicit Hall deficiencies. `src/solver/three_house.rs` implements this bounded proof search.
+Its checker uses Hall cardinality and exhaustive signature coverage.
+The checker does not call the search matching dynamic program.
 
 ## Nonlinear and geometric baselines
 
@@ -165,9 +175,10 @@ graph templates do not supply new three-digit obstructions here:
   every native support contains four mutually seeing cells. Cell transitivity
   covers every choice of shared tip. Such a support restricted to three digits
   already has a Hall contradiction.
-- Every cell's peer neighborhood is chordal: its six row peers outside its box
-  are simplicial, followed by its six column peers outside its box; the remaining
-  eight box peers form a clique. A wheel without a four-clique would require a
+- Every cell has a chordal peer neighborhood.
+Its six row peers outside the box are simplicial.
+After their removal, the six column peers outside the box are simplicial.
+The remaining eight box peers form a clique. A wheel without a four-clique would require a
   triangle-free cycle in that neighborhood, which is impossible. The script
   verifies the complete elimination ordering as well as bounded cycle cases.
 

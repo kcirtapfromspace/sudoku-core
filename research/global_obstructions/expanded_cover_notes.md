@@ -10,12 +10,14 @@ The previous experiment added clues greedily to one fixed nineteen-given seed.
 Here a mixed-integer optimizer can remove or replace every earlier clue. It
 chooses up to eighty clue selectors alongside all 729 continuous native Sudoku
 variables. Native LP equations, guardian-false restriction and actual-given
-coverage of every forbidden core candidate must hold together. An alternate
-complete Sudoku contributes a necessary hitting-set constraint: a unique clue
-set must include at least one position distinguishing that completion from the
-reference completion. Random positive clue weights vary the minimum-cost cover.
+coverage of every forbidden core candidate must hold together.
+
+An alternate complete Sudoku supplies a necessary hitting-set constraint.
+A unique clue set must contain a position that distinguishes the alternate completion from the reference completion. Random positive clue weights vary the minimum-cost cover.
 Unique endpoints undergo random uniqueness-preserving clue deletion, while
-retaining the givens-only core restrictions. The final run restricts selectors
+retaining the givens-only core restrictions.
+
+The final run restricts selectors
 to the 68 cells outside the core and changes the random seed.
 
 An independent C++ exact-cover enumerator supplies alternate completions and
@@ -36,9 +38,9 @@ Candidate tiers are recorded separately:
 - Initial or post-old closure makes the opposite guardian branch locally
   inconsistent: rejected by the named strict local filters.
 - Old nonforcing closure places the guardian: rejected as an incremental gap.
-- Old nonforcing closure stalls with guardian live, default Arithmetic returns
-  no hint, and the opposite branch remains locally and LP feasible: a useful
-  lesser tier requiring separate exact certification.
+- The configured older nonforcing closure leaves the guardian live, and default Arithmetic returns no hint.
+The opposite branch passes the specified local and LP checks.
+This weaker comparison tier needs separate exact certification.
 - Full older dispatcher, including forcing, also stalls while the guardian
   remains live: the stronger target. A solved board is never classified a stall.
 
@@ -48,6 +50,16 @@ defeating trace for the certified twenty-nine-given puzzle is reproduced by
 `expanded_cover_forcing_trace.py`; every endpoint is checked against its
 independently counted sole completion. This does not reconstruct each named old
 technique's internal proof independently.
+
+
+```mermaid
+flowchart TD
+    A[Pinned author-source corpus] --> B[Check uniqueness and retained premises]
+    B --> C[Run the stated older baseline]
+    C --> D[Search a global coloring deduction]
+    D --> E[Check the opposite state and exact LP point]
+    E --> F[Retain accepted and rejected controls]
+```
 
 ## Reproduce
 
@@ -87,7 +99,9 @@ an enumeration cutoff. Each `expanded_cover_endpoints.jsonl` line is
 `[puzzle, category, forcing]`: categories 0–4 mean old-target-placed,
 joint-target-placed, initial-local-filter, post-old-local-filter and
 nonforcing-plus-Arithmetic gap respectively. Forcing 0 means not attempted and
-1 means the later forcing closure placed the guardian. The summary binds their
+1 means the later forcing closure placed the guardian.
+
+The summary binds their
 SHA-256 hashes, byte lengths and schemas. `expanded_cover_verify.py` checks
 deduplication and every aggregate count from these public files using only the
 standard library. These are recorded discovery classifications; this check does
@@ -109,14 +123,17 @@ were unique. Uniqueness-preserving clue deletion and requalification produced
 | f, outside-core selectors | 98247 | 351 | 254 | 342 | 360.373 |
 
 Runs b–e were interrupted at deliberate phase changes; their summaries can
-include a started candidate not yet fully logged. The table populations differ:
-a raw unique set can yield two distinct minimized endpoints, and resumed cuts
-and requalified fixtures do not count as new generated puzzles.
+include a started candidate not yet fully logged. The table populations differ.
+One raw unique set can yield two minimized endpoints.
+Resumed cuts and requalified fixtures are not new generated puzzles.
 
-The 611 distinct endpoint classifications were: 425 placed the guardian through
-old nonforcing methods, 15 placed it during joint local closure, 16 failed the
-initial local branch filters, 64 failed the filters after old nonforcing closure,
-and 91 passed the nonforcing-plus-Arithmetic discovery tier. There were no
+The 611 distinct endpoints have these classifications:
+
+- 425 placed the guardian through older nonforcing methods.
+- 15 placed it during joint local closure.
+- 16 failed the initial local branch filters.
+- 64 failed the filters after older nonforcing closure.
+- 91 passed the nonforcing-plus-Arithmetic discovery tier. There were no
 conflicting classifications for an identical givens string.
 
 All 91 lesser-tier endpoints were defeated by subsequent old forcing closure;

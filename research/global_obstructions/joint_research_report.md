@@ -6,9 +6,21 @@ solving family qualifies for production promotion in this campaign.
 
 The twenty-cell Mith515 certificate, replay and regression tests remain valid.
 Its classification is a known-method benchmark. The previous audit already
-gave an established catalogue-and-forcing explanation; the revised comparison
+gave an established catalog-and-forcing explanation; the revised comparison
 also solves it using the older dispatcher after hypothetical candidate retention
 is corrected.
+
+
+```mermaid
+flowchart TD
+    A[Eight former older-engine fixed points] --> B[Preserve candidates inside assumptions]
+    B --> C[Four solve; four remain]
+    C --> D[Retain catalog OR relations and consequences]
+    D --> E[All eight solve]
+    F[Twelve fresh unique hosts] --> G[All solve under the corrected older ladder]
+    E --> H[No qualifying new family]
+    G --> H
+```
 
 ## What changed in the comparison
 
@@ -16,9 +28,9 @@ is corrected.
 | --- | ---: | ---: | ---: |
 | Original frozen ladder, recorded earlier | 0 | 8 | 0 |
 | Same frozen ladder with candidate-preserving hypothetical rebuilds | 4 | 4 | 0 |
-| Catalogue/chain/declared pattern closure on those retained states, with complete supplied givens-domain history scans | 8 | 0 | 0 after larger-budget reruns |
+| Catalog/chain/declared pattern closure on those retained states, with complete supplied givens-domain history scans | 8 | 0 | 0 after larger-budget reruns |
 
-The initial historical catalogue profile had two node cutoffs, including one
+The initial historical catalog profile had two node cutoffs, including one
 already solved input. Those outcomes are preserved in
 `strong_baseline_campaign_results.json`. Separate larger-budget reruns in
 `strong_baseline_expanded_results.json` completed both scans. A cutoff was never
@@ -45,7 +57,7 @@ belong to at least eight different native Sudoku symmetry orbits.
 `strong_baseline_core.py` repeatedly applies:
 
 1. Strict native occurrences of the 592 public applicable graphs in the pinned
-   630-pattern catalogue, over all 84 three-digit palettes and both orientations.
+   630-pattern catalog, over all 84 three-digit palettes and both orientations.
 2. Full single-house Hall support and all 81 crossing three-house support checks.
 3. Persistent guardian OR clauses, unit consequences and signed binary native
    implication paths, with explicit path reasons.
@@ -54,25 +66,23 @@ belong to at least eight different native Sudoku symmetry orbits.
 5. Bounded failed literals with up to two additional cell or guardian splits,
    exact exhaustive branch coverage and retained candidates and guardian facts.
 
-Each clause binds the catalogue hash, native embedding, palette, guardian list,
+Each clause binds the catalog hash, native embedding, palette, guardian list,
 origin domains and puzzle context. It survives monotone candidate restrictions,
 even if its strict occurrence is no longer recognizable. Branch-derived facts
 remain local to that branch. A complete strict scan on a looser ancestor covers
 all later strict occurrences; this does not cover sparse variants excluded by
-the declared strict model. The 38 no-free-cell catalogue cases retain the
+the declared strict model. The 38 no-free-cell catalog cases retain the
 specific exclusion explained in `catalog630_report.md`.
 
-Default forcing includes fresh catalogue discovery in assumptions when no
+Default forcing includes fresh catalog discovery in assumptions when no
 complete ancestor scan covers them. Junior/MSLS scans run at the root; enabling
 them inside hypotheses is a separate profile option. Guardian splits have a
 declared width bound of six. A focused endpoint list establishes only a focused
 fixed point. A phase that changes domains restarts the menu. Time, node, clause,
 round or branch limits produce an inconclusive outcome.
 
-This is an explicitly bounded subset of known methods. Its unit propagation,
-binary reachability and guardian branching do **not** implement the full family
-of CSP-Rules ORk-whips or ORk-forcing-whips described in the
-[catalogue author's pinned README](https://github.com/denis-berthier/CSP-Rules-V2.1/blob/7eefd71566b37e55c15f330d474140bfc4f4371d/README.md).
+This is an explicitly bounded subset of known methods. Its unit propagation, binary reachability, and guardian branching implement a subset of CSP-Rules ORk reasoning.
+The [catalog author's pinned README](https://github.com/denis-berthier/CSP-Rules-V2.1/blob/7eefd71566b37e55c15f330d474140bfc4f4371d/README.md) describes the full ORk-whip and ORk-forcing-whip families.
 An eventual survivor must be compared with those additional implementations or
 carry a precise limitation; this baseline is not an oracle for all known methods.
 
@@ -81,11 +91,13 @@ carry a precise limitation; this baseline is not an oracle for all known methods
 Every digit has 46,656 full native placement templates. Retain those compatible
 with the candidate state and its singleton values. Every Sudoku completion
 selects one template per digit, and templates selected for distinct digits have
-disjoint cell sets. Thus a template lacking a disjoint support in another digit
-can be removed; so can one lacking a mutually disjoint pair of supports in two
-other digits. Induction over these removals preserves every completion. Emptying
+disjoint cell sets. A template can be removed when another digit offers no disjoint support.
+
+It can also be removed when two other digits offer no mutually disjoint pair of supports. Induction over these removals preserves every completion. Emptying
 one digit's template domain refutes the state. Apply this to a conclusion's
-opposite literal to certify the conclusion. Uniqueness is unnecessary for this
+opposite literal to certify the conclusion.
+
+Uniqueness is unnecessary for this
 theorem; it is required separately for research-host acceptance.
 
 `joint_templates_search.py` implements exact pair support closure and ternary
@@ -97,9 +109,8 @@ requires a nonempty, fully checked nine-digit pairwise arc-consistent checkpoint
 before the first ternary deletion. This is a precise separation of two declared
 template relaxations; it is not a proof of novelty or separation from forcing.
 
-The two stable controls include a seven-event pair refutation of the known
-twenty-cell opposite and an eleven-event refutation of the known thirteen-cell
-control after a nonempty pairwise checkpoint. Their original per-digit template
+The known twenty-cell opposite has a seven-event pair refutation.
+The known thirteen-cell control has an eleven-event refutation after a nonempty pairwise checkpoint. Their original per-digit template
 LP witnesses remain valid. Feasibility of an LP restricted to the templates
 remaining after pairwise filtering is a separate, unchecked assertion.
 
@@ -134,11 +145,12 @@ constraint consistency as prior art. Joint compatibility is a useful search
 model; its general principle is already known. Historical priority for a future
 specific family needs a separate primary-source and pattern audit.
 
-A candidate can advance only with an explicit theorem and independently checked
-exact proof, an unchanged completed union baseline at the same retained state,
-exact local and LP witnesses for any claimed separations, and examples in at
-least three unique givens-only puzzles proved to occupy different native
-symmetry orbits. The givens history, all enabled baseline variants and resource
+Acceptance requires all of these conditions:
+
+- An explicit theorem and independently checked exact proof.
+- An unchanged completed union baseline at the same retained state.
+- Exact local and LP witnesses for every claimed separation.
+- At least three unique givens-only hosts proved to occupy different native symmetry orbits. The givens history, all enabled baseline variants and resource
 limits must be bound to those states. Literature status is recorded separately
 from mathematical validity. An older-engine stall, known template consistency
 separation or a cutoff satisfies none of the missing obligations.
@@ -165,7 +177,7 @@ python3 -S research/global_obstructions/discovery_pipeline_compare.py --build-fo
 python3 -S research/global_obstructions/strong_baseline_campaign.py --retained target/retained-reproduction-results.json --output target/strong-reproduction
 ```
 
-Use the declared larger catalogue profile to revisit any first-pass cutoff.
+Use the declared larger catalog profile to revisit any first-pass cutoff.
 `discovery_pipeline_expand.py` continues into previously untested pinned author
 puzzles, alternating both baseline parts and retaining their separate trace
 grammars. Its solved cases, fixed points and cutoffs are separate outcomes; a

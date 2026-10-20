@@ -23,8 +23,8 @@ No historical mathematical novelty is established.
 | [Broader graph search](nonrank_graph_report.md) | Synthetic 27-cell five-chromatic graph with an exact fractional four-color cover and full-board template witness. Subsequent trade classification rules out its unique outside-clue realization. Includes exact rejected controls and bounded negative results. |
 | [27-cell realization audit](realization27_report.md) | Exhaustive support-trade classification rules out a unique puzzle with all 27 cells unclued. Larger explicit proofs now certify the conditional synthetic deduction; default hint-search bounds remain unchanged. |
 | [Different-obstruction campaign](different_report.md) | 33 additional unique puzzles yield eight stalls of the originally configured older engine. The mixed-digit 20-cell/85-node elimination is now a known-method benchmark. Includes a 13-cell/137-node known-composition control. |
-| [20-cell expanded novelty audit](novelty20_report.md) | The known EL12c38 tridagon plus one cell split proves the target. A separate seven-node local-only refutation also passes. Catalogue coverage and scoped Exocet/MSLS checks are recorded separately; no new solving principle is established. |
-| [Stronger baseline and joint placements](joint_research_report.md) | Candidate retention inside assumptions resolves four former stalls; persistent catalogue relations and the declared offline closure resolve the other four. Twelve fresh unique puzzles also solve. No candidate qualifies as a new family. |
+| [20-cell expanded novelty audit](novelty20_report.md) | The known EL12c38 tridagon plus one cell split proves the target. A separate seven-node local-only refutation also passes. Catalog coverage and scoped Exocet/MSLS checks are recorded separately; no new solving principle is established. |
+| [Stronger baseline and joint placements](joint_research_report.md) | Candidate retention inside assumptions resolves four former stalls; persistent catalog relations and the declared offline closure resolve the other four. Twelve fresh unique puzzles also solve. No candidate qualifies as a new family. |
 | [Exact joint-template search](joint_templates_report.md) | Full-board pair and ternary support filtering with exact certificates; 1,200 original-state and 631 corrected-state endpoint records, plus independently accepted controls. Established POM/CSP reasoning. |
 | [Independent joint and baseline audit](joint_audit_report.md) | Separate template enumeration, exact guardian/path and Junior/MSLS theorem checkers, tamper controls and a primary-source novelty audit. |
 | [Exact motif prior art](prior_art_13_report.md) | An explicit spanning seven-hyperhole and grouped-loop map explain the 13-cell obstruction by established methods. First appearance of the exact Sudoku drawing remains unresolved. |
@@ -35,6 +35,17 @@ solver status. It does not imply survival of every stronger LP encoding,
 integer cut, AIC or forcing procedure. The rejected 21-cell four-digit candidate
 has a checked 35-term linear refutation and was excluded from the positive
 claims. Earlier three-house trial 847 has a checked 11-term linear refutation.
+
+
+```mermaid
+flowchart TD
+    A[Unique givens-only host] --> B[Replay the candidate-state premises]
+    B --> C[Check the specified local and LP relaxations]
+    C --> D[Run the stronger configured baseline]
+    D --> E[Search joint digit placements]
+    E --> F[Independently check an exact certificate]
+    F --> G[Compare distinct hosts and earlier work]
+```
 
 ## Exact checks
 

@@ -35,6 +35,17 @@ solution. The clue string, original domains, derivation trace, retained state,
 opposite-assumption closure and endpoint are in
 [`nonrank_full_old_stall.json`](nonrank_full_old_stall.json).
 
+
+```mermaid
+flowchart TD
+    A[Unique 28-given Monhard puzzle] --> B[Recorded forcing-inclusive fixed point]
+    B --> C[169-node Global Coloring proof]
+    B --> D[33-term digit-template LP witness]
+    C --> E[Known tridagon and guardian explanation]
+    D --> F[Single-digit relaxation separation only]
+    E --> G[No historical novelty claim]
+```
+
 ## What passed
 
 | Obligation | Evidence |
@@ -110,7 +121,9 @@ The separate [structural search](nonrank_graph_report.md) found a synthetic
 of four. Its live guardian is r5c6=1. Both local closures pass, and an independent
 **49-term full-board template mixture** survives all per-digit-valid linear
 inequalities on the closed opposite branch. All 2,925 selected-house triples
-are separately feasible. An explicit
+are separately feasible.
+
+An explicit
 [`research refutation tree`](nonrank_graph_native27_tree.json) has 11,081 nodes;
 its separate checker reconstructs every candidate branch and conflict.
 This is a stronger synthetic

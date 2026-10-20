@@ -1,76 +1,67 @@
-# Sudoku Engine Examples
+# Engine examples
 
-## Basic Usage
+This repository contains four runnable Rust examples.
+The terminal and mobile user interfaces belong to consumer projects.
 
-Run the basic example to see puzzle generation and solving:
+```mermaid
+flowchart LR
+    A[Choose an example] --> B[Generate and solve]
+    A --> C[Check an arithmetic proof]
+    A --> D[Check a coloring replay]
+    A --> E[Measure fixed workloads]
+```
 
-```bash
+## Generate and solve a puzzle
+
+Run the basic example from the repository root:
+
+```sh
 cargo run --example basic
 ```
 
-## TUI Application
+## Check Arithmetic Counting
 
-Run the interactive terminal interface:
+Run the arithmetic example:
 
-```bash
-cargo run --bin sudoku
+```sh
+cargo run --release --example arithmetic_counting
 ```
 
-### Controls
+The example constructs a Guardian candidate state and checks its five-equation parity proof.
+It also runs the bounded arithmetic search.
+The [arithmetic guide](../docs/arithmetic-counting.md) describes the proof and API.
 
-| Key | Action |
-|-----|--------|
-| Arrow keys / hjkl | Navigate cells |
-| w/a/s/d | Jump to adjacent 3x3 box |
-| 1-9 | Enter number |
-| Shift + 1-9 | Toggle candidate |
-| 0 / Delete / Backspace | Clear cell |
-| c | Toggle candidate mode |
-| f | Fill candidates (current cell) |
-| Shift+F | Fill candidates (all cells) |
-| x | Clear notes (current cell) |
-| Shift+X | Clear notes (all cells) |
-| g | Toggle ghost hints |
-| v | Toggle valid cell highlighting |
-| u | Undo |
-| Ctrl+r | Redo |
-| ? | Show hint (press again for proof detail) |
-| ! | Apply hint |
-| n | New game menu |
-| p | Pause |
-| Shift+S | Stats screen |
-| q | Quit |
+## Check Global Coloring
 
-## Building for Mobile
+Run the coloring example with a candidate-state file:
 
-### iOS (Swift)
-
-```bash
-cd crates/sudoku-ffi
-cargo build --release --target aarch64-apple-ios
-cargo run --bin uniffi-bindgen generate --library ../target/release/libsudoku_ffi.dylib --language swift --out-dir ./generated
+```sh
+cargo run --release --example global_coloring -- candidate-state.json
 ```
 
-### Android (Kotlin)
+Run an explicit proof request for a selected cell set:
 
-```bash
-cd crates/sudoku-ffi
-cargo build --release --target aarch64-linux-android
-cargo run --bin uniffi-bindgen generate --library ../target/release/libsudoku_ffi.so --language kotlin --out-dir ./generated
+```sh
+cargo run --release --locked --example global_coloring -- --explicit research/global_obstructions/realization27_proof_request.json
 ```
 
-## Arithmetic Counting
+The [coloring guide](../docs/global-coloring.md) defines the input and proof limits.
 
-`cargo run --release --example arithmetic_counting` constructs a Guardian candidate
-state, verifies its five-equation parity proof, and runs the engine's bounded
-arithmetic search. See [the proof and API](../docs/arithmetic-counting.md).
+## Measure generation and solution counting
 
-## Generation and uniqueness timings
+Run both fixed workloads:
 
 ```sh
 cargo run --release --locked --example performance
 ```
 
-Pass `count` or `generate` after `--` to time one workload. Generation uses seeds
-42, 99, and 314 and prints a puzzle fingerprint so results can be compared across
-revisions. See [performance notes](../docs/performance.md) for methodology.
+Run one workload:
+
+```sh
+cargo run --release --locked --example performance -- count
+cargo run --release --locked --example performance -- generate
+```
+
+Generation uses seeds 42, 99, and 314.
+The example prints puzzle fingerprints for comparisons across revisions.
+The [performance report](../docs/performance.md) gives the measurement method and validation checks.

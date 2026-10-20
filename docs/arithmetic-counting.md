@@ -3,17 +3,27 @@
 `Technique::ArithmeticCounting` combines the engine's original exactly-one
 requirements with small integer weights. It returns a placement or elimination
 only when a separate certificate checker reconstructs the equations and verifies
-a contradiction. It runs after Death Blossom and before forcing chains in the
-normal hint and technique-profile paths.
+a contradiction. It runs after Three-House Matching and before forcing in the hint and technique-profile paths.
+
+
+```mermaid
+flowchart TD
+    A[Native exactly-one equations] --> B[Select equations and integer weights]
+    B --> C[Assume the opposite candidate value]
+    C --> D[Check interval, gcd, or residues]
+    D --> E{Contradiction proved?}
+    E -- Yes --> F[Verify and return a certificate]
+    E -- No --> G[Continue within the search limits]
+```
 
 ## Soundness theorem
 
-The contradiction arguments below are machine-checked with
-[Verus](https://github.com/verus-lang/verus) in `verification/arithmetic.rs`:
-mirrors of `contradiction` and `residue_contradiction` carry proven contracts
-that a reported contradiction rules out every Boolean assignment of the
-remaining candidates (the equation reconstruction from the grid snapshot is the
-remaining trusted step). Run `./scripts/verify.sh` to check the proofs.
+[Verus](https://github.com/verus-lang/verus) checks the contradiction arguments in `verification/arithmetic.rs`.
+The proof versions of `contradiction` and `residue_contradiction` have verified contracts.
+Each reported contradiction excludes every Boolean assignment of the remaining candidates.
+Equation reconstruction from the grid snapshot remains a trusted step.
+
+Run `./scripts/verify.sh` to check the proofs.
 
 Give every allowed candidate a Boolean indicator `x_j`: one if it is selected in
 a completion, zero otherwise. A placed cell is represented by its singleton
@@ -45,6 +55,7 @@ Version two adds a Boolean residue terminal. For a modulus `q` from 2 to 16,
 start with the reachable set `{0}`. For each remaining candidate coefficient
 `a_j`, replace the set with `R ∪ {(r+a_j) mod q : r∈R}` using the previous set.
 If the required remainder is absent, the opposite candidate value is impossible.
+
 Each variable contributes at most once: repeated coefficients still get separate
 updates, and negative coefficients use nonnegative remainders. The implementation
 uses a 16-bit set, with bit rotations for each coefficient. Version two also
@@ -89,10 +100,14 @@ g+p0+p4=1; p0+p1=1; p1+p2=1; p2+p3=1; p3+p4=1; g+t+u=1.
 Multiply the first five equations by two and add the last:
 `4(p0+p1+p2+p3+p4)+3g+t+u=11`. Assuming `t=1` requires the remaining
 sum to be ten. Its possible remainders modulo four are `{0,1,3}`, while ten
-has remainder two. Therefore `t=0`. The interval `[0,24]` and gcd one both
-miss this contradiction. The native fixture uses digit 1 in column 4, row 4,
-column 2, box 1, and row 2, followed by the cell rule for r1c4 `{1,2,3}`.
-It removes 2 from r1c4. Tests validate the actual source incidence and a full
+has remainder two. Therefore `t=0`.
+
+The interval `[0,24]` and gcd one both
+miss this contradiction. The native fixture uses digit 1 in column 4, row 4, column 2, box 1, and row 2.
+The last equation is the cell rule for r1c4 `{1,2,3}`.
+It removes 2 from r1c4.
+
+Tests validate the actual source incidence and a full
 completion, and independently establish that the opposite has no completion
 under those exact masks.
 
@@ -129,6 +144,7 @@ and result value. It returns a proof only if it verifies. `proof.check(&grid)`
 returns the reconstructed interval or divisibility contradiction. For residue
 proofs, use `ArithmeticProof::from_residue_terms(grid, terms, cell, digit, value,
 modulus)`, or `from_terms_with_terminal` with an explicit `ArithmeticTerminal`.
+
 The resulting `ArithmeticCheck::Residue` includes the residual sum, modulus,
 required remainder, and the independently recomputed reachable remainders. Cells are
 zero-based row-major indices; sectors 0..8 are rows, 9..17 columns, and 18..26
@@ -150,10 +166,13 @@ containing the full normalized candidate state and certificate. Serialize the
 envelope explicitly, then call `check()` or `verify()` after deserialization.
 `apply(&mut grid)` requires identical premises, independently checks the proof,
 and preserves earlier candidate eliminations. Errors leave the grid unchanged.
+
 `ArithmeticState::capture` and `to_grid` also expose the state representation
-directly. The recorded rules are the native Sudoku projection: extra variant
-constraints are retained when applying to an existing variant grid, but are not
-serialized in the native proof envelope. Record engine provenance and search
+directly. The proof envelope stores the native Sudoku projection.
+Application to an existing variant grid retains its extra constraints.
+The envelope does not serialize those extra constraints.
+
+Record engine provenance and search
 options alongside exported envelopes at the application layer.
 
 ### Version compatibility and parity compilation
@@ -168,9 +187,11 @@ by the separately validated version and terminal.
 
 `parity_proof.compile_parity_tail(grid, tail_requirement)` compiles an independently
 checked unit-weight parity placement plus one distinct incident native rule into
-direct residue exclusions. If parity forces `g=1` and the tail has `g` and `L`
-other candidates, multiplying the parity combination by `L` and adding the tail
-proves each other candidate false modulo `2L`. Native tails have at most nine
+direct residue exclusions. Suppose parity forces `g=1` and the tail contains `g` plus `L` other candidates.
+Multiply the parity combination by `L` and add the tail equation.
+The resulting equation proves each other candidate false modulo `2L`.
+
+Native tails have at most nine
 candidates, so `L≤8`, weights are at most eight, and the modulus is at most 16.
 The combined proof must still fit six distinct sources. Unsupported inputs
 return an empty vector, and every compiled proof is independently checked.
@@ -193,9 +214,8 @@ return an empty vector, and every compiled proof is independently checked.
   produce weights up to eight; the beam and its automatic compiler remain capped
   at the configured weight of one or two.
 - `tested_combinations`, `budget_exhausted`, and `beam_pruned` describe the work
-  performed. An absent hint is inconclusive even if the budget is not exhausted:
-  this search is incomplete, and these bounded certificates do not express every
-  Boolean consequence. `tested_combinations` counts source combinations, not
+  performed. An absent hint is inconclusive even when the budget remains.
+This incomplete search and its bounded certificates do not express every Boolean consequence. `tested_combinations` counts source combinations, not
   individual target/modulus checks.
 - Certificate verification is independent of the search budget and node caches.
   It accepts at most six distinct sources with nonzero weights of magnitude at
@@ -217,15 +237,15 @@ return an empty vector, and every compiled proof is independently checked.
 
 ## Validation and attribution
 
-Tests reconstruct X-Wing, Guardian, and six-source weighted certificates; reject
-an overlapping-fish trap and stale/malformed proofs; and exercise placement,
-serialization, deterministic search, state preservation, and bounded work. A
+Tests reconstruct X-Wing, Guardian, and six-source weighted certificates.
+They reject an overlapping-fish trap and stale or malformed proofs.
+They also check placement, serialization, deterministic search, state preservation, and resource limits. A
 separate exact-cover oracle uses the original candidate masks to check both a
 compatible full completion and the impossibility of the opposite result.
-Residue tests additionally compare the production DP with independent Boolean
-enumeration on 58,590 coefficient-list/modulus pairs, check all native tail
-sizes 2..9, exercise signed and repeated coefficients, and preserve version-one
-JSON and checker behavior. The default public search discovers a modulus-four
+
+Residue tests compare the production dynamic program with independent Boolean enumeration on 58,590 coefficient-list/modulus pairs.
+The tests cover native tail sizes 2..9, signed coefficients, and repeated coefficients.
+They also check compatibility with version-one JSON and checker behavior. The default public search discovers a modulus-four
 exclusion on the six-source fixture within its existing budget.
 
 This implementation makes no historical-novelty claim. Exactly-one candidate
@@ -253,11 +273,11 @@ On the implementation branch based on `361c254`:
 - `cargo fmt --check`, the CI strict Clippy command, WebAssembly target checking,
   and the runnable arithmetic example passed. The example discovers and verifies
   the Guardian placement after 11,358 evaluated combinations.
-- An additional strict Clippy run with `--all-targets` reported six pre-existing
-  test-code warnings: type complexity in `tests/variant_constraints.rs`, unit
-  struct default construction in `tests/solver_behavior.rs`, three Boolean
-  simplifications in `src/solver/technique_tests.rs`, and iterator flattening in
-  `src/solver/behavior_tests.rs`. These are outside the required CI lint command;
+- An additional strict Clippy run with `--all-targets` reported six existing test-code warnings:
+  - Type complexity in `tests/variant_constraints.rs`.
+  - Unit struct default construction in `tests/solver_behavior.rs`.
+  - Three Boolean simplifications in `src/solver/technique_tests.rs`.
+  - Iterator flattening in `src/solver/behavior_tests.rs`. These are outside the required CI lint command;
   the new example also passed its own strict Clippy check.
 
 Two indicative release comparisons of Extreme generation produced the same

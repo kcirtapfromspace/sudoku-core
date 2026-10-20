@@ -9,6 +9,17 @@ individual puzzle authors are not attributed in these files. The original
 givens, source URL, one-based source index and source-byte SHA-256 are retained
 in `real_game_corpus.json` and the positive fixtures.
 
+```mermaid
+flowchart TD
+    A[106 independently unique source puzzles] --> B[Recorded structural baseline]
+    B --> C[74 solved puzzles]
+    B --> D[32 retained fixed points]
+    D --> E[15 candidate eliminations in eight states]
+    E --> F[Exact premise and certificate replay]
+    F --> G[Scoped implementation comparison]
+```
+
+
 The recorded run covered 106 distinct givens strings. A separate Python MRV
 enumerator, written for this experiment, found exactly one solution for each
 when counting up to two. No recorded solution was used to derive candidates.
@@ -46,9 +57,8 @@ or backtracking deduction enters the baseline state.
 | top95 #93 | r1c7 ≠ 1 |
 
 All eight exact positive states and their 207 baseline steps are saved in
-`real_game_cases.json`. The independent Python checker reconstructs candidates
-from givens, replays every step to the exact stored masks and values, independently
-confirms uniqueness again, and recomputes all 81 centers for each positive state.
+`real_game_cases.json`. The independent Python checker reconstructs candidates from the givens and replays every step to the exact stored state.
+It also checks uniqueness again and recomputes all 81 centers for each positive state.
 Existing detector choices can vary between runs because some existing code uses
 randomized collections; the saved traces make these particular states exact.
 `real_game_summary.json` records the baseline orchestrator source hash and every puzzle's
@@ -58,9 +68,10 @@ the system temporary directory.
 
 The public Rust API was then tested on all eight exact snapshots. All 25
 center/candidate deductions produced valid independent Hall certificates.
-For every snapshot, the first hint preserved its input, its target disagreed
-with the independently verified completion, and a JSON round trip through
-`ThreeHouseReplay` verified and applied exactly the recorded elimination. A
+For each snapshot, the first hint preserved its input.
+The eliminated target disagreed with the independently verified completion.
+
+A JSON round trip through `ThreeHouseReplay` checked and applied exactly the recorded elimination. A
 second application of the stale replay was rejected. The current restricted
 baseline was also rechecked on all eight states, with no finding.
 
@@ -70,9 +81,9 @@ respectively. Every arithmetic search reported beam pruning, no combination
 budget exhaustion, and no error. These are bounded-search results, not proof
 that arithmetic or other known methods cannot make the deductions.
 
-The full recorded run took 48.37 seconds including temporary compilation:
-24.41 seconds for independent uniqueness enumeration, 5.25 seconds for existing
-engine closure and 3.89 seconds for the Python three-house scans. On the eight
+The complete recorded run took 48.37 seconds, including temporary compilation.
+Independent uniqueness enumeration took 24.41 seconds.
+Existing-engine closure took 5.25 seconds, and Python three-house scans took 3.89 seconds. On the eight
 positive snapshots, the latest optimized Rust first-hint search took roughly
 0.29–2.33 milliseconds. These measurements describe one local run, not a
 portable benchmark or a claim that a puzzle is solved by the new technique.
@@ -87,9 +98,8 @@ python3 research/nonmodular/real_game_probe.py
 ```
 
 Both Rust probes compile instrumented copies in temporary directories and leave
-production sources untouched. The logical inference uses only native row,
-column and box constraints and requires no uniqueness premise; the independently
-established uniqueness premise belongs only to the selected baseline techniques.
+production sources untouched. The logical inference uses native row, column, and box constraints without a uniqueness premise.
+Only the selected baseline techniques use the independently checked uniqueness premise.
 This experiment demonstrates additional deductions beyond the tested bounded
 engine implementations. It establishes neither historical novelty nor a
 separation from all known Sudoku methods or general CSP reasoning.

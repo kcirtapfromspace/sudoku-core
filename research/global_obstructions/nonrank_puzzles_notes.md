@@ -13,9 +13,8 @@ statuses, old finding counts, remaining unplaced cells and domain hashes.
 the six outcomes remain under `target/nonrank-puzzles-modern200/`; the accepted
 first premise trace is also retained in `nonrank_full_old_stall.json`.
 
-For each case the experiment independently counts completions, starts from
-ordinary givens-derived candidates, and alternates exact Hall support and all 81
-crossing-three-house checks with every finding from the complete older engine.
+For each case, the experiment independently counts completions and starts from givens-derived candidates.
+It alternates exact Hall/all-81-crossing closure with each finding from the complete configured older engine.
 All candidate eliminations survive placements. Every older endpoint is checked
 against the sole completion and the entire domain trace is replayed. A stall
 requires a live board and two successful complete old-dispatcher calls that
@@ -26,12 +25,25 @@ The first accepted case is Monhard T&E3 source line 1. Twelve older forcing
 findings precede the final state, which still has 50 unplaced cells. A fresh
 build from archived commit `0532d63d9241a69c1fb57e9c34a1533effe1981d` confirms the
 same live fixed point twice. The archive is checked byte-for-byte against the
-Git source and contains no GlobalColoring module. The saved successful calls,
+Git source and contains no GlobalColoring module.
+
+The saved successful calls,
 binary/source hashes and stable promoted-fixture hash are in
 `nonrank_puzzles_first_audit.json`. The older Arithmetic search reports beam
 pruning and no hint; its configured bounded behavior is retained explicitly.
 No claim of exhaustive separation from every possible arithmetic or forcing
 proof is made.
+
+
+```mermaid
+flowchart TD
+    A[Pinned unique author puzzles] --> B[Retain domains through older steps]
+    B --> C[Alternate the older ladder with local closure]
+    C --> D{Completed unchanged pass?}
+    D -- Yes --> E[Configured older-engine fixed point]
+    D -- No --> F[Progress, solved board, or explicit cutoff]
+    E --> G[Separate certificate and novelty audits]
+```
 
 ## What the obstruction is
 

@@ -1,0 +1,45 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.md'
+      - '**/*.mdx'
+      - 'scripts/check_docs.py'
+      - 'scripts/check_mermaid.mjs'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '**/*.mdx'
+      - 'scripts/check_docs.py'
+      - 'scripts/check_mermaid.mjs'
+      - '.github/workflows/docs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  documentation:
+    name: Documentation and Mermaid
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check prose, local links, and Markdown structure
+        run: python3 scripts/check_docs.py
+      - name: Install pinned diagram checkers
+        run: >-
+          npm install --prefix target/docs-tools --ignore-scripts
+          --no-audit --no-fund --no-save --package-lock=false
+          mermaid@12.2.0 jsdom@26.1.0
+      - name: Check every Mermaid diagram
+        run: node scripts/check_mermaid.mjs

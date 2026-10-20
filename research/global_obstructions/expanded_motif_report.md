@@ -1,9 +1,20 @@
 # Expanded four-digit obstruction search
 
-The strict requested result remains open: this search has not produced a
-certified unique givens puzzle whose guardian remains live after the full older
-dispatcher, including forcing. Synthetic graph discoveries and surviving
+This recorded campaign did not produce a certified unique givens puzzle whose guardian survived the full configured older dispatcher, including forcing. Synthetic graph discoveries and surviving
 nonunique clue covers do not meet that requirement.
+
+
+```mermaid
+flowchart TD
+    A[18 native support embeddings] --> B[14 graph-isomorphism classes]
+    A --> C[All 18 embeddings have chromatic number five]
+    C --> D[14 embeddings with uniform capacity proofs]
+    C --> E[Four embeddings with weighted value 25 over 6]
+    D --> F[Established rank arguments]
+    E --> F
+    A --> G[Normalized clue search]
+    G --> H[729 surviving presentations, all nonunique]
+```
 
 ## Broader structural coverage
 
@@ -21,7 +32,7 @@ The second stage's counters are a saved checkpoint, not a completed universe.
 Presentations can describe the same graph. No global classification or exhaustive
 Sudoku search is claimed.
 
-The exact classification subsequently proves that all 18 retained graphs have
+The exact classification later proves that all 18 retained graphs have
 chromatic number five and are vertex-critical: every one-vertex deletion is
 four-colorable. Their respecting complete Sudokus give the five-color upper
 bound. Native edges are reconstructed from row, column, and box coordinates.
@@ -65,11 +76,11 @@ inside the selected support, while keeping the guardian unfilled. Such clues
 may reduce a four-digit graph to a smaller list-coloring instance or a known
 three-digit pattern; they would require that comparison before acceptance.
 
-Every evaluation first screens the full native LP. The corrected protocol then
-normalizes candidate domains by individual-house Hall propagation and all 81
-crossing-three-house support propagators **before** converting singleton
-domains into placed values for the frozen `0532d63` engine. It alternates this
-local closure with older nonforcing handlers until both stop. Each reported
+Every evaluation first screens the full native LP. The corrected protocol closes domains with individual-house Hall propagation and all 81 crossing-three-house support propagators.
+Only **after** that closure does it convert singletons to placed values for the frozen `0532d63` engine. It alternates this
+local closure with older nonforcing handlers until both stop.
+
+Each reported
 old step is checked against the respecting completion. The opposite guardian
 assumption must then survive the complete local closure and full LP screen.
 Only independently unique finalists can enable uniqueness handlers or the full
@@ -95,7 +106,9 @@ budget. It tested 2,153 clue presentations: 1,186 failed the raw LP screen;
 967 passed that screen. After normalized old/local closure, 185 had their
 guardian forced and 53 contradicted local propagation under the opposite
 assumption. The remaining 729 discovery evaluations survived the local and LP
-screens, but **none was unique**. Thus zero full older-dispatcher finalists
+screens, but **none was unique**.
+
+Thus zero full older-dispatcher finalists
 were tested. Ten saved endpoint examples have up to 57 givens and still have
 at least two solutions. The corrected run had no execution failures or old
 steps inconsistent with its respecting completion. These counts refer to
@@ -146,15 +159,13 @@ python3 research/global_obstructions/expanded_motif_search.py \
 
 ## References and next experiment
 
-- [Norvig's author-hosted top95 corpus](https://www.norvig.com/top95.txt) supplies
-  the original puzzles whose completions anchor this generated search; the
-  newly generated clue covers are not attributed as authored Norvig puzzles.
+- [Norvig's author-hosted top95 corpus](https://www.norvig.com/top95.txt) supplies the original puzzles whose completions anchor this search.
+  The generated clue covers are not attributed as authored Norvig puzzles.
 - [Letchford, Rossi and Smriglio, *The stable set problem: Clique and nodal inequalities revisited*, §2.1](https://www.lancaster.ac.uk/staff/letchfoa/articles/2020-nodal.pdf)
   describes the established stable-set rank inequality family.
 
 A focused next experiment should preserve three independent palette anchors
 early, instead of greedily filling the five other digit classes first. Many
 maximal nonunique survivors still leave two palette digits interchangeable.
-Clue-set backtracking or counterexample-guided uniqueness cuts can search this
-tradeoff more deliberately, always keeping exact local and LP acceptance ahead
-of any novelty or engine-strength claim.
+Clue-set backtracking or counterexample-guided uniqueness cuts can explore this tradeoff.
+Any novelty or engine-strength claim still requires exact local and LP acceptance.
