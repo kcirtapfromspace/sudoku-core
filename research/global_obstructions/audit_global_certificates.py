@@ -64,7 +64,7 @@ def verify(replay):
     if "anchors" in proof:
         raise ValueError("Symmetry shortcuts are outside this checker")
     cells = proof["cells"]
-    if not isinstance(cells, list) or not 1 <= len(cells) <= 24:
+    if not isinstance(cells, list) or not 1 <= len(cells) <= 32:
         raise ValueError("Invalid support size")
     if any(not integer(c) or not 0 <= c < 81 for c in cells) or cells != sorted(set(cells)):
         raise ValueError("Support cells must be sorted, unique native cells")
@@ -86,7 +86,7 @@ def verify(replay):
     if (witness[cells.index(cell)] == digit) != result:
         raise ValueError("Base support does not witness the conclusion endpoint")
     nodes = proof["nodes"]
-    if not isinstance(nodes, list) or not 1 <= len(nodes) <= 8192:
+    if not isinstance(nodes, list) or not 1 <= len(nodes) <= 32768:
         raise ValueError("Invalid proof-node count")
     initial = {c: state["domains"][c] for c in cells}
     bit = 1 << (digit - 1)

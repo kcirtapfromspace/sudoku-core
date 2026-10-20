@@ -160,11 +160,19 @@ The expanded search adds a seventh export for a unique 29-given nonforcing-gap
 puzzle, with 21 selected cells and 74 proof nodes. It and ten further mutations
 are checked by the same independent script. The subsequent
 [forcing-inclusive benchmark](nonrank_report.md) adds an eighth export, with
-16 cells and 169 nodes, bringing the current audit to 80 rejected mutations.
+16 cells and 169 nodes, bringing that stage's audit to 80 rejected mutations.
 It also has an independent exact full-board digit-template primal, which
 satisfies every per-digit-valid linear inequality. Exact graph maps identify
 its branch obstruction as an established tridagon composition; this does not
 create a historical novelty claim.
+
+The subsequent [27-cell realization audit](realization27_report.md) adds a ninth
+production export and brings the current generic audit to 90 rejected
+mutations. Its conditional synthetic deduction uses the larger explicit
+32-cell/32,768-node bounds; automatic search keeps its earlier limits. An
+exhaustive unavoidable-trade certificate rules out unique outside-clue
+realization of the exact live support. Independent unique anchored controls
+are solved by the older engine and are retained as negative controls.
 
 The abstract mathematical core in
 [`verification/global_coloring.rs`](../../verification/global_coloring.rs)

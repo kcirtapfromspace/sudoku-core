@@ -16,3 +16,5 @@ research/global_obstructions/nonrank_audit_27_*.json linguist-generated=true
 research/global_obstructions/nonrank_graph_27_*.json linguist-generated=true
 research/global_obstructions/nonrank_graph_native27_*.json linguist-generated=true
 research/global_obstructions/nonrank_audit_native27_*.json linguist-generated=true
+research/global_obstructions/realization27_*.json linguist-generated=true
+research/global_obstructions/realization27_*.jsonl linguist-generated=true

@@ -20,7 +20,8 @@ No historical mathematical novelty is established.
 | [Expanded unique nonforcing gap](expanded_search_report.md) | A certified 29-given unique board passes the local/native-LP filters and stalls older nonforcing plus default arithmetic. Full old Nishio still finds a step. |
 | [Full older logical engine stall](nonrank_report.md) | A unique published 28-given puzzle stalls the complete frozen logical dispatcher including forcing; current Global Coloring certifies r4c9=9 with 169 nodes. Established tridagon composition. |
 | [Beyond per-digit weighted rank](nonrank_audit_report.md) | Exact 33-term full-board digit-template mixture survives every single-digit-valid linear inequality. Earlier 13-cell hyperhole is rejected by an exact template Farkas control. |
-| [Broader graph search](nonrank_graph_report.md) | Synthetic 27-cell five-chromatic graph with an exact fractional four-color cover and full-board template witness; unique-givens realization remains unverified. Includes exact rejected controls and bounded negative results. |
+| [Broader graph search](nonrank_graph_report.md) | Synthetic 27-cell five-chromatic graph with an exact fractional four-color cover and full-board template witness. Subsequent trade classification rules out its unique outside-clue realization. Includes exact rejected controls and bounded negative results. |
+| [27-cell realization audit](realization27_report.md) | Exhaustive support-trade classification rules out a unique puzzle with all 27 cells unclued. Larger explicit proofs now certify the conditional synthetic deduction; default hint-search bounds remain unchanged. |
 | [Exact motif prior art](prior_art_13_report.md) | An explicit spanning seven-hyperhole and grouped-loop map explain the 13-cell obstruction by established methods. First appearance of the exact Sudoku drawing remains unresolved. |
 | [LP and prior-art audit](audit_prior_art.md) | Exact rational primal witnesses, rejected Farkas controls, certificate mutations and precise limits on method and novelty claims. |
 
@@ -46,6 +47,11 @@ python3 -S research/global_obstructions/nonrank_puzzles_verify.py
 python3 -S research/global_obstructions/nonrank_audit_template.py --self-test
 python3 -S research/global_obstructions/nonrank_graph_verify.py
 python3 -S research/global_obstructions/nonrank_graph_certificate.py --self-test
+python3 -S research/global_obstructions/realization27_structure_verify.py
+python3 -S research/global_obstructions/realization27_audit_trades.py
+python3 -S research/global_obstructions/realization27_audit_export.py
+python3 -S research/global_obstructions/realization27_results_verify.py --recount-sample 10
+python3 -S research/global_obstructions/realization27_verify.py
 ```
 
 These run in dedicated CI. Numerical LP discovery can optionally use SciPy;

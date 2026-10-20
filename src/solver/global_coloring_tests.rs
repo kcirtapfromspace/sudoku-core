@@ -63,6 +63,68 @@ fn full_candidate_ladder_advances_the_frozen_old_engine_stall() {
 }
 
 #[test]
+fn explicit_large_supports_verify_without_expanding_automatic_search() {
+    let case: serde_json::Value = serde_json::from_str(include_str!(
+        "../../research/global_obstructions/nonrank_graph_native27_candidate.json"
+    ))
+    .unwrap();
+    let state: CandidateState = serde_json::from_value(case["state"].clone()).unwrap();
+    let grid = state.to_grid().unwrap();
+    let cells: Vec<usize> = serde_json::from_value(case["graph_cells"].clone()).unwrap();
+    let proof = GlobalColoringProof::from_cells(&grid, cells, 41, 1, true).unwrap();
+    assert_eq!(proof.cells.len(), 27);
+    assert!(proof.nodes.len() > SEARCH_MAX_PROOF_NODES);
+    assert!(proof.nodes.len() <= MAX_PROOF_NODES && proof.verify(&grid));
+
+    // Exercise the highest u32 assignment bit with a valid 32-cell support.
+    // Extra cells do not weaken the refutation of the contained obstruction.
+    let completion = case["completion"].as_str().unwrap().as_bytes();
+    let mut padded = proof;
+    let extras: Vec<_> = (0..81)
+        .filter(|cell| !padded.cells.contains(cell))
+        .take(MAX_CELLS - padded.cells.len())
+        .collect();
+    padded.cells.extend(extras);
+    padded.cells.sort_unstable();
+    padded.witness = padded.cells.iter().map(|&c| completion[c] - b'0').collect();
+    assert_eq!(padded.cells.len(), MAX_CELLS);
+    assert!(padded.nodes.iter().any(|node| matches!(node,
+        ColoringNode::Split { cell, .. } if Some(cell) == padded.cells.last())));
+    assert!(padded.verify(&grid));
+    padded.cells.push(80);
+    padded.witness.push(completion[80] - b'0');
+    assert!(!padded.verify(&grid));
+
+    let automatic =
+        Solver::new().search_global_coloring(&grid, &GlobalColoringSearchOptions::default());
+    assert!(automatic.error.is_none());
+    assert!(automatic.oversized_components > 0);
+    assert!(automatic.nodes_visited <= GlobalColoringSearchOptions::default().max_nodes);
+    if let Some(hint) = automatic.hint {
+        let Some(ProofCertificate::GlobalColoring(p)) = hint.proof else {
+            panic!("automatic search omitted its certificate")
+        };
+        assert!(p.cells.len() <= SEARCH_MAX_CELLS);
+        assert!(p.nodes.len() <= SEARCH_MAX_PROOF_NODES && p.verify(&grid));
+    }
+    assert_eq!(CandidateState::capture(&grid).unwrap(), state);
+    // Unique anchored controls have additional raw candidates. They do not
+    // reproduce the synthetic list obstruction before local deductions.
+    for text in [
+        include_str!("../../research/global_obstructions/realization27_results_anchored_control.json"),
+        include_str!("../../research/global_obstructions/realization27_results_anchored_minimal_control.json"),
+    ] {
+        let case: serde_json::Value = serde_json::from_str(text).unwrap();
+        let state: CandidateState =
+            serde_json::from_value(case["initial_state"].clone()).unwrap();
+        let grid = state.to_grid().unwrap();
+        let cells = serde_json::from_value(case["graph_cells"].clone()).unwrap();
+        assert!(GlobalColoringProof::from_cells(&grid, cells, 41, 1, true).is_none());
+        assert_eq!(CandidateState::capture(&grid).unwrap(), state);
+    }
+}
+
+#[test]
 fn real_and_four_digit_obstructions_generate_checked_trees() {
     for (grid, cells, cell, digit) in [real_fixture(), four_fixture()] {
         let before = CandidateState::capture(&grid).unwrap();
@@ -210,7 +272,7 @@ fn malformed_certificates_and_incomplete_branch_coverage_are_rejected() {
     bad!(version, 2);
     bad!(state_hash, "stale".into());
     bad!(cells, vec![]);
-    bad!(cells, (0..25).collect());
+    bad!(cells, (0..MAX_CELLS + 1).collect());
     bad!(cell, 81);
     bad!(digit, 0);
     bad!(digit, 10);
@@ -395,7 +457,7 @@ fn bounds_and_inconsistent_unforced_graphs_never_yield_proofs() {
             .is_some());
     }
     let mut budget = Budget::new(50_000);
-    let mut calls = MAX_PROOF_NODES;
+    let mut calls = SEARCH_MAX_PROOF_NODES;
     assert!(matches!(
         solve(
             &Graph::new(&cells),

@@ -12,8 +12,12 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 const VERSION: u8 = 1;
-const MAX_CELLS: usize = 24;
-const MAX_PROOF_NODES: usize = 8192;
+// Explicit supplied supports may be larger than the automatic hint search.
+// Both paths retain fixed bounds; automatic hint cost remains unchanged.
+const MAX_CELLS: usize = 32;
+const MAX_PROOF_NODES: usize = 32768;
+const SEARCH_MAX_CELLS: usize = 24;
+const SEARCH_MAX_PROOF_NODES: usize = 8192;
 const MAX_PATTERNS: usize = 16384;
 const MAX_SEARCH_NODES: usize = 1_000_000;
 
@@ -40,8 +44,8 @@ pub enum ColoringNode {
 
 /// Conditional proof of one placement or elimination using native peer edges.
 ///
-/// Cells are sorted, unique board indices (at most 24), including the target.
-/// Nodes form a postorder tree (at most 8,192), rooted at the last node. The
+/// Cells are sorted, unique board indices (at most 32), including the target.
+/// Nodes form a postorder tree (at most 32,768), rooted at the last node. The
 /// witness is a proper coloring of the unforced selected graph supporting the
 /// RESULT endpoint. It rejects a contradictory selected graph, but does not
 /// establish global or variant satisfiability or authenticate previous deletions.
@@ -115,6 +119,8 @@ fn restrict(domain: &mut u16, digit: u8, value: bool) {
 impl GlobalColoringProof {
     /// Search an explicit selected cell set. None includes bounded-search failure.
     /// This constructor neither checks LP feasibility nor establishes originality.
+    /// Supports at most 32 cells and 32,768 proof nodes, with 50,000 total
+    /// refutation/witness visits. Automatic hint searches keep smaller bounds.
     pub fn from_cells(
         grid: &Grid,
         mut cells: Vec<usize>,
@@ -125,6 +131,7 @@ impl GlobalColoringProof {
         let state = CandidateState::capture(grid).ok()?;
         cells.sort_unstable();
         let mut budget = Budget::new(50_000);
+        budget.pattern_limit = MAX_PROOF_NODES;
         build_proof(&state, &cells, cell, digit, value, &mut budget)
     }
     pub fn verify(&self, grid: &Grid) -> bool {
@@ -276,6 +283,7 @@ struct Budget {
     remaining: usize,
     visited: usize,
     exhausted: bool,
+    pattern_limit: usize,
 }
 impl Budget {
     fn new(nodes: usize) -> Self {
@@ -283,6 +291,7 @@ impl Budget {
             remaining: nodes,
             visited: 0,
             exhausted: false,
+            pattern_limit: SEARCH_MAX_PROOF_NODES,
         }
     }
 }
@@ -301,7 +310,7 @@ fn solve(
     budget: &mut Budget,
     calls: &mut usize,
 ) -> Outcome {
-    if budget.remaining == 0 || *calls == MAX_PROOF_NODES {
+    if budget.remaining == 0 || *calls == budget.pattern_limit {
         budget.exhausted = true;
         return Outcome::Cutoff;
     }
@@ -478,7 +487,7 @@ pub(super) fn search(
                 if cells.len() < 4 {
                     continue;
                 }
-                if cells.len() > MAX_CELLS {
+                if cells.len() > SEARCH_MAX_CELLS {
                     result.oversized_components += 1;
                     continue;
                 }

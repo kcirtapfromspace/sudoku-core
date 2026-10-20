@@ -1,5 +1,11 @@
 # A unique puzzle beyond the older logical engine and per-digit weighted rank
 
+Follow-up: the [27-cell realization audit](realization27_report.md) proves that
+the synthetic support cannot have a unique outside-only givens realization.
+Its conditional deduction now has a production-compatible explicit replay;
+automatic search limits remain unchanged. The Monhard benchmark below is a
+separate unique puzzle with a known tridagon composition.
+
 **A qualifying real benchmark was found. Its obstruction is an established
 tridagon with guardian forcing; no new mathematical family is claimed.** The
 existing Global Coloring implementation certifies **r4c9=9** where a fresh build

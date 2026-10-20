@@ -49,6 +49,11 @@ jobs:
           python3 -S research/global_obstructions/nonrank_audit_template.py --self-test
           python3 -S research/global_obstructions/nonrank_graph_verify.py
           python3 -S research/global_obstructions/nonrank_graph_certificate.py --self-test
+          python3 -S research/global_obstructions/realization27_audit_export.py
+          python3 -S research/global_obstructions/realization27_audit_trades.py
+          python3 -S research/global_obstructions/realization27_structure_verify.py --self-test
+          python3 -S research/global_obstructions/realization27_results_verify.py --recount-sample 10
+          python3 -S research/global_obstructions/realization27_verify.py
 
   frozen-old-engine:
     name: Fresh forcing-inclusive older-engine comparison
@@ -65,10 +70,17 @@ jobs:
           python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
             --fresh-folder target/nonrank-ci-old \
             --output target/nonrank-ci-audit.json
+      - name: Solve the anchored controls directly from their original givens
+        run: |
+          python3 -S research/global_obstructions/realization27_search_raw_old.py \
+            --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
+            --output target/nonrank-ci-anchored-old.json
       - name: Upload fresh comparison evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: frozen-old-engine-comparison
-          path: target/nonrank-ci-audit.json
+          path: |
+            target/nonrank-ci-audit.json
+            target/nonrank-ci-anchored-old.json
           if-no-files-found: warn

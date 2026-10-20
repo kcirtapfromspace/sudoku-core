@@ -1,0 +1,2757 @@
+{
+  "schema": "research-normalized-four-color-tree-v1",
+  "anchors": [
+    31,
+    40,
+    41,
+    50
+  ],
+  "tree": {
+    "forced": [],
+    "pivot": 38,
+    "branches": [
+      {
+        "color": 0,
+        "child": {
+          "forced": [
+            {
+              "cell": 44,
+              "color": 3
+            }
+          ],
+          "pivot": 33,
+          "branches": [
+            {
+              "color": 1,
+              "child": {
+                "forced": [
+                  {
+                    "cell": 34,
+                    "color": 2
+                  },
+                  {
+                    "cell": 52,
+                    "color": 0
+                  }
+                ],
+                "pivot": 16,
+                "branches": [
+                  {
+                    "color": 1,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 14,
+                          "color": 0
+                        },
+                        {
+                          "cell": 79,
+                          "color": 3
+                        }
+                      ],
+                      "pivot": 9,
+                      "branches": [
+                        {
+                          "color": 2,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 15,
+                                "color": 3
+                              },
+                              {
+                                "cell": 45,
+                                "color": 1
+                              }
+                            ],
+                            "pivot": 2,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 74,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 0
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 0,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    }
+                                  ],
+                                  "pivot": 69,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 66,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 78
+                                      }
+                                    },
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 3,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 15,
+                                "color": 2
+                              },
+                              {
+                                "cell": 8,
+                                "color": 0
+                              },
+                              {
+                                "cell": 69,
+                                "color": 0
+                              }
+                            ],
+                            "conflict": 78
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "color": 3,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 79,
+                          "color": 1
+                        }
+                      ],
+                      "pivot": 15,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 1
+                              },
+                              {
+                                "cell": 9,
+                                "color": 2
+                              },
+                              {
+                                "cell": 45,
+                                "color": 1
+                              }
+                            ],
+                            "pivot": 2,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "pivot": 69,
+                                        "branches": [
+                                          {
+                                            "color": 2,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 65,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 66,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 74,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 75,
+                                                  "color": 3
+                                                }
+                                              ],
+                                              "conflict": 78
+                                            }
+                                          },
+                                          {
+                                            "color": 3,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 65,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 66,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 74,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 75,
+                                                  "color": 2
+                                                }
+                                              ],
+                                              "conflict": 78
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "color": 3,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 0,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 69
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 0,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 3
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 2,
+                          "child": {
+                            "forced": [],
+                            "pivot": 9,
+                            "branches": [
+                              {
+                                "color": 0,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "pivot": 69,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 78,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 75,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "pivot": 2,
+                                        "branches": [
+                                          {
+                                            "color": 1,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 8,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 65,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 63,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 45,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 3,
+                                                  "color": 2
+                                                }
+                                              ],
+                                              "conflict": 66
+                                            }
+                                          },
+                                          {
+                                            "color": 3,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 3,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 8,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 45,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 63,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 65,
+                                                  "color": 1
+                                                }
+                                              ],
+                                              "conflict": 66
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "color": 3,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 78,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "pivot": 63,
+                                        "branches": [
+                                          {
+                                            "color": 1,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 45,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 65,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 2,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 8,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 3,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 66,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 74,
+                                                  "color": 3
+                                                }
+                                              ],
+                                              "conflict": 75
+                                            }
+                                          },
+                                          {
+                                            "color": 2,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 45,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 65,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 2,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 3,
+                                                  "color": 0
+                                                }
+                                              ],
+                                              "conflict": 66
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 14,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 45,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 2,
+                                  "branches": [
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 74,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 69,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 75,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "conflict": 78
+                                      }
+                                    },
+                                    {
+                                      "color": 3,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 0,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 69,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 74
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "color": 2,
+              "child": {
+                "forced": [
+                  {
+                    "cell": 34,
+                    "color": 1
+                  },
+                  {
+                    "cell": 52,
+                    "color": 0
+                  }
+                ],
+                "pivot": 16,
+                "branches": [
+                  {
+                    "color": 2,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 79,
+                          "color": 3
+                        }
+                      ],
+                      "pivot": 69,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 78,
+                                "color": 1
+                              },
+                              {
+                                "cell": 15,
+                                "color": 3
+                              },
+                              {
+                                "cell": 74,
+                                "color": 2
+                              },
+                              {
+                                "cell": 75,
+                                "color": 0
+                              }
+                            ],
+                            "pivot": 2,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 8,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 45,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "conflict": 66
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 65,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "conflict": 45
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 1,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 78,
+                                "color": 0
+                              },
+                              {
+                                "cell": 15,
+                                "color": 3
+                              }
+                            ],
+                            "pivot": 9,
+                            "branches": [
+                              {
+                                "color": 0,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 74
+                                      }
+                                    },
+                                    {
+                                      "color": 3,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 14,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 45,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 2,
+                                  "branches": [
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 65,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    },
+                                    {
+                                      "color": 3,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 0,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "color": 3,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 79,
+                          "color": 2
+                        }
+                      ],
+                      "pivot": 15,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 1
+                              },
+                              {
+                                "cell": 9,
+                                "color": 2
+                              },
+                              {
+                                "cell": 45,
+                                "color": 1
+                              }
+                            ],
+                            "pivot": 2,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 0,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 3
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 1,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 0
+                              },
+                              {
+                                "cell": 9,
+                                "color": 2
+                              },
+                              {
+                                "cell": 45,
+                                "color": 1
+                              }
+                            ],
+                            "pivot": 2,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 74,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 0
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 0,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 58,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "conflict": 74
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "color": 3,
+        "child": {
+          "forced": [
+            {
+              "cell": 44,
+              "color": 0
+            }
+          ],
+          "pivot": 52,
+          "branches": [
+            {
+              "color": 1,
+              "child": {
+                "forced": [],
+                "pivot": 33,
+                "branches": [
+                  {
+                    "color": 2,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 34,
+                          "color": 3
+                        }
+                      ],
+                      "pivot": 16,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 1
+                              },
+                              {
+                                "cell": 15,
+                                "color": 3
+                              },
+                              {
+                                "cell": 9,
+                                "color": 2
+                              },
+                              {
+                                "cell": 45,
+                                "color": 0
+                              },
+                              {
+                                "cell": 79,
+                                "color": 2
+                              }
+                            ],
+                            "pivot": 2,
+                            "branches": [
+                              {
+                                "color": 0,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 74,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 0
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              },
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 0,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 58,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 2,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 79,
+                                "color": 0
+                              }
+                            ],
+                            "pivot": 69,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 15,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 3
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    },
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 15,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 58,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 2,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 45,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 66
+                                      }
+                                    },
+                                    {
+                                      "color": 1,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 66
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "color": 3,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 34,
+                          "color": 2
+                        }
+                      ],
+                      "pivot": 16,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 1
+                              },
+                              {
+                                "cell": 15,
+                                "color": 2
+                              },
+                              {
+                                "cell": 9,
+                                "color": 3
+                              },
+                              {
+                                "cell": 79,
+                                "color": 3
+                              }
+                            ],
+                            "pivot": 69,
+                            "branches": [
+                              {
+                                "color": 0,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 1,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    },
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 0
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    },
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 3,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 79,
+                                "color": 0
+                              }
+                            ],
+                            "pivot": 69,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 15,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 45,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 2,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 66,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "conflict": 75
+                                }
+                              },
+                              {
+                                "color": 2,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 15,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 45,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 58,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 2,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 65
+                                      }
+                                    },
+                                    {
+                                      "color": 1,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 66
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "color": 2,
+              "child": {
+                "forced": [],
+                "pivot": 33,
+                "branches": [
+                  {
+                    "color": 1,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 34,
+                          "color": 3
+                        }
+                      ],
+                      "pivot": 16,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 1
+                              },
+                              {
+                                "cell": 79,
+                                "color": 1
+                              }
+                            ],
+                            "pivot": 9,
+                            "branches": [
+                              {
+                                "color": 2,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 15,
+                                      "color": 3
+                                    }
+                                  ],
+                                  "pivot": 2,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 74,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 78,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 69,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 75,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "conflict": 66
+                                      }
+                                    },
+                                    {
+                                      "color": 1,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 8,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "pivot": 69,
+                                        "branches": [
+                                          {
+                                            "color": 0,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 65,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 74,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 78,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 75,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 3,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 58,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 63,
+                                                  "color": 1
+                                                }
+                                              ],
+                                              "conflict": 66
+                                            }
+                                          },
+                                          {
+                                            "color": 2,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 65,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 74,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 78,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 75,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 3,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 58,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 63,
+                                                  "color": 1
+                                                }
+                                              ],
+                                              "conflict": 66
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 15,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 69,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 78,
+                                            "color": 3
+                                          }
+                                        ],
+                                        "pivot": 63,
+                                        "branches": [
+                                          {
+                                            "color": 1,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 45,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 65,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 66,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 3,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 2,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 8,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 58,
+                                                  "color": 2
+                                                }
+                                              ],
+                                              "conflict": 75
+                                            }
+                                          },
+                                          {
+                                            "color": 2,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 65,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 66,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 58,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 74,
+                                                  "color": 0
+                                                }
+                                              ],
+                                              "conflict": 75
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "color": 3,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 78,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 75,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "pivot": 2,
+                                        "branches": [
+                                          {
+                                            "color": 0,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 3,
+                                                  "color": 2
+                                                },
+                                                {
+                                                  "cell": 0,
+                                                  "color": 1
+                                                },
+                                                {
+                                                  "cell": 8,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 45,
+                                                  "color": 0
+                                                }
+                                              ],
+                                              "conflict": 63
+                                            }
+                                          },
+                                          {
+                                            "color": 1,
+                                            "child": {
+                                              "forced": [
+                                                {
+                                                  "cell": 8,
+                                                  "color": 3
+                                                },
+                                                {
+                                                  "cell": 65,
+                                                  "color": 0
+                                                },
+                                                {
+                                                  "cell": 63,
+                                                  "color": 1
+                                                }
+                                              ],
+                                              "conflict": 66
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 1,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 0
+                              },
+                              {
+                                "cell": 79,
+                                "color": 0
+                              }
+                            ],
+                            "pivot": 9,
+                            "branches": [
+                              {
+                                "color": 2,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 15,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              },
+                              {
+                                "color": 3,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 15,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 69,
+                                      "color": 3
+                                    }
+                                  ],
+                                  "conflict": 78
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "color": 3,
+                    "child": {
+                      "forced": [
+                        {
+                          "cell": 34,
+                          "color": 1
+                        }
+                      ],
+                      "pivot": 16,
+                      "branches": [
+                        {
+                          "color": 0,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 14,
+                                "color": 1
+                              },
+                              {
+                                "cell": 15,
+                                "color": 2
+                              },
+                              {
+                                "cell": 9,
+                                "color": 3
+                              },
+                              {
+                                "cell": 79,
+                                "color": 3
+                              }
+                            ],
+                            "pivot": 69,
+                            "branches": [
+                              {
+                                "color": 0,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 1
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 1,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    },
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 0
+                                    }
+                                  ],
+                                  "pivot": 63,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 45,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 2,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 74
+                                      }
+                                    },
+                                    {
+                                      "color": 2,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 65,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 66,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 58,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 74,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 75
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "color": 3,
+                          "child": {
+                            "forced": [
+                              {
+                                "cell": 79,
+                                "color": 0
+                              }
+                            ],
+                            "pivot": 69,
+                            "branches": [
+                              {
+                                "color": 1,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 15,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 2,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 65,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 3,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 8,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 0,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 58,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 63,
+                                      "color": 0
+                                    }
+                                  ],
+                                  "conflict": 66
+                                }
+                              },
+                              {
+                                "color": 2,
+                                "child": {
+                                  "forced": [
+                                    {
+                                      "cell": 78,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 15,
+                                      "color": 0
+                                    },
+                                    {
+                                      "cell": 14,
+                                      "color": 1
+                                    },
+                                    {
+                                      "cell": 9,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 74,
+                                      "color": 2
+                                    },
+                                    {
+                                      "cell": 75,
+                                      "color": 3
+                                    },
+                                    {
+                                      "cell": 58,
+                                      "color": 2
+                                    }
+                                  ],
+                                  "pivot": 2,
+                                  "branches": [
+                                    {
+                                      "color": 0,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 3,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 8,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 1
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 0
+                                          }
+                                        ],
+                                        "conflict": 66
+                                      }
+                                    },
+                                    {
+                                      "color": 1,
+                                      "child": {
+                                        "forced": [
+                                          {
+                                            "cell": 8,
+                                            "color": 2
+                                          },
+                                          {
+                                            "cell": 3,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 0,
+                                            "color": 3
+                                          },
+                                          {
+                                            "cell": 65,
+                                            "color": 0
+                                          },
+                                          {
+                                            "cell": 63,
+                                            "color": 1
+                                          }
+                                        ],
+                                        "conflict": 66
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "verified_stats": {
+    "nodes": 105,
+    "maximum_branch_depth": 7,
+    "branching_nodes": 52,
+    "forced_assignments": 451,
+    "conflict_leaves": 53
+  }
+}

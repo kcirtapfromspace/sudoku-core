@@ -77,7 +77,11 @@ larger than 24 cells are skipped. This is a bounded guardian search, not a
 complete search of all global obstructions.
 
 `GlobalColoringProof::from_cells` additionally accepts an explicit selected cell
-set and can certify either a placement or an elimination. The generic proof
+set of up to 32 cells and can certify either a placement or an elimination.
+It permits up to 32,768 proof nodes within 50,000 total refutation/witness visits.
+These larger bounds are opt-in through supplying the support; automatic hint
+searches still skip components above 24 cells and cap each search at 8,192 visits.
+The generic proof
 format uses no supplied graph edges, template identity, symmetry shortcut, or
 assumed chromatic number. It includes:
 
@@ -85,7 +89,7 @@ assumed chromatic number. It includes:
 - Sorted, distinct selected board indices, including the live, unplaced target.
 - The target digit and result polarity (true for placement, false for elimination).
 - A proper coloring of the unforced selected graph supporting the result endpoint.
-- A flat postorder refutation tree, rooted at the last node, with at most 8,192 nodes.
+- A flat postorder refutation tree, rooted at the last node, with at most 32,768 nodes.
 
 The checker reconstructs native peers from board positions and restricts the
 target to the **opposite** endpoint. A `Split` must name an unassigned cell and
@@ -132,8 +136,8 @@ if let Some(hint) = result.hint {
 
 `get_global_coloring_hint` uses the default budget of 512 patterns and 50,000
 visited search states shared between refutations and base-witness construction.
-Options allow at most 16,384 patterns and 1,000,000 search states; each individual
-search is also capped at 8,192 states. Cutoffs produce no certificate from an
+Options allow at most 16,384 patterns and 1,000,000 search states; each automatic
+pattern search is also capped at 8,192 states. Cutoffs produce no certificate from an
 incomplete tree. Results report patterns tested, nodes visited, budget exhaustion,
 oversized components, and errors. A missing hint is never a completeness result.
 
@@ -161,6 +165,21 @@ A runnable export example accepts a `CandidateState` JSON file:
 ```sh
 cargo run --release --example global_coloring -- candidate-state.json
 ```
+
+An explicit proof request supplies `state`, `cells`, `cell`, `digit` and result
+polarity `value`. This can certify larger supports without increasing automatic
+hint-search limits:
+
+```sh
+cargo run --release --locked --example global_coloring -- --explicit research/global_obstructions/realization27_proof_request.json
+```
+
+The [27-cell production replay](../research/global_obstructions/replay_native27.json)
+places r5c6=1 with a 16,745-node tree. It is a conditional synthetic example.
+An exhaustive trade classification proves that this exact support cannot occur
+with all its cells unclued in a unique compatible givens puzzle; see the
+[realization audit](../research/global_obstructions/realization27_report.md).
+The engine's certificate does not depend on uniqueness or historical novelty.
 
 See the [actual four-digit replay](../research/global_obstructions/replay_four_digit.json)
 and [published-puzzle replay](../research/global_obstructions/replay_Loki.json).

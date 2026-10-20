@@ -87,7 +87,7 @@ def check(certificate=None):
                 if peer!=cell and peer not in assigned and sees(cell,peer):updated[peer]&=~bit
             walk(child,updated,assigned|{cell})
     walk(c["root"],domains,set());assert visited==set(range(len(nodes)))
-    return {"cells":len(cells),"nodes":len(nodes),"conflicts":conflicts,"complete_branch_coverage":True,"production_limits_unchanged":True}
+    return {"cells":len(cells),"nodes":len(nodes),"conflicts":conflicts,"complete_branch_coverage":True,"automatic_search_limits_unchanged":True}
 
 
 def self_test():

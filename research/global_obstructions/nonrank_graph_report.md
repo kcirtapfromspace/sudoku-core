@@ -1,5 +1,12 @@
 # Native coloring gaps beyond weighted rank
 
+Subsequent [realization and integration audit](realization27_report.md): a
+complete trade classification rules out unique outside-only givens for this
+exact support, even with nonuniform lists. The explicit production proof API
+now accepts the 27-cell case, with unchanged automatic-search bounds. Statements
+below about the earlier production cap and pending realization describe the
+original discovery stage.
+
 The bounded search found a **synthetic 27-cell native graph with chromatic
 number five and fractional chromatic number four**, a respecting completed
 Sudoku, a live guardian, exact Hall/all-81-crossing closure traces, and an exact
