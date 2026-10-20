@@ -221,6 +221,13 @@ Run `./scripts/verify.sh` (requires a [Verus release](https://github.com/verus-l
 and its pinned Rust toolchain; see the script header). CI runs the proofs via
 `.github/workflows/verify.yml`.
 
+## Research experiments
+
+Research fixtures and exact checks outside modular arithmetic are documented in
+[non-modular research experiments](research/nonmodular/README.md), including a
+three-house inference and the limits of its comparison with existing detectors.
+Historical novelty is not established.
+
 ## Minimal Usage
 
 ```rust
