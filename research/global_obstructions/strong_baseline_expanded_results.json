@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "inputs_sha256": "cc4990926fbb2f8d00268a0d1da8613a3efc8185101ec5100792c508380b62ee",
+  "profile": {
+    "seconds": 120.0,
+    "catalogue_seconds": 60.0,
+    "catalogue_nodes": 1000000
+  },
+  "retained_comparison_sha256": "ce522883bbd6b197629a2a7523c71aae811c555c92f0483e208905ad5a2da9f4",
+  "counts": {
+    "complete": 2
+  },
+  "records": [
+    {
+      "id": "modern-mith-minimals-000515",
+      "seed_status": "solved",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "075f20c121401c0b3e6d2bfb12a4cff4387f9c6331b1017e92f77c515faf6d48",
+      "output_state_hash": "075f20c121401c0b3e6d2bfb12a4cff4387f9c6331b1017e92f77c515faf6d48",
+      "trace_events": 3,
+      "relations": 4173,
+      "seconds": 6.932281833,
+      "result_path": "target/strong-baseline-expanded/modern-mith-minimals-000515.json",
+      "result_sha256": "9f37148a39ef9c102e1ae01c9edc42fd82ef3c603b2156fe3340312712e4eaec"
+    },
+    {
+      "id": "modern-monhard-te3-001244",
+      "seed_status": "retained-configured-fixedpoint",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "2b73e009ea8aea867b321e39bf077f69ee97d269c39e3ea5b9a8989ed5c79d49",
+      "output_state_hash": "0288c817283ea2cd8c6eef6528ada0d823074a21cc2fa82bbccc0c4159a2198a",
+      "trace_events": 8,
+      "relations": 5217,
+      "seconds": 10.020010709,
+      "result_path": "target/strong-baseline-expanded/modern-monhard-te3-001244.json",
+      "result_sha256": "a191e72338d7077f2572ad63a2d0b0c0f58375dc095cb71a6f98009ace15f79b"
+    }
+  ],
+  "seconds": 17.045548333,
+  "scope": "Configured offline profile with supplied original givens-domain history. Cutoffs are inconclusive, never strengthened fixedpoints. Original unique hosts and corrected old-engine seeds are separate input provenance."
+}

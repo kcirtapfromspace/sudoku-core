@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "profile_label": "retained-candidate-old-dispatcher",
+  "counts": {
+    "target_opposites": 631,
+    "triple-refuted": 343,
+    "pair-refuted": 199,
+    "hosts_visited": 4,
+    "hosts_completed": 4,
+    "local_refuted": 1,
+    "support-fixed-point": 88
+  },
+  "observed_seconds": 83.32935587499999,
+  "limits": {
+    "seconds": 150.0,
+    "query_seconds": 3.0,
+    "max_targets_per_host": 1000
+  },
+  "hosts": [
+    {
+      "id": "modern-monhard-te3-001132",
+      "source": "target/joint-retained-inputs/modern-monhard-te3-001132.json",
+      "source_sha256": "b8b9ef4e207fd9ca9b5492a0ed8fe619df042a1b0ce7a095e8eb4e7f876aaed6",
+      "targets_available": 131,
+      "completed": true,
+      "counts": {
+        "target_opposites": 131,
+        "triple-refuted": 64,
+        "pair-refuted": 67
+      },
+      "puzzle": "987.........96.8.......5...84...7...7.3.2.4...92..3.8.4.....37.2......98...3..2.4",
+      "solution": "987134652315962847624785139846517923753829416192643785469258371231476598578391264",
+      "state_sha256": "bb6b3f9f394bb081cdaac4f53c893d26dce41a1b0ba7ef423c1435692e7b3b50",
+      "public_seed_sha256": "1eed629f27dd674ac1903ea3571b092a7494f898431f8d25ebe17cbf7e2740e9"
+    },
+    {
+      "id": "modern-monhard-te3-001244",
+      "source": "target/joint-retained-inputs/modern-monhard-te3-001244.json",
+      "source_sha256": "f31132db9f9cb2aea6f6185e957a49ae6a051c148a893364fdc1562421e9f471",
+      "targets_available": 144,
+      "completed": true,
+      "counts": {
+        "target_opposites": 144,
+        "triple-refuted": 70,
+        "pair-refuted": 73,
+        "local_refuted": 1
+      },
+      "puzzle": "987.........98.76........5.8.4.3.....9.42.....32..7...37..98.2.2...4...3.48......",
+      "solution": "987256134451983762623714958864539217795421386132867549376198425219645873548372691",
+      "state_sha256": "0036ac1f26a18b32518af993635544cd5437084c50a19ccc1d57760edf69c9b0",
+      "public_seed_sha256": "24175b7ff7472d2e9e26d52389c6d95b19d52a4fc8ae7edc97b80703c2e95bb8"
+    },
+    {
+      "id": "modern-monhard-te3-001468",
+      "source": "target/joint-retained-inputs/modern-monhard-te3-001468.json",
+      "source_sha256": "e5a7474a4fd3a86c47877ba1a9c837672b0a477f914d03a025db90ef06c77b80",
+      "targets_available": 169,
+      "completed": true,
+      "counts": {
+        "target_opposites": 169,
+        "triple-refuted": 125,
+        "pair-refuted": 34,
+        "support-fixed-point": 10
+      },
+      "puzzle": "98.76.5..7.59.4.....6.85...8.7.5.....9...8.7..64.9........46.........43........21",
+      "solution": "982763514735914268416285397827651943391428675564397182273146859159872436648539721",
+      "state_sha256": "b8142135b518d899b5a1b89254ad2cd68d3371c746fa52ab69522764836ebb27",
+      "public_seed_sha256": "34d0f1c88e4052620b3d5f36cebbca556fa4fbf5d14cb7c5edd0528165bdbeec"
+    },
+    {
+      "id": "modern-monhard-te3-002283",
+      "source": "target/joint-retained-inputs/modern-monhard-te3-002283.json",
+      "source_sha256": "0137e9fc45ed6ab5866688614c763a9c7723ce885d8d394f8b1dbe0b56451bad",
+      "targets_available": 187,
+      "completed": true,
+      "counts": {
+        "target_opposites": 187,
+        "support-fixed-point": 78,
+        "triple-refuted": 84,
+        "pair-refuted": 25
+      },
+      "puzzle": "98.76.5..7.5..86....4.59...89........4.....32.......6.6...4....4..98..7..7.6.5...",
+      "solution": "983764521715238694264159783896423157147596832532871469628347915451982376379615248",
+      "state_sha256": "390e081bf7b4c97b80f7ec26f44191411a43b6068769f3e2b65b7e930bb5d2c9",
+      "public_seed_sha256": "719643746cc95635740b7ab462006eb2e80505b71c98cd5ac77f55bdfd3a7797"
+    }
+  ],
+  "retained_bulk_controls": [
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-001132-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-001132-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001132"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-001132-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-001132-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001132"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-001244-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-001244-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001244"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-001244-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-001244-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001244"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-001468-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-001468-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001468"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-001468-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-001468-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001468"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-002283-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-002283-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-002283"
+    },
+    {
+      "fixture": "target/joint-templates-retained/modern-monhard-te3-002283-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-retained/modern-monhard-te3-002283-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-002283"
+    }
+  ],
+  "raw_summary_sha256": "737e368c022f900e365b9265c4e5c290e3e3659be1757f86c906dc00254bae6c",
+  "scope": "Four corrected retained-candidate old-dispatcher states, before strong combined closure. Explicit endpoint records, no historical novelty or actual strong-baseline survival claim.",
+  "endpoint_manifest_sha256": "b9c69e284da69ffe03e08d3d0e16dddfdfb58cc4cedc3e0521612a15ac930445",
+  "endpoint_records": 631,
+  "query_limits": {
+    "support_order": 3,
+    "max_per_digit": 2000,
+    "max_pair_checks": 20000000,
+    "max_support_checks": 20000000,
+    "seconds": 3.0
+  },
+  "public_input_sha256": "cc4990926fbb2f8d00268a0d1da8613a3efc8185101ec5100792c508380b62ee",
+  "public_retained_sha256": "c88da8f64dc9f93ebf841490d9e2e55eb8c15bb388b66e47777ea3e91f73c3c5"
+}

@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "corpus_sha256": "2d4e569f933b34dd8ae2bb44b4cb9153f3a7ff70bc926cfd8d9d24c65a0f259d",
+  "instrument": {
+    "schema_version": 1,
+    "kind": "retained-frozen-dispatcher-v1",
+    "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+    "binary_sha256": "e555c83d10fd1459d06ba88507c65742404337663075cedf3b224b9fb8df4d5b",
+    "changes": [
+      {
+        "path": "src/solver/als_engine_tests.rs",
+        "replacements": 1,
+        "before_sha256": "913ac818038b3877b67fd5994397825d4517ced068f85672e1239e454e3f656f",
+        "after_sha256": "315bba00f9867723602aa45a330b49f972e0f4bc509cae1cbfbf767ae2199040"
+      },
+      {
+        "path": "src/solver/backtrack.rs",
+        "replacements": 7,
+        "before_sha256": "675b5113020819ca9a0dc97b4892b8f1553be358bc42617172288c3cd05cf996",
+        "after_sha256": "1ae1abf665bce08621e7c21b1a6a84b18a5af7aaac1df97289cb6b57a428864f"
+      },
+      {
+        "path": "src/solver/backtrack_tests.rs",
+        "replacements": 1,
+        "before_sha256": "0ad47f201a7bf4eb5398f5116c6018964eb3dc53facc43fd4fe4703cde421c2f",
+        "after_sha256": "ae9e180b79b5991b98613ea6c626a0c8f6f5d0abc822f75ba63f8e4c0655e168"
+      },
+      {
+        "path": "src/solver/behavior_tests.rs",
+        "replacements": 1,
+        "before_sha256": "0f4fbc028acca2a97b2eaee1fa8b4b55f7519b4a03a654a2a90da03a634445e9",
+        "after_sha256": "c2e51d900c2fea33053dede8bfa1cf6054cd5a5c07a5db6d67998f24037fc6e0"
+      },
+      {
+        "path": "src/solver/mod.rs",
+        "replacements": 8,
+        "before_sha256": "d51f8e17a11d7230b8dcabc115d377fbd45e35e572dc6d85777680e4dd892b9b",
+        "after_sha256": "c0dc7efa274e2da7c98d50e663aafec4d034189b74430ec02bd2ddf367b46752"
+      },
+      {
+        "path": "src/solver/mod_tests.rs",
+        "replacements": 11,
+        "before_sha256": "736e690e8e09f6fb506b8fba083198f0306cd7caf39c0980b6c4e3e1ed964dd2",
+        "after_sha256": "a8dd701160e7849db83a6a0b6cd9c5274e9f990723ec98b28f1deef99d1404bb"
+      },
+      {
+        "path": "src/solver/technique_tests.rs",
+        "replacements": 1,
+        "before_sha256": "24930f90e54dd85a01b782bda809e28dc7926342116bdbdb99dfb7fa083df201",
+        "after_sha256": "c92824f816e3243ef76af708f785deef0db3ebe9a5003f5312fa8874000b64b7"
+      },
+      {
+        "path": "src/solver/uniqueness_tests.rs",
+        "replacements": 1,
+        "before_sha256": "16d2ca3b172cf1d12e0ee0fc7ad70f7015de67346a177f7af9193202589258f3",
+        "after_sha256": "f733d8e22f90ce18ae4bc4a125b375ae664d4ca37e8d23651902ab24f81908e8"
+      },
+      {
+        "path": "examples/real_existing_probe.rs",
+        "replacements": 1,
+        "before_sha256": "1f292cf3fd38449b5cb65f2413e29f1ca4aceac5337b5581a585930a5eaab7b5",
+        "after_sha256": "98d9ae3165a8d46a54d94a43a236e49ae79cd7521c41bf9190442b2e0754fda1"
+      }
+    ],
+    "retention_method_sha256": "981cfbc40a671723bddce1df3cb62d3125959e202d5fe1a4624553abcb3f2087",
+    "targeted_rust_tests_passed": 3,
+    "scope": "Frozen full older ladder including its original forcing, with monotone candidate rebuilds in root and hypothetical states. Its configured detector bounds and 200-round propagation cap remain. Positive endpoints must still be completion-validated; this instrument is not a proof certificate or an exhaustive known-method oracle."
+  },
+  "requested_indices": [
+    121,
+    168,
+    122,
+    169,
+    123,
+    170,
+    124,
+    171,
+    125,
+    172,
+    126,
+    173
+  ],
+  "limits": {
+    "campaign_seconds": 240.0,
+    "host_seconds": 40.0,
+    "old_call_seconds": 10.0,
+    "catalogue_nodes": 1000000
+  },
+  "counts": {
+    "solved-retained-old": 12
+  },
+  "records": [
+    {
+      "corpus_index": 121,
+      "id": "modern-monhard-te3-003178",
+      "puzzle": "9876.....5...8.....4....6..3.2.4..86...3....1....2.....3...4.6..1.86..23.....1..4",
+      "status": "solved-retained-old",
+      "solution": "987613452526489317143752698392147586875396241461528739238974165714865923659231874",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-monhard-te3-003178.json",
+      "artifact_sha256": "1148f06a890fb7252dead2940f95a5e041d0ea92d68590bb2e41304d352121b8",
+      "seconds": 14.370396583
+    },
+    {
+      "corpus_index": 168,
+      "id": "modern-mith-minimals-000772",
+      "puzzle": "1.3.5.7....7.8..3686......5.........53...1.687.6....1......58..67...3......24..5.",
+      "status": "solved-retained-old",
+      "solution": "123456789457189236869372145291568374534721968786934512342615897675893421918247653",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-mith-minimals-000772.json",
+      "artifact_sha256": "b1e7ea284cfaf73a9a52e8807631386f0692642a90ec0df50f1de27969673bbb",
+      "seconds": 9.098783916999999
+    },
+    {
+      "corpus_index": 122,
+      "id": "modern-monhard-te3-003290",
+      "puzzle": "98.76.5..7.49..6...6..48...8......32.9.....1....5..4.66...57...54.89.....7.......",
+      "status": "solved-retained-old",
+      "solution": "981762543734915628265348179856174932492683715317529486628457391543891267179236854",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-monhard-te3-003290.json",
+      "artifact_sha256": "eb09a0b3493454f976615cc484f6729cba6662417ae7b4c585c16e57155fd479",
+      "seconds": 8.474423999999999
+    },
+    {
+      "corpus_index": 169,
+      "id": "modern-mith-minimals-000815",
+      "puzzle": "...4.67.9.......3..8......526..48....7..9.4.......78...47.62.98.9......48.2......",
+      "status": "solved-retained-old",
+      "solution": "123456789456789132789213645265348917378591426914627853547162398691835274832974561",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-mith-minimals-000815.json",
+      "artifact_sha256": "24ad9cfac782c6a9e1c4d627a9633fc97276ad1caa16daba08e82185f23468aa",
+      "seconds": 17.640721999999997
+    },
+    {
+      "corpus_index": 123,
+      "id": "modern-monhard-te3-003402",
+      "puzzle": "987......65.97......4.......9.34.72..2...7.31......9.4..1..32......2..13....1.47.",
+      "status": "solved-retained-old",
+      "solution": "987436152652971348314285697196348725425697831873152964541763289769824513238519476",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-monhard-te3-003402.json",
+      "artifact_sha256": "8277f49d5495b6b57a82bc95004e78bfb31c7097eee919ba22c98a307fcbebca",
+      "seconds": 11.649246792
+    },
+    {
+      "corpus_index": 170,
+      "id": "modern-mith-minimals-000858",
+      "puzzle": "..3.5678...718..3......71..24........3...5...9.....56.36...8.7..........87..3165.",
+      "status": "solved-retained-old",
+      "solution": "123456789457189236689327145245613897736895421918274563361548972594762318872931654",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-mith-minimals-000858.json",
+      "artifact_sha256": "cb5287528531fe03f66865000ba067bc886fda70891d740ceff1c18c99e96f37",
+      "seconds": 3.8244172500000033
+    },
+    {
+      "corpus_index": 124,
+      "id": "modern-monhard-te3-003514",
+      "puzzle": "98.76....7.59..6....4.58...8.....73....4.75.6.......246...4.....9.....4....87...9",
+      "status": "solved-retained-old",
+      "solution": "982761453735924618164358297846295731329417586571683924618549372297136845453872169",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-monhard-te3-003514.json",
+      "artifact_sha256": "50a896338454d6bd3bbda2b904db98a54f640f2d62a359386531bea2ae13f8a0",
+      "seconds": 7.369064499999993
+    },
+    {
+      "corpus_index": 171,
+      "id": "modern-mith-minimals-000901",
+      "puzzle": "123.....9...7......8.....542.1..8....7.3.2..6.6.17......7......6...318..8..6..2..",
+      "status": "solved-retained-old",
+      "solution": "123456789456789132789213654231968475578342916964175328397824561642531897815697243",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-mith-minimals-000901.json",
+      "artifact_sha256": "26245ce949a2f37ca7726cd4e10b6148e4ccdc2a2d954eb185d31277ffc4cc52",
+      "seconds": 6.354068249999997
+    },
+    {
+      "corpus_index": 125,
+      "id": "modern-monhard-te3-003625",
+      "puzzle": "98.76.5..7.54..6....4..9...6......5.4..89...7.7.5......9.....32....8.4.6.......1.",
+      "status": "solved-retained-old",
+      "solution": "982763541735418629164259378618327954453891267279546183591674832327185496846932715",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-monhard-te3-003625.json",
+      "artifact_sha256": "0100f2ad92f0c5ba6184239fbd04e7dbeed6fc79f55fb76714ae34fdee9e2f88",
+      "seconds": 7.299681374999992
+    },
+    {
+      "corpus_index": 172,
+      "id": "modern-mith-minimals-000944",
+      "puzzle": "...4...8..5..8923..9...35.423.....98.46......9.1........2..594.....9........428.3",
+      "status": "solved-retained-old",
+      "solution": "123456789457189236698273514235764198846921375971538462362815947584397621719642853",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-mith-minimals-000944.json",
+      "artifact_sha256": "27cccb78c401177f2c27839987d123c46668877414758f54b30c06d117362b8e",
+      "seconds": 13.032643125000007
+    },
+    {
+      "corpus_index": 126,
+      "id": "modern-monhard-te3-003737",
+      "puzzle": "98.76.5..7...4.......5.....6.9.......74.8..5..5.....67.68...9.5...8...32...4..81.",
+      "status": "solved-retained-old",
+      "solution": "983761524715342698246598173639275481174683259852914367368127945491856732527439816",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-monhard-te3-003737.json",
+      "artifact_sha256": "532f2e8a5f06b2d99bc22b0c388c1672119b7bee65c2b430446c3d643ae527b3",
+      "seconds": 8.512231667000009
+    },
+    {
+      "corpus_index": 173,
+      "id": "modern-mith-minimals-000987",
+      "puzzle": "1..4.6.894.6..91.2...21........98..6...64.9.....1.2..4..7.....169.8.......5...2..",
+      "status": "solved-retained-old",
+      "solution": "123456789456789132789213645274598316531647928968132574347925861692871453815364297",
+      "unplaced": 0,
+      "stages": 1,
+      "artifact_path": "target/discovery-expanded/modern-mith-minimals-000987.json",
+      "artifact_sha256": "4d430d0efd8f0032fe7d9bd9047b3171a17a158e5724c99876916015b3be3414",
+      "seconds": 38.88711916700001
+    }
+  ],
+  "seconds": 146.517014917,
+  "scope": "New unique author-source hosts. Completed solved, configured union fixedpoint and every cutoff are separate. No historical novelty claim and no unverified promotion.",
+  "trial_manifest_sha256": "447147f71f62b51285a12f507d3d75e288029841bc456ddc0f25e387416c7197",
+  "acceptance": "Negative discovery controls only; no qualified family or new engine rule."
+}

@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "counts": {
+    "target_opposites": 1200,
+    "pair-refuted": 458,
+    "triple-refuted": 639,
+    "local_refuted": 15,
+    "hosts_visited": 8,
+    "hosts_completed": 8,
+    "support-fixed-point": 88
+  },
+  "observed_seconds": 150.71702274999998,
+  "limits": {
+    "seconds": 180.0,
+    "query_seconds": 3.0,
+    "max_targets_per_host": 1000
+  },
+  "host_count": 8,
+  "hosts": [
+    {
+      "id": "modern-monhard-te3-001132",
+      "source": "target/different-corpus/modern-monhard-te3-001132.json",
+      "source_sha256": "181c37b99c9001d156faec5127c3d5f5a99be1613556aa73979f4e4b81e47feb",
+      "targets_available": 142,
+      "completed": true,
+      "counts": {
+        "target_opposites": 142,
+        "pair-refuted": 63,
+        "triple-refuted": 78,
+        "local_refuted": 1
+      },
+      "puzzle": "987.........96.8.......5...84...7...7.3.2.4...92..3.8.4.....37.2......98...3..2.4",
+      "solution": "987134652315962847624785139846517923753829416192643785469258371231476598578391264",
+      "state_sha256": "ccab19af887c9e1fa32914ac96f4ceca88fb2963dc01840a96c5503d8115b4d3",
+      "public_seed_sha256": "582f5bb746385b4cc2f9bbb5cfc0624a420240a7b14a168e3f524bf13cb7d2f2"
+    },
+    {
+      "id": "modern-monhard-te3-001244",
+      "source": "target/different-corpus/modern-monhard-te3-001244.json",
+      "source_sha256": "293225484438a667803efc8f47b364b98805e555f18ed5a1e3a4a2845c325dd9",
+      "targets_available": 165,
+      "completed": true,
+      "counts": {
+        "target_opposites": 165,
+        "triple-refuted": 119,
+        "pair-refuted": 45,
+        "local_refuted": 1
+      },
+      "puzzle": "987.........98.76........5.8.4.3.....9.42.....32..7...37..98.2.2...4...3.48......",
+      "solution": "987256134451983762623714958864539217795421386132867549376198425219645873548372691",
+      "state_sha256": "80eeffcdf0d175aada84f26f47ed6835849316aaef27c28e1ca0e6ab931bc8d5",
+      "public_seed_sha256": "d3ed39e6a0a8c40e47708b9472c3106e309f27b83d9915440476601e03965316"
+    },
+    {
+      "id": "modern-monhard-te3-001468",
+      "source": "target/different-corpus/modern-monhard-te3-001468.json",
+      "source_sha256": "ed84a3d4793737f90ca0e391d0e021f6d356ec792ac4d0a6cb4aca040dcb3632",
+      "targets_available": 170,
+      "completed": true,
+      "counts": {
+        "target_opposites": 170,
+        "triple-refuted": 125,
+        "pair-refuted": 35,
+        "support-fixed-point": 10
+      },
+      "puzzle": "98.76.5..7.59.4.....6.85...8.7.5.....9...8.7..64.9........46.........43........21",
+      "solution": "982763514735914268416285397827651943391428675564397182273146859159872436648539721",
+      "state_sha256": "80893a9df2d744c68419d6347cb89c98834a33fbbe112251eb84afe7adbc4a41",
+      "public_seed_sha256": "e411564c8b5ec16631650504e0053ee0ce52b9d32564d7697001fc35c1b974b8"
+    },
+    {
+      "id": "modern-monhard-te3-002283",
+      "source": "target/different-corpus/modern-monhard-te3-002283.json",
+      "source_sha256": "d5817d5e8366424ba202bf4183cd78deff8f47589c58f00a9bd8deffc724407e",
+      "targets_available": 187,
+      "completed": true,
+      "counts": {
+        "target_opposites": 187,
+        "support-fixed-point": 78,
+        "triple-refuted": 84,
+        "pair-refuted": 25
+      },
+      "puzzle": "98.76.5..7.5..86....4.59...89........4.....32.......6.6...4....4..98..7..7.6.5...",
+      "solution": "983764521715238694264159783896423157147596832532871469628347915451982376379615248",
+      "state_sha256": "390e081bf7b4c97b80f7ec26f44191411a43b6068769f3e2b65b7e930bb5d2c9",
+      "public_seed_sha256": "8c600da45d0a76356a778079fd4c4996a8c34da87d30c87764ff937e21d00c9a"
+    },
+    {
+      "id": "modern-monhard-te3-002506",
+      "source": "target/different-corpus/modern-monhard-te3-002506.json",
+      "source_sha256": "d068956b546a6738ce23bd52a2d1821be6821ff31beb8673aca9bce729af9716",
+      "targets_available": 140,
+      "completed": true,
+      "counts": {
+        "target_opposites": 140,
+        "triple-refuted": 45,
+        "pair-refuted": 91,
+        "local_refuted": 4
+      },
+      "puzzle": "987......6..8...........5..4..3..28....42..15.....13.4.4.15..32.3.2.84.1......85.",
+      "solution": "987645123625813947314972568451397286893426715276581394748159632539268471162734859",
+      "state_sha256": "971c4783dea9d5dfca586943f907eb5c15a23f37728e133968378deb00c3f53d",
+      "public_seed_sha256": "5e504aaa4e743f2aef257e1c471da3629f47d50a6793d2d859c931c716970810"
+    },
+    {
+      "id": "modern-monhard-te3-003066",
+      "source": "target/different-corpus/modern-monhard-te3-003066.json",
+      "source_sha256": "dc53743df495790124d5c0a43bf6c0a59e5abbb5475e4fb26eb040135783eab9",
+      "targets_available": 156,
+      "completed": true,
+      "counts": {
+        "target_opposites": 156,
+        "triple-refuted": 110,
+        "pair-refuted": 44,
+        "local_refuted": 2
+      },
+      "puzzle": "98.76.5..7.58.4....64.9.7..89.....3....4............2145.9.8..6...57.........6...",
+      "solution": "983761542725834169164295783891652437372419658546387921457928316618573294239146875",
+      "state_sha256": "599b5986b435b7957ca5d6b69dbe390c06b5c4bd0f34880c3bbfb8596b2d3f58",
+      "public_seed_sha256": "4b973d59e4533d10f497f763088e5782eaa29ecd58c26c71cca0da3bbb2d6cd0"
+    },
+    {
+      "id": "modern-mith-minimals-000258",
+      "source": "target/different-corpus-mith/modern-mith-minimals-000258.json",
+      "source_sha256": "46138b4644d061ed9e75e5943eb1c0f39eec75cbae86d67eb867444a93b9eff1",
+      "targets_available": 117,
+      "completed": true,
+      "counts": {
+        "target_opposites": 117,
+        "triple-refuted": 33,
+        "pair-refuted": 77,
+        "local_refuted": 7
+      },
+      "puzzle": ".2...6...4......63..9.37..........76.16.7.5....5...1.4.....1.4.7...45..1...36..57",
+      "solution": "123456789457189263689237415294518376316974528875623194538791642762845931941362857",
+      "state_sha256": "21a3948051ca174aeceab4cb4ebef3ef80824b6eedb2c94b00b49663f39a75b9",
+      "public_seed_sha256": "b4c3ba8b6ba3720dccd2b1940760cec5d33ebb85945afd0698bb6552ab521527"
+    },
+    {
+      "id": "modern-mith-minimals-000515",
+      "source": "target/different-corpus-mith/modern-mith-minimals-000515.json",
+      "source_sha256": "6c8c604c78e9e00a88b52f015ae01a60697bc9d78eb690c4c18fe4767e9c1ff4",
+      "targets_available": 123,
+      "completed": true,
+      "counts": {
+        "target_opposites": 123,
+        "pair-refuted": 78,
+        "triple-refuted": 45
+      },
+      "puzzle": "12...6..9.57..9...6.92.....2.5....67...5...........34.....95.......1.6..97.6.2.1.",
+      "solution": "123456789457189236689273154215934867734568921896721345361895472542317698978642513",
+      "state_sha256": "5231b1c39d304d3f070d3883c21cf2887bfb78734c42de6d70329d05ec476225",
+      "public_seed_sha256": "11f14c6487f6115a64f344f9bc7609d16457f995d29f22521b9ca53d4a562e01"
+    }
+  ],
+  "retained_bulk_controls": [
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001132-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001132-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001132",
+      "fixture_sha256": "b7be50def7f8ea909b15418300261a921c7ef8f803c2889376a8300d450c23dd",
+      "proof_sha256": "44acf9e237343d4cd3c7abccae8de1328a386bf25a70b5e778e450e14920c002"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001132-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001132-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001132",
+      "fixture_sha256": "f0253b7f36c809af3c9d3fbe9e36bd7e558f3661e20dac184cbb42a449e045b3",
+      "proof_sha256": "33d708b936bd73cdc3398918885198285246c3dd76159fc838e8ff56cd0bbae4"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001244-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001244-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001244",
+      "fixture_sha256": "96723dabb645854ee7428f84a018625cc7d863b97a66e2b2d3b71c570c528c66",
+      "proof_sha256": "a1b61350eca502207c28cd0f13e16e9f691431c807b50dd0c83eeafbb269adfd"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001244-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001244-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001244",
+      "fixture_sha256": "c6a40f2906a36728a7f98089c79523daf8e204818fc64fd006b2d007a404a2f6",
+      "proof_sha256": "e090358b85bb806085c16de6226c0e5ed50ea607bc8bd52940f9dd8257339047"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001468-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001468-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001468",
+      "fixture_sha256": "a1dd82bfbcd691ff449377cc9baf379ffdd9f54e5d65ee52bf0b651e457fa94f",
+      "proof_sha256": "2d80fd1546da558c8fd0d2ef54971212e7830bf43f7532fef308667e21bac12d"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001468-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001468-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001468",
+      "fixture_sha256": "f1f52176ab33d2e46b9053633bc0c458d7837ec3a1b0b1a8c2e4a24615d53094",
+      "proof_sha256": "30791999de2466368d836f58b750021881304ee86893095955103aacb9143808"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002283-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002283-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-002283",
+      "fixture_sha256": "e9a1e340eb60e5d6fe43ea3977fdc7534b55df7b844bef0a8033cf67fb476cfd",
+      "proof_sha256": "a36d679db0b00e119ff4e827affbc36653db1fa60982c4e86752481d970e4b84"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002283-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002283-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-002283",
+      "fixture_sha256": "7fe619a10046509c7337ed914fb7449a19e99cc5f985d475622b2bf8139d821b",
+      "proof_sha256": "1b5b6fcefd1b5feaf4872b956db2335d3cbaf047e2070856f1a679316981a0e9"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002506-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002506-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-002506",
+      "fixture_sha256": "6904c5ab8de90fa118e59d8d7c97a3e8f9fb2a7c1fb4e0edf92b65bc743b7234",
+      "proof_sha256": "73d467597ef54e9b9359345387d4f3a568ed820173813335904118ada3a85f81"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002506-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002506-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-002506",
+      "fixture_sha256": "ad6bca00f1ded91989f2425f221e405efd872ce62909c469c04071bbc172fe9f",
+      "proof_sha256": "b99a9a77f823a5cd298eaf4aa52ee35705e8bb2c38145b88219ed1e11988e0cd"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-003066-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-003066-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-003066",
+      "fixture_sha256": "d3cf81aece388195d04627270e9749ac1fffcc150d99d02f374f7240cfc57317",
+      "proof_sha256": "6588e65f7d711e7a37271c6e87ed29f14631f482607b93e08254392a804c7028"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-003066-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-003066-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-003066",
+      "fixture_sha256": "817d6bc7fa71c978058b131a50482f20018ddbdba3cd0fa5044e447c38e46c1d",
+      "proof_sha256": "69781044d46739b96922dbef57ccfffdc21b6a17a686225da0ba320f93affd18"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000258-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000258-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-mith-minimals-000258",
+      "fixture_sha256": "c7d3661205b79eec55e7c2c267117608d0775458e3bb223648e4e90eea5078e1",
+      "proof_sha256": "e45596ad0dd5b671bbc7086d69b243947ae84b884050d7a2349845235ce00872"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000258-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000258-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-mith-minimals-000258",
+      "fixture_sha256": "e69a0495bfd93b0d8e91d89a4bd6e39098682cd69359b3ac564d942f83cd53af",
+      "proof_sha256": "1c4b8738427731023efe4595b071e6e386854b8280c8cb72267a699aecc9c174"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000515-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000515-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-mith-minimals-000515",
+      "fixture_sha256": "34f91765a4a9f2ddbb8cb1e45227302456450074385463d16df42b164e7693dd",
+      "proof_sha256": "01298110464ba2da1828c6ec5728e4394c6e22b5c18ad00ea89dbed92da3df1f"
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000515-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000515-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-mith-minimals-000515",
+      "fixture_sha256": "c0f2fcf709118a049dcd2d331b823bee619d475b6dc10c2d46bc2dcb3966fe1a",
+      "proof_sha256": "bf7741d615b576bb95bef5ba27a5cf0d349f416977dc8960c0564fdd98e94cc4"
+    }
+  ],
+  "raw_summary_sha256": "3075c9e9393316d02fbb2956cc80cef27d075cc94fc6177859f7218e6d0ef297",
+  "reproduction_command": "python3 -S research/global_obstructions/joint_templates_corpus.py target/different-corpus target/different-corpus-mith --seconds 180 --query-seconds 3 --output-dir target/joint-templates-corpus",
+  "status_interpretation": {
+    "pair-refuted": "Exact one-partner template support refutation proposed; replay acceptance required. Not necessarily one initially infeasible digit pair.",
+    "triple-refuted": "All9 digit domains nonempty and pairwise arc-consistent at checkpoint, then exact ternary support deletions refute. No historical novelty implied.",
+    "support-fixed-point": "Order3 propagation did not refute; not a Sudoku solution or nonexistence of another proof.",
+    "local_refuted": "Target opposite already contradicts exact Hall/all81 closure; no joint-template query accepted."
+  },
+  "scope": "Only eight unique frozen older-engine live states, before strengthened profile. Repeated endpoint outcomes are not distinct methods, puzzles or families. Zero promoted strengthened-baseline discoveries.",
+  "endpoint_manifest_sha256": "7e4af98d4fad15a558d0ee7b6291d599247773308f1b9252cbd1b8af99d1da75",
+  "endpoint_records": 1200,
+  "query_limits": {
+    "support_order": 3,
+    "max_per_digit": 2000,
+    "max_pair_checks": 20000000,
+    "max_support_checks": 20000000,
+    "seconds": 3.0
+  },
+  "public_input_sha256": "cc4990926fbb2f8d00268a0d1da8613a3efc8185101ec5100792c508380b62ee"
+}

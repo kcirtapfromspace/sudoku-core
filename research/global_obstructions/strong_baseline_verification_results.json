@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "run_outputs_verified": 10,
+  "statuses": {
+    "complete": 8,
+    "cutoff": 2
+  },
+  "checker_sha256": "bafe08a5c06993aea02ed1780ab43b17affd93e9102b10164530bacf7baaaceb",
+  "records": [
+    {
+      "result_path": "target/strong-baseline-corpus/modern-mith-minimals-000258.json",
+      "result_sha256": "aa1b58f35982ec9dcdc85888dcbd75a9c7467cd01793e35c6e49e8f5b0bddfab",
+      "verification": {
+        "events": 3,
+        "local_calls": 1,
+        "relation_inferences": 0,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 4.0535535
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-mith-minimals-000515.json",
+      "result_sha256": "5bef0d13859f15377096cf66a65a086afaca7da5b39c00a8ec591e57e2ed2214",
+      "verification": {
+        "events": 1,
+        "local_calls": 0,
+        "relation_inferences": 0,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "cutoff",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": false,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 0.5301118750000002
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-001132.json",
+      "result_sha256": "fac7840962bbd22e6c8b27369fdca2d6250a1f6a5620a7b73a2e67ac37c28311",
+      "verification": {
+        "events": 8,
+        "local_calls": 3,
+        "relation_inferences": 1,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 1.6174106659999996
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-001244.json",
+      "result_sha256": "a704b4c7686af333742e4aa1d366e2414e88eb691482b3996105cd75b690257b",
+      "verification": {
+        "events": 1,
+        "local_calls": 0,
+        "relation_inferences": 0,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "cutoff",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": false,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 0.37816912500000033
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-001468.json",
+      "result_sha256": "c9af13a28bb955e862d693adf3acfe4ec47c723875c707b719f5ebca6b384dc7",
+      "verification": {
+        "events": 17,
+        "local_calls": 6,
+        "relation_inferences": 4,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 1.4148110000000003
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-002283.json",
+      "result_sha256": "56d47564373e59e4b6ec75f29872ba2d7d3476e9c6ba6bddb8d1b669f61c6856",
+      "verification": {
+        "events": 14,
+        "local_calls": 5,
+        "relation_inferences": 3,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 5.265182166000001
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-002506.json",
+      "result_sha256": "2e6b566871f449cb5d38526120cdb7fa8a77caa61b52def77363104320b6c2b1",
+      "verification": {
+        "events": 3,
+        "local_calls": 1,
+        "relation_inferences": 0,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 0.864853708
+    },
+    {
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-003066.json",
+      "result_sha256": "b2c509cfaf301d03fa5c51e971fb64b909d459132b1d3b0ec42ac470840ef069",
+      "verification": {
+        "events": 3,
+        "local_calls": 1,
+        "relation_inferences": 0,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 1.3350684160000004
+    },
+    {
+      "result_path": "target/strong-baseline-expanded/modern-mith-minimals-000515.json",
+      "result_sha256": "9f37148a39ef9c102e1ae01c9edc42fd82ef3c603b2156fe3340312712e4eaec",
+      "verification": {
+        "events": 3,
+        "local_calls": 1,
+        "relation_inferences": 0,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 7.621441915999998
+    },
+    {
+      "result_path": "target/strong-baseline-expanded/modern-monhard-te3-001244.json",
+      "result_sha256": "a191e72338d7077f2572ad63a2d0b0c0f58375dc095cb71a6f98009ace15f79b",
+      "verification": {
+        "events": 8,
+        "local_calls": 3,
+        "relation_inferences": 1,
+        "pattern_inferences": 0,
+        "forcing_inferences": 0,
+        "forcing_splits": 0,
+        "status": "complete",
+        "positive_steps_exact": true,
+        "catalogue_completeness_rescanned": true,
+        "configured_fixedpoint_repeated": false,
+        "full_candidate_scope": true,
+        "configured_phase_fixedpoint_candidate": false,
+        "mandatory_strong_profile_enabled": true,
+        "configured_strong_profile_fixedpoint": false,
+        "strong_separation_candidate": false,
+        "required_external_bindings": [
+          "verified original givens history coverage",
+          "same-state corrected retained-old union fixedpoint"
+        ],
+        "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+      },
+      "verification_seconds": 10.609351750000002
+    }
+  ],
+  "scope": "Eightinitialhostoutputs plus twoseparateexpandedbudget reruns. Allpositiveinferencesexactreplayed; completecataloguesindependentlyrescanned; cutoffssoundpartialfacts only. Notten distinctpuzzles; noeligiblelivejointsearchstate."
+}
