@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "counts": {
+    "states": 8,
+    "explicit_patterns": 40377,
+    "explicit_pattern_cutoffs": 0,
+    "rust_certified_conclusions": 150,
+    "known-direct-tridagon": 131,
+    "no-direct-tridagon-match": 18,
+    "retained_for_independent_audit": 18,
+    "local-refuted": 1
+  },
+  "sources": [
+    {
+      "name": "modern-monhard-te3-001132",
+      "corpus_index": 109,
+      "state_sha256": "b9eb20cb312f617d3624ae974d30049dc5c9f74026e4afef19ac8ee643c17d5c"
+    },
+    {
+      "name": "modern-monhard-te3-001244",
+      "corpus_index": 110,
+      "state_sha256": "babc8c7530d2f246c04a3ad68b8ab1e81c875314c67a5fc245cce88adc59d1a6"
+    },
+    {
+      "name": "modern-monhard-te3-001468",
+      "corpus_index": 112,
+      "state_sha256": "1261403610d4fd892929c9f40a5546e681dff9e9ec5d8a84d3c96be6e547ca41"
+    },
+    {
+      "name": "modern-monhard-te3-002283",
+      "corpus_index": 113,
+      "state_sha256": "66cfcf0fa5d23e8e3156b1ad081b52ddce809238a30e238e7d265e941cf7aaa1"
+    },
+    {
+      "name": "modern-monhard-te3-002506",
+      "corpus_index": 115,
+      "state_sha256": "c56902dac8e263e6e363396b5ebb6dcc09d6667a0f0e624ce8520155947b8eee"
+    },
+    {
+      "name": "modern-monhard-te3-003066",
+      "corpus_index": 120,
+      "state_sha256": "b0695a3270007c7f2dab87dcc17486a50e581125300663c8157bd0521bbc46c7"
+    },
+    {
+      "name": "modern-mith-minimals-000258",
+      "corpus_index": 156,
+      "state_sha256": "8e6224092c98d5e628f4efff3e4c364fa509afc310e411609b19240d154cdabd"
+    },
+    {
+      "name": "modern-mith-minimals-000515",
+      "corpus_index": 162,
+      "state_sha256": "e768c8d11ee4bf26dfff856662a480109a902f80982c3c23d30378da8a875cd2"
+    }
+  ],
+  "bulk_summary": "target/different-explicit-corpus/summary.json",
+  "bulk_summary_sha256": "be4d5fee7d762b7ec8c6748201cc057c1f734b3dbccd2e9f36f893baf188172c",
+  "public_probe_source": "research/global_obstructions/different_search_probe.rs",
+  "public_probe_source_sha256": "3e8b2d7520966ae5925e622893a0f9dd1c89753334881068750472f16e20319f",
+  "public_driver": "research/global_obstructions/different_search_run.py",
+  "public_driver_sha256": "e1fd684e0de77db288d4cd86e33dd32c369f499ca7b4fb51830cb8e1376cf2c3",
+  "discovery_command": "research/global_obstructions/different_search_run.py --binary target/different-search-engine/target/release/examples/different_search_probe --output target/different-explicit-corpus target/different-corpus/modern-monhard-te3-000796.json target/different-corpus/modern-monhard-te3-000908.json target/different-corpus/modern-monhard-te3-001020.json target/different-corpus/modern-monhard-te3-001132.json target/different-corpus/modern-monhard-te3-001244.json target/different-corpus/modern-monhard-te3-001356.json target/different-corpus/modern-monhard-te3-001468.json target/different-corpus/modern-monhard-te3-002283.json target/different-corpus/modern-monhard-te3-002395.json target/different-corpus/modern-monhard-te3-002506.json target/different-corpus/modern-monhard-te3-002618.json target/different-corpus/modern-monhard-te3-002730.json target/different-corpus/modern-monhard-te3-002842.json target/different-corpus/modern-monhard-te3-002954.json target/different-corpus/modern-monhard-te3-003066.json target/different-corpus-mith/modern-mith-minimals-000001.json target/different-corpus-mith/modern-mith-minimals-000044.json target/different-corpus-mith/modern-mith-minimals-000087.json target/different-corpus-mith/modern-mith-minimals-000130.json target/different-corpus-mith/modern-mith-minimals-000172.json target/different-corpus-mith/modern-mith-minimals-000215.json target/different-corpus-mith/modern-mith-minimals-000258.json target/different-corpus-mith/modern-mith-minimals-000301.json target/different-corpus-mith/modern-mith-minimals-000344.json target/different-corpus-mith/modern-mith-minimals-000387.json target/different-corpus-mith/modern-mith-minimals-000430.json target/different-corpus-mith/modern-mith-minimals-000472.json target/different-corpus-mith/modern-mith-minimals-000515.json target/different-corpus-mith/modern-mith-minimals-000558.json target/different-corpus-mith/modern-mith-minimals-000601.json target/different-corpus-mith/modern-mith-minimals-000644.json target/different-corpus-mith/modern-mith-minimals-000687.json target/different-corpus-mith/modern-mith-minimals-000730.json",
+  "retained_direct_no_hit_cases": [
+    {
+      "source": "modern-monhard-te3-001132",
+      "conclusion": {
+        "cell": 11,
+        "digit": 1,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-1.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-001244",
+      "conclusion": {
+        "cell": 44,
+        "digit": 5,
+        "value": false
+      },
+      "cells": 17,
+      "path": "target/different-explicit-corpus/candidate-2.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 24,
+        "digit": 1,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-3.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 24,
+        "digit": 2,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-4.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 24,
+        "digit": 3,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-5.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 45,
+        "digit": 5,
+        "value": true
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-6.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 45,
+        "digit": 1,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-7.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 45,
+        "digit": 2,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-8.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 45,
+        "digit": 3,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-9.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 48,
+        "digit": 5,
+        "value": false
+      },
+      "cells": 20,
+      "path": "target/different-explicit-corpus/candidate-10.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 79,
+        "digit": 2,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-11.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 80,
+        "digit": 3,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-12.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 50,
+        "digit": 2,
+        "value": false
+      },
+      "cells": 16,
+      "path": "target/different-explicit-corpus/candidate-13.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002283",
+      "conclusion": {
+        "cell": 50,
+        "digit": 3,
+        "value": false
+      },
+      "cells": 16,
+      "path": "target/different-explicit-corpus/candidate-14.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-002506",
+      "conclusion": {
+        "cell": 17,
+        "digit": 9,
+        "value": false
+      },
+      "cells": 21,
+      "path": "target/different-explicit-corpus/candidate-15.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-monhard-te3-003066",
+      "conclusion": {
+        "cell": 8,
+        "digit": 3,
+        "value": false
+      },
+      "cells": 19,
+      "path": "target/different-explicit-corpus/candidate-16.json",
+      "subsequent_classification": "No family acceptance claimed; independent conditional-known-method/full-template audit required."
+    },
+    {
+      "source": "modern-mith-minimals-000515",
+      "conclusion": {
+        "cell": 28,
+        "digit": 3,
+        "value": false
+      },
+      "cells": 21,
+      "path": "target/different-explicit-corpus/candidate-17.json",
+      "subsequent_classification": "Known failed-literal composition: split r2c1={3,4}; both branches refuted by exact Hall/all81 crossing propagation.",
+      "audit_sha256": "3825c1bad300e7ccad8664a3694bed3092e9c22f0567a190037ff55db0ae9099"
+    },
+    {
+      "source": "modern-mith-minimals-000515",
+      "conclusion": {
+        "cell": 28,
+        "digit": 4,
+        "value": false
+      },
+      "cells": 21,
+      "path": "target/different-explicit-corpus/candidate-18.json",
+      "subsequent_classification": "Known failed-literal composition: split r2c1={3,4}; both branches refuted by exact Hall/all81 crossing propagation.",
+      "audit_sha256": "a4e188ca529cf361d4c05c245e837a16f8ca638075c714d44e9934ed0589b2f8"
+    }
+  ],
+  "meaning": "Bounded discovery only, not accepted mathematical novelty. All150 selected proofs were constructed and verified by the public Rust API; this does not imply150 distinct patterns or deductions globally. Direct known-pattern no-hit was only a first screen. The two Mith no-hit cases subsequently have complete established local failed-literal explanations. Other retained cases have no accepted new-family claim. No additional production rule follows from these counts.",
+  "control": {
+    "source": "nonrank_full_old_stall.json (previous known-family control, excluded from eight fresh states)",
+    "explicit_patterns": 8566,
+    "rust_certified_conclusions": 6
+  }
+}

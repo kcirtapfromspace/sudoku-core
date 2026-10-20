@@ -79,8 +79,10 @@ def main():
         assert old["arithmetic"]["error"] is None
         assert old["three_house"]["error"] is None
         assert old["arithmetic"]["hint"] is None
+        assert old["arithmetic"]["budget_exhausted"] is False
         assert old["three_house"]["hint"] is None
         assert old["three_house"]["centers_checked"] == 81
+        assert old["three_house"]["exhausted"] is True
         checks.append(old)
     result = {"schema_version": 1, "fixture": str(args.fixture.resolve().relative_to(ROOT)),
               "fixture_sha256": hashlib.sha256(args.fixture.read_bytes()).hexdigest(),

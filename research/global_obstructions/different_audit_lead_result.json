@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "verified": true,
+  "fixture_sha256": "45d6f8e79f9dfb859ba6827dadb3934a1cc5c1b1ada822537b5346b926941358",
+  "full_board_non_singleton_pivots_rechecked": 32,
+  "menu_no_hit_scope": "One additional cell split followed by Hall/all81 closure, then local contradiction, Loki12 containment or a uniform two-color odd cycle. Conditional hyperholes, all 630 patterns and arbitrary forcing are not excluded.",
+  "ordinary_graph_chromatic_number": 4,
+  "native_edges": 51,
+  "proper_four_coloring": {
+    "3": 0,
+    "13": 1,
+    "9": 0,
+    "15": 2,
+    "16": 3,
+    "7": 1,
+    "2": 2,
+    "19": 1,
+    "43": 0,
+    "33": 1,
+    "30": 2,
+    "57": 1,
+    "66": 3,
+    "64": 2,
+    "54": 3,
+    "68": 0,
+    "76": 2,
+    "28": 0,
+    "31": 3,
+    "74": 0
+  },
+  "abstract_Loki12_edge_injection_status": "exhaustive-no-match",
+  "abstract_mapping_search_visits": 1020,
+  "standard_four_box_geometry_search_complete": true,
+  "independent_solution_count_capped_at_2": 1,
+  "givens_and_opposite_traces_replayed": true,
+  "native_three_house_conjunctions_checked": 2925,
+  "exact_template_relaxation": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 18
+  },
+  "independent_rust_replay": {
+    "cells": 20,
+    "nodes": 85,
+    "conclusion": "elimination"
+  },
+  "historical_classification": "Unclassified research lead; no historical novelty claim."
+}

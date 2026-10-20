@@ -1,0 +1,293 @@
+{
+  "classification": "known-shallow-composition",
+  "pivot": 70,
+  "pivots_tested": [
+    {
+      "pivot": 70,
+      "branches": [
+        {
+          "digit": 5,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 9"
+        },
+        {
+          "digit": 9,
+          "classification": "known-pattern",
+          "closure_events": 6,
+          "known_pattern": {
+            "family": "published-Loki-12-cell-tridagon",
+            "palette": [
+              1,
+              4,
+              5
+            ],
+            "cells": [
+              29,
+              35,
+              36,
+              43,
+              46,
+              51,
+              56,
+              62,
+              63,
+              69,
+              73,
+              79
+            ],
+            "known_to_candidate_mapping": [
+              [
+                32,
+                36
+              ],
+              [
+                33,
+                43
+              ],
+              [
+                40,
+                29
+              ],
+              [
+                43,
+                35
+              ],
+              [
+                48,
+                46
+              ],
+              [
+                53,
+                51
+              ],
+              [
+                57,
+                73
+              ],
+              [
+                60,
+                79
+              ],
+              [
+                67,
+                56
+              ],
+              [
+                70,
+                62
+              ],
+              [
+                77,
+                63
+              ],
+              [
+                80,
+                69
+              ]
+            ],
+            "actual_domains": [
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              25,
+              9,
+              25
+            ],
+            "primary_source": {
+              "author": "Denis Berthier",
+              "repository": "denis-berthier/CSP-Rules-Examples",
+              "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+              "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+              "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+              "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+              "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+            },
+            "mapping_visits": 78
+          },
+          "closed_domains_sha256": "157e1224896e1a5d88a2ba05d49afabaab1acecf8517d5b9a69a0cfe043a4a76",
+          "closure_trace": [
+            {
+              "kind": "house-gac",
+              "sector": 7,
+              "edits": [
+                {
+                  "cell": 66,
+                  "before": 258,
+                  "after": 2
+                },
+                {
+                  "cell": 67,
+                  "before": 131,
+                  "after": 129
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 12,
+              "edits": [
+                {
+                  "cell": 12,
+                  "before": 130,
+                  "after": 128
+                },
+                {
+                  "cell": 75,
+                  "before": 384,
+                  "after": 256
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 13,
+              "edits": [
+                {
+                  "cell": 22,
+                  "before": 130,
+                  "after": 2
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 16,
+              "edits": [
+                {
+                  "cell": 79,
+                  "before": 281,
+                  "after": 25
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 9,
+              "edits": [
+                {
+                  "cell": 11,
+                  "before": 18,
+                  "after": 2
+                },
+                {
+                  "cell": 16,
+                  "before": 209,
+                  "after": 81
+                },
+                {
+                  "cell": 20,
+                  "before": 27,
+                  "after": 25
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 15,
+              "edits": [
+                {
+                  "cell": 26,
+                  "before": 400,
+                  "after": 384
+                }
+              ]
+            }
+          ],
+          "closed_domains": [
+            256,
+            128,
+            64,
+            32,
+            16,
+            1,
+            12,
+            14,
+            10,
+            32,
+            4,
+            2,
+            128,
+            8,
+            320,
+            81,
+            81,
+            273,
+            25,
+            25,
+            25,
+            4,
+            2,
+            320,
+            32,
+            192,
+            384,
+            128,
+            32,
+            25,
+            25,
+            256,
+            2,
+            68,
+            68,
+            25,
+            25,
+            2,
+            4,
+            25,
+            64,
+            128,
+            256,
+            25,
+            32,
+            64,
+            25,
+            256,
+            25,
+            32,
+            4,
+            25,
+            130,
+            130,
+            2,
+            256,
+            25,
+            64,
+            4,
+            24,
+            128,
+            32,
+            25,
+            25,
+            64,
+            160,
+            2,
+            129,
+            56,
+            25,
+            256,
+            4,
+            4,
+            9,
+            160,
+            256,
+            129,
+            56,
+            2,
+            25,
+            64
+          ]
+        }
+      ]
+    }
+  ],
+  "seconds": 0.11297458299999999,
+  "limits": "A standard case split plus exact local propagation/known-pattern lemmas, not an identity of the full starting graph with a named pattern.",
+  "fixture": "research/global_obstructions/different_control.json",
+  "fixture_sha256": "a1e6e053c2feafd7e3565b28db5b4c37ddd630b81f220669bf3abb5d1fa7e8b5"
+}

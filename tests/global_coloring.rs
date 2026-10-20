@@ -104,6 +104,8 @@ fn committed_exports_verify_and_cannot_replay_after_application() {
         include_str!("../research/global_obstructions/replay_expanded_unique_nonforcing.json"),
         include_str!("../research/global_obstructions/replay_nonrank_full_old_stall.json"),
         include_str!("../research/global_obstructions/replay_native27.json"),
+        include_str!("../research/global_obstructions/replay_different_control.json"),
+        include_str!("../research/global_obstructions/replay_different_lead.json"),
     ] {
         let replay: GlobalColoringReplay = serde_json::from_str(text).unwrap();
         assert!(replay.verify());

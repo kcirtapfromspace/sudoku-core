@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "relaxation": "native-single-digit-template-v1",
+  "state_hash": "f10cf245ed3a477e3fc5153ef89acea220d343366aecfcbb5c0c4d4ae1eb4aab",
+  "target": {
+    "cell": 7,
+    "digit": 3,
+    "assumed": true
+  },
+  "terms": [
+    {
+      "digit": 1,
+      "cells": [
+        0,
+        12,
+        26,
+        33,
+        37,
+        50,
+        56,
+        67,
+        79
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 1,
+      "cells": [
+        0,
+        12,
+        26,
+        33,
+        38,
+        50,
+        55,
+        67,
+        79
+      ],
+      "numerator": 2,
+      "denominator": 3
+    },
+    {
+      "digit": 2,
+      "cells": [
+        1,
+        16,
+        21,
+        27,
+        44,
+        49,
+        60,
+        65,
+        77
+      ],
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "digit": 3,
+      "cells": [
+        7,
+        9,
+        23,
+        31,
+        37,
+        51,
+        57,
+        71,
+        74
+      ],
+      "numerator": 2,
+      "denominator": 3
+    },
+    {
+      "digit": 3,
+      "cells": [
+        7,
+        13,
+        19,
+        30,
+        36,
+        51,
+        62,
+        68,
+        74
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 4,
+      "cells": [
+        2,
+        13,
+        24,
+        28,
+        41,
+        52,
+        54,
+        66,
+        80
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 4,
+      "cells": [
+        2,
+        13,
+        24,
+        32,
+        36,
+        52,
+        57,
+        64,
+        80
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 4,
+      "cells": [
+        3,
+        9,
+        24,
+        32,
+        38,
+        52,
+        62,
+        64,
+        76
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 5,
+      "cells": [
+        4,
+        10,
+        25,
+        29,
+        39,
+        53,
+        59,
+        63,
+        78
+      ],
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "digit": 6,
+      "cells": [
+        5,
+        17,
+        18,
+        34,
+        40,
+        46,
+        56,
+        69,
+        75
+      ],
+      "numerator": 2,
+      "denominator": 3
+    },
+    {
+      "digit": 6,
+      "cells": [
+        5,
+        17,
+        18,
+        34,
+        40,
+        47,
+        55,
+        69,
+        75
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 7,
+      "cells": [
+        6,
+        11,
+        22,
+        35,
+        36,
+        48,
+        61,
+        68,
+        73
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 7,
+      "cells": [
+        6,
+        11,
+        22,
+        35,
+        41,
+        45,
+        61,
+        66,
+        73
+      ],
+      "numerator": 2,
+      "denominator": 3
+    },
+    {
+      "digit": 8,
+      "cells": [
+        2,
+        15,
+        23,
+        30,
+        43,
+        45,
+        62,
+        64,
+        76
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 8,
+      "cells": [
+        3,
+        15,
+        19,
+        31,
+        43,
+        47,
+        54,
+        68,
+        80
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 8,
+      "cells": [
+        3,
+        15,
+        19,
+        32,
+        43,
+        47,
+        54,
+        71,
+        76
+      ],
+      "numerator": 1,
+      "denominator": 3
+    },
+    {
+      "digit": 9,
+      "cells": [
+        8,
+        14,
+        20,
+        28,
+        42,
+        48,
+        58,
+        70,
+        72
+      ],
+      "numerator": 2,
+      "denominator": 3
+    },
+    {
+      "digit": 9,
+      "cells": [
+        8,
+        14,
+        20,
+        30,
+        42,
+        46,
+        58,
+        70,
+        72
+      ],
+      "numerator": 1,
+      "denominator": 3
+    }
+  ]
+}

@@ -5,17 +5,21 @@ on:
     branches: [main]
     paths:
       - 'research/global_obstructions/**'
+      - 'research/nonmodular/**'
       - 'src/solver/global_coloring*'
       - 'src/solver/candidate_state.rs'
       - 'verification/global_coloring.rs'
+      - 'tests/global_coloring.rs'
       - '.github/workflows/global-obstructions.yml'
   pull_request:
     branches: [main, 'codex/**']
     paths:
       - 'research/global_obstructions/**'
+      - 'research/nonmodular/**'
       - 'src/solver/global_coloring*'
       - 'src/solver/candidate_state.rs'
       - 'verification/global_coloring.rs'
+      - 'tests/global_coloring.rs'
       - '.github/workflows/global-obstructions.yml'
   workflow_dispatch:
 
@@ -54,6 +58,10 @@ jobs:
           python3 -S research/global_obstructions/realization27_structure_verify.py --self-test
           python3 -S research/global_obstructions/realization27_results_verify.py --recount-sample 10
           python3 -S research/global_obstructions/realization27_verify.py
+          python3 -S research/global_obstructions/different_verify.py
+          python3 -S research/global_obstructions/different_audit_verify.py
+          python3 -S research/global_obstructions/different_structural_verify.py
+          python3 -S research/global_obstructions/different_corpus_manifest.py verify --count
 
   frozen-old-engine:
     name: Fresh forcing-inclusive older-engine comparison
@@ -75,6 +83,20 @@ jobs:
           python3 -S research/global_obstructions/realization27_search_raw_old.py \
             --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
             --output target/nonrank-ci-anchored-old.json
+      - name: Reconfirm the known-composition search control including forcing
+        run: |
+          python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
+            --fixture research/global_obstructions/different_control.json \
+            --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
+            --archive-source target/nonrank-ci-old/baseline/src/solver/mod.rs \
+            --output target/different-ci-control-old.json
+      - name: Reconfirm the unclassified lead including forcing
+        run: |
+          python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
+            --fixture research/global_obstructions/different_lead.json \
+            --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
+            --archive-source target/nonrank-ci-old/baseline/src/solver/mod.rs \
+            --output target/different-ci-lead-old.json
       - name: Upload fresh comparison evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -83,4 +105,6 @@ jobs:
           path: |
             target/nonrank-ci-audit.json
             target/nonrank-ci-anchored-old.json
+            target/different-ci-control-old.json
+            target/different-ci-lead-old.json
           if-no-files-found: warn
