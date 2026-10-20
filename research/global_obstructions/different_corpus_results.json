@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "trial_manifest_sha256": "afb1261a1215f6051f6a65b5a0ff13d13bde9a412b072f590f1203c8a6251fe1",
+  "counts": {
+    "solved": 25,
+    "full-old-stall": 8
+  },
+  "completed_trials": 33,
+  "batches": [
+    {
+      "command": "research/global_obstructions/different_corpus_close.py --start 106 --stop 130 --seconds 570",
+      "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+      "binary_sha256": "b22badafe4e5594bd669cda4705e3841eaa1994fc8c583e9caee8f0438cd83b5",
+      "corpus_sha256": "2d4e569f933b34dd8ae2bb44b4cb9153f3a7ff70bc926cfd8d9d24c65a0f259d",
+      "counts": {
+        "solved": 9,
+        "full-old-stall": 6
+      },
+      "seconds": 280.99392170799996
+    },
+    {
+      "command": "research/global_obstructions/different_corpus_close.py --start 150 --stop 170 --seconds 300 --output target/different-corpus-mith",
+      "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+      "binary_sha256": "b22badafe4e5594bd669cda4705e3841eaa1994fc8c583e9caee8f0438cd83b5",
+      "corpus_sha256": "2d4e569f933b34dd8ae2bb44b4cb9153f3a7ff70bc926cfd8d9d24c65a0f259d",
+      "counts": {
+        "solved": 16,
+        "full-old-stall": 2
+      },
+      "seconds": 302.715835875
+    }
+  ],
+  "interrupted_excluded": [
+    {
+      "last_completed_index": 120,
+      "next_index": 121,
+      "next_status": "interrupted-not-classified",
+      "reason": "Parent requested pivot to Mith corpus for diversity; any next-case partial work is excluded."
+    }
+  ],
+  "meaning": "Discovery engine comparisons only, using the configured frozen dispatcher including forcing, alternating Hall/all81 crossing closure. Each completed puzzle was independently counted unique; all older endpoints were checked against its sole completion and premise traces replayed during the campaign. Arithmetic beam pruning is recorded separately: a configured engine stall is not an exhaustive failure of all imaginable arithmetic or forcing proofs. Public compact records bind counts, source puzzles and completions. They do not reproduce every old method's internal proof, prove novelty, or turn a timeout/cutoff/solved board into a stall.",
+  "reproduction": "Run each batch.command from the repository root, then this script export against those output folders. Full trace logs remain under target; --bulk replays them. Fresh old-engine audit of any promoted deduction is separate."
+}

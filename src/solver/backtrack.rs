@@ -1,7 +1,7 @@
 //! Backtracking solver and propagation helpers.
 //!
-//! Contains: solve_recursive, count_solutions_recursive,
-//! propagate_singles, propagate_full, has_contradiction.
+//! Contains solution counting, recursive solving and contradiction checks.
+//! Assumption propagation uses the orchestrator's shared strategy dispatcher.
 
 use crate::{BitSet, Grid, Position};
 
@@ -132,65 +132,9 @@ pub fn has_contradiction(grid: &Grid) -> bool {
 }
 
 /// Propagate naked+hidden singles from an assumption until no more progress.
+#[cfg(test)]
 pub fn propagate_singles(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
-    let mut g = grid.deep_clone();
-    g.set_cell_unchecked(pos, Some(val));
-    g.recalculate_candidates();
-
-    for _ in 0..200 {
-        if has_contradiction(&g) {
-            return (g, true);
-        }
-        if g.is_complete() {
-            return (g, false);
-        }
-        let mut progress = false;
-        // Naked singles
-        for p in g.empty_positions() {
-            if let Some(v) = g.get_candidates(p).single_value() {
-                g.set_cell_unchecked(p, Some(v));
-                g.recalculate_candidates();
-                progress = true;
-                break;
-            }
-        }
-        if !progress {
-            // Hidden singles
-            'outer: for unit in 0..27 {
-                let positions: Vec<Position> = if unit < 9 {
-                    (0..9).map(|c| Position::new(unit, c)).collect()
-                } else if unit < 18 {
-                    (0..9).map(|r| Position::new(r, unit - 9)).collect()
-                } else {
-                    let bi = unit - 18;
-                    let br = (bi / 3) * 3;
-                    let bc = (bi % 3) * 3;
-                    (0..9)
-                        .map(|i| Position::new(br + i / 3, bc + i % 3))
-                        .collect()
-                };
-                for value in 1..=9u8 {
-                    let mut candidates: Vec<Position> = Vec::new();
-                    for &p in &positions {
-                        if g.cell(p).is_empty() && g.get_candidates(p).contains(value) {
-                            candidates.push(p);
-                        }
-                    }
-                    if candidates.len() == 1 {
-                        g.set_cell_unchecked(candidates[0], Some(value));
-                        g.recalculate_candidates();
-                        progress = true;
-                        break 'outer;
-                    }
-                }
-            }
-        }
-        if !progress {
-            break;
-        }
-    }
-    let contradiction = has_contradiction(&g);
-    (g, contradiction)
+    super::propagate_with_policy(grid, pos, val, super::PropagationPolicy::Singles)
 }
 
 /// Solve a grid using backtracking with MRV heuristic.
@@ -220,8 +164,7 @@ pub fn solve_recursive(grid: &mut Grid) -> bool {
 
     for value in candidates.iter() {
         let mut test_grid = grid.deep_clone();
-        test_grid.set_cell_unchecked(best_pos, Some(value));
-        test_grid.recalculate_candidates();
+        test_grid.place_solver_value(best_pos, value);
 
         if test_grid.validate().is_valid && solve_recursive(&mut test_grid) {
             for row in 0..9 {
@@ -272,8 +215,7 @@ pub fn count_solutions_recursive(grid: &mut Grid, count: &mut usize, limit: usiz
         }
 
         let mut test_grid = grid.deep_clone();
-        test_grid.set_cell_unchecked(best_pos, Some(value));
-        test_grid.recalculate_candidates();
+        test_grid.place_solver_value(best_pos, value);
 
         if test_grid.validate().is_valid {
             count_solutions_recursive(&mut test_grid, count, limit);
@@ -284,20 +226,11 @@ pub fn count_solutions_recursive(grid: &mut Grid, count: &mut usize, limit: usiz
 // ==================== Inline simple technique appliers ====================
 
 fn apply_naked_singles(grid: &mut Grid) {
-    // Preserve the first rebuild, which discards incoming pencil eliminations.
-    // After that, only new values are added, so updating their peers is enough.
-    let mut rebuilt = false;
     loop {
         let mut progress = false;
         for pos in grid.empty_positions() {
             if let Some(v) = grid.get_candidates(pos).single_value() {
-                grid.set_cell_unchecked(pos, Some(v));
-                if rebuilt {
-                    grid.update_candidates_after_move(pos, v);
-                } else {
-                    grid.recalculate_candidates();
-                    rebuilt = true;
-                }
+                grid.place_solver_value(pos, v);
                 progress = true;
                 break;
             }
@@ -309,8 +242,6 @@ fn apply_naked_singles(grid: &mut Grid) {
 }
 
 fn apply_hidden_singles(grid: &mut Grid) {
-    // Match the first-rebuild behavior of the naked-single pass above.
-    let mut rebuilt = false;
     loop {
         let mut progress = false;
         'outer: for unit in 0..27 {
@@ -334,13 +265,7 @@ fn apply_hidden_singles(grid: &mut Grid) {
                     }
                 }
                 if candidates.len() == 1 {
-                    grid.set_cell_unchecked(candidates[0], Some(value));
-                    if rebuilt {
-                        grid.update_candidates_after_move(candidates[0], value);
-                    } else {
-                        grid.recalculate_candidates();
-                        rebuilt = true;
-                    }
+                    grid.place_solver_value(candidates[0], value);
                     progress = true;
                     break 'outer;
                 }

@@ -1,0 +1,983 @@
+{
+  "schema_version": 1,
+  "state_hash": "a0a7e052ed911adb0a848ce51e093a65b79e730b12b24cd37fb7e8e51d36e426",
+  "target": {
+    "cell": 16,
+    "digit": 1,
+    "assumed": false
+  },
+  "nonzero": [
+    {
+      "cell": 0,
+      "digit": 5,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 1,
+      "digit": 4,
+      "numerator": 13,
+      "denominator": 20
+    },
+    {
+      "cell": 1,
+      "digit": 8,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 2,
+      "digit": 9,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 3,
+      "digit": 6,
+      "numerator": 27,
+      "denominator": 40
+    },
+    {
+      "cell": 3,
+      "digit": 8,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 4,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 4,
+      "digit": 6,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 4,
+      "digit": 7,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 5,
+      "digit": 7,
+      "numerator": 27,
+      "denominator": 40
+    },
+    {
+      "cell": 5,
+      "digit": 8,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 6,
+      "digit": 2,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 7,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 8,
+      "digit": 3,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 9,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 9,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 10,
+      "digit": 2,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 11,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 12,
+      "digit": 3,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 13,
+      "digit": 5,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 14,
+      "digit": 9,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 15,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 15,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 15,
+      "digit": 7,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 16,
+      "digit": 4,
+      "numerator": 13,
+      "denominator": 20
+    },
+    {
+      "cell": 16,
+      "digit": 7,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 17,
+      "digit": 7,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 17,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 18,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 18,
+      "digit": 7,
+      "numerator": 13,
+      "denominator": 20
+    },
+    {
+      "cell": 19,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 19,
+      "digit": 7,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 19,
+      "digit": 8,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 20,
+      "digit": 3,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 21,
+      "digit": 4,
+      "numerator": 13,
+      "denominator": 20
+    },
+    {
+      "cell": 21,
+      "digit": 8,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 22,
+      "digit": 2,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 23,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 24,
+      "digit": 5,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 25,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 25,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 26,
+      "digit": 9,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 27,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 40
+    },
+    {
+      "cell": 27,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 27,
+      "digit": 7,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 28,
+      "digit": 9,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 29,
+      "digit": 5,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 30,
+      "digit": 2,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 30,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 20
+    },
+    {
+      "cell": 30,
+      "digit": 7,
+      "numerator": 27,
+      "denominator": 40
+    },
+    {
+      "cell": 31,
+      "digit": 4,
+      "numerator": 19,
+      "denominator": 40
+    },
+    {
+      "cell": 31,
+      "digit": 8,
+      "numerator": 21,
+      "denominator": 40
+    },
+    {
+      "cell": 32,
+      "digit": 2,
+      "numerator": 29,
+      "denominator": 40
+    },
+    {
+      "cell": 32,
+      "digit": 6,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 33,
+      "digit": 3,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 34,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 34,
+      "digit": 6,
+      "numerator": 7,
+      "denominator": 40
+    },
+    {
+      "cell": 34,
+      "digit": 8,
+      "numerator": 19,
+      "denominator": 40
+    },
+    {
+      "cell": 35,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 36,
+      "digit": 4,
+      "numerator": 19,
+      "denominator": 40
+    },
+    {
+      "cell": 36,
+      "digit": 7,
+      "numerator": 1,
+      "denominator": 40
+    },
+    {
+      "cell": 36,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 37,
+      "digit": 3,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 38,
+      "digit": 2,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 39,
+      "digit": 1,
+      "numerator": 3,
+      "denominator": 4
+    },
+    {
+      "cell": 39,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 4
+    },
+    {
+      "cell": 40,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 4
+    },
+    {
+      "cell": 40,
+      "digit": 4,
+      "numerator": 3,
+      "denominator": 40
+    },
+    {
+      "cell": 40,
+      "digit": 6,
+      "numerator": 27,
+      "denominator": 40
+    },
+    {
+      "cell": 41,
+      "digit": 4,
+      "numerator": 9,
+      "denominator": 20
+    },
+    {
+      "cell": 41,
+      "digit": 7,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 41,
+      "digit": 8,
+      "numerator": 9,
+      "denominator": 40
+    },
+    {
+      "cell": 42,
+      "digit": 9,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 43,
+      "digit": 6,
+      "numerator": 13,
+      "denominator": 40
+    },
+    {
+      "cell": 43,
+      "digit": 7,
+      "numerator": 13,
+      "denominator": 20
+    },
+    {
+      "cell": 43,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 40
+    },
+    {
+      "cell": 44,
+      "digit": 5,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 45,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 46,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 46,
+      "digit": 7,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 47,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 47,
+      "digit": 7,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 47,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 48,
+      "digit": 5,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 48,
+      "digit": 9,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 49,
+      "digit": 3,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 49,
+      "digit": 9,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 50,
+      "digit": 3,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 50,
+      "digit": 5,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 51,
+      "digit": 4,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 51,
+      "digit": 6,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 51,
+      "digit": 8,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 52,
+      "digit": 2,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 53,
+      "digit": 4,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 53,
+      "digit": 7,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 53,
+      "digit": 8,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 54,
+      "digit": 3,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 54,
+      "digit": 9,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 55,
+      "digit": 4,
+      "numerator": 7,
+      "denominator": 20
+    },
+    {
+      "cell": 55,
+      "digit": 5,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 55,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 56,
+      "digit": 6,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 56,
+      "digit": 7,
+      "numerator": 17,
+      "denominator": 20
+    },
+    {
+      "cell": 57,
+      "digit": 2,
+      "numerator": 29,
+      "denominator": 40
+    },
+    {
+      "cell": 57,
+      "digit": 4,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 58,
+      "digit": 4,
+      "numerator": 1,
+      "denominator": 10
+    },
+    {
+      "cell": 58,
+      "digit": 8,
+      "numerator": 19,
+      "denominator": 40
+    },
+    {
+      "cell": 58,
+      "digit": 9,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 59,
+      "digit": 2,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 59,
+      "digit": 3,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 59,
+      "digit": 6,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 59,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 40
+    },
+    {
+      "cell": 60,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 61,
+      "digit": 3,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 61,
+      "digit": 5,
+      "numerator": 17,
+      "denominator": 20
+    },
+    {
+      "cell": 62,
+      "digit": 4,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 62,
+      "digit": 6,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 62,
+      "digit": 7,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 63,
+      "digit": 2,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 63,
+      "digit": 3,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 64,
+      "digit": 1,
+      "numerator": 17,
+      "denominator": 20
+    },
+    {
+      "cell": 64,
+      "digit": 7,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 65,
+      "digit": 4,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 65,
+      "digit": 6,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 66,
+      "digit": 1,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 66,
+      "digit": 4,
+      "numerator": 3,
+      "denominator": 40
+    },
+    {
+      "cell": 66,
+      "digit": 5,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 66,
+      "digit": 7,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 66,
+      "digit": 8,
+      "numerator": 3,
+      "denominator": 40
+    },
+    {
+      "cell": 67,
+      "digit": 3,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 67,
+      "digit": 7,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 68,
+      "digit": 5,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 68,
+      "digit": 8,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 69,
+      "digit": 4,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 69,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 70,
+      "digit": 9,
+      "numerator": 1,
+      "denominator": 1
+    },
+    {
+      "cell": 71,
+      "digit": 2,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 71,
+      "digit": 6,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 72,
+      "digit": 2,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 72,
+      "digit": 9,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 73,
+      "digit": 1,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 73,
+      "digit": 5,
+      "numerator": 17,
+      "denominator": 20
+    },
+    {
+      "cell": 74,
+      "digit": 4,
+      "numerator": 9,
+      "denominator": 40
+    },
+    {
+      "cell": 74,
+      "digit": 6,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 74,
+      "digit": 8,
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "cell": 75,
+      "digit": 1,
+      "numerator": 1,
+      "denominator": 10
+    },
+    {
+      "cell": 75,
+      "digit": 6,
+      "numerator": 11,
+      "denominator": 40
+    },
+    {
+      "cell": 75,
+      "digit": 7,
+      "numerator": 1,
+      "denominator": 20
+    },
+    {
+      "cell": 75,
+      "digit": 9,
+      "numerator": 23,
+      "denominator": 40
+    },
+    {
+      "cell": 76,
+      "digit": 1,
+      "numerator": 3,
+      "denominator": 4
+    },
+    {
+      "cell": 76,
+      "digit": 3,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 76,
+      "digit": 7,
+      "numerator": 1,
+      "denominator": 10
+    },
+    {
+      "cell": 77,
+      "digit": 4,
+      "numerator": 11,
+      "denominator": 20
+    },
+    {
+      "cell": 77,
+      "digit": 6,
+      "numerator": 9,
+      "denominator": 20
+    },
+    {
+      "cell": 78,
+      "digit": 7,
+      "numerator": 17,
+      "denominator": 20
+    },
+    {
+      "cell": 78,
+      "digit": 8,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 79,
+      "digit": 3,
+      "numerator": 17,
+      "denominator": 20
+    },
+    {
+      "cell": 79,
+      "digit": 5,
+      "numerator": 3,
+      "denominator": 20
+    },
+    {
+      "cell": 80,
+      "digit": 2,
+      "numerator": 17,
+      "denominator": 40
+    },
+    {
+      "cell": 80,
+      "digit": 4,
+      "numerator": 9,
+      "denominator": 40
+    },
+    {
+      "cell": 80,
+      "digit": 8,
+      "numerator": 7,
+      "denominator": 20
+    }
+  ],
+  "verification": {
+    "equalities": 324,
+    "nonzeros": 161,
+    "max_denominator_bits": 6,
+    "max_numerator_bits": 5
+  }
+}

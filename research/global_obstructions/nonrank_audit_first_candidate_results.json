@@ -1,0 +1,126 @@
+{
+  "template_result": "independent exact33term primal pass",
+  "tree_verification": {
+    "cells": 16,
+    "nodes": 169,
+    "conclusion": "placement"
+  },
+  "tree_mutations_rejected": 10,
+  "replay_matches_base_snapshot": true,
+  "classic_tridagon_core": [
+    32,
+    35,
+    40,
+    43,
+    48,
+    51,
+    58,
+    60,
+    68,
+    71,
+    75,
+    79
+  ],
+  "core_edges": 24,
+  "core_degrees": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "exact_graph_isomorphisms_to_published_controls": [
+    {
+      "reference": "real_4662.json",
+      "mapping_newcell_to_referencecell": {
+        "32": 31,
+        "35": 34,
+        "40": 39,
+        "43": 42,
+        "48": 50,
+        "51": 53,
+        "75": 59,
+        "79": 60,
+        "68": 67,
+        "71": 70,
+        "58": 75,
+        "60": 80
+      },
+      "reference_source": {
+        "author": "Denis Berthier",
+        "repository": "denis-berthier/CSP-Rules-Examples",
+        "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+        "path": "Sudoku-a/Tridagons/#4662-SFin+Trid.clp",
+        "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/%234662-SFin%2BTrid.clp",
+        "sha256": "6659e24905507c05bb9c82ff5bf5f3a46897b62dd49b027ca4f08a7d581f4bb4",
+        "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+      }
+    },
+    {
+      "reference": "real_4401.json",
+      "mapping_newcell_to_referencecell": {
+        "32": 30,
+        "35": 33,
+        "40": 41,
+        "43": 43,
+        "48": 49,
+        "51": 53,
+        "68": 57,
+        "71": 60,
+        "58": 68,
+        "60": 71,
+        "75": 76,
+        "79": 79
+      },
+      "reference_source": {
+        "author": "Denis Berthier",
+        "repository": "denis-berthier/CSP-Rules-Examples",
+        "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+        "path": "Sudoku-a/Tridagons/#4401-Trid+W8.clp",
+        "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/%234401-Trid%2BW8.clp",
+        "sha256": "0ca408b5aceee12fa5a4e3d268935ea4fd550eeeb2e60ba817da1eb37481e771",
+        "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+      }
+    },
+    {
+      "reference": "real_Loki.json",
+      "mapping_newcell_to_referencecell": {
+        "40": 32,
+        "43": 33,
+        "32": 40,
+        "35": 43,
+        "48": 48,
+        "51": 53,
+        "75": 57,
+        "79": 60,
+        "68": 67,
+        "71": 70,
+        "58": 77,
+        "60": 80
+      },
+      "reference_source": {
+        "author": "Denis Berthier",
+        "repository": "denis-berthier/CSP-Rules-Examples",
+        "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+        "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+        "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+        "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+        "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+      }
+    }
+  ],
+  "known_pattern_conclusion": "Standard12cell tridagon in the opposite-assumption closed state; original two guardians9r4c9 and6r9c8; not a new obstruction family",
+  "source_fixture_sha256": "00bcb4881562e344001e834b6bbdc212a761d74287fc99b74efe703a3dfe697f",
+  "source_witness_sha256": "94503fbeb324ffc1e93df9702d3fecfeae074507d6f21f169e110a7123c297a6",
+  "source_fixture": "nonrank_full_old_stall.json",
+  "source_witness": "nonrank_template_primal.json",
+  "source_replay": "replay_nonrank_full_old_stall.json",
+  "source_replay_sha256": "a84de3bb6a643feb80a6444b3f6dd1dbab819493ca9555c9942d02b02ad67f7c"
+}

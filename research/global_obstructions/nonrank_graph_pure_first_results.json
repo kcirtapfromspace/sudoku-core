@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "seed": 219440,
+  "seconds": 89.881302667,
+  "arguments": {
+    "seconds": 420,
+    "orders": 30,
+    "seed": 219440,
+    "output": "/Users/thinkmac/Documents/ChatGPT/sukodu-core/research/global_obstructions/nonrank_graph_critical_results.json"
+  },
+  "counts": {
+    "seeded_supports": 18,
+    "exact_coloring_queries": 147447,
+    "non_four_colorable_supports": 57,
+    "critical_subgraphs": 1681,
+    "exact_weighted_rank_explained": 104,
+    "duplicate_graph_fingerprints": 1576,
+    "new_completed_grids": 2,
+    "new_support_presentations": 95106,
+    "exact_nonrank_positive": 1
+  },
+  "positives": [
+    {
+      "cells": [
+        10,
+        11,
+        15,
+        17,
+        20,
+        21,
+        23,
+        25,
+        28,
+        30,
+        35,
+        41,
+        42,
+        47,
+        49,
+        50,
+        51,
+        57,
+        60,
+        64,
+        66,
+        67,
+        70,
+        73,
+        74,
+        77,
+        80
+      ],
+      "native_edges": 88,
+      "alpha": 8,
+      "wl_hash": "f999148d52bb0d780f897ef3c41e97e9",
+      "exact_fractional_chromatic": [
+        4,
+        1
+      ],
+      "dual_vertex_weights": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "context": {
+        "source_id": "norvig-top95-076",
+        "completion": "269314785548769231731852649126437958895621473374985126457193862983246517612578394",
+        "palette": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "guardian": 50,
+        "extra": 5
+      },
+      "fractional_cover": [
+        {
+          "cells": [
+            10,
+            23,
+            30,
+            42,
+            47,
+            67,
+            80
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            10,
+            25,
+            35,
+            50,
+            60,
+            66,
+            74
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            11,
+            21,
+            28,
+            42,
+            49,
+            70,
+            77
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            11,
+            25,
+            41,
+            51,
+            57,
+            64,
+            80
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            15,
+            20,
+            35,
+            50,
+            66,
+            73
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            15,
+            23,
+            28,
+            49,
+            57,
+            70,
+            74
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            17,
+            20,
+            30,
+            51,
+            64,
+            77
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            17,
+            21,
+            41,
+            47,
+            60,
+            67,
+            73
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        }
+      ],
+      "status": "Exact pure native graph gap; domain closure/full template LP/givens still to verify"
+    }
+  ],
+  "scope": "Known and new completion+guardian supports, randomized minimal critical subgraphs; discovery negatives are not a classification",
+  "classified_graph_fingerprints_count": 105,
+  "full_discovery_record_local_path": "target/nonrank-graph-raw/nonrank_graph_pure_first_results.json",
+  "full_discovery_record_sha256": "d9c64c46bcddc6bfdaa2d735b8b9631af24df6f608edcfcf96cf97832839a998"
+}

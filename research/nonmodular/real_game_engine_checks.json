@@ -1,0 +1,204 @@
+{
+  "cases": [
+    {
+      "centers_checked": 73,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.010408542,
+        "tested_combinations": 7190
+      },
+      "first_proof": {
+        "cell": 73,
+        "center": 72,
+        "digit": 3,
+        "hall_obstructions": 67,
+        "signatures": 1680
+      },
+      "id": "norvig-top95-020",
+      "individually_verified_center_candidate_proofs": 1,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.002278291,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 30,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.016028334,
+        "tested_combinations": 10015
+      },
+      "first_proof": {
+        "cell": 45,
+        "center": 29,
+        "digit": 8,
+        "hall_obstructions": 68,
+        "signatures": 1260
+      },
+      "id": "norvig-top95-035",
+      "individually_verified_center_candidate_proofs": 3,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.001031584,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 57,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.010165042,
+        "tested_combinations": 7531
+      },
+      "first_proof": {
+        "cell": 29,
+        "center": 56,
+        "digit": 8,
+        "hall_obstructions": 67,
+        "signatures": 1260
+      },
+      "id": "norvig-top95-052",
+      "individually_verified_center_candidate_proofs": 6,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.001691167,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 6,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.01841275,
+        "tested_combinations": 10780
+      },
+      "first_proof": {
+        "cell": 12,
+        "center": 5,
+        "digit": 7,
+        "hall_obstructions": 72,
+        "signatures": 1680
+      },
+      "id": "norvig-top95-059",
+      "individually_verified_center_candidate_proofs": 5,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.000285667,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 66,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.01027225,
+        "tested_combinations": 7316
+      },
+      "first_proof": {
+        "cell": 70,
+        "center": 65,
+        "digit": 8,
+        "hall_obstructions": 65,
+        "signatures": 2100
+      },
+      "id": "norvig-top95-065",
+      "individually_verified_center_candidate_proofs": 1,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.001885666,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 34,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.012808208,
+        "tested_combinations": 8385
+      },
+      "first_proof": {
+        "cell": 53,
+        "center": 33,
+        "digit": 3,
+        "hall_obstructions": 75,
+        "signatures": 2100
+      },
+      "id": "norvig-top95-066",
+      "individually_verified_center_candidate_proofs": 5,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.001104417,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 15,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.01019825,
+        "tested_combinations": 7503
+      },
+      "first_proof": {
+        "cell": 21,
+        "center": 14,
+        "digit": 4,
+        "hall_obstructions": 75,
+        "signatures": 1680
+      },
+      "id": "norvig-top95-088",
+      "individually_verified_center_candidate_proofs": 1,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.000571083,
+      "stale_replay_rejected": true
+    },
+    {
+      "centers_checked": 4,
+      "default_arithmetic": {
+        "beam_pruned": true,
+        "budget_exhausted": false,
+        "error": null,
+        "hint": null,
+        "seconds": 0.011663083,
+        "tested_combinations": 8046
+      },
+      "first_proof": {
+        "cell": 6,
+        "center": 3,
+        "digit": 1,
+        "hall_obstructions": 67,
+        "signatures": 1680
+      },
+      "id": "norvig-top95-093",
+      "individually_verified_center_candidate_proofs": 3,
+      "input_unchanged": true,
+      "json_replay_applied": true,
+      "restricted_baseline_fixed_point_rechecked": true,
+      "search_seconds": 0.000273041,
+      "stale_replay_rejected": true
+    }
+  ]
+}

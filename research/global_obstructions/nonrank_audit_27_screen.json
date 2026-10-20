@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "source_fixture": "nonrank_graph_27_candidate.json",
+  "assumption": {
+    "cell": 50,
+    "digit": 5,
+    "assumed": false
+  },
+  "first_house_pass_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 9,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 12,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 13,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 14,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 16,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 2,
+      "edits": [
+        {
+          "cell": 18,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 19,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 22,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 24,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 26,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 5,
+      "edits": [
+        {
+          "cell": 45,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 46,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 48,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 52,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 53,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 7,
+      "edits": [
+        {
+          "cell": 63,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 65,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 68,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 69,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 71,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 8,
+      "edits": [
+        {
+          "cell": 72,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 75,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 76,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 78,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 79,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 9,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 511,
+          "after": 139
+        },
+        {
+          "cell": 27,
+          "before": 511,
+          "after": 139
+        },
+        {
+          "cell": 36,
+          "before": 511,
+          "after": 139
+        },
+        {
+          "cell": 54,
+          "before": 511,
+          "after": 139
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 10,
+      "edits": [
+        {
+          "cell": 1,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 37,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 55,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 11,
+      "edits": [
+        {
+          "cell": 2,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 29,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 38,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 56,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 12,
+      "edits": [
+        {
+          "cell": 3,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 39,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 14,
+      "edits": [
+        {
+          "cell": 5,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 32,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 59,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 15,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 511,
+          "after": 372
+        },
+        {
+          "cell": 33,
+          "before": 511,
+          "after": 372
+        }
+      ]
+    }
+  ],
+  "exact_hall_failure": {
+    "sector": 19,
+    "house_cells": [
+      3,
+      4,
+      5,
+      12,
+      13,
+      14,
+      21,
+      22,
+      23
+    ],
+    "subset_cells": [
+      3,
+      5,
+      12,
+      13,
+      14,
+      22
+    ],
+    "subset_domains": [
+      372,
+      372,
+      372,
+      372,
+      372,
+      372
+    ],
+    "union_mask": 372,
+    "union_digits": [
+      3,
+      5,
+      6,
+      7,
+      9
+    ],
+    "cardinality": 6,
+    "neighbor_count": 5
+  },
+  "native_farkas": "nonrank_audit_27_native_farkas.json",
+  "template_farkas": "nonrank_audit_27_template_farkas.json",
+  "template_criterion": "rejected before three-house propagation; both nativeLP and fulltemplateLP have exact Farkas certificates",
+  "base_completion_native_validated": true,
+  "base_completion_respects_raw_domains": true
+}

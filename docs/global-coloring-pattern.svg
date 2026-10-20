@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" role="img" aria-labelledby="title desc">
+<title id="title">Four-digit global Sudoku obstruction</title>
+<desc id="desc">Thirteen selected cells in boxes one, three, four and six allow palette four, six, seven, eight. Row two column eight additionally allows one. Four independent selected cells cannot coexist, so one is forced in that guardian.</desc>
+<rect width="600" height="650" fill="white"/>
+<g font-family="system-ui,sans-serif" fill="#0f172a">
+<text x="54" y="28" font-size="21" font-weight="600">Four-digit global obstruction</text>
+<text x="54" y="49" font-size="14">P = {4, 6, 7, 8}</text>
+<rect x="54" y="126" width="54" height="54" fill="#dbeafe"/>
+<text x="81" y="160" text-anchor="middle" font-size="18">P</text>
+<rect x="378" y="126" width="54" height="54" fill="#dbeafe"/>
+<text x="405" y="160" text-anchor="middle" font-size="18">P</text>
+<rect x="432" y="126" width="54" height="54" fill="#fde68a"/>
+<text x="459" y="160" text-anchor="middle" font-size="14">1 or P</text>
+<rect x="486" y="126" width="54" height="54" fill="#dbeafe"/>
+<text x="513" y="160" text-anchor="middle" font-size="18">P</text>
+<rect x="432" y="180" width="54" height="54" fill="#dbeafe"/>
+<text x="459" y="214" text-anchor="middle" font-size="18">P</text>
+<rect x="54" y="234" width="54" height="54" fill="#dbeafe"/>
+<text x="81" y="268" text-anchor="middle" font-size="18">P</text>
+<rect x="432" y="234" width="54" height="54" fill="#dbeafe"/>
+<text x="459" y="268" text-anchor="middle" font-size="18">P</text>
+<rect x="54" y="288" width="54" height="54" fill="#dbeafe"/>
+<text x="81" y="322" text-anchor="middle" font-size="18">P</text>
+<rect x="432" y="288" width="54" height="54" fill="#dbeafe"/>
+<text x="459" y="322" text-anchor="middle" font-size="18">P</text>
+<rect x="108" y="342" width="54" height="54" fill="#dbeafe"/>
+<text x="135" y="376" text-anchor="middle" font-size="18">P</text>
+<rect x="162" y="342" width="54" height="54" fill="#dbeafe"/>
+<text x="189" y="376" text-anchor="middle" font-size="18">P</text>
+<rect x="378" y="342" width="54" height="54" fill="#dbeafe"/>
+<text x="405" y="376" text-anchor="middle" font-size="18">P</text>
+<rect x="486" y="342" width="54" height="54" fill="#dbeafe"/>
+<text x="513" y="376" text-anchor="middle" font-size="18">P</text>
+<path d="M 54 72 V 558 M 54 72 H 540" fill="none" stroke="#0f172a" stroke-width="3"/>
+<path d="M 108 72 V 558 M 54 126 H 540" fill="none" stroke="#94a3b8" stroke-width="1"/>
+<path d="M 162 72 V 558 M 54 180 H 540" fill="none" stroke="#94a3b8" stroke-width="1"/>
+<path d="M 216 72 V 558 M 54 234 H 540" fill="none" stroke="#0f172a" stroke-width="3"/>
+<path d="M 270 72 V 558 M 54 288 H 540" fill="none" stroke="#94a3b8" stroke-width="1"/>
+<path d="M 324 72 V 558 M 54 342 H 540" fill="none" stroke="#94a3b8" stroke-width="1"/>
+<path d="M 378 72 V 558 M 54 396 H 540" fill="none" stroke="#0f172a" stroke-width="3"/>
+<path d="M 432 72 V 558 M 54 450 H 540" fill="none" stroke="#94a3b8" stroke-width="1"/>
+<path d="M 486 72 V 558 M 54 504 H 540" fill="none" stroke="#94a3b8" stroke-width="1"/>
+<path d="M 540 72 V 558 M 54 558 H 540" fill="none" stroke="#0f172a" stroke-width="3"/>
+<text x="81" y="66" text-anchor="middle" font-size="12">1</text>
+<text x="38" y="106" text-anchor="middle" font-size="12">1</text>
+<text x="135" y="66" text-anchor="middle" font-size="12">2</text>
+<text x="38" y="160" text-anchor="middle" font-size="12">2</text>
+<text x="189" y="66" text-anchor="middle" font-size="12">3</text>
+<text x="38" y="214" text-anchor="middle" font-size="12">3</text>
+<text x="243" y="66" text-anchor="middle" font-size="12">4</text>
+<text x="38" y="268" text-anchor="middle" font-size="12">4</text>
+<text x="297" y="66" text-anchor="middle" font-size="12">5</text>
+<text x="38" y="322" text-anchor="middle" font-size="12">5</text>
+<text x="351" y="66" text-anchor="middle" font-size="12">6</text>
+<text x="38" y="376" text-anchor="middle" font-size="12">6</text>
+<text x="405" y="66" text-anchor="middle" font-size="12">7</text>
+<text x="38" y="430" text-anchor="middle" font-size="12">7</text>
+<text x="459" y="66" text-anchor="middle" font-size="12">8</text>
+<text x="38" y="484" text-anchor="middle" font-size="12">8</text>
+<text x="513" y="66" text-anchor="middle" font-size="12">9</text>
+<text x="38" y="538" text-anchor="middle" font-size="12">9</text>
+<text x="54" y="590" font-size="15">Each digit occupies at most 3 selected cells.</text>
+<text x="54" y="614" font-size="15">4 digits fill at most 12 cells; 13 are required.</text>
+<text x="54" y="638" font-size="15" font-weight="600">Therefore r2c8 = 1.</text>
+</g></svg>

@@ -9,9 +9,14 @@ mod arithmetic;
 mod arithmetic_replay;
 pub(crate) mod backtrack;
 mod basic;
+mod candidate_state;
 pub(crate) mod explain;
 pub(crate) mod fabric;
 mod fish_engine;
+mod forcing;
+mod global_coloring;
+mod solver_state;
+mod three_house;
 mod types;
 mod uniqueness;
 
@@ -26,7 +31,22 @@ pub use arithmetic::{
     ArithmeticSearchResult, ArithmeticTerm, ArithmeticTerminal,
 };
 pub use arithmetic_replay::{ArithmeticReplay, ArithmeticState};
+pub use candidate_state::CandidateState;
 pub use explain::{AlsProofDescriptor, ForcingSource, LinkType, Polarity, ProofCertificate};
+pub use forcing::{
+    DomainEdit, ForcingBranch, ForcingCheck, ForcingLeaf, ForcingNode, ForcingProof,
+    ForcingPropagation, ForcingSearchOptions, ForcingSearchResult, ForcingStep,
+};
+pub use global_coloring::{
+    ColoringBranch, ColoringNode, GlobalColoringCheck, GlobalColoringProof, GlobalColoringReplay,
+    GlobalColoringSearchOptions, GlobalColoringSearchResult, GuardianLiteral, GuardianProof,
+    GuardianPropagation,
+};
+pub use solver_state::SolverState;
+pub use three_house::{
+    HallObstruction, ThreeHouseCheck, ThreeHouseProof, ThreeHouseReplay, ThreeHouseSearchOptions,
+    ThreeHouseSearchResult,
+};
 pub use types::{Difficulty, Hint, HintType, Technique};
 
 /// Unit struct solver — stateless, all state is per-call.
@@ -80,6 +100,10 @@ impl Solver {
         let mut working = grid.deep_clone();
         working.recalculate_candidates();
 
+        if working.has_standard_sudoku_constraints() {
+            return self.get_hint_with_candidates(&working).ok().flatten();
+        }
+
         if let Some(finding) = self.find_first_technique(&working) {
             return Some(finding.to_hint());
         }
@@ -90,6 +114,38 @@ impl Solver {
         }
 
         None
+    }
+
+    /// Run the complete strategy ladder on explicit retained solver candidates.
+    /// Unlike `get_hint`, this never interprets player pencil marks as deductions
+    /// implicitly: callers must opt in and supply validated solver masks.
+    pub fn get_hint_with_candidates(&self, grid: &Grid) -> Result<Option<Hint>, String> {
+        self.get_hint_with_options(
+            grid,
+            PropagationPolicy::Full,
+            &ForcingSearchOptions::default(),
+        )
+    }
+
+    pub fn get_hint_with_options(
+        &self,
+        grid: &Grid,
+        policy: PropagationPolicy,
+        forcing: &ForcingSearchOptions,
+    ) -> Result<Option<Hint>, String> {
+        SolverState::from_candidates(grid)?.get_hint_with_options(self, policy, forcing)
+    }
+
+    /// Bounded, explicit native-rule refutation of an endpoint's opposite.
+    pub fn search_forcing(
+        &self,
+        grid: &Grid,
+        cell: usize,
+        digit: u8,
+        value: bool,
+        options: &ForcingSearchOptions,
+    ) -> ForcingSearchResult {
+        forcing::search(grid, cell, digit, value, options)
     }
 
     /// Find a verified arithmetic hint using the grid's current candidate masks.
@@ -113,6 +169,46 @@ impl Solver {
         options: &ArithmeticSearchOptions,
     ) -> ArithmeticSearchResult {
         arithmetic::search(grid, options)
+    }
+
+    /// Find an exact three-house matching elimination using stored candidates.
+    ///
+    /// No candidates are recalculated and no uniqueness assumption is used.
+    /// This dedicated API checks up to all 81 crossing triples. The general
+    /// hint/rating ladder also tries it before Arithmetic Counting and forcing.
+    pub fn get_three_house_hint(&self, grid: &Grid) -> Option<Hint> {
+        self.search_three_house(grid, &ThreeHouseSearchOptions::default())
+            .hint
+    }
+
+    /// Search a bounded prefix of crossing triples and return a Hall certificate.
+    /// A missing hint is not a Sudoku completeness result. Infeasible triples
+    /// are skipped rather than used for vacuous eliminations. Invalid native
+    /// premises return an error.
+    pub fn search_three_house(
+        &self,
+        grid: &Grid,
+        options: &ThreeHouseSearchOptions,
+    ) -> ThreeHouseSearchResult {
+        three_house::search(grid, options)
+    }
+
+    /// Find a bounded global coloring deduction, preserving stored candidates.
+    /// The search scans three/four-digit palettes with a single guardian extra.
+    /// Certificates can also be constructed for explicitly selected cell sets.
+    pub fn get_global_coloring_hint(&self, grid: &Grid) -> Option<Hint> {
+        self.search_global_coloring(grid, &GlobalColoringSearchOptions::default())
+            .hint
+    }
+
+    /// Search with explicit pattern and tree-node limits. A missing hint does
+    /// not establish absence of a global obstruction; inspect resource status.
+    pub fn search_global_coloring(
+        &self,
+        grid: &Grid,
+        options: &GlobalColoringSearchOptions,
+    ) -> GlobalColoringSearchResult {
+        global_coloring::search(grid, options)
     }
 
     /// Get the next placement hint by chaining through elimination techniques.
@@ -174,7 +270,7 @@ impl Solver {
 
     /// Rate the puzzle using the engine's SE-style numerical scale.
     ///
-    /// Arithmetic Counting uses an uncalibrated engine-local estimate, not a
+    /// Arithmetic, three-house and global coloring use engine-local estimates, not a
     /// published Sudoku Explainer rating. See [`Technique::se_rating`].
     pub fn rate_se(&self, grid: &Grid) -> f32 {
         let mut working = grid.deep_clone();
@@ -225,6 +321,19 @@ impl Solver {
 
     /// Find the first applicable technique for a hint (does not mutate grid).
     fn find_first_technique(&self, grid: &Grid) -> Option<Finding> {
+        self.dispatch(
+            grid,
+            PropagationPolicy::Full,
+            &ForcingSearchOptions::default(),
+        )
+    }
+
+    fn dispatch(
+        &self,
+        grid: &Grid,
+        policy: PropagationPolicy,
+        forcing: &ForcingSearchOptions,
+    ) -> Option<Finding> {
         let fab = CandidateFabric::from_grid(grid);
 
         // Phase 1: Basic
@@ -233,6 +342,10 @@ impl Solver {
         }
         if let Some(f) = basic::find_hidden_single(&fab) {
             return Some(f);
+        }
+
+        if policy == PropagationPolicy::Singles {
+            return None;
         }
 
         // Phase 2: Subsets
@@ -365,31 +478,60 @@ impl Solver {
         if let Some(f) = als_engine::find_death_blossom(&fab) {
             return Some(f);
         }
+        if policy != PropagationPolicy::Full {
+            return None;
+        }
+        if let Some(f) = three_house::find(grid) {
+            return Some(f);
+        }
         if let Some(f) = arithmetic::find(grid, &fab) {
             return Some(f);
         }
 
-        // Forcing chains need the Grid for propagation
-        let propagate_singles = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
-            backtrack::propagate_singles(g, pos, val)
+        if let Some(f) = global_coloring::find(grid) {
+            return Some(f);
+        }
+
+        // Legacy pattern detectors propose endpoints. Accept an endpoint only
+        // when a separate native-rule refutation certifies it within the budget.
+        let budget = std::cell::RefCell::new(forcing::SearchBudget::new(forcing));
+        let singles = |g: &Grid, pos: Position, val: u8| {
+            forcing::propagate_budgeted(
+                g,
+                pos,
+                val,
+                PropagationPolicy::Singles,
+                &mut budget.borrow_mut(),
+            )
         };
-        if let Some(f) = aic_engine::find_nishio_fc(grid, &propagate_singles) {
-            return Some(f);
-        }
-        if let Some(f) = aic_engine::find_kraken_fish(grid, &propagate_singles) {
-            return Some(f);
-        }
-        if let Some(f) = aic_engine::find_region_fc(grid, &propagate_singles) {
-            return Some(f);
-        }
-        if let Some(f) = aic_engine::find_cell_fc(grid, &propagate_singles) {
-            return Some(f);
-        }
-        // Dynamic FC uses full technique propagation
-        let prop_full =
-            |g: &Grid, pos: Position, val: u8| -> (Grid, bool) { propagate_full(g, pos, val) };
-        if let Some(f) = aic_engine::find_dynamic_fc(grid, &prop_full) {
-            return Some(f);
+        let logical = |g: &Grid, pos: Position, val: u8| {
+            forcing::propagate_budgeted(
+                g,
+                pos,
+                val,
+                PropagationPolicy::Logical,
+                &mut budget.borrow_mut(),
+            )
+        };
+        type Detector = fn(&Grid, &dyn Fn(&Grid, Position, u8) -> (Grid, bool)) -> Option<Finding>;
+        for (detect, propagate) in [
+            (
+                aic_engine::find_nishio_fc as Detector,
+                &singles as &dyn Fn(&Grid, Position, u8) -> (Grid, bool),
+            ),
+            (aic_engine::find_kraken_fish as Detector, &singles),
+            (aic_engine::find_region_fc as Detector, &singles),
+            (aic_engine::find_cell_fc as Detector, &singles),
+            (aic_engine::find_dynamic_fc as Detector, &logical),
+        ] {
+            if budget.borrow().exhausted() {
+                break;
+            }
+            if let Some(f) = detect(grid, propagate) {
+                if let Some(f) = forcing::certify(grid, f, forcing, &mut budget.borrow_mut()) {
+                    return Some(f);
+                }
+            }
         }
 
         None
@@ -408,92 +550,33 @@ impl Solver {
     ) -> Technique {
         grid.recalculate_candidates();
         let mut max_technique = Technique::NakedSingle;
+        // The standard-rule path owns its deductions and guardian relations for
+        // the whole solve, using the same step API as retained-state clients.
+        if let Ok(mut state) = SolverState::from_candidates(grid) {
+            while !state.grid().is_complete() {
+                match state.step_logical(self) {
+                    Ok(Some(hint)) => {
+                        if let Some(ref mut map) = track {
+                            *map.entry(hint.technique.to_string()).or_insert(0) += 1;
+                        }
+                        max_technique = max_technique.max(hint.technique);
+                    }
+                    _ => {
+                        *grid = state.grid().deep_clone();
+                        backtrack::solve_recursive(grid);
+                        if let Some(ref mut map) = track {
+                            *map.entry(Technique::Backtracking.to_string()).or_insert(0) += 1;
+                        }
+                        return Technique::Backtracking;
+                    }
+                }
+            }
+            *grid = state.grid().deep_clone();
+            return max_technique;
+        }
 
         while !grid.is_complete() {
-            let fab = CandidateFabric::from_grid(grid);
-
-            // Try techniques in priority order via dispatch table
-            let finding = None
-                // Phase 1: Basic
-                .or_else(|| basic::find_naked_single(&fab))
-                .or_else(|| basic::find_hidden_single(&fab))
-                // Phase 2: Subsets
-                .or_else(|| basic::find_naked_subset(&fab, 2))
-                .or_else(|| basic::find_hidden_subset(&fab, 2))
-                .or_else(|| basic::find_naked_subset(&fab, 3))
-                .or_else(|| basic::find_hidden_subset(&fab, 3))
-                // Phase 3: Intersections (size-1 fish)
-                .or_else(|| fish_engine::find_pointing_pair(&fab))
-                .or_else(|| fish_engine::find_box_line_reduction(&fab))
-                // Phase 4: Fish (size 2+) + quads
-                .or_else(|| fish_engine::find_basic_fish(&fab, 2))
-                .or_else(|| fish_engine::find_finned_fish(&fab, 2))
-                .or_else(|| fish_engine::find_basic_fish(&fab, 3))
-                .or_else(|| fish_engine::find_finned_fish(&fab, 3))
-                .or_else(|| fish_engine::find_basic_fish(&fab, 4))
-                .or_else(|| fish_engine::find_finned_fish(&fab, 4))
-                .or_else(|| basic::find_naked_subset(&fab, 4))
-                .or_else(|| basic::find_hidden_subset(&fab, 4))
-                // Phase 5: Uniqueness
-                .or_else(|| aic_engine::find_empty_rectangle(&fab))
-                .or_else(|| uniqueness::find_avoidable_rectangle(&fab))
-                .or_else(|| uniqueness::find_unique_rectangle(&fab))
-                .or_else(|| uniqueness::find_hidden_rectangle(&fab))
-                // Phase 6: Master
-                .or_else(|| als_engine::find_xy_wing(&fab))
-                .or_else(|| als_engine::find_xyz_wing(&fab))
-                .or_else(|| als_engine::find_wxyz_wing(&fab))
-                .or_else(|| aic_engine::find_w_wing(&fab))
-                // AIC family: shared link graph for X-Chain, 3D Medusa, AIC
-                .or_else(|| {
-                    let graph = aic_engine::build_link_graph(&fab);
-                    None.or_else(|| aic_engine::find_x_chain(&fab, &graph))
-                        // Legacy: retained for SE compatibility, subsumed by AIC
-                        .or_else(|| {
-                            #[allow(deprecated)]
-                            aic_engine::find_medusa(&fab, &graph)
-                        })
-                        .or_else(|| als_engine::find_sue_de_coq(&fab))
-                        .or_else(|| aic_engine::find_aic(&fab, &graph))
-                })
-                .or_else(|| fish_engine::find_franken_fish(&fab))
-                .or_else(|| fish_engine::find_siamese_fish(&fab))
-                .or_else(|| als_engine::find_als_xz(&fab))
-                .or_else(|| uniqueness::find_extended_unique_rectangle(&fab))
-                .or_else(|| uniqueness::find_bug(&fab))
-                // Phase 7: Extreme
-                .or_else(|| als_engine::find_als_xy_wing(&fab))
-                .or_else(|| als_engine::find_als_chain(&fab))
-                .or_else(|| fish_engine::find_mutant_fish(&fab))
-                // Legacy: retained for SE compatibility, subsumed by ALS chains
-                .or_else(|| {
-                    #[allow(deprecated)]
-                    als_engine::find_aligned_pair_exclusion(&fab)
-                })
-                // Legacy: retained for SE compatibility, subsumed by ALS chains
-                .or_else(|| {
-                    #[allow(deprecated)]
-                    als_engine::find_aligned_triplet_exclusion(&fab)
-                })
-                .or_else(|| als_engine::find_death_blossom(&fab))
-                .or_else(|| arithmetic::find(grid, &fab))
-                // Forcing chains (singles propagation)
-                .or_else(|| {
-                    let prop = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
-                        backtrack::propagate_singles(g, pos, val)
-                    };
-                    None.or_else(|| aic_engine::find_nishio_fc(grid, &prop))
-                        .or_else(|| aic_engine::find_kraken_fish(grid, &prop))
-                        .or_else(|| aic_engine::find_region_fc(grid, &prop))
-                        .or_else(|| aic_engine::find_cell_fc(grid, &prop))
-                })
-                // Dynamic FC: full technique propagation
-                .or_else(|| {
-                    let prop_full = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
-                        propagate_full(g, pos, val)
-                    };
-                    aic_engine::find_dynamic_fc(grid, &prop_full)
-                });
+            let finding = self.find_first_technique(grid);
 
             match finding {
                 Some(f) => {
@@ -568,6 +651,8 @@ impl Solver {
             | Technique::AlignedTripletExclusion
             | Technique::DeathBlossom
             | Technique::ArithmeticCounting
+            | Technique::ThreeHouseMatching
+            | Technique::GlobalColoring
             | Technique::NishioForcingChain
             | Technique::KrakenFish
             | Technique::RegionForcingChain
@@ -583,8 +668,7 @@ fn apply_finding(grid: &mut Grid, finding: &Finding) {
     match &finding.inference {
         InferenceResult::Placement { cell, value } => {
             let pos = idx_to_pos(*cell);
-            grid.set_cell_unchecked(pos, Some(*value));
-            grid.recalculate_candidates();
+            grid.place_solver_value(pos, *value);
         }
         InferenceResult::Elimination { cell, values } => {
             let pos = idx_to_pos(*cell);
@@ -595,17 +679,30 @@ fn apply_finding(grid: &mut Grid, finding: &Finding) {
     }
 }
 
-/// Propagate using the established technique set (for Dynamic Forcing Chains).
-///
-/// Makes an assumption (set cell value), then loops applying all techniques
-/// except forcing chains (to avoid infinite recursion) until no more progress.
-/// Arithmetic search is also omitted deliberately: its bounded search cost
-/// should not be repeated inside every forcing-chain assumption.
-fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
-    let mut g = grid.deep_clone();
-    g.set_cell_unchecked(pos, Some(val));
-    g.recalculate_candidates();
+/// Which prefix of the shared strategy ladder is allowed in an assumption.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PropagationPolicy {
+    Singles,
+    /// Established logical techniques, without expensive searches or forcing.
+    Logical,
+    /// Complete logical ladder, including bounded checked forcing.
+    Full,
+}
 
+#[cfg(test)]
+fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
+    propagate_with_policy(grid, pos, val, PropagationPolicy::Logical)
+}
+
+#[cfg(test)]
+fn propagate_with_policy(
+    grid: &Grid,
+    pos: Position,
+    val: u8,
+    policy: PropagationPolicy,
+) -> (Grid, bool) {
+    let mut g = grid.deep_clone();
+    g.place_solver_value(pos, val);
     for _ in 0..200 {
         if backtrack::has_contradiction(&g) {
             return (g, true);
@@ -613,73 +710,11 @@ fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
         if g.is_complete() {
             return (g, false);
         }
-
-        let fab = CandidateFabric::from_grid(&g);
-
-        // Try all techniques except forcing chains (avoids infinite recursion)
-        let finding = None
-            .or_else(|| basic::find_naked_single(&fab))
-            .or_else(|| basic::find_hidden_single(&fab))
-            .or_else(|| basic::find_naked_subset(&fab, 2))
-            .or_else(|| basic::find_hidden_subset(&fab, 2))
-            .or_else(|| basic::find_naked_subset(&fab, 3))
-            .or_else(|| basic::find_hidden_subset(&fab, 3))
-            .or_else(|| fish_engine::find_pointing_pair(&fab))
-            .or_else(|| fish_engine::find_box_line_reduction(&fab))
-            .or_else(|| fish_engine::find_basic_fish(&fab, 2))
-            .or_else(|| fish_engine::find_finned_fish(&fab, 2))
-            .or_else(|| fish_engine::find_basic_fish(&fab, 3))
-            .or_else(|| fish_engine::find_finned_fish(&fab, 3))
-            .or_else(|| fish_engine::find_basic_fish(&fab, 4))
-            .or_else(|| fish_engine::find_finned_fish(&fab, 4))
-            .or_else(|| basic::find_naked_subset(&fab, 4))
-            .or_else(|| basic::find_hidden_subset(&fab, 4))
-            .or_else(|| aic_engine::find_empty_rectangle(&fab))
-            .or_else(|| uniqueness::find_avoidable_rectangle(&fab))
-            .or_else(|| uniqueness::find_unique_rectangle(&fab))
-            .or_else(|| uniqueness::find_hidden_rectangle(&fab))
-            .or_else(|| als_engine::find_xy_wing(&fab))
-            .or_else(|| als_engine::find_xyz_wing(&fab))
-            .or_else(|| als_engine::find_wxyz_wing(&fab))
-            .or_else(|| aic_engine::find_w_wing(&fab))
-            .or_else(|| {
-                let graph = aic_engine::build_link_graph(&fab);
-                None.or_else(|| aic_engine::find_x_chain(&fab, &graph))
-                    // Legacy: retained for SE compatibility, subsumed by AIC
-                    .or_else(|| {
-                        #[allow(deprecated)]
-                        aic_engine::find_medusa(&fab, &graph)
-                    })
-                    .or_else(|| als_engine::find_sue_de_coq(&fab))
-                    .or_else(|| aic_engine::find_aic(&fab, &graph))
-            })
-            .or_else(|| fish_engine::find_franken_fish(&fab))
-            .or_else(|| fish_engine::find_siamese_fish(&fab))
-            .or_else(|| als_engine::find_als_xz(&fab))
-            .or_else(|| uniqueness::find_extended_unique_rectangle(&fab))
-            .or_else(|| uniqueness::find_bug(&fab))
-            .or_else(|| als_engine::find_als_xy_wing(&fab))
-            .or_else(|| als_engine::find_als_chain(&fab))
-            .or_else(|| fish_engine::find_mutant_fish(&fab))
-            // Legacy: retained for SE compatibility, subsumed by ALS chains
-            .or_else(|| {
-                #[allow(deprecated)]
-                als_engine::find_aligned_pair_exclusion(&fab)
-            })
-            // Legacy: retained for SE compatibility, subsumed by ALS chains
-            .or_else(|| {
-                #[allow(deprecated)]
-                als_engine::find_aligned_triplet_exclusion(&fab)
-            })
-            .or_else(|| als_engine::find_death_blossom(&fab));
-        // Note: forcing chains excluded to avoid infinite recursion
-
-        match finding {
+        match Solver.dispatch(&g, policy, &ForcingSearchOptions::default()) {
             Some(f) => apply_finding(&mut g, &f),
             None => break,
         }
     }
-
     let contradiction = backtrack::has_contradiction(&g);
     (g, contradiction)
 }

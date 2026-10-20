@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "scope": "Changed-premise tier: one selected support vertex is an actual given.",
+  "seed_start": 92137,
+  "seconds": 87.582625041,
+  "records": [
+    {
+      "restart": 0,
+      "seed": 92137,
+      "anchor": 66,
+      "puzzle": ".6........48......7...5...9.26..7..8......4...7..8.1.64.71.3....8.2.6..7.1.......",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 1,
+      "seed": 92138,
+      "anchor": 69,
+      "puzzle": ".6....7...48.6...17.1..2..91..4.7..8.9.........4........71.3.6.....4.5.......8..4",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 2,
+      "seed": 92139,
+      "anchor": 74,
+      "puzzle": ".....4.....8.6.....31.526...2...7..8...6..4...7....1...5....8.2.8..4...7.12.7...4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 3,
+      "seed": 92140,
+      "anchor": 75,
+      "puzzle": ".....47....8.6...1.31.....9..6.....8...6..47..7..8....4571.3.6..8..4..1..1.5.....",
+      "givens": 26,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 4,
+      "seed": 92141,
+      "anchor": 66,
+      "puzzle": ".......8..4..6...1.31.......2.4.....8..6..4.....9..1.6..7..386....24...7.1..78..4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 5,
+      "seed": 92142,
+      "anchor": 69,
+      "puzzle": ".....4.....876...1.3185...91.6.....8......4...7..8...64.71..86..8..4.5...........",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 25
+    },
+    {
+      "restart": 6,
+      "seed": 92143,
+      "anchor": 74,
+      "puzzle": ".....478..48..........52..912...7..8...6......749.....4..1...6..8...6.1...2..8..4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 7,
+      "seed": 92144,
+      "anchor": 75,
+      "puzzle": "....1..8..4........31.5..4..2.4.....8..6..4...7....1..4.7.....2.8.....176..5.8...",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 8,
+      "seed": 92145,
+      "anchor": 66,
+      "puzzle": ".6....7...48.....17..8.2..912...7..8.9....4...........45...3.6....2.6.17....7....",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 9,
+      "seed": 92146,
+      "anchor": 69,
+      "puzzle": "....1..8..48.6...1.3..5..4.1.6............47..7..8.....57.....2.8..465.7.....8...",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 10,
+      "seed": 92147,
+      "anchor": 74,
+      "puzzle": ".6....78.........1.31.52....2.4.7...8..6.......4.8....4..1.3862.......176.2.....4",
+      "givens": 26,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 11,
+      "seed": 92148,
+      "anchor": 75,
+      "puzzle": "....1.7...487......3.852...1.6.....8.......7..749....6.57.......8..46.1....5.8..4",
+      "givens": 26,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 12,
+      "seed": 92149,
+      "anchor": 66,
+      "puzzle": ".6..14.8...8.......3..52..91....7......6......7..8.1..45....86..8.2.6..7........4",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 13,
+      "seed": 92150,
+      "anchor": 69,
+      "puzzle": "......78...8.6....7.1..2.4......7....9....4....498.1..4.7..386......651761.......",
+      "givens": 26,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 14,
+      "seed": 92151,
+      "anchor": 74,
+      "puzzle": ".....4.8..4.7....17.18..6.9.....7...89.6........9..1..45...3..2.....6.176.2.....4",
+      "givens": 26,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 15,
+      "seed": 92152,
+      "anchor": 75,
+      "puzzle": ".6....78..48.......3..5...9..6......8..6..47..7.9..1..4..1....2.8...6....1.578...",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 16,
+      "seed": 92153,
+      "anchor": 66,
+      "puzzle": ".6....78....7.......1.5..4..26......8.....4...7.9..1..4.......2.8.2.6.1..1..78...",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 17,
+      "seed": 92154,
+      "anchor": 69,
+      "puzzle": ".....4.8...8..........52.4.12.......8..6......7.9..1..45......2......5.76....8..4",
+      "givens": 21,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 18,
+      "seed": 92155,
+      "anchor": 74,
+      "puzzle": "....14.....8......73....6.9..6..7..8.9.6..4......8.1...5.1.3.6.....4..176.2......",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 19,
+      "seed": 92156,
+      "anchor": 75,
+      "puzzle": ".6..1.78..........7.1.5..49.....7...8..6...7....9..1..4.7..386.....4..1.6..5....4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 20,
+      "seed": 92157,
+      "anchor": 66,
+      "puzzle": ".6..14.8...87.....7...5..49.2...7...8.....4.....9.....45......2...2...176....8...",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 21,
+      "seed": 92158,
+      "anchor": 69,
+      "puzzle": "....1......87.....73....6.9.2.4....8.9.........4.8.1.645.1..8.2.....651.....7...4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 22,
+      "seed": 92159,
+      "anchor": 74,
+      "puzzle": "......7...4.7....1.3..52....2...7..889....4....4...1..457..3.6......6...6.2..8..4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 23,
+      "seed": 92160,
+      "anchor": 75,
+      "puzzle": "...........8.6...1.3..5264..2......8.9....47...4...1...5......2....46..7...578...",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 24,
+      "seed": 92161,
+      "anchor": 66,
+      "puzzle": ".....47....8.....173..52....2......8.9.6........9..1.6.5.1..8.....246..7....7...4",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 25,
+      "seed": 92162,
+      "anchor": 69,
+      "puzzle": "....1..8.........1.3..5...9.26......8.....47..7....1.6.571....2....465......78...",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 26,
+      "seed": 92163,
+      "anchor": 74,
+      "puzzle": "......7...4......1.3.852....264.7..88..............1..4..1..8.2.....6.....2.7...4",
+      "givens": 22,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 27,
+      "seed": 92164,
+      "anchor": 75,
+      "puzzle": ".6....7....8.6...1.3..52.4..26..7..8......4....49....64....3..2.8...6.17...5.....",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 28,
+      "seed": 92165,
+      "anchor": 66,
+      "puzzle": "....147....8.......3..5..4...6..7..8.9..........9..1..4.7..386....2.6..7.1...8..4",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 29,
+      "seed": 92166,
+      "anchor": 69,
+      "puzzle": ".......8..4.7.....7.1852....26......89.6...........1...5.....62....4.5.7....78..4",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 30,
+      "seed": 92167,
+      "anchor": 74,
+      "puzzle": "....1.7......6...1.3.8......2...7..889.6.......4.....6.5...38......4..17..2.7...4",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 31,
+      "seed": 92168,
+      "anchor": 75,
+      "puzzle": ".....4.8..4.........1..26.912.......8..6...7..74.8.1..........2.8..4...76..5.8..4",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 32,
+      "seed": 92169,
+      "anchor": 66,
+      "puzzle": ".....4.....87.....7...5.64912......8......47....9....64..1......8.2...176...78...",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 33,
+      "seed": 92170,
+      "anchor": 69,
+      "puzzle": ".6..1......876.....3...2..9........8.9....47..74...1...571...6.....4.5...1..78...",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 34,
+      "seed": 92171,
+      "anchor": 74,
+      "puzzle": "......78..4.76....7..85....126......89....47....9..1..45...3..2.....6....12.....4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 35,
+      "seed": 92172,
+      "anchor": 75,
+      "puzzle": ".6..14.8....76...1.3.8.......6......8.........74.....64.7..3..2.8..4..17...5.8..4",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 36,
+      "seed": 92173,
+      "anchor": 66,
+      "puzzle": ".6....78.........1...85..4..26..7...89........7....1.64.7...8.....2.6....1..7...4",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 37,
+      "seed": 92174,
+      "anchor": 69,
+      "puzzle": ".....4.8..4......1.3..52..912...7...8..6...7...4.8.......1.3.62....4.5..6.......4",
+      "givens": 24,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 38,
+      "seed": 92175,
+      "anchor": 74,
+      "puzzle": "....1.7...4876...1.3.8...4.1.6.....8.9....4...7......6457..38.........1...2.7....",
+      "givens": 25,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    },
+    {
+      "restart": 39,
+      "seed": 92176,
+      "anchor": 75,
+      "puzzle": ".6....7.....7.......1.5..491..4....88......7..7.9..1..4....38.2.8...6......5....4",
+      "givens": 23,
+      "target_live_after_local_closure": false,
+      "unplaced_support_after_local_closure": 0
+    }
+  ],
+  "counts": {
+    "clue_removals_tested": 2160,
+    "accepted_clue_removals": 1232,
+    "unique_count_cutoffs": 0
+  },
+  "distinct_unique_live_states": 0,
+  "full_older_comparisons": [],
+  "all27_unclued_request_fulfilled": false
+}

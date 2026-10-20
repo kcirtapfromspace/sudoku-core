@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "relaxation": "native-single-digit-template-v1",
+  "state_hash": "4494742bf0b703233a5a86016882d2bec29ede55c0506be4beb07a0b1618df94",
+  "target": {
+    "cell": 70,
+    "digit": 1,
+    "assumed": false
+  },
+  "terms": [
+    {
+      "digit": 1,
+      "cells": [
+        5,
+        16,
+        19,
+        29,
+        39,
+        51,
+        62,
+        63,
+        76
+      ],
+      "numerator": 11,
+      "denominator": 14
+    },
+    {
+      "digit": 1,
+      "cells": [
+        7,
+        14,
+        19,
+        29,
+        39,
+        51,
+        62,
+        63,
+        76
+      ],
+      "numerator": 3,
+      "denominator": 14
+    },
+    {
+      "digit": 2,
+      "cells": [
+        3,
+        9,
+        25,
+        35,
+        41,
+        47,
+        58,
+        69,
+        73
+      ],
+      "numerator": 5,
+      "denominator": 14
+    },
+    {
+      "digit": 2,
+      "cells": [
+        7,
+        10,
+        21,
+        35,
+        41,
+        47,
+        58,
+        69,
+        72
+      ],
+      "numerator": 9,
+      "denominator": 14
+    },
+    {
+      "digit": 3,
+      "cells": [
+        2,
+        14,
+        26,
+        27,
+        43,
+        48,
+        60,
+        67,
+        73
+      ],
+      "numerator": 2,
+      "denominator": 21
+    },
+    {
+      "digit": 3,
+      "cells": [
+        2,
+        15,
+        22,
+        32,
+        37,
+        53,
+        57,
+        70,
+        72
+      ],
+      "numerator": 1,
+      "denominator": 42
+    },
+    {
+      "digit": 3,
+      "cells": [
+        4,
+        11,
+        24,
+        32,
+        37,
+        53,
+        57,
+        70,
+        72
+      ],
+      "numerator": 1,
+      "denominator": 42
+    },
+    {
+      "digit": 3,
+      "cells": [
+        5,
+        9,
+        25,
+        33,
+        40,
+        46,
+        57,
+        65,
+        80
+      ],
+      "numerator": 1,
+      "denominator": 7
+    },
+    {
+      "digit": 3,
+      "cells": [
+        5,
+        15,
+        20,
+        27,
+        43,
+        48,
+        55,
+        67,
+        80
+      ],
+      "numerator": 1,
+      "denominator": 14
+    },
+    {
+      "digit": 3,
+      "cells": [
+        7,
+        12,
+        20,
+        32,
+        36,
+        53,
+        60,
+        67,
+        73
+      ],
+      "numerator": 1,
+      "denominator": 7
+    },
+    {
+      "digit": 3,
+      "cells": [
+        8,
+        11,
+        22,
+        33,
+        36,
+        48,
+        55,
+        70,
+        77
+      ],
+      "numerator": 5,
+      "denominator": 14
+    },
+    {
+      "digit": 3,
+      "cells": [
+        8,
+        13,
+        20,
+        33,
+        37,
+        48,
+        54,
+        70,
+        77
+      ],
+      "numerator": 1,
+      "denominator": 7
+    },
+    {
+      "digit": 4,
+      "cells": [
+        2,
+        13,
+        24,
+        34,
+        37,
+        50,
+        54,
+        71,
+        75
+      ],
+      "numerator": 1,
+      "denominator": 42
+    },
+    {
+      "digit": 4,
+      "cells": [
+        4,
+        10,
+        24,
+        34,
+        38,
+        50,
+        54,
+        71,
+        75
+      ],
+      "numerator": 4,
+      "denominator": 21
+    },
+    {
+      "digit": 4,
+      "cells": [
+        4,
+        15,
+        18,
+        34,
+        37,
+        50,
+        56,
+        71,
+        75
+      ],
+      "numerator": 11,
+      "denominator": 14
+    },
+    {
+      "digit": 5,
+      "cells": [
+        0,
+        12,
+        25,
+        28,
+        40,
+        53,
+        60,
+        65,
+        77
+      ],
+      "numerator": 17,
+      "denominator": 42
+    },
+    {
+      "digit": 5,
+      "cells": [
+        0,
+        12,
+        26,
+        33,
+        40,
+        46,
+        56,
+        70,
+        77
+      ],
+      "numerator": 2,
+      "denominator": 21
+    },
+    {
+      "digit": 5,
+      "cells": [
+        0,
+        13,
+        24,
+        32,
+        38,
+        53,
+        57,
+        70,
+        73
+      ],
+      "numerator": 1,
+      "denominator": 21
+    },
+    {
+      "digit": 5,
+      "cells": [
+        0,
+        14,
+        24,
+        28,
+        43,
+        48,
+        56,
+        67,
+        80
+      ],
+      "numerator": 5,
+      "denominator": 42
+    },
+    {
+      "digit": 5,
+      "cells": [
+        0,
+        15,
+        22,
+        32,
+        43,
+        46,
+        57,
+        65,
+        80
+      ],
+      "numerator": 5,
+      "denominator": 42
+    },
+    {
+      "digit": 5,
+      "cells": [
+        0,
+        16,
+        23,
+        33,
+        38,
+        48,
+        55,
+        67,
+        80
+      ],
+      "numerator": 3,
+      "denominator": 14
+    },
+    {
+      "digit": 6,
+      "cells": [
+        2,
+        13,
+        26,
+        30,
+        36,
+        52,
+        59,
+        64,
+        78
+      ],
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "digit": 6,
+      "cells": [
+        8,
+        9,
+        22,
+        30,
+        38,
+        52,
+        59,
+        64,
+        78
+      ],
+      "numerator": 1,
+      "denominator": 2
+    },
+    {
+      "digit": 7,
+      "cells": [
+        1,
+        12,
+        25,
+        32,
+        38,
+        53,
+        60,
+        67,
+        72
+      ],
+      "numerator": 1,
+      "denominator": 21
+    },
+    {
+      "digit": 7,
+      "cells": [
+        1,
+        12,
+        26,
+        32,
+        43,
+        45,
+        60,
+        67,
+        74
+      ],
+      "numerator": 13,
+      "denominator": 42
+    },
+    {
+      "digit": 7,
+      "cells": [
+        1,
+        13,
+        24,
+        32,
+        43,
+        45,
+        57,
+        65,
+        80
+      ],
+      "numerator": 2,
+      "denominator": 7
+    },
+    {
+      "digit": 7,
+      "cells": [
+        1,
+        14,
+        24,
+        27,
+        40,
+        53,
+        57,
+        70,
+        74
+      ],
+      "numerator": 13,
+      "denominator": 42
+    },
+    {
+      "digit": 7,
+      "cells": [
+        1,
+        14,
+        25,
+        33,
+        40,
+        45,
+        57,
+        65,
+        80
+      ],
+      "numerator": 1,
+      "denominator": 21
+    },
+    {
+      "digit": 8,
+      "cells": [
+        2,
+        17,
+        21,
+        31,
+        42,
+        45,
+        61,
+        68,
+        73
+      ],
+      "numerator": 5,
+      "denominator": 14
+    },
+    {
+      "digit": 8,
+      "cells": [
+        3,
+        17,
+        20,
+        31,
+        42,
+        46,
+        54,
+        68,
+        79
+      ],
+      "numerator": 9,
+      "denominator": 14
+    },
+    {
+      "digit": 9,
+      "cells": [
+        6,
+        10,
+        23,
+        27,
+        44,
+        49,
+        61,
+        66,
+        74
+      ],
+      "numerator": 1,
+      "denominator": 6
+    },
+    {
+      "digit": 9,
+      "cells": [
+        6,
+        11,
+        23,
+        27,
+        44,
+        49,
+        55,
+        66,
+        79
+      ],
+      "numerator": 5,
+      "denominator": 14
+    },
+    {
+      "digit": 9,
+      "cells": [
+        6,
+        11,
+        23,
+        28,
+        44,
+        49,
+        61,
+        66,
+        72
+      ],
+      "numerator": 11,
+      "denominator": 42
+    },
+    {
+      "digit": 9,
+      "cells": [
+        6,
+        14,
+        18,
+        28,
+        44,
+        49,
+        61,
+        66,
+        74
+      ],
+      "numerator": 3,
+      "denominator": 14
+    }
+  ]
+}

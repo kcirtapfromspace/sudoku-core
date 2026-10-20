@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "accessed_utc_date": "2026-10-20",
+  "queries": [
+    "\"630\" \"patterns\" \"CSP-Rules\"",
+    "\"630\" \"patterns\" \"tridagon\"",
+    "\"Sudoku\" \"Select1\" \"patterns\"",
+    "\"630\" \"patterns\" \"eight\" sudoku",
+    "\"630\" \"patterns\" \"8\" eleven sudoku",
+    "\"EL13c207\" OR \"EL15c101\"",
+    "\"eleven\" \"630\" \"txt\"",
+    "\"chromatic patterns\" \"630\" \"eleven\""
+  ],
+  "primary_source_commit": "7eefd71566b37e55c15f330d474140bfc4f4371d",
+  "manual_url": "https://github.com/denis-berthier/CSP-Rules-V2.1/blob/7eefd71566b37e55c15f330d474140bfc4f4371d/Docs/2023-UMRN-r1.pdf",
+  "manual_sha256": "a9876d670c668bdfff3ee40714d5c09add75f96ca6c7579a6a6c04a14786a09a",
+  "manual_sections": ["15.2", "15.4", "16.5.2"],
+  "prior_examples_commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+  "prior_examples_geometry_count": 380,
+  "original_forum_url": "http://forum.enjoysudoku.com/chromatic-patterns-t39885-71.html",
+  "original_forum_status": "Inaccessible during this audit; not used as a parsed full catalogue.",
+  "history_checked": ["7d51d0ae3fd799cb44c645b7a8b9976fb0d3f415", "acba9d2a6854fb59eb22f7ee3c8379b190c869be"],
+  "history_result": "Older implementation trees did not recover the omitted38 original geometries. Intentional omission is explained in the pinned manual."
+}

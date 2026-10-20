@@ -5,6 +5,8 @@
 
 use super::arithmetic::ArithmeticProof;
 use super::fabric::idx_to_pos;
+use super::global_coloring::GlobalColoringProof;
+use super::three_house::ThreeHouseProof;
 use super::types::{Hint, HintType, Technique};
 use crate::Position;
 
@@ -75,6 +77,8 @@ pub struct AlsProofDescriptor {
 /// - **Aic**: Path in the bipartite ON/OFF polarity graph (Link space).
 /// - **Arithmetic**: A checked integer combination of native requirements,
 ///   with an interval or divisibility contradiction for the opposite candidate.
+/// - **GlobalColoring**: Checked exhaustive case splits on a selected native peer graph.
+/// - **ThreeHouse**: A complete signature cover by checked Hall obstructions.
 /// - **Uniqueness**: Relies on the meta-constraint that the puzzle has one solution.
 /// - **Forcing**: Multi-branch propagation proving a common conclusion.
 /// - **Backtracking**: No human technique found; trial-and-error.
@@ -104,6 +108,10 @@ pub enum ProofCertificate {
     },
     /// Recomputable arithmetic certificate bound to the exact candidate state.
     Arithmetic(ArithmeticProof),
+    /// Complete boundary-signature cover by checked Hall obstructions.
+    ThreeHouse(ThreeHouseProof),
+    /// Explicit exhaustive native list-coloring refutation under the opposite endpoint.
+    GlobalColoring(GlobalColoringProof),
     /// Uniqueness assumption: the puzzle has exactly one solution.
     Uniqueness {
         pattern: String,
@@ -112,11 +120,16 @@ pub enum ProofCertificate {
         /// Roof cells (cells with extra candidates).
         roof_cells: Vec<usize>,
     },
-    /// Forcing: all branches from a source lead to the same conclusion.
+    /// Legacy detector summary, not a replayable proof. Internal discovery only;
+    /// public ladder hints replace this with `ForcingProof` after checking.
     Forcing {
         source: ForcingSource,
         branches: usize,
     },
+    /// Independently replayable native-rule forcing proof.
+    ForcingProof(super::forcing::ForcingProof),
+    /// Propagation of a verified, retained guardian disjunction.
+    Guardian(super::global_coloring::GuardianPropagation),
     /// Backtracking: no human technique found.
     Backtracking,
 }

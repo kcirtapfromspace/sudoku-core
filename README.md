@@ -3,7 +3,7 @@
 `sudoku-core` is the shared Rust engine used by the TUI, WASM, and iOS targets. It provides:
 
 - A `Grid` model with constraint-aware candidate tracking
-- A solver with 45 logical solving techniques plus backtracking
+- A solver with 47 logical solving techniques plus backtracking
 - A hint system (returns an explanation + affected cells)
 - A puzzle generator that targets a requested difficulty with SE rating bounds
 - Dual rating: technique-based difficulty tiers and Sudoku Explainer (SE) numerical ratings
@@ -36,9 +36,9 @@ The solver, validator, and candidate updates all operate through the active cons
 
 `Solver` (`src/solver/`) is organized as a modular directory with dedicated engine files for each technique family (fish, ALS, AIC/chains, uniqueness, etc.), plus `types.rs` for the `Technique` enum and `fabric.rs` for the dual-indexed candidate state. It has two layers:
 
-1. **Logical techniques** (45 techniques, ordered by complexity)
+1. **Logical techniques** (47 techniques, ordered by complexity)
    - The solver can search for a concrete next step (a `Hint`) by trying techniques in increasing complexity.
-   - Techniques: Naked/Hidden Singles, Naked/Hidden Pairs/Triples, Pointing Pairs, Box-Line Reduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, Sue de Coq, AIC, Franken Fish, Siamese Fish, ALS-XZ, ALS-XY-Wing, ALS Chain, Unique Rectangle (Types 1-4), Hidden Rectangle, Extended Unique Rectangle, Mutant Fish, Aligned Pair Exclusion, Aligned Triplet Exclusion, BUG+1, Death Blossom, Arithmetic Counting, Nishio Forcing Chain, Kraken Fish, Region Forcing Chain, Cell Forcing Chain, Dynamic Forcing Chain.
+   - Techniques: Naked/Hidden Singles, Naked/Hidden Pairs/Triples, Pointing Pairs, Box-Line Reduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, Sue de Coq, AIC, Franken Fish, Siamese Fish, ALS-XZ, ALS-XY-Wing, ALS Chain, Unique Rectangle (Types 1-4), Hidden Rectangle, Extended Unique Rectangle, Mutant Fish, Aligned Pair Exclusion, Aligned Triplet Exclusion, BUG+1, Death Blossom, Three-House Matching, Arithmetic Counting, Global Coloring, Nishio Forcing Chain, Kraken Fish, Region Forcing Chain, Cell Forcing Chain, Dynamic Forcing Chain.
 2. **Backtracking fallback**
    - `solve()` uses recursion with the MRV heuristic (choose the empty cell with the fewest candidates).
    - It tries each candidate, validates the grid, and recurses until solved.
@@ -55,9 +55,37 @@ The solver, validator, and candidate updates all operate through the active cons
 
 Arithmetic Counting combines up to six exactly-one equations and verifies each
 placement or elimination with an independently reconstructed interval or gcd
-contradiction. It runs after Death Blossom. `get_arithmetic_hint` and
+contradiction. It runs after Three-House Matching. `get_arithmetic_hint` and
 `search_arithmetic` also expose it directly while preserving stored candidate
 masks. See the [proof, API, examples, and search limits](docs/arithmetic-counting.md).
+
+### Three-House Matching certificates
+
+Three-House Matching checks a crossing row, column and box exactly and certifies
+eliminations with a complete cover of boundary signatures by Hall obstructions.
+It runs before Arithmetic Counting and forcing; `get_three_house_hint` and
+`search_three_house` preserve stored candidate masks. `ThreeHouseReplay` exports
+independently checked, exact-state steps. See the [theorem, certificate format,
+API and real-game evidence](docs/three-house-matching.md). This applies established
+matching theory; historical mathematical novelty is not established.
+
+### Global Coloring certificates
+
+Global Coloring checks a selected native peer graph by an exhaustive, bounded
+case split. Each deduction carries an independently checked refutation tree and
+an exact-state JSON replay. Verified examples survive Hall propagation, all
+crossing three-house checks, and the full native continuous linear relaxation.
+The search runs after Arithmetic Counting and before forcing. See the [short
+four-digit proof, API, real-game controls and limits](docs/global-coloring.md).
+
+### Retained deductions and forcing proofs
+
+Use `SolverState` for a sequence of hints that preserves solver candidates and
+verified guardian OR relations. `get_hint_with_candidates` exposes the full
+ladder on validated retained masks; ordinary `get_hint` still rebuilds from
+values. Forcing hints now carry independently replayable native-rule trees with
+explicit resource budgets. See [API usage, proof checking and edit/undo
+behavior](docs/solver-state.md).
 
 ## Difficulty Rating
 
@@ -83,7 +111,7 @@ Final mapping is based on the hardest technique needed:
 | **Hard** | Pointing Pair / Box-Line Reduction |
 | **Expert** | Fish (X-Wing, Swordfish, Jellyfish, Finned variants), Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, Unique Rectangle, Hidden Rectangle |
 | **Master** | Wings (XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing), Chains (X-Chain, AIC), 3D Medusa, Sue de Coq, Franken/Siamese Fish, ALS-XZ, Extended UR, BUG+1 |
-| **Extreme** | ALS (XY-Wing, Chain), Mutant Fish, Aligned Pair/Triplet Exclusion, Death Blossom, Arithmetic Counting, Forcing Chains (Nishio, Kraken, Region, Cell, Dynamic), Backtracking |
+| **Extreme** | ALS (XY-Wing, Chain), Mutant Fish, Aligned Pair/Triplet Exclusion, Death Blossom, Three-House Matching, Arithmetic Counting, Global Coloring, Forcing Chains (Nishio, Kraken, Region, Cell, Dynamic), Backtracking |
 
 This is intentionally technique-based, not purely "clue count" based (although clue count is used as a generation constraint).
 
@@ -121,12 +149,12 @@ This is intentionally technique-based, not purely "clue count" based (although c
 | Kraken Fish | 8.0 |
 | Cell Forcing Chain | 8.3 |
 | Death Blossom / Region Forcing Chain | 8.5 |
-| Arithmetic Counting (engine-local estimate) | 8.5 |
+| Arithmetic Counting / Three-House Matching / Global Coloring (engine-local estimates) | 8.5 |
 | Dynamic Forcing Chain | 9.3 |
 | Backtracking | 11.0 |
 
-Arithmetic Counting uses an uncalibrated engine-local value of 8.5; it has no
-official Sudoku Explainer rating. Its inclusion can change puzzle ratings and
+Arithmetic Counting, Three-House Matching and Global Coloring use an uncalibrated engine-local value of 8.5; none has an
+official Sudoku Explainer rating. Their inclusion can change puzzle ratings and
 generation results.
 
 **Note on SE vs Difficulty Tier ordering:** The SE system considers Hidden Singles (1.5) easier than Naked Singles (2.3), which inverts the Beginner/Easy vs Medium tier ordering. This is correct per the SE community standard — hidden singles are "last remaining in a house" (scanning), while naked singles require full candidate elimination. The two scales intentionally measure different axes: SE measures *technique complexity*, our tiers measure *pedagogical progression*.
@@ -211,6 +239,8 @@ proofs for the engine's kernel:
   (proven exact: true **iff** the board is invalid), and a backtracking solver
   proven sound: a `true` return guarantees a complete, valid solution that
   preserves every given.
+- `verification/global_coloring.rs` — abstract branch preservation, empty-domain rejection and exhaustive-split soundness; production reconstruction remains outside the formal proof.
+- `verification/three_house.rs` — abstract Hall cardinality and complete-signature-coverage soundness (production reconstruction remains outside the formal proof).
 - `verification/arithmetic.rs` — the Arithmetic Counting soundness theorem from
   [docs/arithmetic-counting.md](docs/arithmetic-counting.md), machine-checked:
   the certificate checker's interval, gcd, and residue-set terminals each prove
@@ -220,6 +250,16 @@ proofs for the engine's kernel:
 Run `./scripts/verify.sh` (requires a [Verus release](https://github.com/verus-lang/verus/releases)
 and its pinned Rust toolchain; see the script header). CI runs the proofs via
 `.github/workflows/verify.yml`.
+
+## Research experiments
+
+Research fixtures and exact checks outside modular arithmetic are documented in
+[non-modular research experiments](research/nonmodular/README.md), including a
+three-house inference and the limits of its comparison with existing detectors.
+Historical novelty is not established.
+
+[Global obstruction experiments](research/global_obstructions/README.md) add exact
+LP witnesses, published/givens-derived controls, and a four-digit capacity proof.
 
 ## Minimal Usage
 

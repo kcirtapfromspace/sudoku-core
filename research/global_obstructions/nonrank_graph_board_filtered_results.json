@@ -1,0 +1,862 @@
+{
+  "schema_version": 1,
+  "seed": 219440,
+  "seconds": 143.87255208399998,
+  "arguments": {
+    "seconds": 220,
+    "orders": 30,
+    "seed": 219440,
+    "output": "research/global_obstructions/nonrank_graph_board_filtered_results.json",
+    "require_native_lp": true
+  },
+  "counts": {
+    "seeded_supports": 18,
+    "exact_coloring_queries": 223398,
+    "non_four_colorable_supports": 107,
+    "critical_subgraphs": 3192,
+    "exact_weighted_rank_explained": 158,
+    "duplicate_graph_fingerprints": 3016,
+    "new_completed_grids": 2,
+    "new_support_presentations": 123535,
+    "exact_nonrank_positive": 18,
+    "native_role_lp_rejected_pure_gap": 17,
+    "exact_native_role_positive_pure_gap": 1
+  },
+  "positives": [
+    {
+      "cells": [
+        0,
+        2,
+        3,
+        8,
+        9,
+        14,
+        15,
+        16,
+        31,
+        33,
+        34,
+        38,
+        40,
+        41,
+        44,
+        45,
+        50,
+        52,
+        58,
+        63,
+        65,
+        66,
+        69,
+        74,
+        75,
+        78,
+        79
+      ],
+      "native_edges": 86,
+      "alpha": 7,
+      "wl_hash": "7a788bf9d66e82ed1340e82292d405dd",
+      "exact_fractional_chromatic": [
+        4,
+        1
+      ],
+      "dual_vertex_weights": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "context": {
+        "source_id": "norvig-top95-076",
+        "completion": "269314785548769231731852649126437958895621473374985126457193862983246517612578394",
+        "palette": [
+          2,
+          3,
+          5,
+          9
+        ],
+        "guardian": 41,
+        "extra": 1
+      },
+      "fractional_cover": [
+        {
+          "cells": [
+            0,
+            15,
+            44,
+            50,
+            58,
+            65,
+            79
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            0,
+            16,
+            33,
+            40,
+            66,
+            74
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            0,
+            16,
+            33,
+            41,
+            65,
+            75
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            2,
+            14,
+            33,
+            40,
+            45,
+            66,
+            79
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            2,
+            14,
+            34,
+            40,
+            45,
+            69,
+            75
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            2,
+            15,
+            34,
+            41,
+            63,
+            75
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            2,
+            16,
+            44,
+            50,
+            58,
+            63,
+            78
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            3,
+            9,
+            41,
+            52,
+            58,
+            69,
+            74
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            3,
+            15,
+            31,
+            44,
+            45,
+            65,
+            79
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            8,
+            9,
+            34,
+            38,
+            50,
+            66,
+            78
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            8,
+            9,
+            34,
+            38,
+            50,
+            69,
+            75
+          ],
+          "weight": [
+            1,
+            4
+          ]
+        },
+        {
+          "cells": [
+            8,
+            14,
+            31,
+            38,
+            52,
+            63,
+            78
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        }
+      ],
+      "status": "Exact pure native graph gap; domain closure/full template LP/givens still to verify",
+      "floating_native_role_lp_feasible": true,
+      "exact_native_role_witness": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  ],
+  "scope": "Known and new completion+guardian supports, randomized minimal critical subgraphs; discovery negatives are not a classification",
+  "classified_graph_fingerprints_count": 176,
+  "full_discovery_record_local_path": "target/nonrank-graph-raw/nonrank_graph_board_filtered_results.json",
+  "full_discovery_record_sha256": "1b9719cbaf6535410c5053129cf9e847d0424e9d4705737c06bb0df5e4c90f8c",
+  "pure_graph_gap_summary": [
+    {
+      "cells": 27,
+      "native_edges": 88,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 30,
+      "native_edges": 102,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 27,
+      "native_edges": 85,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 30,
+      "native_edges": 100,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 27,
+      "native_edges": 86,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 27,
+      "native_edges": 88,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 26,
+      "native_edges": 82,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 26,
+      "native_edges": 81,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 26,
+      "native_edges": 82,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 28,
+      "native_edges": 91,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 27,
+      "native_edges": 87,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 29,
+      "native_edges": 95,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 28,
+      "native_edges": 91,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 29,
+      "native_edges": 95,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 26,
+      "native_edges": 81,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 30,
+      "native_edges": 102,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 29,
+      "native_edges": 98,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": false
+    },
+    {
+      "cells": 27,
+      "native_edges": 86,
+      "fractional_chromatic_number": [
+        4,
+        1
+      ],
+      "floating_native_role_lp_feasible": true
+    }
+  ]
+}

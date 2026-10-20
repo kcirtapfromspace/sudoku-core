@@ -1,0 +1,22 @@
+{
+  "support_cells": 27,
+  "native_edges": 86,
+  "nodes": 16745,
+  "maximum_assignment_depth": 26,
+  "target": {
+    "cell": 41,
+    "digit": 1,
+    "result": true
+  },
+  "state_hash": "2c6a7d7a99a43af29e33c8780541f89f1c70a76cbbec28219dccff12e8dcb32e",
+  "split_nodes": 14729,
+  "branching_split_nodes": 2009,
+  "singleton_split_nodes": 12720,
+  "conflict_leaves": 2016,
+  "schema_version": 1,
+  "verified": true,
+  "rejected_mutations": 12,
+  "fixture_sha256": "45f2569ae147d08ae62e0340e3bdf62780a508486264e0cb7dc6b383b510894b",
+  "replay_sha256": "451e63d3789490de35438fb4d81aa57c1e902b29b89c82c9a6688a66d619a8db",
+  "limits": "Synthetic domains; does not prove a givens-only or unique-puzzle realization."
+}

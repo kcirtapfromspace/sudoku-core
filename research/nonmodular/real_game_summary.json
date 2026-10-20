@@ -1,0 +1,765 @@
+{
+  "schema_version": 1,
+  "baseline_orchestrator_sha256": "0ed50ac417b4844fcfc96ebc9bf284c2bd65d3ee6d5980b2b4158d440a7f492b",
+  "baseline_policy": "Known detectors excluding Three-House Matching, arithmetic, forcing and backtracking; independently justified uniqueness; preserve eliminations across placements",
+  "puzzles_tested": 106,
+  "independently_unique": 106,
+  "baseline_solved": 74,
+  "baseline_stalled": 32,
+  "positive_stalled_states": 8,
+  "negative_stalled_states": 24,
+  "centers_checked": 2592,
+  "positive_centers": 17,
+  "elimination_occurrences": 25,
+  "distinct_puzzle_candidate_eliminations": 15,
+  "seconds": {
+    "elapsed_including_build": 48.368373417,
+    "independent_uniqueness": 24.40851050400002,
+    "existing_engine_closure": 5.249105831999999,
+    "python_three_house": 3.8904978359999713
+  },
+  "records": [
+    {
+      "id": "norvig-top95-001",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 72,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-002",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 74,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-003",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 72,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-004",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 100,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-005",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 100,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-006",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 80,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-007",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 29,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-008",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 100,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-009",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 29,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-010",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 101,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-011",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 33,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-012",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 26,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-013",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 92,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-014",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 87,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-015",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 79,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-016",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 32,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-017",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 86,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-018",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 67,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-019",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 86,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-020",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 20,
+      "positive_centers": 1
+    },
+    {
+      "id": "norvig-top95-021",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 78,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-022",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 23,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-023",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 75,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-024",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 74,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-025",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 75,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-026",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 81,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-027",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 74,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-028",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 32,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-029",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 84,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-030",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 87,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-031",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 35,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-032",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 83,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-033",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 75,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-034",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 83,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-035",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 30,
+      "positive_centers": 3
+    },
+    {
+      "id": "norvig-top95-036",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 72,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-037",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 84,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-038",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 77,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-039",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 90,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-040",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 96,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-041",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 94,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-042",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 91,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-043",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 73,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-044",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 70,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-045",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 20,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-046",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 32,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-047",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 86,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-048",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 94,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-049",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 84,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-050",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 32,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-051",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 86,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-052",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 43,
+      "positive_centers": 3
+    },
+    {
+      "id": "norvig-top95-053",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 76,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-054",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 7,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-055",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 77,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-056",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 88,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-057",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 73,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-058",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 23,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-059",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 7,
+      "positive_centers": 1
+    },
+    {
+      "id": "norvig-top95-060",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 14,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-061",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 81,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-062",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 84,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-063",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 79,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-064",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 21,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-065",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 34,
+      "positive_centers": 1
+    },
+    {
+      "id": "norvig-top95-066",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 22,
+      "positive_centers": 4
+    },
+    {
+      "id": "norvig-top95-067",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 87,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-068",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 97,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-069",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 2,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-070",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 82,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-071",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 80,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-072",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 73,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-073",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 90,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-074",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 87,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-075",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 12,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-076",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 90,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-077",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 87,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-078",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 78,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-079",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 88,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-080",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 86,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-081",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 79,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-082",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 77,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-083",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 93,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-084",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 72,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-085",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 88,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-086",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 18,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-087",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 76,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-088",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 30,
+      "positive_centers": 1
+    },
+    {
+      "id": "norvig-top95-089",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 22,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-090",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 102,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-091",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 105,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-092",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 28,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-093",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 21,
+      "positive_centers": 3
+    },
+    {
+      "id": "norvig-top95-094",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 76,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-top95-095",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 95,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-001",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 73,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-002",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 5,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-003",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 31,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-004",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 65,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-005",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 59,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-006",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 5,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-007",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 78,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-008",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 71,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-009",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 111,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-010",
+      "unique": true,
+      "baseline_solved": true,
+      "baseline_steps": 75,
+      "positive_centers": 0
+    },
+    {
+      "id": "norvig-hardest-011",
+      "unique": true,
+      "baseline_solved": false,
+      "baseline_steps": 61,
+      "positive_centers": 0
+    }
+  ]
+}
