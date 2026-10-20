@@ -288,17 +288,20 @@ impl Generator {
             // Remove cells while maintaining unique solution
             self.remove_cells(&mut grid, &solver);
 
-            // Check difficulty
-            let actual_difficulty = solver.rate_difficulty(&grid);
             let given_count = grid.given_count();
             let givens_ok =
                 given_count >= self.config.min_givens && given_count <= self.config.max_givens;
+            if !givens_ok {
+                continue;
+            }
+
+            // Both ratings come from the same logical solve.
+            let (actual_difficulty, se) = solver.analyze(&grid);
 
             // Accept if difficulty matches or is close
-            if self.difficulty_acceptable(actual_difficulty) && givens_ok {
+            if self.difficulty_acceptable(actual_difficulty) {
                 // Check optional SE rating range
                 if self.config.min_se_rating.is_some() || self.config.max_se_rating.is_some() {
-                    let se = solver.rate_se(&grid);
                     if let Some(min) = self.config.min_se_rating {
                         if se < min {
                             // Still a valid difficulty match — track as candidate
@@ -316,10 +319,8 @@ impl Generator {
                 return grid;
             }
 
-            // Track as candidate if givens are in range (even if difficulty is off)
-            if givens_ok {
-                Self::update_best(&mut best_candidate, grid, actual_difficulty, target);
-            }
+            // Givens are in range, so retain even a difficulty mismatch as fallback.
+            Self::update_best(&mut best_candidate, grid, actual_difficulty, target);
         }
 
         // Return the best candidate seen, or generate one more as last resort
@@ -421,6 +422,7 @@ impl Generator {
 
         // Track which positions have been tried
         let mut tried = [[false; 9]; 9];
+        let mut given_count = grid.given_count();
 
         // Remove complete symmetry groups. A 90-degree rotation has four cells
         // in its orbit; removing only a pair would break the requested pattern.
@@ -451,47 +453,23 @@ impl Generator {
                 continue;
             }
 
+            // A later, smaller symmetry group may still fit the clue budget.
+            // Reject oversized groups before paying for a uniqueness search.
+            if given_count.saturating_sub(removed.len()) < self.config.min_givens {
+                continue;
+            }
+
             // Temporarily remove
             for &(member, _) in &removed {
                 grid.set_cell_unchecked(member, None);
+                grid.cell_mut(member).set_given(false);
             }
 
-            // Check if still has unique solution
-            let mut test_grid = grid.deep_clone();
-            // Convert remaining values to non-given for testing
-            for row in 0..9 {
-                for col in 0..9 {
-                    let p = Position::new(row, col);
-                    if let Some(v) = test_grid.get(p) {
-                        test_grid.set_cell_unchecked(p, None);
-                        test_grid.set_given(p, v);
-                    }
-                }
-            }
-
-            if solver.has_unique_solution(&test_grid) {
-                // Keep removal, update givens
-                for row in 0..9 {
-                    for col in 0..9 {
-                        let p = Position::new(row, col);
-                        let cell = grid.cell_mut(p);
-                        if cell.value().is_some() {
-                            cell.set_given(true);
-                        } else {
-                            cell.set_given(false);
-                        }
-                    }
-                }
-
-                // Check if we have enough givens
-                if grid.given_count() < self.config.min_givens {
-                    // A later, smaller symmetry group may still fit the budget.
-                    for &(member, value) in &removed {
-                        grid.set_given(member, value);
-                    }
-                    continue;
-                }
-                if grid.given_count() == self.config.min_givens {
+            // Counting uses values, so stale pencil marks and given flags do not
+            // require a rebuilt copy of the puzzle for each attempted removal.
+            if solver.has_unique_solution(grid) {
+                given_count -= removed.len();
+                if given_count == self.config.min_givens {
                     break;
                 }
             } else {
@@ -502,15 +480,7 @@ impl Generator {
             }
         }
 
-        // Clear non-given cells and recalculate candidates
-        for row in 0..9 {
-            for col in 0..9 {
-                let pos = Position::new(row, col);
-                if !grid.cell(pos).is_given() {
-                    grid.set_cell_unchecked(pos, None);
-                }
-            }
-        }
+        // All accepted removals are already empty and marked non-given.
         grid.recalculate_candidates();
     }
 

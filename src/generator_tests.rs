@@ -184,3 +184,28 @@ fn exact_clue_bounds_allow_small_symmetry_orbits_after_oversized_ones() {
         assert!(Solver::new().has_unique_solution(&puzzle));
     }
 }
+
+#[test]
+fn validation_optimizations_preserve_seeded_puzzle_identity() {
+    // Recorded before optimizing clue removal and solution counting. Seed-only
+    // puzzle IDs depend on these outputs, so compare all five benchmark tiers.
+    for (difficulty, expected) in [
+        (Difficulty::Beginner, 0xda6209564eb032a7_u64),
+        (Difficulty::Easy, 0x47ce0b9154bce59e),
+        (Difficulty::Medium, 0x2e6bb8524c2e9c00),
+        (Difficulty::Hard, 0x5fd3bb01c08a734c),
+        (Difficulty::Expert, 0x8a2669eda043a170),
+    ] {
+        let mut fingerprint = 0_u64;
+        for seed in [42, 99, 314] {
+            let grid = Generator::with_seed(seed).generate(difficulty);
+            for pos in Position::all_9x9() {
+                assert_eq!(grid.cell(pos).is_given(), grid.get(pos).is_some());
+            }
+            for byte in grid.to_string_compact().bytes() {
+                fingerprint = fingerprint.wrapping_mul(31).wrapping_add(byte as u64);
+            }
+        }
+        assert_eq!(fingerprint, expected, "{difficulty:?}");
+    }
+}

@@ -64,3 +64,13 @@ cargo run --bin uniffi-bindgen generate --library ../target/release/libsudoku_ff
 `cargo run --release --example arithmetic_counting` constructs a Guardian candidate
 state, verifies its five-equation parity proof, and runs the engine's bounded
 arithmetic search. See [the proof and API](../docs/arithmetic-counting.md).
+
+## Generation and uniqueness timings
+
+```sh
+cargo run --release --locked --example performance
+```
+
+Pass `count` or `generate` after `--` to time one workload. Generation uses seeds
+42, 99, and 314 and prints a puzzle fingerprint so results can be compared across
+revisions. See [performance notes](../docs/performance.md) for methodology.
