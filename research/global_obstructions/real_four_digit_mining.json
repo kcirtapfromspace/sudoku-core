@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "selection": "All inclusion-minimal independent per-digit covers",
+  "cover_counts": {
+    "1": 2,
+    "2": 5,
+    "3": 8,
+    "5": 7,
+    "9": 9
+  },
+  "trial_limit": 5040,
+  "trials": 132,
+  "floating_lp_feasible": 1,
+  "local_survivors": 1,
+  "positives": [
+    {
+      "schema_version": 1,
+      "name": "generated-four-digit-realization",
+      "puzzle": "5.........2.3.9.....3..15...95...3.1.32...9.51......2.......1.........9..........",
+      "initial_domains": [
+        16,
+        233,
+        489,
+        234,
+        234,
+        234,
+        234,
+        237,
+        494,
+        232,
+        2,
+        233,
+        4,
+        248,
+        256,
+        232,
+        233,
+        232,
+        488,
+        232,
+        4,
+        234,
+        234,
+        1,
+        16,
+        232,
+        490,
+        232,
+        256,
+        16,
+        234,
+        234,
+        234,
+        4,
+        232,
+        1,
+        232,
+        4,
+        2,
+        233,
+        233,
+        232,
+        256,
+        232,
+        16,
+        1,
+        232,
+        232,
+        504,
+        508,
+        252,
+        232,
+        2,
+        232,
+        494,
+        248,
+        488,
+        506,
+        510,
+        254,
+        1,
+        252,
+        238,
+        238,
+        249,
+        233,
+        251,
+        255,
+        254,
+        234,
+        256,
+        238,
+        494,
+        249,
+        489,
+        507,
+        511,
+        254,
+        234,
+        252,
+        238
+      ],
+      "base_domains": [
+        16,
+        233,
+        489,
+        234,
+        234,
+        234,
+        234,
+        237,
+        494,
+        232,
+        2,
+        233,
+        4,
+        16,
+        256,
+        232,
+        233,
+        232,
+        488,
+        232,
+        4,
+        234,
+        234,
+        1,
+        16,
+        232,
+        490,
+        232,
+        256,
+        16,
+        234,
+        234,
+        234,
+        4,
+        232,
+        1,
+        232,
+        4,
+        2,
+        233,
+        233,
+        232,
+        256,
+        232,
+        16,
+        1,
+        232,
+        232,
+        272,
+        260,
+        20,
+        232,
+        2,
+        232,
+        494,
+        248,
+        488,
+        506,
+        494,
+        254,
+        1,
+        252,
+        238,
+        238,
+        249,
+        233,
+        251,
+        239,
+        254,
+        234,
+        256,
+        238,
+        494,
+        249,
+        489,
+        507,
+        495,
+        254,
+        234,
+        252,
+        238
+      ],
+      "base_trace": [
+        {
+          "kind": "house-gac",
+          "sector": 1,
+          "edits": [
+            {
+              "cell": 13,
+              "before": 248,
+              "after": 16
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 5,
+          "edits": [
+            {
+              "cell": 48,
+              "before": 504,
+              "after": 272
+            },
+            {
+              "cell": 49,
+              "before": 508,
+              "after": 276
+            },
+            {
+              "cell": 50,
+              "before": 252,
+              "after": 20
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 13,
+          "edits": [
+            {
+              "cell": 49,
+              "before": 276,
+              "after": 260
+            },
+            {
+              "cell": 58,
+              "before": 510,
+              "after": 494
+            },
+            {
+              "cell": 67,
+              "before": 255,
+              "after": 239
+            },
+            {
+              "cell": 76,
+              "before": 511,
+              "after": 495
+            }
+          ]
+        }
+      ],
+      "assumed_domains": [
+        16,
+        232,
+        256,
+        232,
+        232,
+        232,
+        2,
+        1,
+        4,
+        232,
+        2,
+        1,
+        4,
+        16,
+        256,
+        232,
+        232,
+        232,
+        232,
+        232,
+        4,
+        234,
+        234,
+        1,
+        16,
+        232,
+        256,
+        232,
+        256,
+        16,
+        234,
+        234,
+        234,
+        4,
+        232,
+        1,
+        232,
+        4,
+        2,
+        233,
+        233,
+        232,
+        256,
+        232,
+        16,
+        1,
+        232,
+        232,
+        272,
+        260,
+        20,
+        232,
+        2,
+        232,
+        262,
+        248,
+        232,
+        506,
+        494,
+        254,
+        1,
+        20,
+        234,
+        6,
+        249,
+        232,
+        251,
+        239,
+        254,
+        232,
+        256,
+        234,
+        262,
+        249,
+        232,
+        507,
+        495,
+        254,
+        232,
+        20,
+        234
+      ],
+      "assumption_trace": [
+        {
+          "kind": "house-gac",
+          "sector": 1,
+          "edits": [
+            {
+              "cell": 11,
+              "before": 233,
+              "after": 1
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 11,
+          "edits": [
+            {
+              "cell": 2,
+              "before": 489,
+              "after": 488
+            },
+            {
+              "cell": 65,
+              "before": 233,
+              "after": 232
+            },
+            {
+              "cell": 74,
+              "before": 489,
+              "after": 488
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 16,
+          "edits": [
+            {
+              "cell": 7,
+              "before": 237,
+              "after": 1
+            },
+            {
+              "cell": 61,
+              "before": 252,
+              "after": 20
+            },
+            {
+              "cell": 79,
+              "before": 252,
+              "after": 20
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 18,
+          "edits": [
+            {
+              "cell": 1,
+              "before": 233,
+              "after": 232
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 20,
+          "edits": [
+            {
+              "cell": 6,
+              "before": 234,
+              "after": 2
+            },
+            {
+              "cell": 8,
+              "before": 494,
+              "after": 4
+            },
+            {
+              "cell": 26,
+              "before": 490,
+              "after": 256
+            }
+          ]
+        },
+        {
+          "kind": "house-gac",
+          "sector": 26,
+          "edits": [
+            {
+              "cell": 62,
+              "before": 238,
+              "after": 234
+            },
+            {
+              "cell": 71,
+              "before": 238,
+              "after": 234
+            },
+            {
+              "cell": 80,
+              "before": 238,
+              "after": 234
+            }
+          ]
+        },
+        {
+          "kind": "three-house-gac",
+          "center": 0,
+          "edits": [
+            {
+              "cell": 2,
+              "before": 488,
+              "after": 256
+            },
+            {
+              "cell": 3,
+              "before": 234,
+              "after": 232
+            },
+            {
+              "cell": 4,
+              "before": 234,
+              "after": 232
+            },
+            {
+              "cell": 5,
+              "before": 234,
+              "after": 232
+            },
+            {
+              "cell": 18,
+              "before": 488,
+              "after": 232
+            },
+            {
+              "cell": 54,
+              "before": 494,
+              "after": 262
+            },
+            {
+              "cell": 63,
+              "before": 238,
+              "after": 6
+            },
+            {
+              "cell": 72,
+              "before": 494,
+              "after": 262
+            }
+          ]
+        },
+        {
+          "kind": "three-house-gac",
+          "center": 2,
+          "edits": [
+            {
+              "cell": 56,
+              "before": 488,
+              "after": 232
+            },
+            {
+              "cell": 74,
+              "before": 488,
+              "after": 232
+            }
+          ]
+        },
+        {
+          "kind": "three-house-gac",
+          "center": 6,
+          "edits": [
+            {
+              "cell": 69,
+              "before": 234,
+              "after": 232
+            },
+            {
+              "cell": 78,
+              "before": 234,
+              "after": 232
+            }
+          ]
+        }
+      ],
+      "completion": "518476239427359618963821574795248361832617945146935827379564182651782493284193756",
+      "graph_cells": [
+        9,
+        15,
+        16,
+        17,
+        25,
+        27,
+        34,
+        36,
+        43,
+        46,
+        47,
+        51,
+        53
+      ],
+      "palette": [
+        4,
+        6,
+        7,
+        8
+      ],
+      "target": {
+        "cell": 16,
+        "digit": 1,
+        "value": false
+      },
+      "trial": 132,
+      "status": "Uncertified discovery candidate; exact LP witness required"
+    }
+  ],
+  "completion": "518476239427359618963821574795248361832617945146935827379564182651782493284193756",
+  "core": [
+    9,
+    15,
+    16,
+    17,
+    25,
+    27,
+    34,
+    36,
+    43,
+    46,
+    47,
+    51,
+    53
+  ],
+  "palette": [
+    4,
+    6,
+    7,
+    8
+  ],
+  "target": {
+    "cell": 16,
+    "digit": 1,
+    "value": false
+  },
+  "seconds": 0.997707667,
+  "negative_result_scope": "Discovery screen only; floating infeasibility is not an exact certificate. The tested clue-cover family is restricted."
+}

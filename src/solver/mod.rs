@@ -13,6 +13,7 @@ mod candidate_state;
 pub(crate) mod explain;
 pub(crate) mod fabric;
 mod fish_engine;
+mod global_coloring;
 mod three_house;
 mod types;
 mod uniqueness;
@@ -30,6 +31,10 @@ pub use arithmetic::{
 pub use arithmetic_replay::{ArithmeticReplay, ArithmeticState};
 pub use candidate_state::CandidateState;
 pub use explain::{AlsProofDescriptor, ForcingSource, LinkType, Polarity, ProofCertificate};
+pub use global_coloring::{
+    ColoringBranch, ColoringNode, GlobalColoringCheck, GlobalColoringProof, GlobalColoringReplay,
+    GlobalColoringSearchOptions, GlobalColoringSearchResult,
+};
 pub use three_house::{
     HallObstruction, ThreeHouseCheck, ThreeHouseProof, ThreeHouseReplay, ThreeHouseSearchOptions,
     ThreeHouseSearchResult,
@@ -144,6 +149,24 @@ impl Solver {
         three_house::search(grid, options)
     }
 
+    /// Find a bounded global coloring deduction, preserving stored candidates.
+    /// The search scans three/four-digit palettes with a single guardian extra.
+    /// Certificates can also be constructed for explicitly selected cell sets.
+    pub fn get_global_coloring_hint(&self, grid: &Grid) -> Option<Hint> {
+        self.search_global_coloring(grid, &GlobalColoringSearchOptions::default())
+            .hint
+    }
+
+    /// Search with explicit pattern and tree-node limits. A missing hint does
+    /// not establish absence of a global obstruction; inspect resource status.
+    pub fn search_global_coloring(
+        &self,
+        grid: &Grid,
+        options: &GlobalColoringSearchOptions,
+    ) -> GlobalColoringSearchResult {
+        global_coloring::search(grid, options)
+    }
+
     /// Get the next placement hint by chaining through elimination techniques.
     ///
     /// Unlike `get_hint` which returns the first technique found (which may be
@@ -203,7 +226,7 @@ impl Solver {
 
     /// Rate the puzzle using the engine's SE-style numerical scale.
     ///
-    /// Arithmetic Counting uses an uncalibrated engine-local estimate, not a
+    /// Arithmetic, three-house and global coloring use engine-local estimates, not a
     /// published Sudoku Explainer rating. See [`Technique::se_rating`].
     pub fn rate_se(&self, grid: &Grid) -> f32 {
         let mut working = grid.deep_clone();
@@ -401,6 +424,10 @@ impl Solver {
             return Some(f);
         }
 
+        if let Some(f) = global_coloring::find(grid) {
+            return Some(f);
+        }
+
         // Forcing chains need the Grid for propagation
         let propagate_singles = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
             backtrack::propagate_singles(g, pos, val)
@@ -510,6 +537,7 @@ impl Solver {
                 .or_else(|| als_engine::find_death_blossom(&fab))
                 .or_else(|| three_house::find(grid))
                 .or_else(|| arithmetic::find(grid, &fab))
+                .or_else(|| global_coloring::find(grid))
                 // Forcing chains (singles propagation)
                 .or_else(|| {
                     let prop = |g: &Grid, pos: Position, val: u8| -> (Grid, bool) {
@@ -602,6 +630,7 @@ impl Solver {
             | Technique::DeathBlossom
             | Technique::ArithmeticCounting
             | Technique::ThreeHouseMatching
+            | Technique::GlobalColoring
             | Technique::NishioForcingChain
             | Technique::KrakenFish
             | Technique::RegionForcingChain
@@ -633,7 +662,7 @@ fn apply_finding(grid: &mut Grid, finding: &Finding) {
 ///
 /// Makes an assumption (set cell value), then loops applying all techniques
 /// except forcing chains (to avoid infinite recursion) until no more progress.
-/// Arithmetic and three-house search are also omitted deliberately: their cost
+/// Arithmetic, three-house and global coloring searches are omitted: their cost
 /// should not be repeated inside every forcing-chain assumption.
 fn propagate_full(grid: &Grid, pos: Position, val: u8) -> (Grid, bool) {
     let mut g = grid.deep_clone();

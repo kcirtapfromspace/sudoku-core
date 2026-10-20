@@ -26,7 +26,7 @@ GENERATION = ("src/generator.rs", "src/diversity.rs")
 ADVANCED = (
     "src/solver/aic_engine.rs", "src/solver/als_engine.rs",
     "src/solver/arithmetic.rs", "src/solver/fish_engine.rs", "src/solver/uniqueness.rs",
-    "src/solver/three_house.rs",
+    "src/solver/three_house.rs", "src/solver/global_coloring.rs",
 )
 THRESHOLDS = {
     "production": (("",), 75.0),

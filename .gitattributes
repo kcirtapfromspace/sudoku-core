@@ -1,0 +1,3 @@
+# Keep machine-generated proof payloads available while collapsing them in review.
+research/global_obstructions/replay_*.json linguist-generated=true
+research/global_obstructions/linear_*.json linguist-generated=true

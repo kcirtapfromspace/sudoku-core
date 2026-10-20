@@ -1,0 +1,39 @@
+{
+  "excluded": [
+    "new Global Coloring",
+    "uniqueness",
+    "forcing chains",
+    "backtracking",
+    "optional partition-residue APIs",
+    "external solvers and unimplemented named rules"
+  ],
+  "results": [
+    {
+      "arithmetic_beam_pruned": true,
+      "arithmetic_budget_exhausted": false,
+      "arithmetic_combinations": 24166,
+      "arithmetic_hint": null,
+      "centers_checked": 81,
+      "explicit_old_detectors": 34,
+      "findings": [],
+      "state": "base_domains",
+      "three_house_hint": null
+    },
+    {
+      "arithmetic_beam_pruned": true,
+      "arithmetic_budget_exhausted": false,
+      "arithmetic_combinations": 22238,
+      "arithmetic_hint": null,
+      "centers_checked": 81,
+      "explicit_old_detectors": 34,
+      "findings": [
+        "FrankenFish",
+        "MutantFish"
+      ],
+      "state": "assumed_domains",
+      "three_house_hint": null
+    }
+  ],
+  "schema_version": 1,
+  "source_sha256": "69ccc57aaee316fe4ac6ddb9f4bdcc2abf613f2e69dfc61e190c3363264eb4cb"
+}

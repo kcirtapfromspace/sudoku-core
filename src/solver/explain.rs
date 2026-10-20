@@ -5,6 +5,7 @@
 
 use super::arithmetic::ArithmeticProof;
 use super::fabric::idx_to_pos;
+use super::global_coloring::GlobalColoringProof;
 use super::three_house::ThreeHouseProof;
 use super::types::{Hint, HintType, Technique};
 use crate::Position;
@@ -76,6 +77,7 @@ pub struct AlsProofDescriptor {
 /// - **Aic**: Path in the bipartite ON/OFF polarity graph (Link space).
 /// - **Arithmetic**: A checked integer combination of native requirements,
 ///   with an interval or divisibility contradiction for the opposite candidate.
+/// - **GlobalColoring**: Checked exhaustive case splits on a selected native peer graph.
 /// - **ThreeHouse**: A complete signature cover by checked Hall obstructions.
 /// - **Uniqueness**: Relies on the meta-constraint that the puzzle has one solution.
 /// - **Forcing**: Multi-branch propagation proving a common conclusion.
@@ -108,6 +110,8 @@ pub enum ProofCertificate {
     Arithmetic(ArithmeticProof),
     /// Complete boundary-signature cover by checked Hall obstructions.
     ThreeHouse(ThreeHouseProof),
+    /// Explicit exhaustive native list-coloring refutation under the opposite endpoint.
+    GlobalColoring(GlobalColoringProof),
     /// Uniqueness assumption: the puzzle has exactly one solution.
     Uniqueness {
         pattern: String,

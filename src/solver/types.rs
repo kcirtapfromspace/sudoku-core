@@ -182,6 +182,9 @@ pub enum Technique {
     /// Verified integer combinations of native exactly-one requirements.
     /// The numerical rating is an uncalibrated engine-local estimate.
     ArithmeticCounting,
+    /// Bounded native graph/list-coloring obstruction, with an explicit checked tree.
+    /// The rating is an uncalibrated engine-local estimate.
+    GlobalColoring,
     NishioForcingChain,
     KrakenFish,
     RegionForcingChain,
@@ -221,7 +224,7 @@ impl Technique {
 
     /// Get this technique's score on the engine's SE-style numerical scale.
     ///
-    /// Arithmetic Counting and Three-House Matching use approximate, uncalibrated
+    /// Arithmetic Counting, Three-House Matching and Global Coloring use uncalibrated
     /// engine-local scores of 8.5, not published SE ratings. Technique ordering controls
     /// dispatch priority independently of these numerical values.
     pub fn se_rating(&self) -> f32 {
@@ -269,6 +272,7 @@ impl Technique {
             Technique::CellForcingChain => 8.3,
             Technique::DeathBlossom => 8.5,
             Technique::ArithmeticCounting => 8.5,
+            Technique::GlobalColoring => 8.5,
             Technique::ThreeHouseMatching => 8.5,
             Technique::RegionForcingChain => 8.5,
             Technique::DynamicForcingChain => 9.3,
@@ -321,6 +325,7 @@ impl std::fmt::Display for Technique {
             Technique::BivalueUniversalGrave => write!(f, "BUG+1"),
             Technique::DeathBlossom => write!(f, "Death Blossom"),
             Technique::ArithmeticCounting => write!(f, "Arithmetic Counting"),
+            Technique::GlobalColoring => write!(f, "Global Coloring"),
             Technique::ThreeHouseMatching => write!(f, "Three-House Matching"),
             Technique::NishioForcingChain => write!(f, "Nishio Forcing Chain"),
             Technique::KrakenFish => write!(f, "Kraken Fish"),
