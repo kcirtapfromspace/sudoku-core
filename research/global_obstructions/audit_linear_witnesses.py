@@ -12,6 +12,9 @@ from linear_witness import binding, source_state, verify, verify_farkas
 
 HERE = Path(__file__).resolve().parent
 
+if not __debug__:
+    raise SystemExit("Run without -O: assertions are part of the exact audit")
+
 
 def load(name):
     return json.loads((HERE / name).read_text())
