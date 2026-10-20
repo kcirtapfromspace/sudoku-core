@@ -6,6 +6,16 @@ not establish historical novelty and does not audit production Rust code merely
 by checking a similar research model. No external solver's claim is trusted by
 the exact checks below.
 
+
+```mermaid
+flowchart TD
+    A[Original synthetic three-house example] --> B[ALS-XZ explanation]
+    A --> C[Linear counting explanation]
+    B --> D[Established mathematical principles]
+    C --> D
+    D --> E[Separate implementation coverage from historical novelty]
+```
+
 ## What trial 847 actually demonstrates
 
 The stored candidate state has a respecting completion and an elimination
@@ -16,9 +26,9 @@ Sudoku methods.
 
 Two additional, exact known-method comparisons hold:
 
-1. Under the single assumption `r1c4=1`, ordinary generalized arc consistency
-   for each of row 1, column 1, and box 1, repeatedly applied separately,
-   detects inconsistency on pass 2 at column 1. The audit computes candidate
+1. Assume `r1c4=1`.
+Repeatedly apply ordinary generalized arc consistency separately to row 1, column 1, and box 1.
+Column 1 becomes inconsistent on pass 2. The audit computes candidate
    support using independent prefix/suffix matching dynamic programs. Thus a
    failed-literal procedure with ordinary allDifferent propagation can make
    the same deduction.
@@ -90,9 +100,9 @@ most 3,780 signatures. Filtering the center by its effective domain leaves
 2,100 signatures in trial 847 under the target assumption.
 
 For each signature, an accepting rejection proof supplies a Hall-deficient
-subset of some atom. The checker reconstructs the candidate union within that
-signature's exact required digit set, checks that its size is smaller than the
-cell subset, and checks coverage of every deterministic signature. A separate
+subset of some atom. The checker reconstructs the candidate union within the signature's required digit set.
+The union must be smaller than the cell subset.
+The checker also requires coverage of every deterministic signature. A separate
 base assignment on all 21 cluster cells respects all three native houses and
 the recorded domains and rejects the target value. This rejects an already
 contradictory three-house relaxation; it does not certify full-grid or variant

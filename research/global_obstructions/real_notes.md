@@ -11,9 +11,8 @@ candidate states, explicit twelve-cell patterns and full solving traces:
 | mith collection #4401 | [Published trace](https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/%234401-Trid%2BW8.clp) | r4c4 = 9 |
 | Loki, created by mith | [Published trace](https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp) | r8c8 = 1 |
 
-Each JSON fixture retains the exact givens, source URL and byte hash, a complete
-respecting solution, all earlier local inference steps and the twelve-cell
-native-peer graph. An independent exact-cover enumeration, using only the
+Each JSON fixture retains the exact givens, source URL, byte hash, and a complete respecting solution.
+It also retains all earlier local inference steps and the twelve-cell native-peer graph. An independent exact-cover enumeration, using only the
 givens and the 324 native requirements, found one solution when counting up to
 two for each puzzle. The local and coloring proofs do not use uniqueness.
 
@@ -44,6 +43,16 @@ placement follows. The global graph contradiction survives the named local
 relaxations and full native LP. This does not establish a separation from
 stronger local-marginal LPs, cutting planes, SAT, full CSP reasoning or known
 forcing methods.
+
+
+```mermaid
+flowchart TD
+    A[Published tridagon puzzles] --> B[Check original givens and uniqueness]
+    B --> C[Replay the recorded premise steps]
+    C --> D[Verify local and exact LP evidence]
+    D --> E[Check native coloring certificates]
+    E --> F[Compare only the stated older methods]
+```
 
 ## Existing engine comparison
 
@@ -104,9 +113,8 @@ Norvig's top95 puzzle #20; only that completion has the cited public origin.
 The fixture metadata distinguishes these sources explicitly.
 
 The selected thirteen-cell native-peer graph cannot be colored with the four
-digits {4,6,7,8}. The companion structural experiment proves that an independent
-set has at most three vertices, so four digit classes can occupy at most twelve
-of the thirteen cells. The guardian r2c8 therefore needs its extra digit 1.
+digits {4,6,7,8}. The companion structural experiment bounds each independent set by three vertices.
+Thus four digit classes can occupy at most twelve of the thirteen cells. The guardian r2c8 therefore needs its extra digit 1.
 This is an application of established graph-coloring and independent-set bounds;
 historical mathematical novelty is not established.
 
@@ -133,9 +141,9 @@ Independent thirteen-cell list-color searches refute their assumed branches in
 givens-derived domain is checked by `real_verify.py`.
 
 The nineteen-given case demonstrates a useful deduction on a nonunique puzzle
-without a uniqueness premise. The thirty-four-given case demonstrates the
-relaxation separation on a proper unique puzzle, but is a **negative control for
-incremental engine value** because existing methods already solve it. Neither
+without a uniqueness premise. The thirty-four-given case demonstrates the relaxation separation on an independently checked unique puzzle.
+Existing methods already solve it.
+Thus it is a **negative control for additional engine benefit**. Neither
 case establishes that the pattern is absent from prior Sudoku literature.
 
 An additional deterministic greedy search augmented givens while rejecting any
@@ -143,7 +151,8 @@ addition that let the old nonforcing baseline place the guardian. Thirty seeds
 tested 1,470 clue additions and accepted 525 steps, ending with 30–42 givens.
 No unique puzzle that also retained an old nonforcing gap was found in 376.8 s.
 `real_four_digit_augmentation_summary.json` records the exact scope and
-`real_four_digit_augment.py --seeds 30` reproduces it. The floating LP discovery
-screens and restricted greedy clue order make this a bounded negative result,
-not a proof that a qualifying unique puzzle cannot exist. Exploratory candidate
+`real_four_digit_augment.py --seeds 30` reproduces it.
+
+Floating-point LP screens and a restricted greedy clue order limit this negative search result.
+The result does not prove that every qualifying unique puzzle is impossible. Exploratory candidate
 outputs go to `/tmp`, separate from the certified fixtures.

@@ -7,6 +7,16 @@ ALS-XZ proof involving a seven-cell ALS. The existing ALS enumerator stops at
 five cells. Exact three-house certificates provide another bounded way to cover
 such deductions and independently verify their premises.
 
+
+```mermaid
+flowchart TD
+    A[33 eliminations in 18 recorded states] --> B[Selected-house feasibility tests]
+    B --> C[26 refutations with a house pair]
+    B --> D[Seven refutations requiring three selected houses]
+    A --> E[Assumption followed by single-house Hall propagation]
+    E --> F[All 33 refuted in this sample]
+```
+
 ## Universe and reproducible counts
 
 [`three_house_classification_corpus.json`](three_house_classification_corpus.json)
@@ -64,15 +74,13 @@ selected house for every one of these seven cases. It joins actual ordered
 shared-cell values and confirms that each pair has support while the triple
 join is empty. It does not share the matching DP used by the classifier.
 
-Across all 33 targets, the smallest possible maximum ALS size among direct
-disjoint ALS-XZ witnesses is 5 for one target, 6 for two, 7 for two, and 8 for
-three. The other 25 have no witness in this precisely defined two-ALS rule.
+Across all 33 targets, eight have a direct disjoint ALS-XZ witness.
+The minimum possible maximum ALS size is 5 for one target, 6 for two, 7 for two, and 8 for three. The other 25 have no witness in this precisely defined two-ALS rule.
 These negative searches say nothing about ALS chains or other known rules.
 
-The seven irreducible cases have seven distinct canonical fingerprints under
-the following **local relaxation** equivalence: arbitrary digit renaming,
-row/column transposition, and relabeling cells within the same membership atom,
-with the target cell and digit distinguished. The classifier exhausts all `8!`
+The seven irreducible cases have distinct canonical fingerprints under a specified **local relaxation** equivalence.
+This equivalence permits arbitrary digit renaming, row/column transposition, and cell relabeling within each membership atom.
+The target cell and digit remain distinguished. The classifier exhausts all `8!`
 renamings after sending the target digit to 1. Within-atom relabeling need not
 extend to a geometric symmetry of the full Sudoku grid, so these are not
 whole-board Sudoku equivalence classes. Canonical forms classify the complete
@@ -132,9 +140,10 @@ of cells, excluded edges, digits, or proof length. Restoration support is local
 to the selected houses and does not assert a complete Sudoku with the target.
 
 A short Hall proof is now visible. Assume r1c4=1. Cells r1c2 and r1c3 occupy
-2 and 3. The seven column cells Q then collectively have only
-`{3,4,5,7,8,9}`: the first three Q cells cannot contain 2 or 3, and all seven
-already exclude 6 while only the center had 1. Seven distinct cells cannot
+2 and 3. The seven column cells Q then have only `{3,4,5,7,8,9}` in their combined domains.
+
+The first three Q cells cannot contain 2 or 3.
+All seven already exclude 6, and only the center previously allowed 1. Seven distinct cells cannot
 use only six digits. The same two-ALS-XZ proof above also applies.
 
 ## Certificate and implementation recommendations
@@ -148,9 +157,9 @@ Atom matchings glue because atom cells have identical membership in all
 selected constraints. This is a matching/constraint decomposition theorem,
 not a new general solving principle.
 
-A production certificate should bind to the exact candidate state and target,
-reconstruct the native layout, and provide a valid Hall-deficient atom subset
-for every permitted signature under the rejected target assumption. The checker
+A production certificate must bind to the exact candidate state and target.
+The checker must reconstruct the native layout.
+Every permitted signature under the rejected target assumption needs a valid Hall-deficient atom subset. The checker
 should recompute neighbor unions and strict cardinality inequalities and check
 complete coverage independently of the search DP. An explicit unforced local
 assignment is a useful consistency guard, but certifies neither full Sudoku
@@ -181,10 +190,9 @@ Fast CI command, approximately 0.4 seconds on the development machine:
 python3 research/nonmodular/three_house_classification.py --no-canonical
 ```
 
-It checks recorded complete solutions, all 33 exact atom deductions, the
-26/7 split, conditional Hall propagation, exhaustive direct ALS-XZ explanations,
-the seven-cell ALS-XZ proof, and coverage of every fixture-847 signature by
-Hall deficiencies. Expected corpus aggregates are asserted, not merely printed.
+The command checks the recorded complete solutions and all 33 exact atom deductions.
+It checks the 26/7 split, conditional Hall propagation, exhaustive direct ALS-XZ explanations, and the seven-cell ALS-XZ proof.
+It also checks Hall-deficiency coverage of every fixture-847 signature. Expected corpus aggregates are asserted, not merely printed.
 
 Full reproduction additionally recomputes canonical classes, both greedy
 premise reductions, and independent factorial joins for all seven irreducible
@@ -198,9 +206,9 @@ python3 research/nonmodular/three_house_classification.py \
 ```
 
 The scripts use Python's standard library. Do not use `-O`; assertions are
-part of these finite research checks. The full sample of 1,000 states is not
-regenerated by this command: the 18 retained exact states are the declared
-classification universe, with sampling provenance recorded in the corpus.
+part of these finite research checks. This command classifies the 18 retained exact states.
+It does not regenerate the complete sample of 1,000 states.
+The corpus records the sampling provenance.
 
 ## Primary prior art and remaining questions
 

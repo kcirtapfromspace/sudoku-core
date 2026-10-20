@@ -9,6 +9,7 @@ use super::global_coloring::GlobalColoringProof;
 use super::three_house::ThreeHouseProof;
 use super::types::{Hint, HintType, Technique};
 use crate::Position;
+use serde::{Deserialize, Serialize};
 
 /// What the engine found: either place a value or eliminate candidates.
 #[derive(Debug, Clone)]
@@ -26,7 +27,7 @@ pub enum InferenceResult {
 // the structural evidence that justifies the inference.
 
 /// Polarity in the AIC bipartite graph: candidate is ON (true) or OFF (false).
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Polarity {
     On,
     Off,
@@ -37,7 +38,7 @@ pub enum Polarity {
 /// Community terminology (StrmCkr / Players Forum):
 /// - `Strong` = structural link (XOR): exactly one of the connected nodes is true.
 /// - `WeakInference` = weak inference (NAND): at most one of the connected nodes is true.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum LinkType {
     /// Strong link (XOR): exactly one of the connected nodes is true.
     Strong,
@@ -46,7 +47,7 @@ pub enum LinkType {
 }
 
 /// Source of a forcing chain deduction.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum ForcingSource {
     /// All candidates of a cell lead to the same conclusion.
     Cell(usize),
@@ -57,7 +58,7 @@ pub enum ForcingSource {
 }
 
 /// Descriptor for an ALS (Almost Locked Set) in a proof certificate.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct AlsProofDescriptor {
     /// Linear cell indices in this ALS.
     pub cells: Vec<usize>,
@@ -82,10 +83,10 @@ pub struct AlsProofDescriptor {
 /// - **Uniqueness**: Relies on the meta-constraint that the puzzle has one solution.
 /// - **Forcing**: Multi-branch propagation proving a common conclusion.
 /// - **Backtracking**: No human technique found; trial-and-error.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum ProofCertificate {
     /// Direct deduction from cell/sector constraints (singles, locked sets).
-    Basic { kind: &'static str },
+    Basic { kind: String },
     /// Rank deficiency in the sector-candidate incidence matrix.
     Fish {
         digit: u8,
@@ -101,7 +102,8 @@ pub enum ProofCertificate {
     },
     /// Alternating inference chain in the bipartite polarity graph.
     Aic {
-        /// Chain nodes: (cell, digit, polarity).
+        /// Chain nodes: (cell, digit, polarity). Legacy Medusa stores unordered
+        /// component members here; reconstruct its strong edges from premises.
         chain: Vec<(usize, u8, Polarity)>,
         /// Link types between consecutive nodes.
         link_types: Vec<LinkType>,
@@ -132,6 +134,14 @@ pub enum ProofCertificate {
     Guardian(super::global_coloring::GuardianPropagation),
     /// Backtracking: no human technique found.
     Backtracking,
+    /// Independent deduction proof, optional independently checked named witness,
+    /// and the original detector description. A missing named witness checks only the endpoint.
+    Certified {
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        named: Option<Box<crate::NamedPatternProof>>,
+        pattern: Option<Box<ProofCertificate>>,
+        deduction: crate::ExactCoverProof,
+    },
 }
 
 /// Engine-specific explanation data for generating human-readable strings.

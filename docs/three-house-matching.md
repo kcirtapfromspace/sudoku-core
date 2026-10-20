@@ -3,8 +3,10 @@
 `Technique::ThreeHouseMatching` performs exact support filtering on the row,
 column and box through one cell. It uses no modular arithmetic or uniqueness
 assumption. The main hint and rating ladders try it after Death Blossom and
-before Arithmetic Counting and forcing. Recursive forcing propagation omits it
-to avoid multiplying its search cost. Its Extreme tier and numerical value
+before Arithmetic Counting and forcing. The Logical propagation policy stops before this method.
+
+Forcing certificates can separately enable all 81 crossing triples through `ForcingPropagation::ThreeHouse`.
+The [solver-state guide](solver-state.md) defines that option. Its Extreme tier and numerical value
 8.5 are uncalibrated engine estimates, not published Sudoku Explainer ratings.
 
 This is an application of established simultaneous matching, Hall reasoning,
@@ -13,6 +15,17 @@ established. The research comparison even identifies standard ALS-XZ and linear
 counting proofs for the original synthetic example; see the
 [prior-art audit](../research/nonmodular/three_house_prior_art.md) and
 [finite classification](../research/nonmodular/three_house_classification.md).
+
+
+```mermaid
+flowchart TD
+    A[Select a crossing row, column, and box] --> B[Partition 21 cells into six atoms]
+    B --> C[Enumerate boundary signatures]
+    C --> D[Check matching support in every atom]
+    D --> E[Propose an unsupported candidate]
+    E --> F[Check a complete Hall obstruction cover]
+    F --> G[Export an exact-state replay]
+```
 
 ## Exact three-house decomposition
 
@@ -31,15 +44,17 @@ six disjoint membership atoms, ordering each atom by row-major cell index:
 Here U={1,...,9}, A and E are two-digit sets, and {d}, A and E are pairwise
 disjoint. There are at most 9*C(8,2)*C(6,2)=3,780 signatures per center.
 
-**Support theorem.** A domain-respecting assignment to the three houses exists
-if and only if some signature admits a perfect matching in every atom between
-its cells and required digits. For the forward direction, take each atom's
-assigned digit set from a respecting assignment. Conversely, combine the atom
+**Support theorem.** A respecting assignment exists exactly when one signature has a perfect matching in every atom.
+Each atom matches its cells to the required digits. For the forward direction, take each atom's
+assigned digit set from a respecting assignment.
+
+Conversely, combine the atom
 matchings. Atoms partition the 21 cells, and their digit sets partition U within
 each selected house, so each house contains exactly digits 1 through 9. Moreover,
 a candidate has support precisely when an accepting signature has an atom
 matching containing that edge. Search unions those matching-supported edges
 using subset dynamic programming and proposes an unsupported live candidate.
+
 This theorem concerns the selected-house relaxation, not a whole Sudoku solution.
 
 ## Independently checked certificates
@@ -57,15 +72,16 @@ The checker never invokes the search matching DP. `ThreeHouseProof` contains:
 To check an obstruction, first restrict the target cell's domain to the assumed
 value. Intersect each recorded subset cell's domain with the required digit set.
 The union must have fewer digits than the number of subset cells. By the
-pigeonhole principle, that atom cannot be filled injectively. The checker then
+pigeonhole principle, that atom cannot be filled injectively.
+
+The checker then
 reconstructs **every** center-domain-permitted signature and requires a checked
 obstruction with the matching atom and digit mask. Consequently every respecting
 target assignment is impossible, so every full completion respecting the premises
 avoids the target. No search budget or claimed count can substitute for coverage.
 
-The checker rejects stale state hashes, unsupported versions, filled or absent
-targets, targets outside the union, malformed masks/subsets, duplicate obstruction
-keys, missing signature coverage and invalid base assignments. The digest is
+The checker rejects stale hashes, unsupported versions, and invalid targets.
+It also rejects malformed masks or subsets, duplicate obstruction keys, incomplete signature coverage, and invalid base assignments. The digest is
 state binding, not an authenticity signature.
 
 [`verification/three_house.rs`](../verification/three_house.rs) machine-checks
@@ -98,6 +114,7 @@ if let Some(hint) = result.hint {
 supplied candidates, do not mutate the grid, and require installed standard
 Sudoku constraints. Additional restricting variants preserve the validity of
 native deductions. Custom grids without native-rule provenance are rejected.
+
 `max_centers` accepts 0..=81 and searches a deterministic prefix of centers.
 `centers_checked`, `error`, and `exhausted` distinguish a truncated or invalid
 search; `exhausted` is true only when all 81 triples have been checked without
@@ -119,6 +136,7 @@ bit digit-1 permits a digit. `CandidateState` also backs the source-compatible
 `ArithmeticState` alias; the existing arithmetic replay JSON layout is unchanged.
 Replay restores real native constraints, verifies the certificate, requires the
 identical current premises, and atomically removes just the certified candidate.
+
 It preserves earlier deletions and refuses a stale second application. Added
 variant constraints are checked on application but are not serialized in this
 native projection. A local base witness does not prove variant satisfiability.
@@ -147,8 +165,8 @@ compare each deletion with the unique solution, and check portable atomic replay
 Observed release first-hint searches took roughly 0.4–4.3 ms on the local machine;
 these small curated collections are not a general performance or prevalence study.
 
-The finite synthetic classification examines 33 eliminations in 18 retained
-states: 26 are already refutable using a house pair, while seven need all three
-selected houses in their original assumed domains. All 33 are refuted by ordinary
+The finite synthetic classification examines 33 eliminations in 18 retained states.
+A house pair refutes 26 eliminations.
+The other seven need all three selected houses in their original assumed domains. All 33 are refuted by ordinary
 single-house Hall propagation after assuming the candidate. No previously unknown
 solving principle is established by this experiment.

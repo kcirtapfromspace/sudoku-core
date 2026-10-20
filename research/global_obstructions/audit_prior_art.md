@@ -5,11 +5,21 @@ failed-literal refutation, impossible patterns with guardians, and nonlinear
 graph certificates are established methods. The purpose here is to preserve
 precise, independently checked evidence about specified finite relaxations.
 
-The follow-up [exact 13-cell motif audit](prior_art_13_report.md) goes further:
-it maps a 29-edge spanning subgraph to an established seven-hyperhole and checks
-a grouped discontinuous-loop derivation after the guardian-false assumption.
+The [exact 13-cell motif audit](prior_art_13_report.md) maps a 29-edge spanning subgraph to an established seven-hyperhole.
+It also checks a grouped discontinuous-loop derivation after the guardian-false assumption.
 See the [expanded search report](expanded_search_report.md) for the later unique
 nonforcing-gap puzzle and the separate, stronger full-old-engine target.
+
+
+```mermaid
+flowchart TD
+    A[Proposed graph deduction] --> B[Check the exact coloring certificate]
+    A --> C[Check rational LP evidence]
+    A --> D[Find known pattern explanations]
+    B --> E[Record validity and comparison scope]
+    C --> E
+    D --> F[Record historical status separately]
+```
 
 ## Exact LP acceptance criterion
 
@@ -27,10 +37,8 @@ tolerance. A fallback solves the proposed nonzero basis over the rationals.
 Verification and the recorded-witness audit require no numerical libraries.
 
 If this exact point exists, no contradiction follows solely from linear
-combinations of these equalities and nonnegativity. This is a separation from
-**this native continuous relaxation**, not from all LP encodings, stronger
-local-marginal LP hierarchies, cutting planes, SDP, integer reasoning, or every
-technique called rank/MSLS.
+combinations of these equalities and nonnegativity. The separation applies only to **this native continuous relaxation**.
+It does not cover all LP encodings, local-marginal hierarchies, cutting planes, SDP, integer reasoning, or rank/MSLS methods.
 
 ## Published-puzzle positive controls
 
@@ -87,9 +95,11 @@ right-hand side -1 and nonnegative coefficients on every available candidate.
 Thus non-four-colorability alone did not meet the stronger LP-survival filter.
 
 A later, different [13-cell four-digit candidate](structural_four_digit_13.json) passed the post-assumption
-closed-domain LP test. Its recorded point uses only 0, 1/4, and 1/5: a binary
-vector `t` assigns `t/4` to the four palette digits and `(1-t)/5` to the other
-five. The [recorded exact point](linear_four_digit_candidate.json) satisfies
+closed-domain LP test. The recorded point uses only 0, 1/4, and 1/5.
+A binary vector `t` assigns `t/4` to the four palette digits.
+It assigns `(1-t)/5` to the other five digits.
+
+The [recorded exact point](linear_four_digit_candidate.json) satisfies
 all 324 equalities, recorded closed domains, and the guardian-false
 assumption. This is an independently mined synthetic pattern; historical
 priority does not follow. The structural experiment separately owns its graph criticality and
@@ -104,9 +114,9 @@ stable-set counting argument, not a new mathematical principle. The exact
 native LP point nevertheless permits 3.25 selected occurrences per palette
 digit, demonstrating the specified integrality gap.
 
-A separate [generated 19-given four-digit fixture](real_four_digit_candidate.json)
-records a puzzle generated from a known completion, candidate-reduction traces, and a respecting completion
-that reach the same kind of obstruction. Its
+The [generated 19-given four-digit fixture](real_four_digit_candidate.json) starts from a known completion.
+It records the generated puzzle, candidate-reduction traces, and a respecting completion.
+The traces reach the same type of obstruction. Its
 [post-assumption exact LP point](linear_real_four_digit_candidate.json) has
 161 nonzero entries and satisfies all recorded domains and native equalities.
 It has multiple completions. The recorded existing non-forcing baseline stalls;
@@ -116,10 +126,10 @@ The separate [generated 34-given puzzle](real_four_digit_unique.json) has an
 independently checked unique completion and survives the same specified local
 filters under its opposite target assumption. Its
 [exact LP witness](linear_real_four_digit_unique.json) has only 92 nonzero
-entries, all equal to 1 or 1/2. The existing engine's Finned X-Wing, Pointing,
-and singles already solve it, so it is a **negative control for an additional
-solver benefit**, despite being a positive control for the specified local/LP
-gap. Both generated fixtures come from this search and a known completion;
+entries, all equal to 1 or 1/2. The existing engine solves it with Finned X-Wing, Pointing, and singles.
+Thus it is a **negative control for additional solver benefit**.
+
+It remains a positive control for the specified local/LP gap. Both generated fixtures come from this search and a known completion;
 they are not published author-source puzzles. The proof does not use
 uniqueness, and neither example establishes a separation from all established
 AIC, forcing, rank, or impossible-pattern methods.
@@ -140,20 +150,22 @@ all row/column/box peer edges from board indices. It verifies:
   no reused evidence, and complete reachability of the bounded proof tree.
 
 No externally supplied graph edges, color-permutation normalization, solver
-cache, or numerical result is trusted. Correctness is finite case exhaustion:
-every respecting completion restricts to a proper selected-cell coloring;
-one of each split's exhaustive branches preserves that coloring; a final empty
-domain cannot preserve it. The base witness rejects vacuity only for this
+cache, or numerical result is trusted. Finite case exhaustion proves correctness.
+Each respecting completion restricts to a proper selected-cell coloring.
+One branch of every exhaustive split preserves that coloring.
+
+A final empty domain cannot preserve it. The base witness rejects vacuity only for this
 local coloring relaxation. The real fixtures additionally carry full
 completions, checked separately. Recorded domains remain premises, so replaying
 their derivation from givens is a separate obligation.
 
-The original four Rust replay exports were independently checked: #4401 uses
-14 selected cells and 190 proof nodes, #4662 uses 12 and 142, Loki uses 13 and
-178, and the synthetic four-digit case uses 13 and 1,121. Two additional generated-board exports also verify. Ten evidence mutations
-per replay are rejected (60 mutations for those six initial exports), including missing/duplicate branches, invalid/reused
-child references, false conflict evidence, reversed endpoints, stale hashes,
-and malformed support witnesses. Running the checker without arguments checks
+Independent checks accepted the original four Rust replay exports:
+
+- #4401 uses 14 selected cells and 190 proof nodes.
+- #4662 uses 12 selected cells and 142 nodes.
+- Loki uses 13 selected cells and 178 nodes.
+- The synthetic four-digit case uses 13 selected cells and 1,121 nodes. Two additional generated-board exports also verify. The checker rejects ten evidence mutations per replay, for 60 mutations across the six initial exports.
+Mutations include missing or duplicate branches, invalid or reused children, false conflicts, reversed endpoints, stale hashes, and malformed witnesses. Running the checker without arguments checks
 every recorded `replay_*.json` export.
 
 The expanded search adds a seventh export for a unique 29-given nonforcing-gap

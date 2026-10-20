@@ -185,11 +185,6 @@ fn pair_and_triplet_exclusion_follow_all_distinct_assignment_logic() {
 #[test]
 fn wing_and_general_pair_patterns_emit_sound_proofs() {
     for (pattern, expected) in [
-        (vec![(0, vec![1, 2]), (1, vec![1, 2])], Technique::XYWing),
-        (
-            vec![(0, vec![1, 2]), (1, vec![1, 3]), (2, vec![2, 3])],
-            Technique::XYZWing,
-        ),
         (
             vec![
                 (0, vec![1, 2]),
@@ -235,6 +230,15 @@ fn wing_and_general_pair_patterns_emit_sound_proofs() {
             }
         }
     }
+    let pair = fabric(&[(0, &[1, 2]), (1, &[1, 2])]);
+    assert!(find_xy_wing(&pair).is_none());
+    assert!(find_xyz_wing(&pair).is_none());
+    let xy = fabric(&[(0, &[1, 2]), (3, &[1, 3]), (9, &[2, 3])]);
+    let finding = find_xy_wing(&xy).unwrap();
+    assert_sound(&xy, &finding);
+    let xyz = fabric(&[(0, &[1, 2, 3]), (3, &[1, 3]), (9, &[2, 3])]);
+    let finding = find_xyz_wing(&xyz).unwrap();
+    assert_sound(&xyz, &finding);
     assert!(find_als_xz_filtered(&fabric(&[]), None).is_none());
     assert_eq!(technique_name(Technique::HiddenSingle), "ALS");
     assert_eq!(technique_name(Technique::AlsXyWing), "ALS-XY-Wing");

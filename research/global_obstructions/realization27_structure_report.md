@@ -13,6 +13,16 @@ different incidence of rows, columns and boxes remains a separate question.
 Clues inside the support, additional variant constraints, or a different
 support pattern are also different tasks.
 
+
+```mermaid
+flowchart TD
+    A[Native support without its guardian] --> B[1320 labeled four-colorings]
+    B --> C[408 external house signatures]
+    C --> D[No signature has one filling]
+    D --> E[Every compatible filling has an internal trade]
+    E --> F[Unique outside-clue realization excluded]
+```
+
 ## Exact finite proof
 
 Let S be the 27 recorded cells, g=r5c6, and P={2,3,5,9}. The native graph on S
@@ -47,10 +57,14 @@ outside S.
 **Proof.** Take its labelled coloring on S minus g. Choose a different coloring
 with the same signature, which exists by the exhaustive classification.
 Replace the selected cells by that coloring and leave g and all outside cells
-unchanged. In each native house, the selected-cell digit multiset is unchanged;
+unchanged.
+
+In each native house, the selected-cell digit multiset is unchanged;
 the remaining cells are unchanged as well. Every house therefore still contains
 digits 1 through 9 exactly once. The new Sudoku is different, and every given
-outside S is preserved. Thus no such outside-clue puzzle is unique. ∎
+outside S is preserved. Thus no such outside-clue puzzle is unique.
+
+∎
 
 The proof is invariant under native Sudoku automorphisms and global digit
 renaming. It does not assert invariance under arbitrary graph-isomorphic
@@ -59,11 +73,9 @@ embeddings that realize edges using different houses.
 The retained certificate
 [`realization27_structure_proof.json`](realization27_structure_proof.json)
 contains all 55 normalized colorings, exact counts, support, palette, anchor,
-and an explicit completion pair. The standalone standard-library checker
-[`realization27_structure_verify.py`](realization27_structure_verify.py)
-reconstructs native geometry, independently enumerates all 1,320 labelled
-colorings, checks all signatures, verifies the original graph is not
-four-colorable, and rejects eight malformed certificate mutations. It does
+and an explicit completion pair. The standard-library checker [`realization27_structure_verify.py`](realization27_structure_verify.py) reconstructs native geometry and independently enumerates all 1,320 labeled colorings.
+It checks every signature and confirms that the original graph has no four-coloring.
+It also rejects eight malformed certificate mutations. It does
 not trust a numerical optimizer, a search count, or the stored representatives
 as a completeness claim. A separate agent independently enumerated the same
 counts in `realization27_audit_trades.py`.
@@ -110,10 +122,9 @@ guardian-false domains; the other 44 pass the native 324-equation LP screen.
 They occupy cells `{19,21,22,23,26,28,46,55,57,59,62}`, with all four palette
 choices at each. Floating screening results alone are not certificates.
 
-There is also an exact positive control: adding the stored-completion clue
-r3c2=3 preserves local Hall/all-81 closure and admits a full single-digit
-template primal with 48 rational terms, verified exactly by the template
-search checker. Its raw input and witness are retained under
+The stored-completion clue r3c2=3 gives an exact positive control.
+It preserves local Hall/all-81 closure.
+The template checker verifies a full single-digit template primal with 48 rational terms. Its raw input and witness are retained under
 `target/realization27-one-palette-*`. Therefore a stronger claim that *every*
 palette clue destroys the relaxation is false. Template-LP feasibility does
 not rescue uniqueness from the universal internal trade.
@@ -128,17 +139,16 @@ can retain bounded cell/node counts, exact branch coverage, native geometry,
 premise binding, and a respecting base witness. Production changes belong to
 the parent implementation; this research made none.
 
-A shorter certificate is possible in principle for this uniform four-color
-case: every proper coloring assigns a native four-clique all four colors, and
-a global palette permutation maps those assignments to one fixed ordering.
+A shorter certificate is possible for this uniform four-color case.
+Every proper coloring assigns all four colors to a native four-clique.
+A global palette permutation maps that assignment to one fixed ordering.
 An independently checked symmetry rule could therefore verify one normalized
 refutation instead of all 24 equivalent labelings. Such a rule must explicitly
 check uniform domains after the assumption and the native clique. It is not
 sound for arbitrary unequal lists without additional checks.
 
-The next meaningful realization target must change at least one premise:
-permit clues inside the unavoidable support, find another house incidence,
-find a different obstruction, or add explicitly requested variant constraints.
+A new realization target must change at least one premise.
+Options include internal givens, a different house incidence, a different obstruction, or explicitly requested variant constraints.
 Further completion or clue-subset sampling on this exact incidence cannot
 produce the requested unique puzzle.
 
@@ -151,11 +161,8 @@ python3 research/global_obstructions/realization27_structure_verify.py --self-te
 
 The direct labelled search visits 16,217 nodes. The verifier uses only the
 standard library and takes well under a second without mutation tests on the
-development machine. Full raw completion lists and exploratory clue screens
-are under `target/`; the public proof is compact and self-contained apart from
-binding to the existing native27 source fixture.
+development machine. Full completion lists and exploratory clue screens are under `target/`.
+The compact public proof contains its own evidence and binds to the existing native27 source fixture.
 
-This is a computer-assisted result for one specified support. The general
-notion of an unavoidable set and the need for a unique clue set to intersect
-it are established prior art; see the independent trade audit's primary-source
-comparison. No historical priority claim is made for that general principle.
+This is a computer-assisted result for one specified support. Unavoidable sets and the requirement for unique clue sets to intersect them are established principles.
+The independent trade audit gives the primary-source comparison. No historical priority claim is made for that general principle.

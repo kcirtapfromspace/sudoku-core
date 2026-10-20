@@ -1,106 +1,100 @@
-# `sudoku-core` (Rust Engine)
+# sudoku-core
 
-`sudoku-core` is the shared Rust engine used by the TUI, WASM, and iOS targets. It provides:
+`sudoku-core` is the Rust Sudoku engine for terminal, WebAssembly, and mobile consumers.
+The engine contains the board model, constraints, solver, hint APIs, ratings, and puzzle generator.
 
-- A `Grid` model with constraint-aware candidate tracking
-- A solver with 47 logical solving techniques plus backtracking
-- A hint system (returns an explanation + affected cells)
-- A puzzle generator that targets a requested difficulty with SE rating bounds
-- Dual rating: technique-based difficulty tiers and Sudoku Explainer (SE) numerical ratings
+The [technical terms](docs/technical-terms.md) define the project vocabulary.
+The [writing guide](docs/writing-guide.md) defines the documentation rules.
 
-## How The Engine Operates
+```mermaid
+flowchart TD
+    A[Consumer application] --> B[Grid and constraints]
+    B --> C[SolverState]
+    C --> D[Ordered technique dispatcher]
+    D --> E[Hint and available evidence]
+    E --> I[Grid scenes and evidence display]
+    B --> F[Solution counter]
+    F --> G[Puzzle generator]
+    G --> H[Difficulty and SE ratings]
+```
 
-### Data Model
+## Board model and constraints
 
-- `Grid` (`src/grid.rs`) is a 9x9 array of `Cell`s.
-- Each `Cell` stores:
-  - `value: Option<u8>`
-  - `given: bool` (part of the original puzzle)
-  - `candidates: BitSet` (1-9)
-- `Grid::recalculate_candidates()` recomputes candidates for every empty cell by:
-  1. Resetting all empty cells to all candidates (1-9)
-  2. Removing candidates that violate any constraint based on filled values
+`Grid` stores 81 `Cell` values in a 9×9 array.
+Each cell stores an optional value, a given flag, and a candidate `BitSet`.
+`Grid::recalculate_candidates()` starts from the placed values and rebuilds candidates for each empty cell.
+This operation discards earlier candidate eliminations.
 
-### Constraints (Variants)
+The constraint interface supports these board types:
 
-The engine is constraint-driven (`src/constraint.rs` + `Grid::constraints()`):
+- Classic Sudoku uses row, column, and box constraints.
+- X-Sudoku adds the two diagonal constraints.
+- Killer Sudoku adds cage-sum constraints.
+- Other installed constraints use the same validation interface.
 
-- Classic: row/column/box constraints
-- X-Sudoku: adds diagonal constraints (`Grid::new_x_sudoku()`)
-- Killer: adds cage-sum constraints (`Grid::new_killer(...)`)
-- Additional constraints exist (thermo, etc.) and are enforced through the same interface
+`Grid::constraints()` exposes the active constraints.
+Candidate updates, validation, and general search use those constraints.
 
-The solver, validator, and candidate updates all operate through the active constraint set.
+## Solving and hints
 
-### Solver
+The ordered dispatcher implements 47 logical techniques plus a backtracking fallback.
+The technique families include singles, subsets, fish, Almost Locked Sets, chains, uniqueness, matching, arithmetic, coloring, and forcing.
+`Technique` in `src/solver/types.rs` defines the exact list and order.
+The [solver specification](src/solver/SPECIFICATION.md) states the proof conditions.
 
-`Solver` (`src/solver/`) is organized as a modular directory with dedicated engine files for each technique family (fish, ALS, AIC/chains, uniqueness, etc.), plus `types.rs` for the `Technique` enum and `fabric.rs` for the dual-indexed candidate state. It has two layers:
+`Solver::get_hint()` rebuilds candidates from placed values before it searches for a step.
+A hint contains an explanation, affected cells, a technique, and related evidence.
+If no logical technique returns a step, the Full policy can use a solved completion for a backtracking hint.
 
-1. **Logical techniques** (47 techniques, ordered by complexity)
-   - The solver can search for a concrete next step (a `Hint`) by trying techniques in increasing complexity.
-   - Techniques: Naked/Hidden Singles, Naked/Hidden Pairs/Triples, Pointing Pairs, Box-Line Reduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Naked/Hidden Quads, Empty Rectangle, Avoidable Rectangle, XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, Sue de Coq, AIC, Franken Fish, Siamese Fish, ALS-XZ, ALS-XY-Wing, ALS Chain, Unique Rectangle (Types 1-4), Hidden Rectangle, Extended Unique Rectangle, Mutant Fish, Aligned Pair Exclusion, Aligned Triplet Exclusion, BUG+1, Death Blossom, Three-House Matching, Arithmetic Counting, Global Coloring, Nishio Forcing Chain, Kraken Fish, Region Forcing Chain, Cell Forcing Chain, Dynamic Forcing Chain.
-2. **Backtracking fallback**
-   - `solve()` uses recursion with the MRV heuristic (choose the empty cell with the fewest candidates).
-   - It tries each candidate, validates the grid, and recurses until solved.
-   - `count_solutions(limit)` uses an allocation-free row/column/box bitmask search for built-in classic grids, stopping at the requested cap. Variants and custom constraints retain the general constraint-aware search.
+`SolverState` retains deductions between steps.
+`Solver::get_hint_with_candidates()` searches validated candidate masks without rebuilding them.
+Solver placements and assumptions remove candidates without restoring earlier eliminations.
+Edits and undo have explicit rules for candidate masks and retained guardian relations.
+The [solver-state API](docs/solver-state.md) describes those rules and the forcing proof format.
 
-### Hints
+`GridScene::from_hint()` exports board frames, candidate highlights, structural links, and available proof results for every technique.
+The [grid explanation guide](docs/grid-scenes.md) defines the scene format and evidence status.
+The browser example displays real puzzle states and deliberate invalidation cases.
+All 48 technique IDs have frozen real-puzzle examples with independent named-pattern and deduction certificates.
+Original-givens uniqueness proofs also authenticate each example's setup placements and candidate removals.
+The [independent validation guide](docs/independent-validation.md) describes the Rust and Python replay checkers.
 
-`get_hint()` returns the first available step from the technique ladder. Each hint includes a human-readable explanation, affected cells, and the technique's SE rating. If no human technique applies, it falls back to:
+```sh
+cargo run --release --locked --example grid_viewer
+```
 
-- Solve the puzzle fully
-- Return a "Backtracking" hint for the next empty cell (a forced placement from the known solution)
+Open `target/grid-viewer.html` to inspect the examples.
 
-### Arithmetic Counting certificates
+Backtracking selects an empty cell with the fewest candidates.
+Each branch places a candidate and checks the constraints.
+`count_solutions(limit)` stops at the requested solution cap.
+Built-in classic boards use a counter with row, column, and box occupancy masks.
+Variants and custom constraints use the general constraint-aware counter.
 
-Arithmetic Counting combines up to six exactly-one equations and verifies each
-placement or elimination with an independently reconstructed interval or gcd
-contradiction. It runs after Three-House Matching. `get_arithmetic_hint` and
-`search_arithmetic` also expose it directly while preserving stored candidate
-masks. See the [proof, API, examples, and search limits](docs/arithmetic-counting.md).
+## Checked proof methods
 
-### Three-House Matching certificates
+| Method | Position in the dispatcher | Documentation |
+| --- | --- | --- |
+| Three-House Matching | After Death Blossom | [Theorem, API, and replay](docs/three-house-matching.md) |
+| Arithmetic Counting | After Three-House Matching | [Equations, certificates, and limits](docs/arithmetic-counting.md) |
+| Global Coloring | After Arithmetic Counting | [Graph proof, API, and evidence](docs/global-coloring.md) |
+| Checked forcing | After Global Coloring | [Native proof trees and retained state](docs/solver-state.md) |
 
-Three-House Matching checks a crossing row, column and box exactly and certifies
-eliminations with a complete cover of boundary signatures by Hall obstructions.
-It runs before Arithmetic Counting and forcing; `get_three_house_hint` and
-`search_three_house` preserve stored candidate masks. `ThreeHouseReplay` exports
-independently checked, exact-state steps. See the [theorem, certificate format,
-API and real-game evidence](docs/three-house-matching.md). This applies established
-matching theory; historical mathematical novelty is not established.
+The three direct method APIs preserve supplied candidate masks.
+Each accepted certificate binds its deduction to exact premises.
+The checker does not establish the correctness of earlier imported eliminations.
+A finite search limit can prevent discovery of a valid certificate.
+An absent hint is an inconclusive search result.
 
-### Global Coloring certificates
+The research uses established mathematical principles.
+The [research index](research/global_obstructions/README.md) separates exact deductions, comparison results, and historical novelty claims.
 
-Global Coloring checks a selected native peer graph by an exhaustive, bounded
-case split. Each deduction carries an independently checked refutation tree and
-an exact-state JSON replay. Verified examples survive Hall propagation, all
-crossing three-house checks, and the full native continuous linear relaxation.
-The search runs after Arithmetic Counting and before forcing. See the [short
-four-digit proof, API, real-game controls and limits](docs/global-coloring.md).
+## Difficulty ratings
 
-### Retained deductions and forcing proofs
-
-Use `SolverState` for a sequence of hints that preserves solver candidates and
-verified guardian OR relations. `get_hint_with_candidates` exposes the full
-ladder on validated retained masks; ordinary `get_hint` still rebuilds from
-values. Forcing hints now carry independently replayable native-rule trees with
-explicit resource budgets. See [API usage, proof checking and edit/undo
-behavior](docs/solver-state.md).
-
-## Difficulty Rating
-
-The engine provides two complementary rating systems.
-
-### Technique-Based Difficulty Tiers
-
-`Solver::rate_difficulty()` assigns a difficulty tier by simulating human-style solving:
-
-1. Clones the puzzle and recalculates candidates.
-2. Repeatedly applies techniques in increasing difficulty until the grid is complete.
-3. Tracks the **hardest technique actually required** (`max_technique`).
-4. If it gets stuck (no technique applies and the grid is not complete), it classifies the puzzle as **Extreme** (backtracking required).
-
-Final mapping is based on the hardest technique needed:
+`Solver::rate_difficulty()` copies the puzzle and starts from its placed values.
+It applies the shared retained-step path and records the hardest technique used.
+A logical stall gives the Extreme tier.
+The rating concerns this solving path; it does not prove that every easier proof is impossible.
 
 | Tier | Techniques Required |
 |---|---|
@@ -113,11 +107,9 @@ Final mapping is based on the hardest technique needed:
 | **Master** | Wings (XY-Wing, XYZ-Wing, WXYZ-Wing, W-Wing), Chains (X-Chain, AIC), 3D Medusa, Sue de Coq, Franken/Siamese Fish, ALS-XZ, Extended UR, BUG+1 |
 | **Extreme** | ALS (XY-Wing, Chain), Mutant Fish, Aligned Pair/Triplet Exclusion, Death Blossom, Three-House Matching, Arithmetic Counting, Global Coloring, Forcing Chains (Nishio, Kraken, Region, Cell, Dynamic), Backtracking |
 
-This is intentionally technique-based, not purely "clue count" based (although clue count is used as a generation constraint).
-
-### Sudoku Explainer (SE) Numerical Rating
-
-`Solver::rate_se()` returns a community-standard numerical rating (1.5 - 11.0 scale) based on the hardest technique used. Each technique maps to a fixed SE value via `Technique::se_rating()`:
+The technique tier and Sudoku Explainer (SE) value measure different properties.
+The tier follows the engine's teaching order.
+`Solver::rate_se()` uses the largest configured `Technique::se_rating()` value encountered by the solver.
 
 | Technique | SE |
 |---|---:|
@@ -153,34 +145,35 @@ This is intentionally technique-based, not purely "clue count" based (although c
 | Dynamic Forcing Chain | 9.3 |
 | Backtracking | 11.0 |
 
-Arithmetic Counting, Three-House Matching and Global Coloring use an uncalibrated engine-local value of 8.5; none has an
-official Sudoku Explainer rating. Their inclusion can change puzzle ratings and
-generation results.
+Arithmetic Counting, Three-House Matching, and Global Coloring use an uncalibrated engine value of 8.5.
+These values are not official Sudoku Explainer ratings.
+Hidden Single has SE 1.5; Naked Single has SE 2.3.
+The engine's Beginner/Easy and Medium tiers use a different order.
+Changes to deductions can change puzzle ratings and generated results.
 
-**Note on SE vs Difficulty Tier ordering:** The SE system considers Hidden Singles (1.5) easier than Naked Singles (2.3), which inverts the Beginner/Easy vs Medium tier ordering. This is correct per the SE community standard — hidden singles are "last remaining in a house" (scanning), while naked singles require full candidate elimination. The two scales intentionally measure different axes: SE measures *technique complexity*, our tiers measure *pedagogical progression*.
+## Puzzle generation
 
-## Puzzle Generation
+`src/generator.rs` implements generation and rating filters.
 
-Puzzle generation is in `src/generator.rs`.
+```mermaid
+flowchart TD
+    A[Construct a complete board] --> B[Remove clues and preserve uniqueness]
+    B --> C[Analyze clues and ratings]
+    C --> D{Target met?}
+    D -- Yes --> E[Return the puzzle]
+    D -- No --> F{Attempts remain?}
+    F -- Yes --> A
+    F -- No --> G[Return the closest retained candidate]
+```
 
-Generation is "generate-and-test" with best-candidate tracking:
+The generator first fills the three diagonal boxes with random values.
+The solver completes the board.
+The generator then removes values in the configured symmetry groups.
+Each accepted removal preserves exactly one solution, checked with a solution cap of two.
 
-1. **Create a fully solved grid**
-   - Fill the 3 diagonal 3x3 boxes randomly (they don't interact).
-   - Use the solver to complete the grid.
-2. **Remove givens while preserving uniqueness**
-   - Iterate shuffled positions and remove values in symmetry pairs (configurable; `Extreme` disables symmetry).
-   - After each removal, check the puzzle still has **exactly 1 solution** (`Solver::has_unique_solution`, which counts up to 2).
-   - Stop removing once we're around the minimum givens threshold.
-3. **Rate and filter**
-   - Run `Solver::analyze()` once to obtain both difficulty and SE ratings for the candidate puzzle.
-   - Accept puzzles whose rated difficulty is **equal to the target or one step easier**, whose number of givens falls within the configured range, and whose SE rating (if bounds are configured) falls within the specified range.
-4. **Best-candidate fallback**
-   - If no perfect match is found within the attempt budget, the generator returns the **closest candidate seen** (measured by distance from target difficulty) rather than a random last attempt.
-
-### Generator Config Per Difficulty
-
-Each difficulty has a preset configuration (`GeneratorConfig::{beginner,easy,...}`):
+`Solver::analyze()` computes the difficulty and SE ratings in one call.
+An accepted candidate meets the clue bounds, configured SE bounds, and requested difficulty or the immediately easier tier.
+The generator retains the closest candidate when the attempt budget expires without a target match.
 
 | Target | Symmetry | Givens | Attempts | Min SE |
 |---|---|---:|---:|---:|
@@ -193,75 +186,74 @@ Each difficulty has a preset configuration (`GeneratorConfig::{beginner,easy,...
 | Master | 180 deg | 20-24 | 1000 | 4.5 |
 | Extreme | none | 17-22 | 2000 | 6.0 |
 
-The SE floor for Expert/Master/Extreme ensures meaningful differentiation between the upper tiers. The difficulty tier check already caps the upper bound (a puzzle rated "Expert" can only use fish-level techniques, so its SE is naturally <= 5.4).
+The upper-tier SE floors separate the requested generation targets.
+The technique-tier filter also limits the accepted techniques.
+The source configuration defines the exact bounds.
 
-### Requested vs Rated Difficulty
+The FFI consumers expose both requested and measured difficulty:
 
-The generator accepts puzzles one tier easier than requested for generation speed. The FFI layer exposes both:
+- `get_difficulty()` returns the requested target.
+- `get_rated_difficulty()` returns the measured difficulty.
 
-- `get_difficulty()` — the *requested* difficulty (what the user selected)
-- `get_rated_difficulty()` — the *actual* rated difficulty of the generated puzzle
+Both values are stored during serialization.
+Consumer applications choose the displayed label.
+The iOS consumer uses the requested difficulty and the numerical SE value.
 
-Both values are persisted through serialization. UIs can choose which to display — the iOS app currently uses the requested difficulty as the label with the SE numeric rating for precision.
+`PuzzleId` encodes the seed, difficulty, and variant in a short alphanumeric identifier.
+`Generator::with_seed(seed)` produces deterministic sequences for a fixed implementation.
+A seed-only identifier does not record the generator version.
 
-### PuzzleId
+## Performance and tests
 
-The `PuzzleId` module (`src/puzzle_id.rs`) encodes puzzle parameters (seed, difficulty, variant) into short alphanumeric codes. This enables deterministic puzzle regeneration from a compact identifier, powering shareable puzzle links (e.g., on ukodus.com).
+Run the fixed-workload performance example:
 
-## Reproducibility
+```sh
+cargo run --release --locked --example performance
+```
 
-Use `Generator::with_seed(seed)` to generate deterministic sequences for tests and debugging.
+The [performance report](docs/performance.md) records the workloads, measurements, and comparison limits.
 
-## Performance measurements
+Run the complete test and coverage checks:
 
-Run `cargo run --release --locked --example performance` for fixed-seed generation
-and capped solution-counting timings. See [performance notes](docs/performance.md)
-for the measured improvements, implementation scope, and comparison method.
+```sh
+./scripts/test-coverage.sh
+```
 
-## Tests and coverage
+The [coverage guide](docs/coverage-goals.md) defines the tools, thresholds, and report files.
+The complete soundness suite remains part of acceptance.
 
-Run `./scripts/test-coverage.sh` to run every test, including soundness checks, and
-enforce coverage goals for production code. See
-[coverage goals and setup](docs/coverage-goals.md) for thresholds, tool versions,
-measurement rules and report locations.
+## Formal verification
 
-## Formal Verification
+The `verification/` directory contains [Verus](https://github.com/verus-lang/verus) proofs.
 
-The `verification/` directory contains machine-checked [Verus](https://github.com/verus-lang/verus)
-proofs for the engine's kernel:
+| File | Proved property |
+| --- | --- |
+| `verification/bitset.rs` | Bitset contracts, cardinality, and `single_value` behavior against a set model. |
+| `verification/grid.rs` | Native validity, exact duplicate detection, and sound backtracking that preserves givens. |
+| `verification/arithmetic.rs` | Interval, gcd, and residue contradiction theorems for the weighted equation. |
+| `verification/three_house.rs` | Abstract Hall and complete-signature-coverage theorems. |
+| `verification/global_coloring.rs` | Abstract branch preservation, empty-domain rejection, and exhaustive-split soundness. |
 
-- `verification/bitset.rs` — the candidate `BitSet` proven against a set model:
-  every operation's contract, popcount cardinality, and full functional
-  correctness of `single_value`. Out-of-range values (a shift-overflow panic in
-  the production code) are compile-time errors here.
-- `verification/grid.rs` — a spec-level definition of sudoku validity, with the
-  classic `Constraint::validate` loops, the `has_contradiction` duplicate scan
-  (proven exact: true **iff** the board is invalid), and a backtracking solver
-  proven sound: a `true` return guarantees a complete, valid solution that
-  preserves every given.
-- `verification/global_coloring.rs` — abstract branch preservation, empty-domain rejection and exhaustive-split soundness; production reconstruction remains outside the formal proof.
-- `verification/three_house.rs` — abstract Hall cardinality and complete-signature-coverage soundness (production reconstruction remains outside the formal proof).
-- `verification/arithmetic.rs` — the Arithmetic Counting soundness theorem from
-  [docs/arithmetic-counting.md](docs/arithmetic-counting.md), machine-checked:
-  the certificate checker's interval, gcd, and residue-set terminals each prove
-  that no Boolean assignment satisfies the weighted equation, so a verified
-  certificate refutes the assumed candidate value in every completion.
+The abstract proofs do not verify all production reconstruction, masks, hashing, serialization, or replay code.
+The [method documentation](docs/global-coloring.md) states the scope for each method.
 
-Run `./scripts/verify.sh` (requires a [Verus release](https://github.com/verus-lang/verus/releases)
-and its pinned Rust toolchain; see the script header). CI runs the proofs via
-`.github/workflows/verify.yml`.
+Run the formal checks with the required Verus release and pinned Rust toolchain:
 
-## Research experiments
+```sh
+./scripts/verify.sh
+```
 
-Research fixtures and exact checks outside modular arithmetic are documented in
-[non-modular research experiments](research/nonmodular/README.md), including a
-three-house inference and the limits of its comparison with existing detectors.
-Historical novelty is not established.
+The script header gives the setup details.
+The `.github/workflows/verify.yml` workflow runs the proofs in CI.
 
-[Global obstruction experiments](research/global_obstructions/README.md) add exact
-LP witnesses, published/givens-derived controls, and a four-digit capacity proof.
+## Research documentation
 
-## Minimal Usage
+[Non-modular experiments](research/nonmodular/README.md) cover three-house classification, real puzzles, and comparisons with named methods.
+[Global obstruction experiments](research/global_obstructions/README.md) cover exact LP witnesses, graph certificates, trades, and joint digit placements.
+The reports retain rejected candidates and known-method controls.
+A valid certificate does not establish historical novelty.
+
+## Basic example
 
 ```rust
 use sudoku_core::{Difficulty, Generator, Solver};

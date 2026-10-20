@@ -1,13 +1,13 @@
 # Expanded unique four-digit search and motif provenance
 
-The expanded search found a **unique, generated 29-given puzzle** that passes
-the specified local/native-LP filters and stalls the frozen older nonforcing
-handlers plus default Arithmetic Counting. This improves on the previous
+The expanded search found a **unique, generated 29-given puzzle** that passes the specified local/native-LP filters.
+The frozen older nonforcing handlers and default Arithmetic Counting find no step. This improves on the previous
 nonunique example. It does **not** stall the full older engine: Nishio finds
-r4c6!=4. No unique case meeting the stronger forcing-inclusive target was found
-in that experiment. The subsequent [full-old-engine benchmark](nonrank_report.md)
-does meet it, with an established tridagon composition and an exact full-board
-template witness beyond all per-digit weighted-rank bounds.
+r4c6!=4.
+
+No unique case meeting the stronger forcing-inclusive target was found
+in that experiment. The later [full-old-engine benchmark](nonrank_report.md) meets that recorded target.
+It uses an established tridagon composition and an exact full-board template witness beyond all single-digit weighted-rank bounds.
 
 The motif investigation also found a positive prior-art correspondence. The
 thirteen-cell obstruction has an explicitly mapped spanning **7-hyperhole**,
@@ -15,6 +15,17 @@ with clique sizes `(1,3,1,2,2,2,2)`, and an ordinary grouped Nice Loop derivatio
 under the guardian-false assumption. Its mathematical mechanism is established.
 The first appearance of the exact 35-edge native graph or Sudoku drawing is
 still unresolved; an unsuccessful keyword search cannot establish priority.
+
+
+```mermaid
+flowchart TD
+    A[Unique 29-given puzzle] --> B[Older nonforcing fixed point]
+    B --> C[Global Coloring certificate]
+    A --> D[Full older dispatcher including forcing]
+    D --> E[Nishio deduction found]
+    C --> F[Benefit over the specified nonforcing baseline]
+    E --> F
+```
 
 ## Certified unique nonforcing gap
 
@@ -66,50 +77,56 @@ r5c1!=6, r1c3!=1, r2c1!=7 and r1c2!=8. Every endpoint is checked against the
 independently counted sole completion; the local trace is independently replayed.
 This does not independently reconstruct each named old technique's inner proof.
 
-The standard-library acceptance script replays givens/traces, independently
-counts solutions, checks both local fixed points and all arbitrary triples,
-verifies the exact LP point, and independently checks the production certificate:
+The standard-library acceptance script replays the givens and traces and independently counts solutions.
+It checks both local fixed points, all arbitrary triples, the exact LP point, and the production certificate.
+The command is:
 
 ```sh
 python3 research/global_obstructions/expanded_unique_verify.py
 python3 research/global_obstructions/audit_global_certificates.py
 ```
 
-The added Rust integration case constructs the direct thirteen-cell proof,
-checks the automatic search, round-trips the replay, applies it atomically and
-rejects a stale second application. No new trusted template or production
+The Rust integration case constructs the direct thirteen-cell proof and checks automatic search.
+It checks replay serialization, atomic application, and rejection of a stale second application. No new trusted template or production
 algorithm was needed; the generic Global Coloring implementation already covers
 this state. The seven committed exports now reject seventy evidence mutations.
 
 ## Broader experiments and what a stall means
 
 The old engine is frozen at `0532d63d9241a69c1fb57e9c34a1533effe1981d`.
-The search normalizes singleton peer exclusions before each old-engine call,
-alternates old nonforcing and full Hall/crossing closure to a joint fixed point,
-and preserves all earlier candidate removals. Uniqueness handlers are enabled
+Before each older-engine call, the search applies singleton peer exclusions.
+It alternates older nonforcing methods with complete Hall/crossing closure to a joint fixed point.
+Earlier candidate removals remain in force.
+
+Uniqueness handlers are enabled
 only after an independent uniqueness check. A solved board or a placed guardian
 is never classified as a stall. Existing forcing is tested on unique finalists
 and its unrelated hints are not suppressed.
 
 Three complementary searches broadened the earlier thirty greedy restarts:
 
-1. [Counterexample-guided clue replacement](expanded_cover_notes.md) jointly
-   chooses clues and a guardian-false continuous LP point, learns constraints
-   from alternate full solutions, changes previous clue choices, minimizes
-   unique endpoints and follows full old forcing to its endpoint. The exact
+1. [Counterexample-guided clue replacement](expanded_cover_notes.md) jointly chooses clues and a guardian-false continuous LP point.
+   It learns constraints from alternate solutions, changes earlier clues, and minimizes unique endpoints.
+   It then follows the complete configured older forcing search to its endpoint.
+
+   The exact
    per-run bounds and deduplicated outcomes are in
    [expanded_cover_summary.json](expanded_cover_summary.json).
    Excluding the preliminary pilot, 767 distinct raw clue sets include 438
    unique raw selections. Minimization and qualification produced 611 distinct
    evaluated unique endpoints. Of these, 91 retained a nonforcing-plus-arithmetic
-   gap; full older forcing placed the guardian in all 91. The other endpoint
+   gap; full older forcing placed the guardian in all 91.
+
+   The other endpoint
    categories are 425 old-target-placed, 15 joint-target-placed, 16 initial-local
    and 64 post-old-local rejections. These are discovery classifications, not
    611 independently exported proof certificates.
    Public [raw-trial](expanded_cover_trials.jsonl) and
    [endpoint](expanded_cover_endpoints.jsonl) manifests allow the deduplication
    and category totals to be recounted without private logs. Their hashes and
-   schemas are bound in the summary. The lightweight verifier audits those
+   schemas are bound in the summary.
+
+   The lightweight verifier audits those
    counts and a separate two-completion negative control; it does not recertify
    every discovery classification.
 2. [Different completions and motifs](expanded_motif_report.md) explores native
@@ -126,13 +143,16 @@ Three complementary searches broadened the earlier thirty greedy restarts:
    all 106 original Norvig inputs as unique. Joint old/local closure solved 76
    and stalled on 30. All 4,943 eligible component presentations were uniformly
    four-colorable, so none reached the later LP/full-forcing finalist checks.
+
    There were no execution or validation failures in this normalized run.
    A separate [modern 200-puzzle screen](expanded_modern_results.json) used a
    [pinned author-maintained corpus](expanded_modern_corpus_meta.json), with no
    literal overlap with those 106 inputs. All 200 were independently unique and
    stalled under joint old/local closure. All 22,855 eligible component
    presentations were uniformly four-colorable; there were no candidates or
-   execution failures. The sample includes 150 Monhard entries with source
+   execution failures.
+
+   The sample includes 150 Monhard entries with source
    SER>=11.7 and 50 Mith minimal reconstructions; those source ratings were not
    independently recalibrated here.
 
@@ -164,9 +184,8 @@ python3 research/global_obstructions/expanded_corpus_search.py \
 
 ## What is known about the thirteen-cell pattern
 
-The [detailed prior-art report](prior_art_13_report.md) supplies all seven bags,
-the six extra native edges, exact graph invariants, canonical geometry, a
-47-query log, primary references and inaccessible-source limits. Its positive
+The [detailed prior-art report](prior_art_13_report.md) supplies all seven bags, six extra native edges, exact graph invariants, and canonical geometry.
+It also records the 47-query log, primary references, and unavailable-source limits. Its positive
 match uses [Maffray, Penev and Vušković, *Coloring rings*, arXiv v1 (2019),
 Lemma 1.1](https://arxiv.org/pdf/1907.11905v1). The actual spanning skeleton has
 29 edges, independence number three and chromatic number five. The native

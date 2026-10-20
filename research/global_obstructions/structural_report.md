@@ -12,10 +12,20 @@ inequality. The exact historical status of this native 13-cell motif has not
 been established. In particular, a lack of matching search results does not
 prove priority or that higher chromatic Sudoku patterns are under-examined.
 
-The follow-up [prior-art audit](prior_art_13_report.md) identifies the entire
-necessary obstruction as a spanning seven-hyperhole with six extra native
-edges, and maps its assumed-state logic to established grouped Nice Loops.
+The [prior-art audit](prior_art_13_report.md) identifies the necessary obstruction as a spanning seven-hyperhole with six extra native edges.
+It maps the assumed-state logic to established grouped Nice Loops.
 Those exact equivalences explain the proof without a new mathematical rule.
+
+
+```mermaid
+flowchart TD
+    A[Synthetic four-digit candidate state] --> B[Hall and specified three-house checks pass]
+    A --> C[Exact continuous LP point]
+    A --> D[13-cell rank obstruction]
+    D --> E[Guardian placement]
+    E --> F[Exact coloring certificate]
+    F --> G[Known-principle and realization audits]
+```
 
 ## Exact fixture and proof
 
@@ -38,8 +48,8 @@ Every selected cell has exactly the four palette candidates, except r2c8,
 which additionally permits 1. Removing that 1 leaves all 13 cells restricted
 to the four-digit palette.
 
-Let G be the graph on these cells, with an edge exactly when the cells share
-a native row, column, or box. The independent verifier reconstructs all edges
+Let G be the graph on these cells.
+An edge joins two cells exactly when they share a native row, column, or box. The independent verifier reconstructs all edges
 from the coordinates; supplied graph edges are not trusted. G has 35 edges,
 eight vertices of degree five, and five of degree six. No house contains more
 than four selected cells.
@@ -49,10 +59,14 @@ r2c8=1.
 
 **Proof.** The support lies in boxes 1, 3, 4, and 6. Four independent cells would
 need one cell from each box. Box 1 contains only r2c1, so that cell must be
-selected. In box 3, its row eliminates r2c7, r2c8, and r2c9, forcing r3c8.
+selected.
+
+In box 3, its row eliminates r2c7, r2c8, and r2c9, forcing r3c8.
 In box 4, its column eliminates r4c1 and r5c1, leaving r6c2 or r6c3. The forced
 r3c8 eliminates r4c8 and r5c8 from box 6, leaving r6c7 or r6c9. Both remaining
-box choices are in row 6, so they cannot both be selected. Thus four independent
+box choices are in row 6, so they cannot both be selected.
+
+Thus four independent
 cells are impossible.
 
 Independent triples exist, so the independence number of G is exactly three.
@@ -111,9 +125,9 @@ x(c,d) = 0    otherwise.
 
 This has 369 nonzero variables. Exact `Fraction` checks verify nonnegativity,
 every domain restriction, all 81 cell equations, and all 243 house/digit
-equations. It respects r2c8≠1. Thus the **full native continuous relaxation**
-really is feasible after the rejected assumption; this is not merely a check
-of selected equations or floating-point solver status. Each palette digit has
+equations. It respects r2c8≠1. Thus an exact feasible point exists for the **full native continuous relaxation** after the rejected assumption.
+
+The check includes every equation and uses exact arithmetic. Each palette digit has
 fractional mass `13/4` on the core, exceeding the valid integer bound three.
 That is precisely the missing stable-set rank inequality.
 
@@ -134,9 +148,10 @@ On the **unforced base state**:
 On the assumed fixed point, Franken Fish and Mutant Fish do find further
 steps; the other listed handlers return none. Default arithmetic still returns
 no hint after 22,238 combinations with beam pruning, and all 81 crossing
-checks return no hint. Therefore this report does **not** claim that the
-assumed state is a fixed point of the entire older detector repertoire, or that
-forcing chains cannot prove the result. Search failure is not a completeness
+checks return no hint. The assumed state is therefore **not** a fixed point of every older detector.
+This result also does not exclude a forcing-chain proof.
+
+Search failure is not a completeness
 theorem. Uniqueness methods, the new Global Coloring feature, forcing chains,
 backtracking, optional residue APIs, external solvers, and unimplemented named
 rules are outside this comparison. Exact results and the source fingerprint
@@ -150,9 +165,9 @@ real-game corpus. The candidate restrictions were constructed for this
 experiment. This does **not** claim that this exact candidate state occurs in
 the solving trace of that puzzle or of another authored givens-only puzzle.
 
-The bounded search chooses four digit classes from a complete Sudoku, adds one
-guardian whose solution value lies outside that palette, and removes one
-palette cell from each guardian house. This guarantees a respecting unforced
+The bounded search chooses four digit classes from a complete Sudoku.
+It adds a guardian whose solution value lies outside that palette.
+It then removes one palette cell from each guardian house. This guarantees a respecting unforced
 solution and at most four restricted cells in every house. It tests 126
 palettes, six seeded guardian choices per palette, and 64 ordered removal
 choices. These are candidate presentations, not necessarily distinct graphs.
@@ -163,14 +178,13 @@ LP-feasible obstruction appeared at presentation 45,091. Nine presentations
 before and including that one were not four-colorable; floating-point LP
 screening rejected the first eight. The positive 34-cell support reduced by
 greedy vertex deletion to the retained 13-cell vertex-critical graph. The
-positive retained fixture is subsequently checked with exact arithmetic;
+positive retained fixture is later checked with exact arithmetic;
 floating-point discovery is not its proof.
 
 An earlier 21-cell five-chromatic candidate was explicitly rejected because
-the full native LP was infeasible. The independent linear track preserves an
-exact Farkas certificate for it: 35 native equations with integer ±1 weights,
-right-hand side −1, and nonnegative resulting coefficients on every available
-candidate. Its coloring contradiction therefore fails the requested LP
+the full native LP was infeasible. The independent linear track retains an exact Farkas certificate for the rejected candidate.
+Its 35 native equations have integer ±1 weights and right-hand side −1.
+Every resulting coefficient on an available candidate is nonnegative. Its coloring contradiction therefore fails the requested LP
 separation test. This negative control prevents an attractive higher-color
 example from being misreported as a stronger result.
 
@@ -191,9 +205,8 @@ new name for ordinary one-house Hall counting, but neither is the inequality
 new mathematics. The absence of a matching exact motif in the bounded search
 for prior art does not establish historical novelty.
 
-A practical bounded detector can inspect connected components of cells whose
-domains lie inside a selected three- or four-digit palette, plus one guardian
-with an extra candidate. It must preserve all list restrictions and native peer
+A bounded detector can inspect components within a selected three- or four-digit palette.
+One guardian with an extra candidate can join the selected cells. It must preserve all list restrictions and native peer
 edges, report cell/node budgets, and return no deduction when search is
 incomplete. A general refutation tree is useful because many non-colorable
 list instances have no short independence-capacity explanation.
@@ -242,9 +255,9 @@ python3 research/global_obstructions/structural_discover.py --output /tmp/q4-dis
 - [Herzberg and Murty, *Sudoku Squares and Chromatic Polynomials* (2007)](https://people.math.sc.edu/girardi/sudoku/ChromaticPoly.pdf)
   explicitly formulates Sudoku as native graph precoloring extension. Graph
   coloring is established Sudoku mathematics.
-- [Letchford, Rossi and Smriglio, *The stable set problem: Clique and nodal inequalities revisited* (2020), §2.1](https://www.lancaster.ac.uk/staff/letchfoa/articles/2020-nodal.pdf)
-  states clique and rank inequalities, including the exact alpha inequality
-  used here, and attributes rank inequalities to Nemhauser and Trotter (1974).
+- [Letchford, Rossi and Smriglio, *The stable set problem: Clique and nodal inequalities revisited* (2020), §2.1](https://www.lancaster.ac.uk/staff/letchfoa/articles/2020-nodal.pdf).
+  The paper states the clique and rank inequalities, including the alpha inequality used here.
+  The paper attributes rank inequalities to Nemhauser and Trotter (1974).
 - [Sewell and Trotter, *Stability critical graphs and ranks facets of the stable set polytope* (1995)](https://www.sciencedirect.com/science/article/pii/0012365X9400168I)
   provides older direct research on rank inequalities and critical graphs.
 - [SudokuWiki's author-maintained Tridagons description](https://www.sudokuwiki.org/Tridagons)

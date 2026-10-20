@@ -23,6 +23,18 @@ The [expanded motif audit](../research/global_obstructions/prior_art_13_report.m
 identifies an exact spanning seven-hyperhole and a grouped-loop derivation of
 the thirteen-cell example; its mathematical obstruction is an established one.
 
+
+```mermaid
+flowchart TD
+    A[Candidate state and selected cells] --> B[Reconstruct native peer edges]
+    B --> C[Assume the opposite conclusion]
+    C --> D[Split over every allowed pivot digit]
+    D --> E{Every branch has an empty-domain leaf?}
+    E -- Yes --> F[Check the finite proof tree]
+    E -- No --> G[No certificate from this tree]
+    F --> H[Apply to the identical state]
+```
+
 ## A four-digit obstruction with a short proof
 
 The [13-cell fixture](../research/global_obstructions/structural_four_digit_13.json)
@@ -176,9 +188,8 @@ cargo run --release --locked --example global_coloring -- --explicit research/gl
 
 The [27-cell production replay](../research/global_obstructions/replay_native27.json)
 places r5c6=1 with a 16,745-node tree. It is a conditional synthetic example.
-An exhaustive trade classification proves that this exact support cannot occur
-with all its cells unclued in a unique compatible givens puzzle; see the
-[realization audit](../research/global_obstructions/realization27_report.md).
+An exhaustive trade classification excludes a unique compatible puzzle when all cells of this exact support remain unclued.
+The [realization audit](../research/global_obstructions/realization27_report.md) gives the proof.
 The engine's certificate does not depend on uniqueness or historical novelty.
 
 See the [actual four-digit replay](../research/global_obstructions/replay_four_digit.json)
@@ -187,9 +198,8 @@ and [published-puzzle replay](../research/global_obstructions/replay_Loki.json).
 ## Known-method and game-state comparisons
 
 Three published unique puzzles (#4662, #4401 and Loki) have established
-tridagon cores. After one recorded Finned Swordfish step in #4662, the tested
-older structural baseline, default arithmetic and crossing-three-house search
-all return no finding on the retained unforced states. Existing forcing methods
+tridagon cores. Puzzle #4662 first needs one recorded Finned Swordfish step.
+The older structural baseline, default arithmetic, and crossing-three-house search then return no finding on the retained unforced states. Existing forcing methods
 do find other steps, so there is no claim that every old method is exhausted.
 
 The synthetic four-digit base state also yields no finding from the 34 explicitly
@@ -216,10 +226,10 @@ Nishio r4c6!=4, so this is a unique **nonforcing gap**, not a full-old-method
 stall. The [expanded search report](../research/global_obstructions/expanded_search_report.md)
 records the broader experiment and stronger target separately.
 
-A subsequent [forcing-inclusive benchmark](../research/global_obstructions/nonrank_report.md)
-meets that stronger target: the unique 28-given Monhard T&E3 source-line-1
-puzzle reaches a retained state with 50 cells unplaced where two fresh full
-older logical-dispatcher calls return no hint. The current full ladder and
+A later [forcing-inclusive benchmark](../research/global_obstructions/nonrank_report.md) meets the recorded target for the configured older implementation.
+The unique 28-given Monhard T&E3 source-line-1 puzzle reaches a retained state with 50 unplaced cells.
+Two fresh calls to that complete older logical dispatcher return no hint.
+These results describe the recorded baseline and its candidate behavior. The current full ladder and
 default direct Global Coloring search certify **r4c9=9** with a 169-node,
 16-cell certificate. Backtracking is outside this logical comparison.
 

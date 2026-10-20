@@ -11,6 +11,16 @@ It is now integrated through the engine's explicit proof API, with an actual
 27-cell, 16,745-node native replay proving **r5c6=1**. Automatic hint-search
 limits are unchanged. No unique-puzzle or historical originality claim is made.
 
+
+```mermaid
+flowchart TD
+    A[All 27 support cells remain unclued] --> B[Enumerate internal four-digit fillings]
+    B --> C[Group by external house signatures]
+    C --> D[Every signature has multiple fillings]
+    D --> E[Outside clues cannot distinguish the fillings]
+    E --> F[No unique compatible host of this exact form]
+```
+
 ## Why the requested puzzle cannot exist
 
 Let `S` be the recorded support, `t=r5c6` its guardian, `P={2,3,5,9}` its
@@ -42,9 +52,8 @@ There are two exact obstructions to uniqueness:
 There is no singleton signature. Consequently the palette coloring induced by
 any compatible completion has a different coloring with the same palette set
 in every house. Replace just those selected palette values, keeping the
-guardian and all outside values fixed. Each row, column and box retains exactly
-its original digit set, so the resulting board is another valid Sudoku
-completion of every possible outside-only clue subset.
+guardian and all outside values fixed. Each row, column, and box retains its original digit set.
+Thus the changed board is another valid completion for every possible outside-only clue subset.
 
 This is a finite, exhaustive result for the exact retained support and every
 native Sudoku symmetry of it, independent of the reference completion. It does
@@ -67,9 +76,9 @@ novelty is established by this work.
 
 ## Search and older-engine comparison
 
-The completion search corroborates the theorem rather than proving it:
-4,999 distinct compatible complete boards were sampled, and every maximal
-54-outside-given puzzle had multiple completions, with no enumeration cutoff.
+The completion search supports the theorem; it is not the proof.
+It sampled 4,999 distinct compatible complete boards.
+Every maximal 54-outside-given puzzle had multiple completions, without an enumeration cutoff.
 The original completion also has a nonunique outside-clue realization retaining
 the full palette. The search stopped when the exhaustive classification proved
 the target impossible.
@@ -96,9 +105,8 @@ a forcing-inclusive unique-puzzle stall. The earlier Monhard benchmark remains
 a separate unique puzzle and known tridagon composition; it does not realize
 this 27-cell support.
 
-The full frozen older dispatcher was also run **directly from both ordinary
-initial givens states**, without external local closure or promoting singleton
-masks to placed values. It solves the 24-given board with naked/hidden singles;
+The complete frozen older dispatcher also ran **directly from both ordinary initial givens states**.
+This comparison used neither external local closure nor singleton promotion. It solves the 24-given board with naked/hidden singles;
 it solves the 21-given board with singles, naked pairs/triples and pointing
 pairs. All endpoints and full traces are checked against the independent sole
 completion. Its forcing-inclusive call returns no hint only on the already
@@ -149,10 +157,8 @@ cargo test --test global_coloring --locked
 cargo run --release --locked --example global_coloring -- --explicit research/global_obstructions/realization27_proof_request.json
 ```
 
-The exact classification and export checks run in CI. The earlier fractional
-template witness and integral contradiction remain independently verified;
-passing those filters does not imply that a pattern can occur in a unique
-givens-only game.
+The exact classification and export checks run in CI. The earlier fractional template witness and integral contradiction remain independently verified.
+Passing those filters does not establish a unique givens-only realization.
 
 All 222 Rust tests pass locally. Production coverage is 96.31%, and Global
 Coloring coverage is 99.25%. Required Clippy, the changed export example,

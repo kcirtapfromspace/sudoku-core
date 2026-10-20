@@ -1,7 +1,7 @@
 # Exact deeper forcing audit of Mith515
 
 The deduction **r1c8≠3 has two checked established explanations**: a two-level
-local forcing tree, and a published catalogue rule followed by one local split.
+local forcing tree, and a published catalog rule followed by one local split.
 This audit supplies a small exact certificate; it supplies no evidence of a new
 mathematical obstruction family. No tridagon, odd-cycle, uniqueness, SAT answer,
 or optimizer answer is used in the refutation.
@@ -30,9 +30,8 @@ center digits already absent from that branch's domain. The checker recomputes
 each propagation edit and every blocker union and signature; it never accepts
 an exception message as a contradiction proof.
 
-For a precise lower bound, every one of the 32 live pivot cells in the closed
-opposite state has a recorded candidate whose deterministic local closure
-survives. The checker independently closes each of those 32 branches. Therefore
+Each of the 32 live pivot cells has a recorded candidate branch whose deterministic local closure survives.
+These witnesses establish the stated lower bound. The checker independently closes each of those 32 branches. Therefore
 no one-level complete cell-value case split can refute this state using only
 this local propagator. The minimum additional split depth in this specified
 calculus is exactly two.
@@ -51,16 +50,14 @@ minimum over all known mathematical methods.
 
 The seven-node refutation was found in 0.203 seconds, with no cutoff. The
 exhaustive depth-one local search took 2.710 seconds. Both used one worker and
-Python's standard library. The original 85-node production list-coloring tree
-and this tree are different certificates of the same target inference; their
-node counts use different propagation rules and should not be compared as a
-common proof-complexity measure.
+Python's standard library. The original 85-node production list-coloring tree and this tree certify the same target inference.
+Their different propagation rules prevent a direct comparison of node counts as a common proof-complexity measure.
 
 The successful explanation is consistent with the older engine's live stall.
 In frozen commit `0532d63`, the forcing helper `propagate_full` omits arithmetic,
 crossing-three-house propagation and recursive forcing inside assumptions, and
 recalculates candidates after pinning a value. The new proof instead preserves
-its candidate premises, applies Hall/all81 propagation under every assumption,
+its candidate premises, applies Hall/all 81 propagation under every assumption,
 and uses two nested split levels after the target assumption. These are
 different configured inference procedures. This audit establishes no engine
 bug or unsound historical result.
@@ -86,27 +83,35 @@ python3 -S research/global_obstructions/deeper_forcing_search.py \
 Discovery time/node bounds return an explicit cutoff status; they never produce
 a no-refutation or minimum-depth claim. The retained lower-bound witnesses and
 all positive proof leaves are checked without such search-oracle acceptance.
-The candidate-state premise's derivation from the unique puzzle's givens is
-audited separately by the existing `different_verify.py` and historical-engine
-audit; the new certificate binds that exact public fixture and both its base
-and closed opposite domain states.
+`different_verify.py` and the historical-engine audit separately check the premise derivation from the unique givens.
+The certificate binds the exact public fixture, its base domains, and its closed opposite domains.
 
-## Published catalogue rule followed by the actual target proof
 
-The complete-base catalogue audit additionally finds the published rule
+```mermaid
+flowchart TD
+    A[Assume r1c8 equals 3 in the known control] --> B[Two additional split levels]
+    B --> C[Three complete cell splits]
+    C --> D[Four contradiction leaves]
+    D --> E[Check Hall and three-house evidence]
+    E --> F[Accept the known-method refutation]
+```
+
+## Published catalog rule followed by the actual target proof
+
+The complete-base catalog audit additionally finds the published rule
 **EL12c38** on cells
 `[2,3,9,13,19,23,54,57,64,68,74,76]`, using palette {3,4,8}. These are zero-based
 cell indices. The only candidate outside that palette on this non-three-colorable
 support is **r8c6=7**. The known guardian OR therefore has one literal, proving
 that placement unconditionally from the base candidate state.
 
-This placement alone does not eliminate r1c8=3. Six Hall/all81 events after the
+This placement alone does not eliminate r1c8=3. Six Hall/all 81 events after the
 placement leave that target candidate available. Assume r1c8=3 and replay eleven
 more events. Now split r9c5={4,8}: value4 gives the row2 Hall contradiction and
 value8 gives the row1/column4/box2 contradiction described above.
 
 The [chained certificate](deeper_forcing_catalogue_chain.json) records **three
-local forcing nodes plus one separately verified published catalogue lemma**.
+local forcing nodes plus one separately verified published catalog lemma**.
 Its 26 branch-propagation events end at one explicit Hall deficiency and one
 Hall blocker covering all 420 admissible triple boundary signatures. The checker
 validates the source rule's native map, graph non-three-colorability, actual
@@ -116,7 +121,7 @@ the identical state. Thus it explains the requested target, rather than merely
 finding a different hint.
 
 The local-only depth-two minimum above remains valid for its specified calculus.
-The catalogue lemma is an additional allowed inference, so this shorter chain
+The catalog lemma is an additional allowed inference, so this shorter chain
 does not contradict that lower bound. Neither certificate provides a new
 obstruction-family or classic T&E-minimum claim.
 
@@ -125,5 +130,5 @@ python3 -S research/global_obstructions/deeper_forcing_catalogue_chain.py --muta
 ```
 
 The chained verifier rejects fourteen altered rule, guardian, target, mapping,
-propagation, branch and contradiction certificates. The catalogue's broader
+propagation, branch and contradiction certificates. The catalog's broader
 source coverage is checked separately by `catalog630_verify.py`.

@@ -666,81 +666,63 @@ pub fn find_hidden_rectangle(fab: &CandidateFabric) -> Option<Finding> {
 
 pub fn find_extended_unique_rectangle(fab: &CandidateFabric) -> Option<Finding> {
     let try_ext_ur = |corners: &[usize]| -> Option<Finding> {
-        if corners.iter().any(|&c| fab.values[c].is_some()) {
+        if corners
+            .iter()
+            .any(|&c| fab.values[c].is_some() || fab.is_given[c])
+        {
             return None;
         }
-        let boxes: std::collections::HashSet<usize> =
+        let boxes: std::collections::HashSet<_> =
             corners.iter().map(|&c| idx_to_pos(c).box_index()).collect();
-        if boxes.len() < 2 {
+        if boxes.len() != 3 {
             return None;
         }
-
-        let mut common = fab.cell_cands[corners[0]];
-        for &c in &corners[1..] {
-            common = common.intersection(&fab.cell_cands[c]);
-        }
-        if common.count() < 2 {
-            return None;
-        }
-
-        let common_vec: Vec<u8> = common.iter().collect();
-        for di in 0..common_vec.len() {
-            for dj in (di + 1)..common_vec.len() {
-                let a = common_vec[di];
-                let b = common_vec[dj];
-                let ur_pair = BitSet::from_slice(&[a, b]);
-
-                let bivalue_count = corners
-                    .iter()
-                    .filter(|&&c| fab.cell_cands[c].count() == 2 && fab.cell_cands[c] == ur_pair)
-                    .count();
-
-                if bivalue_count < 4 {
-                    continue;
-                }
-
-                for &corner in corners {
-                    if fab.cell_cands[corner].count() > 2 {
-                        let mut elim = Vec::new();
-                        if fab.cell_cands[corner].contains(a) {
-                            elim.push(a);
-                        }
-                        if fab.cell_cands[corner].contains(b) {
-                            elim.push(b);
-                        }
-                        if !elim.is_empty() {
-                            let eur_floor: Vec<usize> = corners
-                                .iter()
-                                .filter(|&&c| {
-                                    fab.cell_cands[c].count() == 2 && fab.cell_cands[c] == ur_pair
-                                })
-                                .copied()
-                                .collect();
-                            let eur_roof: Vec<usize> = corners
-                                .iter()
-                                .filter(|&&c| fab.cell_cands[c].count() > 2)
-                                .copied()
-                                .collect();
-                            return Some(Finding {
-                                technique: Technique::ExtendedUniqueRectangle,
-                                inference: InferenceResult::Elimination {
-                                    cell: corner,
-                                    values: elim,
-                                },
-                                involved_cells: corners.to_vec(),
-                                explanation: ExplanationData::Uniqueness {
-                                    variant: "Extended Unique Rectangle".into(),
-                                },
-                                proof: Some(ProofCertificate::Uniqueness {
-                                    pattern: "Extended UR".into(),
-                                    floor_cells: eur_floor,
-                                    roof_cells: eur_roof,
-                                }),
-                            });
-                        }
-                    }
-                }
+        for &roof in corners {
+            let floor: Vec<_> = corners.iter().copied().filter(|&c| c != roof).collect();
+            let union = floor
+                .iter()
+                .fold(BitSet::empty(), |m, &c| m.union(&fab.cell_cands[c]));
+            if union.count() != 3 || fab.cell_cands[roof].difference(&union).is_empty() {
+                continue;
             }
+            let values: Vec<_> = fab.cell_cands[roof].intersection(&union).iter().collect();
+            if values.is_empty() {
+                continue;
+            }
+            // The two parallel lines must be in one band/stack. Swapping their
+            // triples then preserves every box as well as every row and column.
+            let rows: std::collections::HashSet<_> = corners.iter().map(|c| c / 9).collect();
+            let cols: std::collections::HashSet<_> = corners.iter().map(|c| c % 9).collect();
+            if !((rows.len() == 2
+                && rows
+                    .iter()
+                    .map(|r| r / 3)
+                    .collect::<std::collections::HashSet<_>>()
+                    .len()
+                    == 1)
+                || (cols.len() == 2
+                    && cols
+                        .iter()
+                        .map(|c| c / 3)
+                        .collect::<std::collections::HashSet<_>>()
+                        .len()
+                        == 1))
+            {
+                continue;
+            }
+            return Some(Finding {
+                technique: Technique::ExtendedUniqueRectangle,
+                inference: InferenceResult::Elimination { cell: roof, values },
+                involved_cells: corners.to_vec(),
+                explanation: ExplanationData::Uniqueness {
+                    variant: "Extended Unique Rectangle Type 1".into(),
+                },
+                proof: Some(ProofCertificate::Uniqueness {
+                    pattern: "Extended UR Type 1".into(),
+                    floor_cells: floor,
+                    roof_cells: vec![roof],
+                }),
+            });
         }
         None
     };

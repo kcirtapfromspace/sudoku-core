@@ -15,10 +15,21 @@ constraint-aware implementation. Neither a Classic variant tag nor matching
 constraint names enables the specialization.
 
 Generation also avoids rebuilding a copy and rewriting all givens for every
-removal. It tracks the remaining clue count, rejects symmetry groups that would
-exceed the removal budget before searching, and obtains difficulty and SE ratings
-from one `Solver::analyze` call. Symmetries, uniqueness requirements, rating
+removal. The generator tracks the remaining clue count.
+It rejects symmetry groups that would exceed the removal budget before a search.
+One `Solver::analyze` call supplies both ratings. Symmetries, uniqueness requirements, rating
 thresholds, attempt budgets, and candidate fallback rules are preserved.
+
+
+```mermaid
+flowchart TD
+    A[Count solutions] --> B{Exactly built-in classic constraints?}
+    B -- Yes --> C[Use occupancy-mask search]
+    B -- No --> D[Use constraint-aware search]
+    C --> E[Stop at the requested solution cap]
+    D --> E
+    E --> F[Use the count in generation and uniqueness checks]
+```
 
 ## Local comparison
 
@@ -62,9 +73,8 @@ Use the same example, compiler, release profile, and otherwise idle machine when
 comparing revisions. The benchmark checks reference counts, generated puzzle
 validity, and uniqueness, and prints fingerprints for seeded output comparisons.
 
-Regression tests compare the optimized counter against the general search on
-96 deterministic boards at six clue densities with caps 0, 1, 2, and 3 (384
-comparisons). They also check invalid values, row/column/box conflicts, impossible
+Regression tests compare the optimized counter with general search on 96 deterministic boards at six clue densities.
+Caps 0, 1, 2, and 3 give 384 comparisons. They also check invalid values, row/column/box conflicts, impossible
 boards, input preservation, variant/custom/deserialization dispatch, and the
 15 pre-optimization seeded generation outputs. The full soundness suite remains
 required; run `./scripts/test-coverage.sh` to enforce production coverage gates.

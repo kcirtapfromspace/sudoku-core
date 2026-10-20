@@ -16,6 +16,7 @@ mod fish_engine;
 mod forcing;
 mod global_coloring;
 mod solver_state;
+mod teaching;
 mod three_house;
 mod types;
 mod uniqueness;

@@ -1,12 +1,26 @@
 # Solver Engine Formal Specification
 
-Derived from first principles of constraint satisfaction over the four
-spaces of a standard 9x9 Sudoku grid. Every elimination theorem is proved
-from the constraint axioms; named techniques are exhibited as parameter
-instantiations of the technique engines. Arithmetic Counting additionally uses
-weighted exactly-one equations and checked arithmetic certificates.
+This specification states the mathematical conditions used by the standard 9×9 Sudoku solver.
+Named technique labels identify configured instances of the engine arguments.
+The implementation has bounded searches; a label does not establish completeness for every published variant.
+The method guides describe independent certificate checks and the scope of the abstract Verus proofs.
+The [project glossary](../../docs/technical-terms.md) defines the shared terms.
 
 ---
+
+
+```mermaid
+flowchart TD
+    A[Values, candidate domains, and constraints] --> B[Ordered logical dispatcher]
+    B --> C[Fish, ALS, AIC, and uniqueness rules]
+    B --> D[Matching, arithmetic, and coloring certificates]
+    B --> E[Checked forcing]
+    C --> F[Deduction with stated premises]
+    D --> F
+    E --> F
+    F --> G[Retained solver state]
+    G --> B
+```
 
 ## 0. Foundational Axioms
 
@@ -22,10 +36,12 @@ The set of live (cell, digit) pairs: *X* ⊆ *C* × {1..9}. Initially
 |*X*| ≤ 729. The element *(c, d)* ∈ *X* means "digit *d* is still
 possible in cell *c*". We write *X(c)* for the candidate set of cell *c*
 and *X_d(S)* for the set of cells in sector *S* that have candidate *d*.
+A placed cell has an effective singleton domain containing its value.
+Proof reconstruction uses that effective domain even when an internal fabric omits placed cells.
 
 **Sector Space** *S*.
-27 units partitioning the grid: rows *r_0..r_8*, columns *c_0..c_8*,
-boxes *b_0..b_8*. Index convention: 0..8 = rows, 9..17 = columns,
+The grid has 27 houses: nine rows, nine columns, and nine boxes.
+Each family separately partitions the board. Index convention: 0..8 = rows, 9..17 = columns,
 18..26 = boxes. Every cell belongs to exactly 3 sectors. Two cells *see*
 each other iff they share at least one sector.
 
@@ -44,10 +60,8 @@ Binary relations over nodes in *X*:
 
   *Terminology note*: The community convention (StrmCkr, Sudopedia)
   prefers "weak inference" over "weak link" because the relationship
-  is a logical NAND constraint, not a structural connection. A
-  *strong link* is structural (XOR — the two candidates are bound
-  by an exactly-one-true relationship), whereas a *weak inference* is
-  derived from the constraint that at-most-one-true holds. In the
+  is a logical NAND constraint, not a structural connection. A *strong link* is an exactly-one relationship, expressed as XOR.
+A *weak inference* states that at most one candidate is true. In the
   implementation, the `LinkType::WeakInference` variant represents weak
   inferences. The terms are used interchangeably in older literature.
 
@@ -57,10 +71,10 @@ Every strong link is also a weak inference, but not conversely.
 
 For every solution *σ*: *C* → {1..9}:
 
-1. **Uniqueness axiom**: ∀ sector *S*, ∀ digit *d* ∈ {1..9}:
+1. **House exactly-one axiom**: ∀ sector *S*, ∀ digit *d* ∈ {1..9}:
    exactly one cell in *S* has value *d*.
 2. **Completeness axiom**: ∀ cell *c*: *σ(c)* ∈ *X(c)*.
-3. **Consistency axiom**: ∀ cells *c₁, c₂* sharing a sector:
+3. **Consistency axiom**: ∀ distinct cells *c₁, c₂* sharing a sector:
    *σ(c₁) ≠ σ(c₂)*.
 
 ### 0.3 Inference Rules
@@ -80,29 +94,30 @@ Given the axioms, we may perform two operations:
 ### 1.1 Mathematical Objects
 
 **Definition 1.1 (Fish Configuration).**
-Fix a digit *d*. Let *B = {B₁, ..., Bₙ}* be a set of *n* sectors
-(the *base set*) and *K = {K₁, ..., Kₙ}* be a set of *n* sectors
-(the *cover set*) such that *B ∩ K = ∅*. The candidate sets within
+Fix a digit *d*. Let *B = {B₁, ..., Bₙ}* contain *n* base sectors.
+Let *K = {K₁, ..., Kₙ}* contain *n* cover sectors.
+
+The two sector sets must satisfy *B ∩ K = ∅*. The candidate sets within
 each collection must be pairwise disjoint:
 *X_d(Bᵢ) ∩ X_d(Bⱼ) = ∅* and *X_d(Kᵢ) ∩ X_d(Kⱼ) = ∅* for *i ≠ j*.
 Distinct sector names alone do not establish independence: a row and
 box can share a candidate cell. Define:
 
-- *Base cells*:  *β = ⋃ᵢ X_d(Bᵢ)*  (cells with candidate *d* in
+- *Base cells*: *β = ⋃ᵢ X_d(Bᵢ)* (cells with candidate *d* in
   base sectors)
-- *Cover cells*: *κ = ⋃ⱼ X_d(Kⱼ)*  (cells with candidate *d* in
+- *Cover cells*: *κ = ⋃ⱼ X_d(Kⱼ)* (cells with candidate *d* in
   cover sectors)
-- *Fins*:        *φ = β \ κ*         (base cells not covered)
-- *Eliminations*: *ε = κ \ β*        (cover cells not in base)
+- *Fins*: *φ = β \ κ* (base cells not covered)
+- *Eliminations*: *ε = κ \ β* (cover cells not in base)
 
 **Definition 1.2 (Sector Constraint).**
 The classification of which sector types may appear in *B* and *K*:
 
-| Constraint | Base types    | Cover types      | Name             |
+| Constraint | Base types | Cover types | Name |
 |------------|--------------|------------------|------------------|
-| Basic      | {row} or {col} | {col} or {row} | Standard fish    |
-| Franken    | {row, col}   | {row, col, box}  | Franken fish     |
-| Mutant     | {row, col, box} | {row, col, box} | Mutant fish   |
+| Basic | {row} or {col} | {col} or {row} | Standard fish |
+| Franken | {row, col} | {row, col, box} | Franken fish |
+| Mutant | {row, col, box} | {row, col, box} | Mutant fish |
 
 ### 1.2 Core Theorem
 
@@ -111,17 +126,18 @@ If *φ = ∅* (no fins), then for every cell *c ∈ ε*, we may eliminate
 *(c, d)* from *X*.
 
 *Proof sketch.*
-By the Uniqueness axiom, digit *d* must appear exactly once in each base
+By the house exactly-one axiom, digit *d* must appear exactly once in each base
 sector *Bᵢ*. Pairwise disjoint base candidate sets make these exactly
 *n* distinct placements among *β*. Since *φ = ∅*, all of *β ⊆ κ*.
+
 Each placement belongs to exactly one cover candidate set, and each
 cover allows at most one placement. Thus all *n* covers are occupied
 by the placements in *β*.
 Therefore no cell in *ε = κ \ β* can contain *d*. ∎
 
 **Theorem 1.2 (Finned Fish Elimination).**
-If *φ ≠ ∅* and all fin cells lie in a single box *F*, then for every
-cell *c ∈ ε* such that *c* shares box *F*, we may eliminate *(c, d)*.
+Suppose *φ ≠ ∅* and all fin cells lie in one box *F*.
+For each *c ∈ ε* in box *F*, the solver can eliminate *(c, d)*.
 
 *Proof sketch.*
 Case analysis: either (a) no fin cell holds *d* in the solution, reducing
@@ -134,21 +150,20 @@ cases, *d* is eliminated from *ε ∩ cells(F)*. ∎
 Every named fish technique is an instantiation of (digit *d*, size *n*,
 constraint, fin status):
 
-| n | Fins | Constraint | Technique            | SE   |
+| n | Fins | Constraint | Technique | SE |
 |---|------|-----------|----------------------|------|
-| 2 | No   | Basic     | X-Wing               | 3.2  |
-| 2 | Yes  | Basic     | Finned X-Wing        | 3.4  |
-| 3 | No   | Basic     | Swordfish            | 3.8  |
-| 3 | Yes  | Basic     | Finned Swordfish     | 4.0  |
-| 4 | No   | Basic     | Jellyfish            | 5.2  |
-| 4 | Yes  | Basic     | Finned Jellyfish     | 5.4  |
-| * | *    | Franken   | Franken Fish         | 5.5  |
-| * | *    | Mutant    | Mutant Fish          | 6.5  |
+| 2 | No | Basic | X-Wing | 3.2 |
+| 2 | Yes | Basic | Finned X-Wing | 3.4 |
+| 3 | No | Basic | Swordfish | 3.8 |
+| 3 | Yes | Basic | Finned Swordfish | 4.0 |
+| 4 | No | Basic | Jellyfish | 5.2 |
+| 4 | Yes | Basic | Finned Jellyfish | 5.4 |
+| * | * | Franken | Franken Fish | 5.5 |
+| * | * | Mutant | Mutant Fish | 6.5 |
 
-**Siamese Fish** are two overlapping finned fish configurations sharing
-a fin box. Both fish independently restrict eliminations to the fin box;
-the implementation returns eliminations common to both patterns. An
-intersection cannot add eliminations beyond either individual pattern.
+**Siamese Fish** share the same bases and differ by one cover house.
+Both constituent fish have fins and independently valid eliminations.
+The frozen certificate retains and checks both constituents.
 
 ### 1.4 Degenerate Case: Pointing Pairs and Box/Line Reduction
 
@@ -215,9 +230,9 @@ Given two non-overlapping ALS *A* and *B*, a digit *x* is an RCC of
 
 When *A* and *B* are linked by RCC *x*, they cannot both contain a
 placed *x*. Thus at least one of them omits *x* in every solution;
-both may omit it. An ALS of *n* cells that omits one of its *n* + 1
-candidates must use all *n* remaining digits, since its cells share
-a sector and therefore take distinct values.
+both may omit it. An ALS has *n* cells in one sector and a union of *n* + 1 candidate digits.
+If the ALS omits one digit, its cells must use all *n* remaining digits.
+The shared sector requires distinct values.
 
 ### 2.2 Core Theorem
 
@@ -238,19 +253,15 @@ has a unique solution.
 
 ### 2.3 Named Techniques in the Implementation
 
-| A size | B size | Links | Technique     | SE   |
-|--------|--------|-------|---------------|------|
-| 1      | 1      | 1 RCC | XY-Wing       | 4.2  |
-| 1      | 2      | 1 RCC | XYZ-Wing      | 4.4  |
-| 2      | 1      | 1 RCC | XYZ-Wing      | 4.4  |
-| any    | any    | 1 RCC, total=4 | WXYZ-Wing | 4.6 |
-| any    | any    | 1 RCC, other sizes | ALS-XZ | 5.5 |
+XY-Wing uses a bivalue pivot and two bivalue pincers.
+XYZ-Wing adds the shared elimination digit to the pivot.
+Both detectors now check the canonical three-cell geometry.
+A naked pair is no longer classified as XY-Wing.
 
-These are the size-based labels returned by `classify_als_pair` for
-the shared ALS-XZ detector. Every returned elimination must satisfy
-Theorem 2.1. The labels do not establish equivalence to every pattern
-conventionally called a wing; in particular, the `(1, 1)` label here
-describes two cells, not a three-cell pivot-and-wings construction.
+WXYZ-Wing retains the four-cell ALS specialization.
+The frozen named certificate also checks its four-digit restricted-location theorem.
+General ALS-XZ uses Theorem 2.1.
+The [named proof specification](../../docs/named-pattern-proofs.md) defines the independently checked examples.
 
 #### 2.3.1 ALS Chains (Generalized)
 
@@ -268,12 +279,16 @@ in an intermediate ALS does not invalidate the implication below.
 
 *Proof.*
 For *k = 2*, apply Theorem 2.1. For *k ≥ 3*, suppose *c = z*.
-Both endpoints must omit *z*. Hence *A₁* must use
+Both endpoints must omit *z*.
+
+Hence *A₁* must use
 *x₁*, which makes *A₂* omit *x₁*. Since consecutive link digits
 differ, *A₂* must then use *x₂*. Repeating this implication makes
 *Aₖ* omit *x_{k-1}*. But *Aₖ* already omits the distinct digit *z*:
 its *n* cells would have at most *n* − 1 available digits, contrary
-to sector consistency. Therefore *c ≠ z*. ∎
+to sector consistency.
+
+Therefore *c ≠ z*. ∎
 
 For the three-ALS detector, *z* must differ from **both** link digits
 *x* and *y*. Allowing *z = y* invalidates the last counting step and
@@ -282,11 +297,11 @@ can remove a candidate from a valid completion. For a four-ALS chain,
 must differ from *z*. These deductions require no unique-solution
 assumption.
 
-| Chain length | Technique     | SE   |
+| Chain length | Technique | SE |
 |-------------|---------------|------|
-| 2           | ALS-XZ        | 5.5  |
-| 3           | ALS-XY-Wing   | 7.0  |
-| 4           | ALS Chain     | 7.5  |
+| 2 | ALS-XZ | 5.5 |
+| 3 | ALS-XY-Wing | 7.0 |
+| 4 | ALS Chain | 7.5 |
 
 The implementation currently searches three- and four-ALS chains;
 the theorem itself applies to longer chains meeting the same conditions.
@@ -308,20 +323,27 @@ Then:
 Write *U = cands(A)* and *V = cands(B)*. In any solution, the
 *|U| − 1* cells of *A* use that many distinct digits of *U*. Since
 every intersection cell sees all of *A*, at most one intersection
-cell can use a digit of *U*. Similarly, at most one can use *V*.
-The intersection has at least two cells and uses only *U ∪ V*, so a
-solution requires exactly two intersection cells, one using the digit
-of *U* omitted by *A* and the other the digit of *V* omitted by *B*.
-Thus every digit of *U* occurs in *A ∪ I* within the box, and every
-digit of *V* occurs in *B ∪ I* within the line. The stated eliminations
-follow from sector consistency. A three-cell intersection with these
+cell can use a digit of *U*.
+
+Similarly, at most one can use *V*.
+The intersection has at least two cells and uses only *U ∪ V*.
+Thus a solution needs exactly two intersection cells.
+One uses the digit of *U* omitted by *A*.
+
+The other uses the digit of *V* omitted by *B*.
+Every digit of *U* therefore occurs in *A ∪ I* within the box.
+Every digit of *V* occurs in *B ∪ I* within the line. The stated eliminations
+follow from sector consistency.
+
+A three-cell intersection with these
 particular two disjoint ALS contributions admits no solution. ∎
 
 The proof certificate records three descriptors: the intersection,
-the box ALS, and the line ALS. Each descriptor's `sector` must contain
-its cells: the intersection uses the line sector, the box ALS uses the
-actual box sector (18..26), and the line ALS uses the actual row or
-column sector (0..17). The intersection is a described region, not
+the box ALS, and the line ALS. Each descriptor's `sector` must contain its cells.
+The intersection uses the line sector.
+The box ALS uses the actual box sector, 18..26.
+
+The line ALS uses the actual row or column sector, 0..17. The intersection is a described region, not
 necessarily an ALS under Definition 2.1. Here `rcc_values` stores the
 two disjoint candidate contributions and `z_value` is absent; these
 fields do not encode an ordinary RCC chain.
@@ -335,31 +357,32 @@ Let *s* be a stem cell with candidates *{d₁, ..., dₖ}*. For each
 - *dᵢ* ∈ *cands(Pᵢ)* and **every** cell of *Pᵢ* containing candidate
   *dᵢ* sees *s*.
 
-If *z* ∈ ⋂ᵢ *cands(Pᵢ)*, *z ∉ {d₁,...,dₖ}*, and cell *c* outside
-the stem and petals sees all *z*-cells in every petal, then eliminate
-*(c, z)*.
+Suppose *z* ∈ ⋂ᵢ *cands(Pᵢ)* and *z* ∉ {d₁,...,dₖ}.
+Let cell *c* lie outside the stem and petals and see every *z*-cell in each petal.
+Then the solver can eliminate *(c, z)*.
 
 *Proof sketch.*
 In any solution, *s* takes some value *dⱼ*. Then petal *Pⱼ* cannot
 use *dⱼ* (since every *dⱼ*-cell of *Pⱼ* sees *s*), so *Pⱼ* becomes
 fully locked on its remaining *n* candidates. The value *z* is
-confined to *z*-cells of *Pⱼ*. Since *c* sees all of them, *c ≠ z*.
+confined to *z*-cells of *Pⱼ*.
+
+Since *c* sees all of them, *c ≠ z*.
 This holds for every possible *dⱼ*, so the elimination is valid. ∎
 
 Checking only that some linking-digit occurrence sees the stem is
 insufficient: an unseen occurrence may retain *dⱼ*, leaving the petal
 unlocked. The detector checks all occurrences before selecting petals.
-Its current search tries only the first available petal per stem digit;
-it may miss another usable combination, but every returned combination
-must meet the above conditions.
+The current search tries only the first available petal per stem digit.
+It can miss another usable combination.
+Every returned combination must satisfy the stated conditions.
 
 ### 2.6 Distributed Disjoint Subset (DDS)
 
 DDS is used here as an organizational description for deductions
-involving a stem region and surrounding candidate sets. The implemented
-Sue de Coq and Death Blossom searches have different proof obligations:
-Sue de Coq uses disjoint candidate partitions and box/line capacity;
-Death Blossom uses a restricted link for every possible stem value.
+involving a stem region and surrounding candidate sets. Sue de Coq uses disjoint candidate partitions and box/line capacity.
+Death Blossom needs a restricted link for every possible stem value.
+The two implemented searches have different proof conditions.
 In the latter, the chosen stem value locks its corresponding petal;
 it need not lock every other petal.
 
@@ -385,18 +408,19 @@ in *P* contains *z* in every solution. A common peer cannot also contain
 *z*. ∎
 
 This is the direct proof of the legacy APE/ATE detectors in this engine.
-It does not require that *P* or each individual cell be an ALS: the pair
-search admits cells with 2–5 candidates, and the triplet search admits
-2–4. Their `Als` certificate descriptors record these candidate sets;
+This argument does not require *P* or each cell to be an ALS.
+The pair search permits 2–5 candidates per cell.
+The triplet search permits 2–4.
+
+Their `Als` certificate descriptors record these candidate sets;
 the certificate variant does not itself prove Definition 2.1 holds.
 The public functions remain deprecated for compatibility. No complete
 subsumption by the bounded ALS-chain search is established here.
 
 ### 2.8 Almost Locked Candidates (ALC)
 
-An Almost Locked Candidates (ALC) pattern is the intersection dual of an
-ALS: *n* candidates each appearing in at most *n* + 1 cells within a
-sector's intersection region. Where ALS reasons about cells having a
+An Almost Locked Candidates (ALC) pattern is an intersection dual of an ALS.
+Each of *n* candidates occurs in at most *n* + 1 cells within a sector intersection. Where ALS reasons about cells having a
 surplus candidate, ALC reasons about digits having a surplus position.
 
 The implementation does not enumerate ALC as a separate technique.
@@ -482,9 +506,9 @@ the assignment OFF, ON, OFF, ON, OFF: every XOR/NAND edge is satisfied
 while both endpoints are false.
 
 **Theorem 3.2 (AIC Elimination, Type 2: Same Cell, Different Digits).**
-If an alternating chain starts and ends with strong links, with
-endpoints *(c, d₁)* and *(c, d₂)* where *d₁ ≠ d₂*, then eliminate all
-candidates of *c* except *d₁* and *d₂*.
+Suppose an alternating chain starts and ends with strong links.
+Its endpoints are *(c, d₁)* and *(c, d₂)*, with *d₁ ≠ d₂*.
+Then the solver can eliminate every other candidate of *c*.
 
 *Proof.*
 The same implication argument establishes that at least one endpoint
@@ -494,27 +518,29 @@ All other candidates of *c* are eliminated. ∎
 ### 3.3 Named Techniques as Special Cases
 
 **Empty Rectangle** (grouped single-digit inference):
-For digit *d*, all candidates in a box must lie in the union of a row
-arm and a column arm, with a candidate on each arm outside their
-intersection. The intersection itself may contain a candidate.
+For digit *d*, the box candidates must lie in the union of a row arm and a column arm.
+Each arm must contain a candidate outside the arm intersection. The intersection itself may contain a candidate.
 A conjugate pair in a column outside the box connects the row arm to
-another row outside the box. Eliminate *d* at the intersection of that
+another row outside the box.
+
+Eliminate *d* at the intersection of that
 other row and the box's column arm, if it is a candidate. The transposed
 pattern exchanges rows and columns. This uses ordinary Sudoku
 constraints and does not assume a unique puzzle solution. SE: 4.6.
 
-For example, let the box-1 candidates for *d* be r1c2, r2c1 and r3c1,
-and let column 5 have exactly two candidates for *d*: r1c5 and r5c5.
+For example, the box-1 candidates for *d* are r1c2, r2c1, and r3c1.
+Column 5 has exactly two candidates for *d*: r1c5 and r5c5.
 Then r5c1 cannot hold *d*. If it did, it would remove *d* from r2c1,
 r3c1 and r5c5. Box 1 would force r1c2 = *d*, while column 5 would force
 r1c5 = *d*, contradicting row 1.
 
 The box arm is a **group** of candidates. It does not create an
 exactly-one-true link between arbitrary individual cells in that arm.
-The implementation records the complete grouped evidence using a
-`Fish` certificate: the box and external conjugate column are the two
-base sectors, the two crossing rows are cover sectors, and the box's
-column-arm candidates outside the row cover are fins. In the example,
+The implementation records the complete grouped evidence in a `Fish` certificate.
+The box and external conjugate column form the two base sectors.
+
+The two crossing rows form the cover sectors.
+The box's column-arm candidates outside the row cover form the fins. In the example,
 these are bases {box 1, column 5}, covers {row 1, row 5}, and fins
 {r2c1, r3c1}; the eliminated cell sees every fin. The deduction remains
 classified as `EmptyRectangle` in the AIC engine.
@@ -536,20 +562,21 @@ This 6-node AIC with endpoints *(c₁, b)* and *(c₂, b)* yields:
 eliminate *b* from any cell seeing both *c₁* and *c₂*. SE: 4.4.
 
 **Named Wings** (3-strong-link AIC taxonomy, StrmCkr):
-Each strong link in a size-3 chain is classified as V (bivalue: same
-cell, different digits) or L (bilocal: same digit, conjugate pair).
+Each strong link in a three-link chain has a type.
+Type V is bivalue: the same cell with different digits.
+Type L is bilocal: the same digit in a conjugate pair.
 The 3-character signature identifies the wing type:
 
-| Signature | Name    | Structure                             |
+| Signature | Name | Structure |
 |-----------|---------|---------------------------------------|
-| VVV       | XY-Wing | 3 bivalue cells                       |
-| VLV       | W-Wing  | bivalue → conjugate pair → bivalue    |
-| LVL       | S-Wing  | conjugate → bivalue → conjugate       |
-| VLL       | M-Wing  | bivalue → conjugate → conjugate       |
-| LLV       | M-Wing  | conjugate → conjugate → bivalue       |
-| LLL       | L-Wing  | 3 conjugate pairs (single-digit)      |
-| VVL       | H-Wing  | bivalue → bivalue → conjugate         |
-| LVV       | H-Wing  | conjugate → bivalue → bivalue         |
+| VVV | XY-Wing | 3 bivalue cells |
+| VLV | W-Wing | bivalue → conjugate pair → bivalue |
+| LVL | S-Wing | conjugate → bivalue → conjugate |
+| VLL | M-Wing | bivalue → conjugate → conjugate |
+| LLV | M-Wing | conjugate → conjugate → bivalue |
+| LLL | L-Wing | 3 conjugate pairs (single-digit) |
+| VVL | H-Wing | bivalue → bivalue → conjugate |
+| LVV | H-Wing | conjugate → bivalue → bivalue |
 
 The implementation classifies chains at output time and includes the
 signature in the explanation variant string (e.g., "S-Wing (LVL)").
@@ -574,9 +601,9 @@ strong-link graph into two color classes. The coloring satisfies:
 if node *p* has color *c*, then every strong neighbor has color
 *1 − c*.
 
-Since every strong link represents an exactly-one-true constraint:
-exactly one color class is the "true" class (all its nodes hold in
-the solution) and the other is the "false" class.
+Each strong link requires exactly one true endpoint.
+Thus all nodes in one color class are true in a respecting solution.
+All nodes in the other class are false.
 
 **Contradiction rules** (identify the false color class):
 - Rule 1: Two same-color nodes share a digit *d* and a sector.
@@ -587,21 +614,17 @@ the solution) and the other is the "false" class.
 If a contradiction is found for color *c*, all nodes of color *c*
 are false → eliminate those candidates.
 
-**Rule 5** (uncolored elimination): If an uncolored candidate
-*(cell, d)* sees *d*-nodes of both colors, eliminate it (one color
-is true, so the *d*-node of the true color blocks *cell*).
+**Rule 5** (uncolored elimination): An uncolored candidate *(cell, d)* sees *d*-nodes of both colors.
+One color is true in each solution.
+Its true *d*-node excludes *(cell, d)*.
 
 This is precisely the AIC framework restricted to strong-link-only
-BFS. Every Medusa elimination can be expressed as an AIC, but the
-coloring approach finds them more efficiently by processing entire
-connected components at once. ∎
+BFS. Every Medusa elimination can be expressed as an AIC.
+The coloring approach processes entire connected components instead of separate implication paths. ∎
 
-*Legacy status*: 3D Medusa is considered retired by the community
-(StrmCkr, Sudopedia). It is simply strong-link-only AIC coloring and
-adds no eliminations beyond what the general AIC engine finds. The
-implementation retains it for SE rating compatibility (SE 5.0) but it
-is not an independent technique — it is a restricted AIC search
-strategy.
+*Legacy status*: The engine retains 3D Medusa for SE rating compatibility, with SE 5.0.
+Its argument is strong-link AIC coloring.
+This mathematical relationship does not prove that the bounded general AIC search finds every consequence of a component-coloring search.
 
 ### 3.5 Forcing Chains as Multi-Source AIC
 
@@ -610,16 +633,16 @@ A forcing chain explores all candidates of a source (cell or sector
 position) via independent propagation. If all branches agree on an
 outcome, that outcome is valid.
 
-| Source        | Branches                  | Technique              | SE   |
+| Source | Branches | Technique | SE |
 |--------------|---------------------------|------------------------|------|
-| Cell *c*     | Each candidate of *c*     | Cell Forcing Chain     | 8.3  |
-| Sector/digit | Each position of *d* in *S* | Region Forcing Chain | 8.5  |
-| Cell (full)  | With full technique propagation | Dynamic FC      | 9.3  |
-| Single cand. | One branch contradicts    | Nishio FC              | 7.5  |
+| Cell *c* | Each candidate of *c* | Cell Forcing Chain | 8.3 |
+| Sector/digit | Each position of *d* in *S* | Region Forcing Chain | 8.5 |
+| Cell (full) | With full technique propagation | Dynamic FC | 9.3 |
+| Single cand. | One branch contradicts | Nishio FC | 7.5 |
 
 **Theorem 3.4 (Forcing Chain Correctness).**
-Let *S = {s₁, ..., sₖ}* be an exhaustive set of hypotheses (candidates
-of a cell, or positions of a digit in a sector). For each *sᵢ*,
+Let *S = {s₁, ..., sₖ}* be an exhaustive set of hypotheses.
+These hypotheses cover a cell's candidates or a digit's positions in a sector. For each *sᵢ*,
 let *Gᵢ* be the grid state after propagating the assumption *sᵢ = true*.
 
 - **Common placement**: If ∀ *i*: *Gᵢ* places value *v* at cell *t*,
@@ -635,34 +658,36 @@ axiom for cells; uniqueness axiom for sectors). Since every possible
 truth leads to the same conclusion, that conclusion holds. ∎
 
 **Kraken Fish**: A finned fish where the fin's effect is verified by
-forcing-chain propagation. If propagating each fin cell with digit *d*
-still eliminates *d* from the target, the elimination is valid — even
-when the standard finned-fish box restriction would not apply.
+forcing-chain propagation. Ordinary fish counting must exclude the target when no fin contains *d*.
+Each possible fin placement must also exclude the target after sound propagation.
+These cases justify the elimination without the usual single-fin-box restriction.
 
 ### 3.6 Dynamic Forcing Chains
 
-Dynamic Forcing Chains are the most powerful non-backtracking technique.
-They differ from standard forcing chains in the propagation function:
-instead of propagating only naked/hidden singles, they apply the full
-technique repertoire (including AIC, ALS, and fish) within each branch.
+Dynamic Forcing Chains use the Logical propagation policy inside their assumptions.
+That policy includes AIC, ALS, and fish, and stops after Death Blossom.
+The Singles policy permits only naked and hidden singles.
+The stronger propagation can expose consequences missed by singles within a branch.
+The configured search limits still affect discovery.
 
-This makes them strictly more powerful: they can discover implications
-that simple propagation misses. The trade-off is computational cost.
-SE: 9.3.
+Public forcing hints also need an independently checked native-rule refutation.
+A proposed endpoint is skipped when certification fails or reaches its limit.
+The [forcing guide](../../docs/solver-state.md) defines the calculus and budgets.
+The configured SE value is 9.3.
 
 ---
 
-## 4. Completeness and Orthogonality
+## 4. Technique families and implementation scope
 
-### 4.1 Three Orthogonal Arguments
+### 4.1 Three core arguments
 
-The three engines cover three fundamentally different proof strategies:
+The three core engines use these proof strategies:
 
-| Engine | Core argument          | Operates primarily in |
+| Engine | Core argument | Operates primarily in |
 |--------|------------------------|----------------------|
-| Fish   | Sector-rank deficiency | Sector Space *S*     |
-| ALS    | Subset degree-of-freedom | Candidate Space *X* |
-| AIC    | Link reachability      | Link Space *L*       |
+| Fish | Sector-rank deficiency | Sector Space *S* |
+| ALS | Subset degree-of-freedom | Candidate Space *X* |
+| AIC | Link reachability | Link Space *L* |
 
 **Fish** reasons about digits in aggregate across sectors: "these *n*
 base sectors consume exactly *n* cover sector slots for digit *d*."
@@ -676,53 +701,33 @@ implications of truth propagation through strong links and weak inferences.
 
 ### 4.2 Subsumption Relationships
 
-```
-Pointing Pair  ──┐
-Box/Line Reduc.──┼──► Fish Engine (n=1 degenerate case)
-                 │
-X-Wing ──────────┤
-Swordfish ───────┼──► Fish Engine (n=2,3,4; Basic constraint)
-Jellyfish ───────┤
-                 │
-Franken Fish ────┼──► Fish Engine (Franken constraint)
-Siamese Fish ────┤──► Fish Engine (overlapping finned pair)
-Mutant Fish ─────┘──► Fish Engine (Mutant constraint)
-
-XY-Wing ─────────┐
-XYZ-Wing ────────┼──► ALS Engine (size-1,2 ALS pairs)
-WXYZ-Wing ───────┤
-ALS-XZ ──────────┤
-ALS-XY-Wing ─────┼──► ALS Engine (3-ALS chain)
-ALS Chain ───────┤──► ALS Engine (4+ ALS chain)
-Sue de Coq ──────┤──► ALS Engine (box/line decomposition)
-Death Blossom ───┤──► ALS Engine (star graph topology)
-APE/ATE ─────────┘──► ALS Engine (mutually-visible cell group)
-
-Empty Rectangle ─┐──► AIC Engine (single-digit ERI chain)
-W-Wing ──────────┤
-X-Chain ─────────┤
-3D Medusa ───────┼──► AIC Engine (strong-link coloring, legacy)
-AIC ─────────────┤
-Nishio FC ───────┤──► AIC Engine (single-branch contradiction)
-Kraken Fish ─────┤──► AIC Engine (fish + forcing verification)
-Cell FC ─────────┤──► AIC Engine (cell-source forcing)
-Region FC ───────┤──► AIC Engine (sector-source forcing)
-Dynamic FC ──────┘──► AIC Engine (full-propagation forcing)
+```mermaid
+flowchart LR
+    A[Pointing Pair and Box-Line Reduction] --> F[Fish engine]
+    B[X-Wing, Swordfish, and Jellyfish] --> F
+    C[Franken, Siamese, and Mutant Fish] --> F
+    D[ALS pairs and chains] --> G[ALS engine]
+    E[Sue de Coq, Death Blossom, and legacy APE or ATE] --> G
+    H[Empty Rectangle, W-Wing, X-Chain, Medusa, and AIC] --> I[AIC engine]
+    J[Nishio, Kraken, Cell, Region, and Dynamic forcing proposals] --> K[Native forcing certificate checker]
 ```
 
 ### 4.3 Technique Coverage by Engine
 
-The solver dispatches 46 technique variants, including backtracking. Their engine ownership:
+The `Technique` enum contains 48 variants, including backtracking.
+The following table records their engine ownership:
 
-| Engine        | Count | Technique variants |
+| Engine | Count | Technique variants |
 |---------------|:-----:|---|
 | Basic (direct) | 8 | NakedSingle, HiddenSingle, NakedPair/Triple/Quad, HiddenPair/Triple/Quad |
-| Fish          | 11 | PointingPair, BoxLineReduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Franken Fish, Siamese Fish, Mutant Fish |
-| ALS           | 10 | XY-Wing, XYZ-Wing, WXYZ-Wing, ALS-XZ, ALS-XY-Wing, ALS Chain, Sue de Coq, Death Blossom, Aligned Pair Exclusion, Aligned Triplet Exclusion |
-| AIC           | 10 | Empty Rectangle, W-Wing, X-Chain, 3D Medusa, AIC, Nishio FC, Kraken Fish, Cell FC, Region FC, Dynamic FC |
-| Uniqueness    | 5 | Avoidable Rectangle, Unique Rectangle, Hidden Rectangle, Extended UR, BUG |
-| Arithmetic    | 1 | Arithmetic Counting |
-| Backtracking  | 1 | Backtracking |
+| Fish | 11 | PointingPair, BoxLineReduction, X-Wing, Finned X-Wing, Swordfish, Finned Swordfish, Jellyfish, Finned Jellyfish, Franken Fish, Siamese Fish, Mutant Fish |
+| ALS | 10 | XY-Wing, XYZ-Wing, WXYZ-Wing, ALS-XZ, ALS-XY-Wing, ALS Chain, Sue de Coq, Death Blossom, Aligned Pair Exclusion, Aligned Triplet Exclusion |
+| AIC | 10 | Empty Rectangle, W-Wing, X-Chain, 3D Medusa, AIC, Nishio FC, Kraken Fish, Cell FC, Region FC, Dynamic FC |
+| Uniqueness | 5 | Avoidable Rectangle, Unique Rectangle, Hidden Rectangle, Extended UR, BUG |
+| Matching | 1 | Three-House Matching |
+| Arithmetic | 1 | Arithmetic Counting |
+| Coloring | 1 | Global Coloring |
+| Backtracking | 1 | Backtracking |
 
 Note: Basic techniques (singles, subsets) are direct applications of the
 axioms and do not require an engine. Uniqueness techniques rely on the
@@ -739,8 +744,8 @@ The following conditions are checked in addition to that assumption.
 The swap arguments below preserve rows, columns and boxes. Additional variant
 constraints require a separate justification that the swap preserves them too.
 
-**Hidden Rectangle.** Let four empty corners occupy two rows, two columns and
-exactly two boxes, with candidates *a* and *b* present at every corner. For a
+**Hidden Rectangle.** Let four empty corners occupy two rows, two columns, and exactly two boxes.
+Candidates *a* and *b* must occur at every corner. For a
 target corner *T*, the diagonally opposite corner must have exactly `{a, b}`.
 Candidate *b* must form a conjugate pair between *T* and the adjacent corner in
 **both** T's row and T's column. Then *a* can be removed from *T*.
@@ -779,10 +784,13 @@ BUG finding so subsequent techniques can continue.
 
 ---
 
-## 5. Hint Delivery
+## 5. Hint delivery
 
-The main solver exposes two hint paths. Dedicated arithmetic APIs also expose
-checked deductions over the caller's exact candidate state (Section 8).
+`get_hint()` starts from placed values and rebuilds candidates.
+`get_hint_with_candidates()` validates and retains supplied candidate masks.
+`SolverState` preserves deductions and checked guardian relations between steps.
+Direct arithmetic, matching, coloring, and forcing APIs operate on the stated candidate premises.
+The [solver-state guide](../../docs/solver-state.md) defines edits, undo, policies, and validation.
 
 ### 5.1 `get_hint()` — Display Hints
 
@@ -795,8 +803,9 @@ checked against their source equations before entering this path.
 
 ### 5.2 `get_next_placement()` — Verified Placement Hints
 
-`get_next_placement(grid)` is the safe hint path used by all frontends
-when *applying* a hint to the game state. It works as follows:
+`get_next_placement(grid)` checks proposed steps against a solved completion before returning a placement.
+If the solver finds no completion, the method returns no hint.
+Its procedure is:
 
 1. Solve the grid once via backtracking to obtain the verified solution.
 2. Find the first applicable technique.
@@ -806,39 +815,48 @@ when *applying* a hint to the game state. It works as follows:
 4. If it is a **placement**: verify that the placed value matches the
    solution. If sound, return it as the hint.
 5. If any step produces an unsound result (technique bug), **stop
-   chaining** and fall back to a backtracking hint (always correct).
+   chaining** and fall back to a backtracking hint consistent with that completion.
 
-This loop chains eliminations internally so the caller always receives
-a `SetValue` hint. The solution verification at each step ensures that
-known technique bugs (e.g., Avoidable Rectangle on given cells, W-Wing
-self-links, X-Chain conjugate errors) never produce wrong placements.
+The loop chains eliminations internally and returns a `SetValue` hint.
+Checking against a completion preserves that completion even if a detector proposes an incorrect step.
+Agreement with one completion does not prove a forced value in a nonunique puzzle.
+The method also does not validate every detector's mathematical proof.
 
 ### 5.3 ProofCertificate
 
-Each `Hint` carries an optional `ProofCertificate` providing structured
-metadata for visualization:
+Each `Hint` can carry a `ProofCertificate`.
+Some variants contain explanation metadata; others contain independently checked finite proofs.
+The related method guide defines the acceptance conditions.
 
-| Variant        | Fields                                        |
+| Variant | Fields |
 |---------------|-----------------------------------------------|
-| `Basic`       | involved cells                                |
+| `Basic`       | kind label; the hint carries involved cells |
 | `Fish`        | base sectors, cover sectors, fin cells, digit |
-| `Als`         | ALS chain (cells + candidates per ALS)        |
+| `Als`         | ALS chain (cells + candidates per ALS) |
 | `Aic`         | chain of (cell, digit, polarity) nodes and link types |
-| `Uniqueness`  | floor cells, roof cells                       |
-| `Forcing`     | source cell, branches                         |
-| `Backtracking`| (no fields)                                   |
+| `Uniqueness`  | floor cells, roof cells |
+| `Arithmetic` | Checked weighted native equations and a contradiction terminal. |
+| `ThreeHouse` | Checked Hall obstructions covering all boundary signatures. |
+| `GlobalColoring` | Checked finite native list-coloring refutation. |
+| `ForcingProof` | Exact-state native propagation and exhaustive split tree. |
+| `Guardian` | A retained guardian relation and checked current-state propagation. |
+| `Forcing` | Historical internal source and branch metadata; not a checked public forcing hint. |
+| `Backtracking`| (no fields) |
+| `Certified` | Optional named structural witness, legacy metadata, and independent exact-cover deduction proof. |
+
+`Certified` verifies the conclusion independently of the named method's classification.
+The [validation guide](../../docs/independent-validation.md) states the exhaustive-tree theorem, limits, and setup authentication conditions.
 
 Frontends use these to render proof-detail overlays (e.g., base/cover
 sector highlighting for fish, on/off coloring for AIC chains).
 General AIC/X-Chain certificates start with the first candidate OFF and
 alternate conditional truth values along the implication described in
-Section 3.2. Empty Rectangle uses the `Fish` representation to preserve
-all candidates in its grouped box arm (Section 3.3); a certificate's
-variant need not have the same name as the hint technique.
+Section 3.2. Empty Rectangle uses the `Fish` representation to preserve every candidate in its grouped box arm, as Section 3.3 explains.
+A certificate variant can have a different name from its hint technique.
 
 ---
 
-## 6. Soundness Guarantees
+## 6. Soundness conditions and checks
 
 ### 6.1 Engine Soundness
 
@@ -847,7 +865,7 @@ Each engine's eliminations are sound if the axioms hold:
 - **Fish**: Theorems 1.1 and 1.2 require the sector uniqueness axiom
   and the pairwise candidate-set independence in Definition 1.1.
 - **ALS**: Sound by Theorems 2.1, 2.2, 2.3, 2.4. Depends on the
-  Uniqueness axiom and Completeness axiom.
+  house exactly-one axiom and Completeness axiom.
 - **AIC**: Sound by Theorems 3.1, 3.2, 3.4. Depends on the logical
   semantics of strong links and weak inferences, which are derived from all
   three axioms.
@@ -869,15 +887,13 @@ Three test suites verify soundness empirically:
 - `test_next_placement_soundness`: Verifies that `get_next_placement()`
   produces correct placements for every puzzle in the battery.
 
-These are runtime verifications, not formal proofs, but they provide
-high confidence that the implementation correctly realizes the
-theorems above. The `get_next_placement()` verification loop
-(Section 5.2) provides an additional per-call safety net in
-production.
+These runtime checks test the listed behaviors.
+They do not formally prove every production implementation.
+The `get_next_placement()` loop also checks each proposed step against its selected completion, subject to the limits in Section 5.2.
 
 ### 6.3 Termination
 
-The solver terminates because:
+Within a retained logical chain, the termination argument uses these conditions:
 1. Each technique application either places a value (reducing
    empty cells by 1) or eliminates at least one candidate.
 2. Candidates are never re-added.
@@ -895,16 +911,16 @@ The solver terminates because:
 Puzzles are classified into eight difficulty tiers. Three independent
 mechanisms use these tiers for different purposes.
 
-| Tier         | SE Range    | Technique Hint          |
+| Tier | SE Range | Technique Hint |
 |-------------|-------------|-------------------------|
-| Beginner    | 1.5 – 2.0   | Hidden singles          |
-| Easy        | 2.0 – 2.5   | Naked singles           |
-| Medium      | 2.5 – 3.4   | Pairs & triples         |
-| Intermediate| 3.4 – 3.8   | Hidden triples          |
-| Hard        | 3.8 – 4.5   | Box/line reduction      |
-| Expert      | 4.5 – 5.5   | Fish & rectangles       |
-| Master      | 5.5 – 7.0   | Wings & chains          |
-| Extreme     | 7.0 – 11.0  | Advanced techniques     |
+| Beginner | 1.5 – 2.0 | Hidden singles |
+| Easy | 2.0 – 2.5 | Naked singles |
+| Medium | 2.5 – 3.4 | Pairs & triples |
+| Intermediate| 3.4 – 3.8 | Hidden triples |
+| Hard | 3.8 – 4.5 | Box/line reduction |
+| Expert | 4.5 – 5.5 | Fish & rectangles |
+| Master | 5.5 – 7.0 | Wings & chains |
+| Extreme | 7.0 – 11.0 | Advanced techniques |
 
 Master and Extreme are hidden tiers, unlocked by the player.
 
@@ -912,43 +928,42 @@ Master and Extreme are hidden tiers, unlocked by the player.
 
 **SE rating** (`rate_se`): The maximum SE rating among all techniques
 used to solve the puzzle. This is a continuous numerical score that
-uses the engine's technique rating table. Arithmetic Counting has an engine-local,
-uncalibrated value of 8.5, not an official Sudoku Explainer rating.
+uses the engine's technique rating table. Arithmetic Counting, Three-House Matching, and Global Coloring use an uncalibrated engine value of 8.5.
+These values are not official Sudoku Explainer ratings.
 
 **Technique-based classification** (`technique_to_difficulty`): Maps
 the hardest technique used during solving to a difficulty tier. This
 is a discrete classification based on the *kind* of reasoning required:
 
-| Tier         | Techniques included |
+| Tier | Techniques included |
 |-------------|---|
-| Beginner    | NakedSingle (≤35 empty cells) |
-| Easy        | NakedSingle (>35 empty cells) |
-| Medium      | HiddenSingle |
+| Beginner | NakedSingle (≤35 empty cells) |
+| Easy | NakedSingle (>35 empty cells) |
+| Medium | HiddenSingle |
 | Intermediate| NakedPair, HiddenPair, NakedTriple, HiddenTriple |
-| Hard        | PointingPair, BoxLineReduction |
-| Expert      | X-Wing (±fin), Swordfish (±fin), Jellyfish (±fin), NakedQuad, HiddenQuad, EmptyRectangle, AvoidableRectangle, UniqueRectangle, HiddenRectangle |
-| Master      | XY/XYZ/WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, SueDeCoq, AIC, FrankenFish, SiameseFish, ALS-XZ, ExtendedUR, BUG |
-| Extreme     | ALS-XY-Wing, ALS Chain, MutantFish, APE, ATE, DeathBlossom, ArithmeticCounting, Nishio/Kraken/Cell/Region/Dynamic FC, Backtracking |
+| Hard | PointingPair, BoxLineReduction |
+| Expert | X-Wing (±fin), Swordfish (±fin), Jellyfish (±fin), NakedQuad, HiddenQuad, EmptyRectangle, AvoidableRectangle, UniqueRectangle, HiddenRectangle |
+| Master | XY/XYZ/WXYZ-Wing, W-Wing, X-Chain, 3D Medusa, SueDeCoq, AIC, FrankenFish, SiameseFish, ALS-XZ, ExtendedUR, BUG |
+| Extreme | ALS-XY-Wing, ALS Chain, MutantFish, APE, ATE, DeathBlossom, ThreeHouseMatching, ArithmeticCounting, GlobalColoring, Nishio/Kraken/Cell/Region/Dynamic FC, Backtracking |
 
 **Generation cap** (`max_technique`): Limits which techniques the
 generator may require. This uses the `Technique` enum ordering (not SE
 rating) to define an upper bound:
 
-| Tier         | Max technique allowed     |
+| Tier | Max technique allowed |
 |-------------|---------------------------|
-| Beginner    | NakedSingle               |
-| Easy        | NakedSingle               |
-| Medium      | HiddenSingle              |
-| Intermediate| HiddenTriple              |
-| Hard        | BoxLineReduction          |
-| Expert      | HiddenRectangle           |
-| Master      | BivalueUniversalGrave     |
-| Extreme     | Backtracking              |
+| Beginner | NakedSingle |
+| Easy | NakedSingle |
+| Medium | HiddenSingle |
+| Intermediate| HiddenTriple |
+| Hard | BoxLineReduction |
+| Expert | HiddenRectangle |
+| Master | BivalueUniversalGrave |
+| Extreme | Backtracking |
 
-The generation cap and technique classification are intentionally
-different: the generator uses a coarse enum-order gate to quickly
-reject puzzles during generation, while classification uses the full
-technique-to-tier mapping after solving. The SE range provides the
+The generator uses a coarse enum-order cap to reject candidates during generation.
+After solving, classification uses the complete technique-to-tier mapping.
+These are separate filters. The SE range provides the
 continuous scale used by `generate_for_se()`.
 
 ---
@@ -969,9 +984,34 @@ reported placement or elimination for every completion respecting the masks.
 The certificate records the source equations, weights, target, and an exact
 candidate-state hash. Its checker reconstructs the equations independently.
 Search uses a bounded connected beam and is incomplete. The technique runs after
-Death Blossom in hint and profile dispatch; it is omitted from recursive forcing
+Three-House Matching in hint and profile dispatch; it is omitted from recursive forcing
 propagation. See [Arithmetic Counting](../../docs/arithmetic-counting.md) for the
 full proof, examples, API, validation, assumptions, and attribution.
+
+
+Version two also permits a residue terminal for moduli 2..16 and source weights with magnitude at most eight.
+The checker reconstructs reachable Boolean remainders.
+It requires the opposite endpoint to be unreachable and the claimed endpoint's remainder to be reachable.
+The automatic search retains its configured smaller weight limits.
+The [arithmetic guide](../../docs/arithmetic-counting.md) defines parity-tail compilation and compatibility with version one.
+
+## 9. Native certificates and retained state
+
+Three-House Matching partitions one crossing row, column, and box into six membership atoms.
+Its checker uses Hall obstructions to cover every permitted boundary signature.
+The [matching guide](../../docs/three-house-matching.md) states the exact theorem and reconstruction limits.
+
+Global Coloring reconstructs a selected native peer graph and checks an exhaustive list-coloring refutation under the opposite endpoint.
+Its base witness prevents acceptance of an already contradictory selected graph.
+The [coloring guide](../../docs/global-coloring.md) states the cell, node, and search limits.
+
+ForcingProof checks recorded native propagation, complete cell-value splits, and explicit Hall or three-house contradiction leaves.
+GuardianPropagation checks a retained OR relation against its original premises and the current monotone descendant.
+The [solver-state guide](../../docs/solver-state.md) defines their proof formats, policies, edits, and undo behavior.
+
+Candidate masks are proof premises.
+These proof formats do not authenticate earlier imported eliminations or prove global satisfiability.
+Their mathematical soundness does not depend on a historical novelty claim.
 
 ---
 
@@ -979,19 +1019,19 @@ full proof, examples, API, validation, assumptions, and attribution.
 
 | Symbol | Meaning |
 |--------|---------|
-| *C*    | Cell space (81 cells) |
-| *X*    | Candidate space ⊆ *C* × {1..9} |
-| *S*    | Sector space (27 units) |
-| *L*    | Link space (strong + weak edges) |
+| *C* | Cell space (81 cells) |
+| *X* | Candidate space ⊆ *C* × {1..9} |
+| *S* | Sector space (27 units) |
+| *L* | Link space (strong + weak edges) |
 | *X(c)* | Candidates of cell *c* |
 | *X_d(S)* | Cells in sector *S* with candidate *d* |
 | *β, κ* | Base cells, cover cells (fish) |
 | *φ, ε* | Fin cells, elimination cells (fish) |
 | *cands(A)* | Candidate union of ALS *A* |
-| RCC    | Restricted Common Candidate |
-| ALS    | Almost Locked Set |
-| AIC    | Alternating Inference Chain |
-| SE     | Sudoku Explainer rating |
+| RCC | Restricted Common Candidate |
+| ALS | Almost Locked Set |
+| AIC | Alternating Inference Chain |
+| SE | Sudoku Explainer rating |
 
 ## Appendix B: CandidateFabric Sector Convention
 

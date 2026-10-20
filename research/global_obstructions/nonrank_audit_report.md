@@ -6,12 +6,24 @@ known tridagon obstruction. **The mathematical principles and the obstruction
 family are established.** The useful result is an exact, reproducible separation
 from specified engine/local/linear baselines.
 
+
+```mermaid
+flowchart TD
+    A[Closed opposite candidate state] --> B[Exact rational digit-template mixture]
+    B --> C[All single-digit-valid linear inequalities pass]
+    A --> D[Joint constraints and known patterns]
+    D --> E[Stronger explanations remain possible]
+    C --> F[Scoped relaxation result]
+```
+
 ## Precise relaxation and sound separation theorem
 
 Fix ordinary 9x9 Sudoku and the recorded opposite-assumption candidate snapshot
-`D`. For digit `d`, let `T_d` contain every 9-cell set choosing exactly one cell
-from each native row, column and box, using only cells whose domain contains
-`d`. Every cell forced to `d` is included. There are 46,656 templates before
+`D`. For digit `d`, let `T_d` contain the legal nine-cell placements.
+Each placement uses one cell in every native row, column, and box.
+Every selected cell must allow `d`.
+
+Every cell forced to `d` is included. There are 46,656 templates before
 candidate filtering. Define nonnegative rational variables `lambda[d,t]` with:
 
 ```text
@@ -28,18 +40,16 @@ assumption.
 More strongly, suppose `w` is **any** real cell-weight vector and the inequality
 `sum(c) w[c] z[c] <= b` holds for every admissible complete placement `z` of one
 digit. Multiplying each template instance by its nonnegative `lambda` and
-summing gives exactly that inequality for `x[:,d]`. Thus a verified feasible
-template mixture simultaneously satisfies **every valid linear inequality of
-each single-digit placement polytope**, including every weighted stable-set,
-rank, odd-hole or hyperhole inequality on arbitrary selected cells. Adding such
+summing gives exactly that inequality for `x[:,d]`. Thus the checked template mixture satisfies **every valid linear inequality of each single-digit placement polytope**.
+This includes weighted stable-set, rank, odd-hole, and hyperhole inequalities on arbitrary selected cells. Adding such
 single-digit inequalities to the native equations cannot refute this point.
 This argument is an elementary convex-combination proof; it is not a new
 theorem of graph theory.
 
-Singleton filtering is equivalent in this relaxation, even if the snapshot's
-`values` entry is zero: a singleton cell can receive coverage only from its
-digit; that digit's distribution has mass 1, so every positive template term
-must include the cell. The search and negative-certificate enumeration filter
+Singleton filtering is equivalent in this relaxation even when the snapshot's `values` entry is zero.
+A singleton cell can receive coverage only from its digit.
+That digit's distribution has mass 1.
+Thus every positive template term must include the cell. The search and negative-certificate enumeration filter
 all effective singletons. The positive checker explicitly includes placed
 values and independently checks the equations, which imply the remaining
 singleton requirements.
@@ -76,11 +86,11 @@ templates, filters domains/singletons, and checks every surviving column's
 coefficient. This enumeration is necessary for a Farkas proof; a certificate
 valid only on a restricted set of generated columns would be insufficient.
 
-Candidate domains and their provenance are distinct obligations. This checker
-binds the exact supplied snapshot; it does not prove that its domains follow
-from the original givens, count solutions, replay closure traces, or establish
-that an old solver reached a fixed point. Those are separate checks in the
-fixture replay/old-engine suite. Likewise, the native list-coloring refutation
+Candidate domains and their provenance are distinct obligations. This checker binds the exact supplied snapshot.
+It does not authenticate the domain derivation, count solutions, replay closure traces, or confirm an older solver's fixed point. Those are separate checks in the
+fixture replay/old-engine suite.
+
+Likewise, the native list-coloring refutation
 checker proves impossibility under an assumption, while a base-support witness
 rejects a vacuous local contradiction. Neither operation establishes historical
 novelty. The current graph proof is a finite failed-literal/CSP certificate.
@@ -114,9 +124,11 @@ The first three real primal witnesses are preserved as
 These established tridagons already pass this stronger separation screen;
 passing it is not evidence that a new mathematical family has been discovered.
 
-For the old 13-cell core `S`, give each of the four palette-digit mass rows
-weight +3 and each of the 13 cell-coverage rows in `S` weight −1. Other row weights
-are zero. The RHS is `4*3-13=-1`. Every allowed palette template meets `S` at
+For the old 13-cell core `S`, give each of the four palette-digit mass rows weight +3.
+Give each of the 13 cell-coverage rows in `S` weight −1. Other row weights
+are zero. The RHS is `4*3-13=-1`.
+
+Every allowed palette template meets `S` at
 most three times; other digits meet it zero times. Hence every allowed column
 has nonnegative coefficient. The independent checker exhaustively confirms
 this certificate, rejecting the old hyperhole even though its original native
@@ -161,18 +173,21 @@ concrete **known tridagon plus guardian forcing** explanation. The graph
 certificate's four additional cells accommodate these surrounding restrictions;
 they do not create a historically new obstruction family.
 
-The separate fixture verification reports uniqueness, the full old-engine stall,
-20 base closure events, six branch closure events and feasibility of every
-conjunction of three native houses. This audit's independent positive result is
+The separate fixture checks confirm uniqueness and the recorded full older-engine fixed point.
+They replay 20 base closure events and six branch closure events.
+They also confirm an assignment for each conjunction of three native houses. This audit's independent positive result is
 the exact template mixture and its native graph/replay identity, not a second
 independent run of the complete uniqueness/closure suite.
 
 ## Primary related work and novelty limits
 
-* [David Eppstein, *Solving Single-digit Sudoku Subproblems*, immutable arXiv 1202.5074v2, 4 March 2012](https://arxiv.org/pdf/1202.5074v2), section 2, formalizes complete single-digit placements, Nishio support filtering and the 46,656 pattern universe. Its algorithm and generalized-size hardness result make clear that exact single-digit reasoning is established; the NP-hardness result is not a statement about the fixed finite 9x9 size.
+* [David Eppstein, *Solving Single-digit Sudoku Subproblems*, immutable arXiv 1202.5074v2, 4 March 2012](https://arxiv.org/pdf/1202.5074v2), section 2.
+  This source formalizes complete single-digit placements, Nishio support filtering, and the 46,656-pattern universe. The algorithm establishes earlier exact single-digit reasoning.
+  Its NP-hardness result concerns generalized sizes, not the fixed finite 9×9 board.
 * [Andries Brouwer's author-maintained digit-pattern exposition](https://homepages.cwi.nl/~aeb/games/sudoku/solving28.html) describes selecting compatible patterns across digits and attributes POM to Myth Jellies. Its cross-pattern compatibility is stronger than merely choosing fractional marginal distributions.
 * [Andrew Stuart's Pattern Overlay documentation](https://www.sudokuwiki.org/Pattern_Overlay) credits Myth Jellies and states the 46,656 count. The page displays creation 12 April 2008 and update 17 July 2024; those dates do not date every paragraph.
-* [Dantzig and Wolfe, *Decomposition Principle for Linear Programs*, 1960](https://doi.org/10.1287/opre.8.1.101) establishes column-based convex-combination/decomposition principles. Describing this template master as a Dantzig–Wolfe-style convexification is a mathematical correspondence, not a claim that this paper specifically discusses Sudoku.
+* [Dantzig and Wolfe, *Decomposition Principle for Linear Programs*, 1960](https://doi.org/10.1287/opre.8.1.101) establishes column-based convex-combination/decomposition principles. The template master has a mathematical correspondence with Dantzig–Wolfe convexification.
+  This correspondence does not imply that the paper discusses Sudoku.
 * [Mehrotra and Trick, *A Column Generation Approach for Graph Coloring*, 1996](https://doi.org/10.1287/ijoc.8.4.344) uses one column per independent set with LP and branching. [Lucci, Nasini and Severín's list-coloring branch-and-price paper](https://arxiv.org/abs/1812.00040) extends this established framework to lists. Fractional versus integral coloring is therefore an established distinction, not evidence of a new Sudoku principle.
 * [Published tridagon source and proof traces, pinned CSP-Rules-Examples](https://github.com/denis-berthier/CSP-Rules-Examples/tree/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons) supply direct pattern prior art. The stored exact vertex maps are stronger evidence than naming similarity.
 
@@ -187,10 +202,9 @@ Searches used: `Sudoku template linear programming relaxation pattern overlay fr
 `"fractional coloring" "list" "integrality gap" Kneser`.
 
 These searches did not establish priority for the exact 90-row Sudoku template
-master formulation. No originality claim follows from that search gap. The
-supported description is **an independently checked benchmark beyond all
-per-digit weighted counting at the recorded snapshot, explained by an established
-tridagon and solved with this engine's replayable list-coloring certificate**.
+master formulation. No originality claim follows from that search gap. The benchmark passes every single-digit weighted counting inequality at the recorded snapshot.
+An established tridagon explains its contradiction.
+The engine certifies the deduction with a replayable list-coloring proof.
 
 ## Additional rejected discovery control: 27-cell graph gap
 
@@ -199,20 +213,21 @@ weight 4 while requiring 5 integral colors. It nevertheless **fails** the full
 Sudoku acceptance filters. `nonrank_audit_27_raw_state.json` records the exact
 raw domains under guardian 5=false. The independent native LP Farkas check
 accepts `nonrank_audit_27_native_farkas.json` (237 nonzero weights, RHS−1).
+
 Aggregating native row/column/box weights into digit-mass weights gives
 `nonrank_audit_27_template_farkas.json` (61 nonzero weights, RHS−1). The independent
 template checker enumerates all 46,656 templates and checks every admissible
 column, proving full template LP infeasibility. Both controls run in
 `nonrank_audit_template.py --self-test`, preserving the 60 positive mutations.
 
-`nonrank_audit_27_screen.json` records an exact earlier local rejection: after
-eleven house-GAC events in the first raw opposite-assumption pass, box 2 has
-six cells `[3,5,12,13,14,22]` restricted to the five digits `{3,5,6,7,9}`.
+`nonrank_audit_27_screen.json` records an exact earlier local rejection after eleven house-GAC events in the first raw opposite-assumption pass.
+Box 2 has six cells `[3,5,12,13,14,22]` restricted to five digits `{3,5,6,7,9}`.
 No three-house propagation is needed. A different order that first closes the
 unforced base may instead report row 6 (sector 5); these are different propagation
-prefixes, not conflicting claims. A respecting unforced full completion was
-independently checked, so this is a valid negative discovery control rather
-than a vacuous inconsistent base. The selected-graph gap alone does not imply
+prefixes, not conflicting claims.
+
+An independent check confirms a full completion of the unforced state.
+Thus this negative discovery control has a consistent base. The selected-graph gap alone does not imply
 a full-board Sudoku relaxation gap.
 
 ## Distinct synthetic 27-cell positive with full-template acceptance
@@ -229,7 +244,8 @@ status file omits the duplicate primal data.
 
 Together with the separately checked selected-graph non-four-colorability,
 this supplies a synthetic research separation beyond the full per-digit
-placement relaxation. It is not an authored unique-givens puzzle, a new-family
-priority result, or a production integration claim: its 27-cell support exceeds
-the current 24-cell native certificate limit. The existing Monhard benchmark
+placement relaxation. This result is a synthetic state, not an authored unique-givens puzzle or a historical priority result.
+Its 27-cell support exceeded the then-current 24-cell search limit.
+The later explicit 32-cell proof API certifies this support; the automatic search limit remains 24.
+The [realization audit](realization27_report.md) excludes the exact unique outside-clue host. The existing Monhard benchmark
 and all its stable artifacts are unchanged.

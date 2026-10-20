@@ -3,16 +3,26 @@
 **Follow-up: the known EL12c38 tridagon plus one cell split explains the
 20-cell deduction.** The [expanded novelty audit](novelty20_report.md) verifies
 that complete chain and a separate seven-node local-only forcing tree. The
-85-node engine certificate and unique-puzzle stall remain valid; this case
+85-node engine certificate and recorded older-baseline comparison remain valid; this case
 does not demonstrate a new solving principle. The earlier one-pivot no-hit
-below remains a precisely scoped result without the additional catalogue lemma.
+below remains a precisely scoped result without the additional catalog lemma.
 
-**A different 20-cell list obstruction is certified in a unique puzzle, with
-historical novelty unresolved.** It supplies an 85-node proof of r1c8≠3 in a
-forcing-inclusive older-engine stall. No new mathematical family is claimed:
-most other short proofs found in this campaign have established explanations.
-The retained lead passes the stated bounded known-method screen; that screen
-does not exclude every known rule or longer forcing argument.
+**This historical discovery report retains a certified 20-cell list obstruction in a unique puzzle.**
+Its 85-node proof establishes r1c8≠3 at a recorded forcing-inclusive older-engine fixed point.
+The known-method screen below was bounded.
+Later audits explain the deduction with established methods.
+The [candidate-preserving baseline](joint_research_report.md) also solves this host.
+No new mathematical family is claimed.
+
+
+```mermaid
+flowchart TD
+    A[33 additional unique puzzles] --> B[Eight recorded older-engine fixed points]
+    B --> C[20-cell lead and 13-cell control]
+    C --> D[Exact local, LP, and coloring evidence]
+    D --> E[Later catalog and stronger-baseline audits]
+    E --> F[Known-method controls; no new family accepted]
+```
 
 ## Verified mixed-digit lead
 
@@ -82,9 +92,8 @@ hint API's backtracking fallback. Its arithmetic beam and forcing bounds remain
 relevant; a fixed point does not establish impossibility of every known method
 or every longer forcing argument.
 
-Optional SAT discovery extracted **327 small native list-coloring cores from six
-Monhard fixed points**, after the opposite target survived local closure and a
-bare three-digit contradiction screen. Exact full-board single-digit-template
+The opposite targets first survived local closure and a direct three-digit contradiction screen.
+Optional SAT discovery then extracted **327 small native list-coloring cores from six Monhard fixed points**. Exact full-board single-digit-template
 primals were recovered for 170 of the first 172 cores. This was not sufficient
 evidence of a different family:
 
@@ -109,7 +118,9 @@ A second SAT search deliberately omitted cells from recognized tridagon
 geometries. It found thousands of alternative selected supports without that
 literal 12-cell subgraph. Of 21 distinct opposite targets locally screened, one
 failed closure and 20 survived. Seventeen of those 20 have independently checked
-exact full-board template primals. **All 20 still have known full-board
+exact full-board template primals.
+
+**All 20 still have known full-board
 explanations**: 18 already expose a published tridagon in the closed opposite
 state, and two require the extra case split. Omitting known geometry from a
 selected proof support does not remove the known explanation elsewhere on the

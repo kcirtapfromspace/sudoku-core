@@ -142,14 +142,103 @@ fn find_rccs(fab: &CandidateFabric, als_a: &Als, als_b: &Als) -> Vec<u8> {
 
 // ==================== Wings (small ALS-XZ) ====================
 
-/// XY-Wing: ALS-XZ with 1+1 cells (SE sub-classification, SE 4.2).
+/// Canonical three-cell XY-Wing: bivalue pivot and two bivalue pincers.
 pub fn find_xy_wing(fab: &CandidateFabric) -> Option<Finding> {
-    find_als_xz_filtered(fab, Some(Technique::XYWing))
+    find_three_cell_wing(fab, false)
 }
 
-/// XYZ-Wing: ALS-XZ with 1+2 cells (SE sub-classification, SE 4.4).
+/// Canonical XYZ-Wing: trivalue pivot and two bivalue pincers.
 pub fn find_xyz_wing(fab: &CandidateFabric) -> Option<Finding> {
-    find_als_xz_filtered(fab, Some(Technique::XYZWing))
+    find_three_cell_wing(fab, true)
+}
+
+fn find_three_cell_wing(fab: &CandidateFabric, xyz: bool) -> Option<Finding> {
+    for pivot in 0..81 {
+        if fab.values[pivot].is_some() || fab.cell_cands[pivot].count() != if xyz { 3 } else { 2 } {
+            continue;
+        }
+        for a in 0..81 {
+            if fab.values[a].is_some() || !fab.sees(pivot, a) || fab.cell_cands[a].count() != 2 {
+                continue;
+            }
+            for b in a + 1..81 {
+                if fab.values[b].is_some() || !fab.sees(pivot, b) || fab.cell_cands[b].count() != 2
+                {
+                    continue;
+                }
+                let common = fab.cell_cands[a].intersection(&fab.cell_cands[b]);
+                let Some(z) = common.single_value() else {
+                    continue;
+                };
+                let mut pair = fab.cell_cands[a].union(&fab.cell_cands[b]);
+                if pair.count() != 3 {
+                    continue;
+                }
+                if !xyz {
+                    pair.remove(z);
+                }
+                if pair != fab.cell_cands[pivot] {
+                    continue;
+                }
+                for target in 0..81 {
+                    if [pivot, a, b].contains(&target)
+                        || fab.values[target].is_some()
+                        || !fab.cell_cands[target].contains(z)
+                        || !fab.sees(target, a)
+                        || !fab.sees(target, b)
+                        || (xyz && !fab.sees(target, pivot))
+                    {
+                        continue;
+                    }
+                    let technique = if xyz {
+                        Technique::XYZWing
+                    } else {
+                        Technique::XYWing
+                    };
+                    let sector = *fab.cell_sectors[pivot]
+                        .iter()
+                        .find(|s| fab.cell_sectors[a].contains(s))
+                        .unwrap();
+                    let vals = fab.cell_cands[pivot].union(&fab.cell_cands[a]);
+                    let rcc = fab.cell_cands[pivot]
+                        .intersection(&fab.cell_cands[b])
+                        .iter()
+                        .find(|&d| d != z)
+                        .unwrap();
+                    return Some(Finding {
+                        technique,
+                        inference: InferenceResult::Elimination {
+                            cell: target,
+                            values: vec![z],
+                        },
+                        involved_cells: vec![pivot, a, b, target],
+                        explanation: ExplanationData::Als {
+                            variant: if xyz { "XYZ-Wing" } else { "XY-Wing" }.into(),
+                            chain_length: 3,
+                            shared_value: Some(z),
+                        },
+                        proof: Some(ProofCertificate::Als {
+                            als_chain: vec![
+                                AlsProofDescriptor {
+                                    cells: vec![pivot, a],
+                                    candidates: vals.iter().collect(),
+                                    sector,
+                                },
+                                AlsProofDescriptor {
+                                    cells: vec![b],
+                                    candidates: fab.cell_cands[b].iter().collect(),
+                                    sector: fab.cell_sectors[b][0],
+                                },
+                            ],
+                            rcc_values: vec![rcc],
+                            z_value: Some(z),
+                        }),
+                    });
+                }
+            }
+        }
+    }
+    None
 }
 
 /// WXYZ-Wing: ALS-XZ with total 4 cells (SE sub-classification, SE 4.6).

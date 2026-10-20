@@ -6,6 +6,16 @@ in `structural_four_digit_13.json`, with ordinary 9x9 Sudoku peers.
 This report separates an obstruction's mathematical explanation from historical
 priority for a particular drawing or program.
 
+
+```mermaid
+flowchart TD
+    A[Exact 13-cell graph] --> B[Spanning seven-hyperhole map]
+    B --> C[Established weighted capacity argument]
+    C --> D[Guardian deduction]
+    D --> E[Known mathematical obstruction]
+    E --> F[Exact drawing priority remains a separate question]
+```
+
 ## Finding
 
 **This example does not establish a new mathematical solving principle.** Its
@@ -26,10 +36,9 @@ do not establish mathematical priority.
 ## Exact graph and geometry
 
 For a lightweight standard-library CI check, run
-`python3 research/global_obstructions/prior_art_13_verify.py`. It reconstructs
-the spanning-family map, checks all 715 four-subsets, a concrete independent
-triple, the native proper-five-color completion, actual strong-box/weak-house
-premises, and all 128 seven-group Boolean truth assignments. It explicitly
+`python3 research/global_obstructions/prior_art_13_verify.py`. The checker reconstructs the spanning-family map and checks all 715 four-subsets.
+It checks an independent triple, the native proper-five-color completion, and the actual strong-box/weak-house premises.
+It also checks all 128 seven-group Boolean truth assignments. It explicitly
 rejects Python `-O`. This is mathematical verification, not historical proof.
 
 Run `python3 research/global_obstructions/prior_art_13_invariants.py` to reproduce
@@ -52,7 +61,7 @@ independence enumeration, and the canonical-label convention are explicit.
 The graph is not a line graph (NetworkX inverse-line-graph recognition). It is
 not `C13^3` or the undirected Paley graph of order 13: those are 6-regular with
 39 edges. These limited comparisons do not constitute a complete named-graph
-catalogue search. Abstract graph isomorphism also does not identify a Sudoku
+catalog search. Abstract graph isomorphism also does not identify a Sudoku
 embedding, because it discards row/column/box labels.
 
 Occupancies, in natural house order, are:
@@ -139,10 +148,10 @@ Consequently this grouped Nice Loop is valid for each of the four digits:
         = (d)r6c79 - (d)r6c23 = (d)r45c1 - (d)r2c1
 ```
 
-Here `-` is a weak link and `=` a strong link. Every weak link is justified
-by a single native row or column; every strong link is justified by the
-exhaustive grouped positions in one of the three boxes. Starting with r2c1=d
+Here `-` is a weak link and `=` a strong link. One native row or column justifies each weak link.
+The exhaustive grouped positions in one of the three boxes justify each strong link. Starting with r2c1=d
 forces, successively, the opposite group in each box and finally r2c1!=d.
+
 Thus the loop eliminates d from r2c1. Repeating for four digits empties r2c1,
 refuting the guardian-false assumption. This is also a direct role-by-role
 explanation of the hyperhole obstruction.
@@ -173,10 +182,10 @@ pigeonhole count, graph coloring and the use of an independence bound are
 established mathematics.
 
 The word *rank* has different conventions in graph polyhedra and Sudoku set
-logic. They should not silently be equated. A plain rank-zero MSLS proof using
-only linear combinations of the original native equalities/nonnegativity
-cannot refute this assumed state: it has an independently checked rational
-point satisfying all 324 native equalities and all candidate masks. That point
+logic. They should not silently be equated. The assumed state has an independently checked rational point satisfying all 324 native equalities and every candidate mask.
+Thus linear combinations of those equalities and nonnegativity cannot refute it.
+
+This excludes only the stated plain rank-zero MSLS class. That point
 assigns `1/4` to each selected palette candidate and violates the **additional
 integer-valid** stable-set inequality (`13/4>3`). This does not exclude richer
 MSLS/general-logic analyses with Boolean case distinctions or imported illegal
@@ -185,9 +194,11 @@ found under the assumption.
 
 [Allan Barker's author page on general Sudoku logic](https://sudoku.allanbarker.com/sweb/general.htm)
 describes truths, links, rank, illegal logic and guardians, including reducing
-illegal substructures to virtual truths. [His Dark Logic page](https://sudoku.allanbarker.com/sweb/gen2/blacklog.htm)
-explicitly explains an impossible core with guardian candidates, and states:
-“If there is one guardian, it can be assigned.” These pages provide primary
+illegal substructures to virtual truths. [His Dark Logic page](https://sudoku.allanbarker.com/sweb/gen2/blacklog.htm) explains an impossible core with guardian candidates.
+The page states:
+
+> “If there is one guardian, it can be assigned.”
+ These pages provide primary
 prior art for the general guardian rule. Their retrieved pages do not supply
 a trustworthy original publication timestamp. This report uses the checked
 loop map above, rather than merely assuming every named rule is implemented
@@ -216,7 +227,7 @@ Searches for *quadrivalue oddagon*, *quadagon* and *four-value oddagon* found
 no relevant exact indexed match. Terminology and incomplete indexing make
 such negative searches especially weak evidence.
 
-## Catalogue and historical limits
+## Catalog and historical limits
 
 [Brendan McKay's primary graph catalogue](https://users.cecs.anu.edu.au/~bdm/data/graphs.html)
 and [Olivier Lalonde's author implementation](https://github.com/lalondeo/gencrit)

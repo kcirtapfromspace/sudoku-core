@@ -3,15 +3,25 @@
 **The known EL12c38 tridagon followed by one cell-value split explains r1c8≠3.**
 Its exact engine certificate and unique-puzzle benchmark remain valid, but the
 case does not demonstrate a new solving principle. This audit checks the
-catalogue, Exocet/MSLS and forcing separately; it does not infer historical
+catalog, Exocet/MSLS and forcing separately; it does not infer historical
 originality from any detector's no-hit.
 
 The source is the unchanged [Mith515 fixture](different_lead.json), SHA-256
 `45d6f8e79f9dfb859ba6827dadb3934a1cc5c1b1ada822537b5346b926941358`.
-All checks preserve that candidate-state premise. The [earlier audit](different_report.md)
-established independent uniqueness, the exact derivation from givens, an
-85-node production certificate, local closure, all 2,925 arbitrary-house-triple
-feasibility checks and an exact 18-term full-board digit-template primal.
+All checks preserve that candidate-state premise. The [earlier audit](different_report.md) checks independent uniqueness, the exact givens derivation, an 85-node production certificate, and local closure.
+It also checks all 2,925 arbitrary-house triples and an exact 18-term full-board digit-template primal.
+
+
+```mermaid
+flowchart TD
+    A[Known EL12c38 relation] --> B[Guardian r8c6 equals 7]
+    B --> C[Assume r1c8 equals 3]
+    C --> D[Split r9c5 over 4 and 8]
+    D -- 4 --> E[Hall contradiction]
+    D -- 8 --> F[Crossing three-house contradiction]
+    E --> G[Eliminate r1c8 candidate 3]
+    F --> G
+```
 
 ## A complete short explanation of the target
 
@@ -48,7 +58,7 @@ inside assumptions. Its live stall therefore remains consistent with the
 short proof. A stall of that implementation is not a separation from all
 previously known forcing methods.
 
-## The 630-pattern catalogue
+## The 630-pattern catalog
 
 The primary author's implementation publishes **592 generated geometries**.
 Its manual explicitly excludes **38 no-free-cell patterns**, giving the full
@@ -85,21 +95,20 @@ that missing implication. First derive r8c6=7 on the full base state using the
 verified EL12c38 occurrence. Six local propagation events leave r1c8=3 still
 available. Assuming that target and replaying eleven more events leaves
 r9c5={4,8}. Its value 4 gives the row-2 Hall deficiency; value 8 gives the
-row-1/column-4/box-2 contradiction. Thus the catalogue deduction plus one
+row-1/column-4/box-2 contradiction. Thus the catalog deduction plus one
 complete cell split proves the **actual target elimination**.
 
-The local part has three nodes and two leaves; the catalogue lemma is checked
-separately, not hidden in that node count. The checker binds the base occurrence
-and source hash, validates all candidates and the sole guardian, independently
-proves the pattern graph non-three-colorable, and replays both assumption
-orders to the same state. Fourteen corruptions are rejected. This strengthens
+The local part has three nodes and two leaves; the catalog lemma is checked
+separately, not hidden in that node count. The checker binds the base occurrence and source hash.
+It checks all candidates and the sole guardian, then independently proves that the pattern graph has no three-coloring.
+It also replays both assumption orders to the same state. Fourteen corruptions are rejected. This strengthens
 the standalone seven-node explanation without changing its local-only depth
 lower bound: the shorter chain uses an additional known lemma.
 
 Losing a strict all-three-candidate match after propagation does not invalidate
 the OR relation already derived on the broader base state. Likewise omitting
 the known pattern from a selected proof support does not remove its full-board
-explanation. The detailed catalogue report states the strict-model coverage
+explanation. The detailed catalog report states the strict-model coverage
 and the limits for sparse lists and OR-chain compositions.
 
 The [catalogue report](catalog630_report.md) records the exact native map and
@@ -113,7 +122,7 @@ A separate [84-witness certificate](novelty20_triplets.json) checks every
 three-digit palette on **all** native cells whose actual closed-opposite lists
 are contained in that palette: 1,461 explicit cell assignments. Any subset of
 a properly list-colored graph is properly list-colorable. Therefore no direct
-three-digit impossible pattern, in this catalogue or elsewhere, can refute this
+three-digit impossible pattern, in this catalog or elsewhere, can refute this
 snapshot with those contained lists. This does not exclude guarded patterns,
 their OR relations, or further conditional reasoning.
 
@@ -159,13 +168,10 @@ python3 -S research/global_obstructions/catalog630_verify.py --rescan
 python3 -S research/global_obstructions/deeper_forcing_catalogue_chain.py --mutations
 ```
 
-The exact catalogue source parser, matcher, coverage manifest and verifier are
+The exact catalog source parser, matcher, coverage manifest and verifier are
 retained alongside those checks. Fetching pinned source files is optional;
 the original third-party implementation is not vendored into production.
 CI checks the evidence without a numerical solver, SAT oracle or network fetch.
 
-The exact incidence's historical first appearance remains unproved. What is
-now established is that this deduction has both an ordinary nested-forcing
-derivation and a checked published-pattern-plus-forcing derivation; it should
-not be presented as evidence of a new primitive Sudoku
-method or a separation from deeper forcing.
+The exact incidence's historical first appearance remains unproved. The deduction has ordinary nested-forcing and checked published-pattern-plus-forcing derivations.
+It therefore establishes neither a new primitive Sudoku method nor a separation from deeper forcing.

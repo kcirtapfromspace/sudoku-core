@@ -10,6 +10,16 @@ Audit date: 2026-10-20. This is a bounded search and classification report, not
 a claim of a new mathematical principle or 100% originality. The previously
 studied uniform native-27 incidence is excluded from this campaign.
 
+
+```mermaid
+flowchart TD
+    A[Retained candidate deductions] --> B[Audit graph and template structure]
+    A --> C[Audit established forcing explanations]
+    B --> D[Compare the exact stated pattern]
+    C --> D
+    D --> E[Keep mathematical validity separate from priority]
+```
+
 ## Outcomes
 
 | Discovery arm | Recorded core/endpoint cases | Checked one-pivot known compositions | No checked selected-core-pivot composition | Short-budget inconclusive |
@@ -27,10 +37,10 @@ state**. The other two reduce by an additional case split and a two-color odd
 cycle. Geometry omission alone therefore failed as a novelty criterion.
 
 The Mith batch has 123 standard Loki12 overlaps and 12 supports without one.
-Among the latter, ten were not classified by the initial pivot test. A targeted
-follow-up tested every effective non-singleton pivot on the **whole board** for
-all ten, without timeouts; none produced a complete reduction in the tested
-lemma menu. Their exact template primals were independently checked. This is
+Among the latter, ten were not classified by the initial pivot test. A follow-up tested every effective non-singleton pivot on the **whole board** for all ten cases.
+No search timed out.
+
+None produced a complete reduction under the tested lemma menu. Their exact template primals were independently checked. This is
 limited negative evidence, not exclusion of every known solving method.
 
 Compact coordinate mappings, status counts and semantic proof hashes are in
@@ -53,10 +63,10 @@ The three-house checks use only the three selected house constraints, not
 additional peer edges from unselected houses.
 
 Despite those strong separation checks, the deduction has a short familiar
-explanation. Assume `r9c2!=5`, then split `r8c8` over `{5,9}`. The value 5 gives
-a three-house contradiction at center 9; the value 9 leaves the published
-Loki12 graph on cells
-`[29,35,36,43,46,51,56,62,63,69,73,79]` with a common three-digit palette.
+explanation. Assume `r9c2!=5`, then split `r8c8` over `{5,9}`. The value 5 gives a three-house contradiction at center 9.
+The value 9 leaves the published Loki12 graph with a common three-digit palette.
+
+Its cells are `[29,35,36,43,46,51,56,62,63,69,73,79]`.
 Every branch is covered, and the stored coordinate isomorphism is checked.
 `different_audit_control_classification.json` and
 `different_audit_control_result.json` retain this negative-novelty control.
@@ -84,17 +94,17 @@ has an exact 18-term positive primal. The independent audit also checks the
 unique completion, givens/base/opposite traces, all 2925 three-house
 conjunctions, and the recorded whole-board pivot follow-up.
 
-The standard four-box geometry recognizer completes without a hit. More
-strongly, a separate exhaustive edge-preserving-injection search of the
-abstract published Loki12 graph into the selected 20-cell graph completes
-after 1020 search visits with no embedding, even allowing extra native edges.
+The standard four-box geometry recognizer completes without a hit. A separate exhaustive search tests edge-preserving injections of the published Loki12 graph into the selected 20-cell graph.
+It permits extra native edges.
+The search completes after 1,020 visits without an embedding.
 This is not a timed-out isomorphism search.
 
 Every effective non-singleton pivot on the full board was tested after the
-opposite target. For each pivot at least one branch remains unclassified by
-the specific menu: exact Hall/all81 crossing closure, a direct local
-contradiction, a published Loki12 with actual lists contained in three digits,
-or a uniform two-color odd cycle. The negative record is
+opposite target. For each pivot, at least one branch remains unclassified by the specified menu.
+The menu includes exact Hall/all-81-crossing closure and direct local contradictions.
+It also includes a list-respecting three-digit Loki12 and a uniform two-color odd cycle.
+
+The negative record is
 `different_audit_lead_classification.json`; its snapshot hash and counterbranch
 closures are independently rechecked. This **does not** exclude conditional
 hyperholes, all 630 published impossible patterns, other list-coloring
@@ -126,7 +136,7 @@ The stored negative record, rather than elapsed time, establishes that all
 * Berthier's author-maintained
   [Sudoku-classif](https://github.com/denis-berthier/Sudoku-classif) describes
   630 published impossible patterns, generated OR-relations, and combinations
-  with OR-chains. This audit does not load that complete catalogue, so failing
+  with OR-chains. This audit does not load that complete catalog, so failing
   the two specific recognizers cannot establish a new pattern.
 * Allan Barker's
   [Dark Logic](https://sudoku.allanbarker.com/sweb/gen2/blacklog.htm) already

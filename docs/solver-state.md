@@ -29,14 +29,19 @@ its notes remain independent of the solver. `grid()` provides read access;
 state returns a hint without applying it. Standard logical solving, difficulty
 rating and technique profiles use the same retained step path.
 
-Validation requires installed standard Sudoku rules, valid values, valid
-nonempty domains, no candidates conflicting with placed peers, feasible native
-house matchings, and no placed-value violation of additional installed rules.
+Validation checks these conditions:
+
+- Standard Sudoku rules are installed.
+- Placed values are valid.
+- Domains are valid and nonempty.
+- Candidates do not conflict with placed peers.
+- Each native house has a respecting matching.
+- Placed values obey the extra installed rules.
+
 This checks local consistency; it does not authenticate the derivation of
 imported eliminations or establish global satisfiability. The full strategy
-ladder retains its existing uniqueness assumptions. Preserve the actual game's
-given flags when importing candidate masks: `CandidateState::to_grid` restores
-a native proof projection and does not recover given/user provenance.
+ladder retains its existing uniqueness assumptions. Preserve the game's given flags when importing candidate masks.
+`CandidateState::to_grid` restores a native proof projection without given/user provenance.
 
 All solver placements, backtracking branches and assumption propagation now
 remove candidates monotonically. Only entry points that start from player
@@ -45,6 +50,21 @@ all masks and discards learned relations. `undo` restores the preceding candidat
 snapshot and discards relations. A failed edit or proof application leaves the
 state unchanged. These changes can affect difficulty ratings and generated
 puzzle selection because deductions survive later placements.
+
+
+```mermaid
+flowchart TD
+    A[Source grid] --> B{Import mode}
+    B -- Values --> C[Rebuild independent solver candidates]
+    B -- Candidates --> D[Validate and retain supplied candidates]
+    C --> E[SolverState]
+    D --> E
+    E --> F[Find an applicable hint]
+    F --> G[Apply without restoring candidates]
+    G --> E
+    E -- Edit --> H[Rebuild candidates and discard relations]
+    E -- Undo --> I[Restore the preceding snapshot and discard relations]
+```
 
 ## Shared dispatch and policies
 
@@ -89,16 +109,17 @@ The checker replays the supplied tree; it never chooses pivots or calls the
 producer's matching DP. It independently reconstructs propagation support by
 Hall subsets and tight sets. It checks the exact before/after edits, complete
 candidate coverage, unique node use and child ordering. Hall leaves contain a
-native-house subset whose digit union is too small. Three-house leaves contain
+native-house subset whose digit union is too small.
+
+Three-house leaves contain
 Hall blockers covering every admissible boundary signature. Unknown fields,
 invalid geometry, stale states and incomplete trees are rejected. `apply`
 verifies first and commits atomically, preserving all other candidate masks and
 checking the installed constraints.
 
-Public ladder hints carry `ProofCertificate::ForcingProof`. The historical
-`Forcing { source, branches }` variant remains available for compatibility with
-existing evidence consumers; it is only an internal discovery summary and is
-never accepted as a checked forcing hint. A proposed endpoint that cannot be
+Public ladder hints carry `ProofCertificate::ForcingProof`. The historical `Forcing { source, branches }` variant remains available for existing evidence consumers.
+This variant is an internal discovery summary.
+The solver never accepts it as a checked forcing hint. A proposed endpoint that cannot be
 certified within the allowed calculus and budget is skipped.
 
 `search_forcing` reports visits, evaluations, errors and budget exhaustion.
@@ -106,10 +127,9 @@ An incomplete search never emits a proof. A missing proof is not a claim that
 no forcing deduction exists. A depth limit can prevent a proof even when the
 visit and evaluation budgets remain available.
 
-The committed `tests/fixtures/forcing_mith515.json` ports the verified research
-example: seven nodes, three complete splits, one Hall leaf, three three-house
-leaves, and 84 propagation events (the ten-event initial assumption prefix plus
-74 tree events). Tests independently replay it, reject altered proofs, and
+The committed `tests/fixtures/forcing_mith515.json` translates the verified research example.
+It contains seven nodes, three complete splits, one Hall leaf, and three three-house leaves.
+Its 84 propagation events comprise the ten-event initial assumption prefix and 74 tree events. Tests independently replay it, reject altered proofs, and
 rediscover its endpoint with two additional split levels. Recreate the format
 translation with:
 

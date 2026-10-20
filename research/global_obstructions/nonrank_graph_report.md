@@ -7,15 +7,25 @@ now accepts the 27-cell case, with unchanged automatic-search bounds. Statements
 below about the earlier production cap and pending realization describe the
 original discovery stage.
 
-The bounded search found a **synthetic 27-cell native graph with chromatic
-number five and fractional chromatic number four**, a respecting completed
-Sudoku, a live guardian, exact Hall/all-81-crossing closure traces, and an exact
-feasible point for all 324 native linear equations after the rejected guardian
-assumption. This achieves the selected-graph separation sought in this search.
-It is not yet a unique givens puzzle or a new historically established Sudoku
+The bounded search found a **synthetic 27-cell native graph with chromatic number five and fractional chromatic number four**.
+The artifacts include a respecting completed Sudoku, a live guardian, and exact Hall/all-81-crossing closure traces.
+An exact feasible point satisfies all 324 native linear equations after the rejected guardian assumption. This achieves the selected-graph separation sought in this search.
+
+The artifact is a synthetic state and establishes no historically new Sudoku
 family. The stronger full single-digit-template relaxation also passes an
 independent exact audit, using 49 rational terms. Native-equation feasibility
 alone would not establish that result.
+
+
+```mermaid
+flowchart TD
+    A[Synthetic 27-cell support] --> B[Five-chromatic graph]
+    A --> C[Fractional four-color and template witnesses]
+    B --> D[Conditional coloring deduction]
+    C --> D
+    D --> E[Audit unique givens-only realization]
+    E --> F[Internal trades exclude the unclued realization]
+```
 
 ## Stronger retained synthetic candidate
 
@@ -37,12 +47,10 @@ upper bound.
 
 An actual finite exhaustive research certificate is retained in
 [`nonrank_graph_native27_tree.json`](nonrank_graph_native27_tree.json). Its
-separate search order uses 11,081 nodes. The standard-library checker
-[`nonrank_graph_certificate.py`](nonrank_graph_certificate.py) reconstructs
-native peers, binds the exact premises and target, checks the respecting base
-witness, checks every permitted branch and every empty-domain leaf, rejects
-cycles and unreachable nodes, and rejects twelve malformed certificate
-mutations. This does not require trusting a reported search count. Every
+separate search order uses 11,081 nodes. The standard-library checker [`nonrank_graph_certificate.py`](nonrank_graph_certificate.py) reconstructs native peers and binds the exact premises and target.
+It checks the base witness, every permitted branch, and every empty-domain leaf.
+
+It rejects cycles, unreachable nodes, and twelve malformed certificate mutations. This does not require trusting a reported search count. Every
 one-vertex deletion is four-colorable, so no subset of these 27 selected cells
 provides the same uniform-four-color contradiction.
 
@@ -140,10 +148,10 @@ independent verifier reconstructs those witnesses and checks their digest.
   These are finite extensions of one known control, not all native motifs.
 - Randomized critical-subgraph search: eighteen prior large supports were
   revisited with thirty vertex-deletion orders each. New completion/guardian
-  presentations then used two further completed source grids. In the final
-  filtered run, 123,535 new presentations and 3,192 critical-subgraph
-  evaluations produced 176 graph fingerprints: 158 had exact weighted-rank
-  witnesses and 18 had exact fractional chromatic number four. Seventeen
+  presentations then used two further completed source grids. The final filtered run tested 123,535 new presentations and 3,192 critical subgraphs.
+It produced 176 graph fingerprints.
+
+  Of these, 158 had exact weighted-rank witnesses, and 18 had exact fractional chromatic number four. Seventeen
   pure gaps failed the floating native-role LP screen; the retained candidate
   passed that screen and then exact rational verification. These counters
   include repeated subgraphs and are not global isomorphism counts. The
@@ -178,7 +186,7 @@ python3 research/global_obstructions/nonrank_graph_critical_search.py \
 
 The successful filtered run stopped on its first native-LP-positive pure gap
 after approximately 144 seconds. Fractional LP solutions and graph-search
-statuses are subsequently checked with exact arithmetic. The next required steps are givens-only realization, independent uniqueness,
+statuses are later checked with exact arithmetic. The next required steps are givens-only realization, independent uniqueness,
 and joint full-older-engine/local fixed point. Until those pass, the synthetic
 example must not be reported as the requested unique new-family puzzle. The
 full single-digit-template audit is already positive.

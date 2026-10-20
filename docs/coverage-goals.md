@@ -1,5 +1,15 @@
 # Production coverage goals
 
+
+```mermaid
+flowchart LR
+    A[Production source inventory] --> C[Check source mappings]
+    B[Complete test run and LCOV records] --> C
+    C --> D[Count unique production lines]
+    D --> E[Apply crate and group thresholds]
+    E --> F[Publish reports and acceptance status]
+```
+
 ## Required thresholds
 
 These targets measure the authored Rust engine in this repository. They include
@@ -74,27 +84,26 @@ The added tests check more than whether a search returns a result:
   preserve those solutions and finish; difficulty and technique profiles agree.
 - Fish, ALS, AIC and uniqueness fixtures check deductions and proof metadata.
   Independent Boolean, exact-cover or local-assignment checks support the relevant
-  pattern assertions. Uniqueness techniques use genuinely unique puzzle fixtures.
+  pattern assertions. Uniqueness techniques use unique puzzle fixtures.
   These technique fixtures exercise classic Sudoku; variant cloning and
   backtracking checks do not establish every variant's hint behavior.
 - Generator checks cover all supported clue symmetries, exact clue-count bounds,
   seed reproducibility and bounded-search fallback. Diversity statistics are
   checked against the samples they summarize.
 
-The tests exposed and fixed lost custom constraints during cloning, candidate
-restoration errors, incomplete symmetry groups, minimum-clue boundary errors,
-and unsound AIC, fish, ALS, BUG and Hidden Rectangle deductions. Empty Rectangle
+The tests exposed errors in constraint cloning, candidate retention, symmetry groups, and minimum-clue bounds.
+They also exposed unsound AIC, fish, ALS, BUG, and Hidden Rectangle deductions.
+The implementation corrected these errors. Empty Rectangle
 detection and several proof descriptions were also corrected. The solver
 specification records the assumptions behind the revised deductions.
 
 Fixed-seed regression tests verify reproducibility for their fixture cases.
-Corrected clue removal and difficulty deductions can change which puzzle a seed
-produces compared with older revisions; seed-only puzzle IDs do not encode the
-generator version.
+Corrected clue removal and difficulty deductions can change the puzzle produced by a seed.
+Seed-only puzzle IDs do not encode the generator version.
 
-Fish searches reuse sector masks and combinations. Forced-single propagation
-keeps its initial candidate rebuild, then updates candidates affected by each new
-placement. Differential comparisons against the previous implementations checked
+Fish searches reuse sector masks and combinations. The recorded comparison used an initial rebuild during forced-single propagation.
+The current retained-state solver instead preserves earlier eliminations throughout propagation.
+The [solver-state guide](solver-state.md) describes the current behavior. Differential comparisons against the previous implementations checked
 finding metadata and complete grid state; these changes reduce the cost of
 running the full suite.
 
@@ -122,9 +131,8 @@ cargo clippy --all-features --locked -- -D warnings
 
 The helper runs the entire test suite, including soundness tests, under the
 `coverage` profile. This profile optimizes expensive solver/generator paths while
-retaining the test profile's debug assertions and overflow checks. Tests run
-sequentially to avoid contention on shared instrumentation counters during
-solver searches. No tests are excluded by name. The dedicated
+retaining the test profile's debug assertions and overflow checks. When `cargo-nextest` is installed, each test runs in a separate process and the suite can run in parallel.
+Otherwise, tests run sequentially to avoid contention on shared instrumentation counters. No tests are excluded by name. The dedicated
 `target/coverage-build` directory keeps these
 builds separate from ordinary development builds and saved baseline results.
 
