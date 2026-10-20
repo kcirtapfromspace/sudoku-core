@@ -10,7 +10,7 @@
   <header>
     <div><p class="eyebrow">SUDOKU CORE / GRID EVIDENCE</p><h1>See why the step works.</h1>
       <p>Inspect the pattern, follow an assumption, and find the contradiction on the board.</p></div>
-    <button id="export" type="button">Export scene JSON ↓</button>
+    <div class="export-actions"><button id="export" type="button">Export scene JSON ↓</button><button id="export-proof" type="button">Export proof JSON ↓</button></div>
   </header>
   <main>
     <nav aria-label="Example library">
@@ -47,16 +47,16 @@
           <div class="inspection"><h4 id="cell-title">Inspect a cell</h4><p id="cell-description" aria-live="polite">Select a cell on the board.</p></div>
           <details open><summary>Example provenance</summary><p id="origin"></p><a id="source" target="_blank" rel="noreferrer">Open the puzzle source ↗</a></details>
           <details><summary>What does “verified” mean?</summary>
-            <p>The Rust engine checked the original native-rule certificate and its exact conclusion before this file was generated.</p>
-            <p>Candidate masks are premises. Pattern metadata does not verify a deduction. Valid placed values do not establish solvability.</p>
-            <p>This page displays exported results. It does not run a certificate checker in JavaScript. Exported scene JSON is presentation data.</p>
+            <p>The Rust engine checked the certificate and its exact conclusion before this file was generated. The 48 technique examples also have checked uniqueness certificates for their original givens.</p>
+            <p>Independent exact-cover validation proves the deduction. The named pattern remains the detector's description. Earlier setup deductions in the 48-example corpus are authenticated by the original-givens uniqueness proof.</p>
+            <p>This page displays exported results. It does not run a certificate checker in JavaScript. Exported scene JSON is presentation data. Use Export proof JSON to get replayable evidence for a technique example.</p>
           </details>
           <details><summary>Grid text for this frame</summary><pre id="grid-text"></pre></details>
         </aside>
       </div>
     </section>
   </main>
-  <footer>Every Hint technique uses the same grid format. The library contains selected examples, not an example for every technique.</footer>
+  <footer id="coverage-note">Every Hint technique uses the same grid format. The library contains a checked real-puzzle example for all 48 technique IDs, plus additional proof and rejection controls.</footer>
   <script id="scene-data" type="application/json"><!-- SCENE_DATA --></script>
   <script>/* VIEWER_JS */</script>
 </body>

@@ -193,7 +193,9 @@ fn native_coloring_and_three_house_scenes_are_checked_and_large_trees_are_bounde
 
 #[test]
 fn structure_annotations_preserve_candidate_polarity_links_and_pattern_roles() {
-    let grid = Grid::new_classic();
+    let mut grid = Grid::new_classic();
+    grid.cell_mut(Position::new(0, 1))
+        .set_candidates(BitSet::from_slice(&[1, 2]));
     let structures = [
         ProofCertificate::Aic {
             chain: vec![
@@ -347,6 +349,39 @@ fn a_native_certificate_does_not_hide_an_added_variant_rule_violation() {
     .unwrap();
     assert_eq!(scene.evidence.status, EvidenceStatus::Rejected);
     assert!(scene.frames.iter().all(|f| f.kind != FrameKind::Conclusion));
+}
+
+#[test]
+#[allow(deprecated)]
+fn medusa_components_never_turn_arbitrary_node_order_into_strong_links() {
+    let mut grid = Grid::new_classic();
+    for c in 0..2 {
+        grid.cell_mut(Position::new(0, c))
+            .set_candidates(BitSet::from_slice(&[1, 2]));
+    }
+    let pattern = ProofCertificate::Aic {
+        chain: vec![
+            (0, 1, Polarity::On),
+            (1, 1, Polarity::Off),
+            (0, 2, Polarity::Off),
+            (1, 2, Polarity::On),
+        ],
+        link_types: vec![LinkType::Strong; 3],
+    };
+    let mut h = hint(20, 3, false, Some(pattern));
+    h.technique = Technique::ThreeDMedusa;
+    let scene = GridScene::from_hint(&grid, &h).unwrap();
+    assert_eq!(scene.frames[0].links.len(), 2);
+    assert!(scene.frames[0]
+        .links
+        .iter()
+        .all(|l| l.from.cell == l.to.cell));
+    h.technique = Technique::AIC;
+    let scene = GridScene::from_hint(&grid, &h).unwrap();
+    assert!(
+        scene.frames[0].links.is_empty(),
+        "false strong-link metadata must not be drawn"
+    );
 }
 
 #[test]

@@ -67,6 +67,9 @@ API identifiers and published technique names retain their original spelling.
 | completeness | The property that a method finds every result in its explicitly stated problem class. |
 | atomic application | An operation that commits the complete verified change or leaves the input unchanged. |
 | serialization | Conversion of structured data to a stored or transmitted format. |
+| setup state | The placed values and candidate masks supplied before the displayed deduction. |
+| proof bundle | Original givens, setup premises, and replayable certificates stored together. |
+| independent deduction validation | A check of the proposed result that does not call the named detector. |
 | scene | Portable display data for a grid explanation and its evidence status. |
 | frame | One board snapshot with related descriptions, highlights, and links. |
 | highlight role | The meaning of a cell or candidate mark, independent of its display color. |

@@ -95,6 +95,7 @@ pub struct SceneFrame {
 #[serde(rename_all = "snake_case")]
 pub enum EvidenceStatus {
     CheckedCertificate,
+    CheckedDeduction,
     MetadataOnly,
     Rejected,
     RulesSatisfied,
@@ -195,6 +196,16 @@ fn endpoint(hint: &Hint) -> Result<(usize, Vec<u8>, bool), String> {
 }
 
 fn evidence(grid: &Grid, hint: &Hint, cell: usize, digits: &[u8], value: bool) -> SceneEvidence {
+    if let Some(ProofCertificate::Certified { pattern, deduction }) = &hint.proof {
+        let checked = pattern
+            .as_deref()
+            .is_none_or(|p| !matches!(p, ProofCertificate::Certified { .. }))
+            && deduction.matches_hint(hint)
+            && deduction.verify(grid);
+        return SceneEvidence { status: if checked { EvidenceStatus::CheckedDeduction } else { EvidenceStatus::Rejected },
+            message: if checked { "The independent exact-cover checker verified this deduction from the supplied candidates. Technique labels and pattern structure are detector descriptions." }
+                else { "Independent deduction certificate rejected: wrong premises, conclusion or proof tree." }.into() };
+    }
     let matches = |c, d, v| c == cell && digits == [d] && v == value;
     let checked = match &hint.proof {
         Some(ProofCertificate::Arithmetic(p)) => {
@@ -289,7 +300,7 @@ impl GridScene {
             );
         }
         if scene.evidence.status != EvidenceStatus::Rejected {
-            annotate(&mut pattern, hint.proof.as_ref());
+            annotate(&mut pattern, hint.proof.as_ref(), hint.technique);
         }
         for &d in &digits {
             mark(
@@ -315,12 +326,18 @@ impl GridScene {
             scene.frames.push(rejected);
             return Ok(scene);
         }
-        if scene.evidence.status == EvidenceStatus::CheckedCertificate {
+        if matches!(
+            scene.evidence.status,
+            EvidenceStatus::CheckedCertificate | EvidenceStatus::CheckedDeduction
+        ) {
             scene.proof_frames(grid, hint.proof.as_ref().unwrap(), cell, digits[0], value);
         }
         let mut conclusion = scene.frames[0].clone();
         conclusion.kind = FrameKind::Conclusion;
-        conclusion.title = if scene.evidence.status == EvidenceStatus::CheckedCertificate {
+        conclusion.title = if matches!(
+            scene.evidence.status,
+            EvidenceStatus::CheckedCertificate | EvidenceStatus::CheckedDeduction
+        ) {
             "Apply the checked conclusion"
         } else {
             "Preview the proposed conclusion"
@@ -391,6 +408,10 @@ impl GridScene {
         digit: u8,
         value: bool,
     ) {
+        if let ProofCertificate::Certified { deduction, .. } = proof {
+            self.exact_frames(deduction);
+            return;
+        }
         let mut assumption = self.frames[0].clone();
         assumption.kind = FrameKind::Assumption;
         assumption.title = "Assume the opposite conclusion".into();
@@ -498,6 +519,109 @@ impl GridScene {
                 self.push_trace(assumption);
             }
             _ => {}
+        }
+    }
+
+    fn exact_frames(&mut self, proof: &crate::ExactCoverProof) {
+        let crate::ExactPurpose::Deduction {
+            cell,
+            digits,
+            placement,
+        } = &proof.purpose
+        else {
+            return;
+        };
+        let mut frame = self.frames[0].clone();
+        frame.kind = FrameKind::Assumption;
+        frame.title = "Independently assume the opposite".into();
+        frame.description = format!(
+            "Check r{}c{} {} {:?}. The independent proof has {} nodes.",
+            cell / 9 + 1,
+            cell % 9 + 1,
+            if *placement { "outside" } else { "inside" },
+            digits,
+            proof.nodes.len()
+        );
+        frame.highlights.clear();
+        frame.links.clear();
+        frame.cells[*cell]
+            .candidates
+            .retain(|d| digits.contains(d) != *placement);
+        for &d in digits {
+            mark(&mut frame, *cell, Some(d), HighlightRole::Assumption);
+        }
+        self.push_trace(frame.clone());
+        self.exact_node(&proof.nodes, proof.nodes.len() - 1, frame);
+    }
+
+    fn exact_node(&mut self, nodes: &[crate::ExactNode], id: usize, mut state: SceneFrame) {
+        if self.frames.len() >= MAX_TRACE_FRAMES {
+            self.trace_truncated = true;
+            return;
+        }
+        match &nodes[id] {
+            crate::ExactNode::Conflict { requirement } => {
+                state.kind = FrameKind::Contradiction;
+                state.title = "A native requirement has no support".into();
+                state
+                    .highlights
+                    .retain(|h| h.role == HighlightRole::Assumption);
+                let r = usize::from(*requirement);
+                if r < 81 {
+                    state.description = format!(
+                        "Cell r{}c{} has no possible digit under these assumptions.",
+                        r / 9 + 1,
+                        r % 9 + 1
+                    );
+                    mark(&mut state, r, None, HighlightRole::Conflict);
+                } else {
+                    let sector = (r - 81) / 9;
+                    let digit = ((r - 81) % 9 + 1) as u8;
+                    let (kind, number) = if sector < 9 {
+                        ("row", sector + 1)
+                    } else if sector < 18 {
+                        ("column", sector - 8)
+                    } else {
+                        ("box", sector - 17)
+                    };
+                    state.description = format!("Digit {digit} has no possible cell in {kind} {number} under these assumptions.");
+                    house(&mut state, sector, None, HighlightRole::Conflict);
+                }
+                self.push_trace(state);
+            }
+            crate::ExactNode::Split { branches, .. } => {
+                for branch in branches {
+                    let mut next = state.clone();
+                    let cell = usize::from(branch.candidate) / 9;
+                    let digit = (branch.candidate % 9 + 1) as u8;
+                    next.kind = FrameKind::Assumption;
+                    next.title = "Check an independent proof branch".into();
+                    next.description = format!("Assume r{}c{}={digit}. The checker requires a child for every available candidate in this native requirement.", cell / 9 + 1, cell % 9 + 1);
+                    next.highlights
+                        .retain(|h| h.role == HighlightRole::Assumption);
+                    next.cells[cell].value = Some(digit);
+                    next.cells[cell].given = false;
+                    next.cells[cell].candidates = vec![digit];
+                    mark(&mut next, cell, Some(digit), HighlightRole::Assumption);
+                    for other in 0..81 {
+                        if next.cells[other].value.is_none()
+                            && peers(cell, other)
+                            && next.cells[other].candidates.contains(&digit)
+                        {
+                            restrict(&mut next.cells, other, digit, false);
+                            mark(&mut next, other, Some(digit), HighlightRole::Elimination);
+                        }
+                    }
+                    if !self.push_trace(next.clone()) {
+                        return;
+                    }
+                    self.exact_node(nodes, branch.child, next);
+                    if self.trace_truncated {
+                        return;
+                    }
+                }
+            }
+            crate::ExactNode::Solution => {}
         }
     }
 
@@ -695,8 +819,52 @@ fn peers(a: usize, b: usize) -> bool {
     a != b && (a / 9 == b / 9 || a % 9 == b % 9 || pos(a).box_index() == pos(b).box_index())
 }
 
-fn annotate(frame: &mut SceneFrame, proof: Option<&ProofCertificate>) {
+// Independent local relation check; no inference-graph producer is called.
+fn structural_link(
+    cells: &[SceneCell],
+    a: SceneCandidate,
+    b: SceneCandidate,
+    kind: SceneLinkKind,
+) -> bool {
+    if a == b
+        || a.cell >= 81
+        || b.cell >= 81
+        || !(1..=9).contains(&a.digit)
+        || !(1..=9).contains(&b.digit)
+        || cells[a.cell].value.is_some()
+        || cells[b.cell].value.is_some()
+        || !cells[a.cell].candidates.contains(&a.digit)
+        || !cells[b.cell].candidates.contains(&b.digit)
+    {
+        return false;
+    }
+    if a.cell == b.cell {
+        return kind == SceneLinkKind::Weak || cells[a.cell].candidates.len() == 2;
+    }
+    if a.digit != b.digit || !peers(a.cell, b.cell) {
+        return false;
+    }
+    if kind == SceneLinkKind::Weak {
+        return true;
+    }
+    (0..27).any(|sector| {
+        let members = sector_cells(sector);
+        members.contains(&a.cell)
+            && members.contains(&b.cell)
+            && !members.iter().any(|&c| cells[c].value == Some(a.digit))
+            && members
+                .iter()
+                .filter(|&&c| cells[c].value.is_none() && cells[c].candidates.contains(&a.digit))
+                .count()
+                == 2
+    })
+}
+
+fn annotate(frame: &mut SceneFrame, proof: Option<&ProofCertificate>, technique: Technique) {
     match proof {
+        Some(ProofCertificate::Certified { pattern, .. }) => {
+            annotate(frame, pattern.as_deref(), technique)
+        }
         Some(ProofCertificate::Fish {
             digit,
             base_sectors,
@@ -738,9 +906,31 @@ fn annotate(frame: &mut SceneFrame, proof: Option<&ProofCertificate>) {
                     },
                 );
             }
+            #[allow(deprecated)]
+            if technique == Technique::ThreeDMedusa {
+                // Legacy Medusa metadata lists a component in hash-map order,
+                // not a path. Reconstruct its actual strong edges from premises.
+                let mut nodes: Vec<_> = chain.iter().map(|&(c, d, _)| (c, d)).collect();
+                nodes.sort_unstable();
+                nodes.dedup();
+                for (i, &(c, d)) in nodes.iter().enumerate() {
+                    for &(other, digit) in &nodes[i + 1..] {
+                        let from = SceneCandidate { cell: c, digit: d };
+                        let to = SceneCandidate { cell: other, digit };
+                        if structural_link(&frame.cells, from, to, SceneLinkKind::Strong) {
+                            frame.links.push(SceneLink {
+                                from,
+                                to,
+                                kind: SceneLinkKind::Strong,
+                            });
+                        }
+                    }
+                }
+                return;
+            }
             for (pair, kind) in chain.windows(2).zip(link_types) {
                 if pair.iter().all(|(c, d, _)| *c < 81 && (1..=9).contains(d)) {
-                    frame.links.push(SceneLink {
+                    let link = SceneLink {
                         from: SceneCandidate {
                             cell: pair[0].0,
                             digit: pair[0].1,
@@ -754,7 +944,10 @@ fn annotate(frame: &mut SceneFrame, proof: Option<&ProofCertificate>) {
                         } else {
                             SceneLinkKind::Weak
                         },
-                    });
+                    };
+                    if structural_link(&frame.cells, link.from, link.to, link.kind) {
+                        frame.links.push(link);
+                    }
                 }
             }
         }

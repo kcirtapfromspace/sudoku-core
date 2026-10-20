@@ -17,6 +17,7 @@ struct Example {
     source_url: String,
     original_puzzle: String,
     scene: GridScene,
+    proof_bundle: Option<sudoku_core::TechniqueExampleCorpus>,
 }
 
 fn example(title: &str, origin: &str, source_url: &str, puzzle: &str, scene: GridScene) -> Example {
@@ -26,6 +27,7 @@ fn example(title: &str, origin: &str, source_url: &str, puzzle: &str, scene: Gri
         source_url: source_url.into(),
         original_puzzle: puzzle.into(),
         scene,
+        proof_bundle: None,
     }
 }
 
@@ -90,6 +92,21 @@ fn puzzle_examples(
         return Err(format!("{name}: example requires a unique puzzle"));
     }
     let solution = solver.solve(&grid).ok_or("Example has no completion")?;
+    let uniqueness = sudoku_core::ExactCoverProof::search_unique(
+        &grid,
+        &sudoku_core::ExactCoverSearchOptions::default(),
+    )
+    .proof
+    .ok_or("Original-puzzle uniqueness certificate exceeded its budget")?;
+    let source = sudoku_core::TechniqueExamplePuzzle {
+        id: name.into(),
+        givens: puzzle.into(),
+        source_url: source.into(),
+        attribution: "User-supplied unique puzzle".into(),
+        source_sha256: None,
+        source_index_1based: None,
+        uniqueness,
+    };
     let mut session = SolverState::new(&grid)?;
     for n in 0..256 {
         let before = session.grid().clone();
@@ -103,30 +120,78 @@ fn puzzle_examples(
         };
         check_endpoint(&hint, &solution);
         if all_steps || seen.insert(hint.technique) {
-            examples.push(example(&format!("{name} · step {} · {}", n + 1, hint.technique),
-                "Unique givens-only puzzle; retained engine steps. The endpoint also agrees with its unique completion.", source, puzzle, GridScene::from_hint(&before, &hint)?));
+            let hint = sudoku_core::ExactCoverProof::certify_hint(
+                &before,
+                &hint,
+                &sudoku_core::ExactCoverSearchOptions::default(),
+            )?;
+            let case = sudoku_core::TechniqueExample {
+                puzzle: 0,
+                state: CandidateState::capture(&before)?,
+                hint: hint.clone(),
+                certificate: hint
+                    .proof
+                    .clone()
+                    .ok_or("Missing independent certificate")?,
+            };
+            let mut item = example(
+                &format!("{name} · step {} · {}", n + 1, hint.technique),
+                "Unique givens-only puzzle; independently checked setup and deduction.",
+                &source.source_url,
+                puzzle,
+                GridScene::from_hint(&before, &hint)?,
+            );
+            let bundle = sudoku_core::TechniqueExampleCorpus {
+                version: 1,
+                puzzles: vec![source.clone()],
+                examples: vec![case],
+            };
+            bundle.verify_subset()?;
+            item.proof_bundle = Some(bundle);
+            examples.push(item);
         }
     }
     Ok(())
 }
 
 fn gallery() -> Result<Vec<Example>, Box<dyn std::error::Error>> {
+    let corpus: sudoku_core::TechniqueExampleCorpus =
+        serde_json::from_str(include_str!("../tests/fixtures/technique_examples.json"))?;
+    corpus.verify()?;
     let mut examples = vec![];
-    let mut seen = HashSet::new();
-    puzzle_examples(EASY, "Classic example", "", false, &mut examples, &mut seen)?;
+    for entry in &corpus.examples {
+        let source = &corpus.puzzles[entry.puzzle];
+        let grid = entry.grid(source)?;
+        let h = entry.checked_hint();
+        let start = CandidateState::capture(
+            &Grid::from_string(&source.givens).ok_or("Invalid original givens")?,
+        )?;
+        let placements = (0..81)
+            .filter(|&c| start.values[c] == 0 && entry.state.values[c] != 0)
+            .count();
+        let removals: u32 = (0..81)
+            .filter(|&c| entry.state.values[c] == 0)
+            .map(|c| (start.domains[c] & !entry.state.domains[c]).count_ones())
+            .sum();
+        let origin = format!("{} Original-givens uniqueness proof authenticates {placements} setup placements and {removals} candidate removals. This selected detector can coexist with easier steps.", source.attribution);
+        let mut item = example(
+            &format!("{} · {}", h.technique, source.id),
+            &origin,
+            &source.source_url,
+            &source.givens,
+            GridScene::from_hint(&grid, &h)?,
+        );
+        let mut single = entry.clone();
+        single.puzzle = 0;
+        item.proof_bundle = Some(sudoku_core::TechniqueExampleCorpus {
+            version: 1,
+            puzzles: vec![source.clone()],
+            examples: vec![single],
+        });
+        examples.push(item);
+    }
     let cases: serde_json::Value =
         serde_json::from_str(include_str!("../research/nonmodular/real_game_cases.json"))?;
-    for case in cases["cases"].as_array().unwrap() {
-        puzzle_examples(
-            case["puzzle"].as_str().unwrap(),
-            case["id"].as_str().unwrap(),
-            case["source_url"].as_str().unwrap(),
-            false,
-            &mut examples,
-            &mut seen,
-        )?;
-    }
-
     let replay: ThreeHouseReplay = serde_json::from_str(include_str!(
         "../research/nonmodular/three_house_example_replay.json"
     ))?;

@@ -7,6 +7,7 @@ mod bitset;
 mod cell;
 mod constraint;
 mod diversity;
+mod exact_cover;
 mod generator;
 mod grid;
 mod hash;
@@ -14,6 +15,7 @@ mod position;
 mod presentation;
 mod puzzle_id;
 mod solver;
+mod technique_examples;
 
 pub use bitset::BitSet;
 pub use cell::Cell;
@@ -22,6 +24,10 @@ pub use constraint::{
     KillerCageConstraint, RowConstraint, ThermoConstraint,
 };
 pub use diversity::{DifficultyStats, DiversityAnalyzer, DiversityReport, TheoreticalEstimates};
+pub use exact_cover::{
+    ExactBranch, ExactCoverCheck, ExactCoverProof, ExactCoverSearchOptions, ExactCoverSearchResult,
+    ExactNode, ExactPurpose,
+};
 pub use generator::{Generator, GeneratorConfig, SymmetryType};
 pub use grid::{Grid, MoveError, ValidationResult};
 pub use hash::{canonical_puzzle_hash, canonical_puzzle_hash_str};
@@ -43,3 +49,4 @@ pub use solver::{
     Solver, SolverState, Technique, ThreeHouseCheck, ThreeHouseProof, ThreeHouseReplay,
     ThreeHouseSearchOptions, ThreeHouseSearchResult,
 };
+pub use technique_examples::{TechniqueExample, TechniqueExampleCorpus, TechniqueExamplePuzzle};

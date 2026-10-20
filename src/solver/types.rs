@@ -195,6 +195,60 @@ pub enum Technique {
 
 #[allow(deprecated)]
 impl Technique {
+    /// Every registered technique, including retired methods and backtracking.
+    pub const fn all() -> &'static [Self] {
+        &[
+            Self::NakedSingle,
+            Self::HiddenSingle,
+            Self::NakedPair,
+            Self::HiddenPair,
+            Self::NakedTriple,
+            Self::HiddenTriple,
+            Self::PointingPair,
+            Self::BoxLineReduction,
+            Self::XWing,
+            Self::FinnedXWing,
+            Self::Swordfish,
+            Self::FinnedSwordfish,
+            Self::Jellyfish,
+            Self::FinnedJellyfish,
+            Self::NakedQuad,
+            Self::HiddenQuad,
+            Self::EmptyRectangle,
+            Self::AvoidableRectangle,
+            Self::UniqueRectangle,
+            Self::HiddenRectangle,
+            Self::XYWing,
+            Self::XYZWing,
+            Self::WXYZWing,
+            Self::WWing,
+            Self::XChain,
+            Self::ThreeDMedusa,
+            Self::SueDeCoq,
+            Self::AIC,
+            Self::FrankenFish,
+            Self::SiameseFish,
+            Self::AlsXz,
+            Self::ExtendedUniqueRectangle,
+            Self::BivalueUniversalGrave,
+            Self::AlsXyWing,
+            Self::AlsChain,
+            Self::MutantFish,
+            Self::AlignedPairExclusion,
+            Self::AlignedTripletExclusion,
+            Self::DeathBlossom,
+            Self::ThreeHouseMatching,
+            Self::ArithmeticCounting,
+            Self::GlobalColoring,
+            Self::NishioForcingChain,
+            Self::KrakenFish,
+            Self::RegionForcingChain,
+            Self::CellForcingChain,
+            Self::DynamicForcingChain,
+            Self::Backtracking,
+        ]
+    }
+
     /// Whether this technique has been retired by community consensus.
     ///
     /// Legacy techniques are retained for SE rating compatibility but are

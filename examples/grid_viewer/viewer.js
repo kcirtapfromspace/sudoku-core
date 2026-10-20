@@ -5,7 +5,9 @@
   const ns = "http://www.w3.org/2000/svg";
   let selected = Math.max(0, entries.findIndex(e => e.scene.technique === "ThreeHouseMatching"));
   let frameIndex = 0;
-  const statusLabels = {checked_certificate:"✓ Certificate verified", metadata_only:"? Metadata only", rejected:"! Evidence rejected", rules_satisfied:"✓ Placed values valid", rule_violation:"! Rule violation"};
+  const completeLibrary = new Set(entries.filter(e=>e.proof_bundle).map(e=>e.scene.technique)).size === 48;
+  if(!completeLibrary)$("coverage-note").textContent="This file shows selected steps from one unique puzzle. Each step has downloadable independent evidence.";
+  const statusLabels = {checked_certificate:"✓ Certificate verified", checked_deduction:"✓ Deduction verified", metadata_only:"? Metadata only", rejected:"! Evidence rejected", rules_satisfied:"✓ Placed values valid", rule_violation:"! Rule violation"};
   const palette = {
     pattern:["#e6edff","#244dae"],base:["#d9e7ff","#224b9b"],cover:["#e4e9fc","#4d3b94"],
     fin:["#ffebbf","#825100"],floor:["#d9e7ff","#224b9b"],roof:["#ffebbf","#825100"],
@@ -103,7 +105,7 @@
       button.addEventListener("click",()=>select(i));$("examples").append(button);
     });
     const techniques=new Set(entries.map(e=>e.scene.technique).filter(Boolean));
-    $("coverage").textContent=`${count} examples shown · ${techniques.size} techniques illustrated. All Hint techniques are renderable.`;
+    $("coverage").textContent=`${count} examples shown · ${techniques.size} / 48 techniques illustrated. ${completeLibrary ? "Every technique has a real puzzle example." : "Selected puzzle steps; all technique IDs are supported."}`;
   }
   function select(i) {
     selected=i;frameIndex=0;const entry=entries[i],scene=entry.scene;
@@ -112,6 +114,7 @@
     $("evidence").textContent=scene.evidence.message;$("origin").textContent=entry.origin;
     $("source").hidden=!entry.source_url;
     if(entry.source_url)$("source").href=entry.source_url;
+    $("export-proof").disabled=!entry.proof_bundle;
     $("original").checked=false;$("original").disabled=entry.original_puzzle.length!==81;
     $("timeline").max=scene.frames.length-1;$("frame-select").replaceChildren();
     scene.frames.forEach((f,index)=>{const option=document.createElement("option");option.value=index;option.textContent=`${index+1}. ${f.title}`;$("frame-select").append(option);});
@@ -123,5 +126,6 @@
   $("original").addEventListener("change",renderFrame);$("search").addEventListener("input",library);
   document.addEventListener("keydown",e=>{if(["INPUT","SELECT","BUTTON","SUMMARY"].includes(document.activeElement.tagName))return;if(e.key==="ArrowRight"){e.preventDefault();move(1);}if(e.key==="ArrowLeft"){e.preventDefault();move(-1);}});
   $("export").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(entries[selected],null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="sudoku-scene.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  $("export-proof").addEventListener("click",()=>{const proof=entries[selected].proof_bundle;if(!proof)return;const blob=new Blob([JSON.stringify(proof,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="sudoku-proof.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   select(selected);
 })();

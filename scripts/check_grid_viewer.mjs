@@ -16,6 +16,10 @@ const get = id => document.getElementById(id);
 const entries = JSON.parse(get('scene-data').textContent);
 assert(entries.length > 0);
 assert.equal(get('examples').children.length, entries.length);
+const certified = entries.filter(e => e.proof_bundle);
+assert.equal(certified.length, 48);
+assert.equal(new Set(certified.map(e => e.scene.technique)).size, 48);
+assert(certified.every(e => e.scene.evidence.status === 'checked_deduction'));
 let frames = 0;
 for (let i = 0; i < entries.length; i++) {
   get('examples').children[i].click();
@@ -23,6 +27,7 @@ for (let i = 0; i < entries.length; i++) {
   assert.equal(get('example-title').textContent, entries[i].title);
   assert(get('status').classList.contains(scene.evidence.status));
   assert.equal(get('frame-select').options.length, scene.frames.length);
+  assert.equal(get('export-proof').disabled, !entries[i].proof_bundle);
   for (let frame = 0; frame < scene.frames.length; frame++) {
     get('frame-select').value = frame;
     get('frame-select').dispatchEvent(new Event('input'));

@@ -835,7 +835,7 @@ The related method guide defines the acceptance conditions.
 
 | Variant | Fields |
 |---------------|-----------------------------------------------|
-| `Basic`       | involved cells |
+| `Basic`       | kind label; the hint carries involved cells |
 | `Fish`        | base sectors, cover sectors, fin cells, digit |
 | `Als`         | ALS chain (cells + candidates per ALS) |
 | `Aic`         | chain of (cell, digit, polarity) nodes and link types |
@@ -847,6 +847,10 @@ The related method guide defines the acceptance conditions.
 | `Guardian` | A retained guardian relation and checked current-state propagation. |
 | `Forcing` | Historical internal source and branch metadata; not a checked public forcing hint. |
 | `Backtracking`| (no fields) |
+| `Certified` | Original detector metadata and an independent exact-cover deduction proof. |
+
+`Certified` verifies the conclusion independently of the named method's classification.
+The [validation guide](../../docs/independent-validation.md) states the exhaustive-tree theorem, limits, and setup authentication conditions.
 
 Frontends use these to render proof-detail overlays (e.g., base/cover
 sector highlighting for fish, on/off coloring for AIC chains).

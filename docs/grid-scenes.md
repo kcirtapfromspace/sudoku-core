@@ -7,8 +7,9 @@ Checked native certificates add assumption and contradiction frames.
 
 The browser example displays the exported scenes without a network connection.
 The library includes real Norvig and Mith515 states, a synthetic arithmetic fixture, and deliberate rejection examples.
-The library does not contain a real example for every technique.
-Detector choices can change the number of examples between runs.
+The library contains a frozen real-puzzle example for every registered technique.
+Independent certificates establish all 48 deductions and their original setup premises.
+The [independent validation guide](independent-validation.md) defines the proof, scope, and source records.
 
 ```mermaid
 flowchart TD
@@ -104,11 +105,16 @@ Use a strike mark for a removal and a separate mark for a conflict.
 Use text or symbols with color to identify each role.
 The browser example also provides cell inspection, keyboard controls, and a text view.
 
+The renderer checks displayed chain links against the supplied candidates.
+It reconstructs Medusa's actual strong edges from its unordered component members.
+Unsupported link metadata is omitted.
+
 ## Interpret the evidence status
 
 | Status | Meaning |
 | --- | --- |
 | `checked_certificate` | A native checker accepted the certificate and the hint's exact endpoint. |
+| `checked_deduction` | An independent exact-cover certificate establishes the endpoint; the named pattern remains detector metadata. |
 | `metadata_only` | The scene shows detector evidence without independent deduction verification. |
 | `rejected` | Evidence failed, the endpoint differed, or the proposed result violated a checked input or application condition. |
 | `rules_satisfied` | Installed rules accept the placed values in a board-validation scene. |
@@ -120,7 +126,8 @@ They do not authenticate earlier imported eliminations or establish historical n
 They also do not certify a caller's technique label.
 The constructor checks the proposed result against installed rules before it displays an applied conclusion.
 
-Basic, Fish, ALS, AIC, Uniqueness, legacy Forcing, and Backtracking evidence remain metadata.
+Basic, Fish, ALS, AIC, Uniqueness, legacy Forcing, and Backtracking descriptions remain metadata.
+`ExactCoverProof::certify_hint()` adds independent deduction validation while retaining those descriptions.
 Ordinary `Hint` serialization omits the original proof object.
 A hint restored from that JSON cannot recover the missing certificate through its technique name.
 
@@ -128,6 +135,8 @@ Scene JSON records a display result; it is not a portable proof certificate.
 A received status field is not authenticated evidence.
 Use the original [Arithmetic](arithmetic-counting.md), [Three-House](three-house-matching.md), [Coloring](global-coloring.md), or [forcing](solver-state.md) certificate for verification.
 The browser does not repeat the Rust checks in JavaScript.
+The primary technique examples include downloadable proof bundles with their original-puzzle uniqueness proofs.
+Select **Export proof JSON** to save a bundle for independent replay.
 
 ## Follow the frames
 

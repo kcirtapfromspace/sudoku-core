@@ -34,7 +34,7 @@ pub fn find_naked_single(fab: &CandidateFabric) -> Option<Finding> {
                 involved_cells: vec![idx],
                 explanation: ExplanationData::NakedSingle { cell: idx, value },
                 proof: Some(ProofCertificate::Basic {
-                    kind: "NakedSingle",
+                    kind: "NakedSingle".into(),
                 }),
             });
         }
@@ -62,7 +62,7 @@ pub fn find_hidden_single(fab: &CandidateFabric) -> Option<Finding> {
                             sector_name: sector_name(sector),
                         },
                         proof: Some(ProofCertificate::Basic {
-                            kind: "HiddenSingle",
+                            kind: "HiddenSingle".into(),
                         }),
                     });
                 }
@@ -141,7 +141,9 @@ pub fn find_naked_subset(fab: &CandidateFabric, size: usize) -> Option<Finding> 
                                 values: values.clone(),
                                 sector_name: sector_name(sector),
                             },
-                            proof: Some(ProofCertificate::Basic { kind: proof_kind }),
+                            proof: Some(ProofCertificate::Basic {
+                                kind: proof_kind.into(),
+                            }),
                         });
                     }
                 }
@@ -219,7 +221,9 @@ pub fn find_hidden_subset(fab: &CandidateFabric, size: usize) -> Option<Finding>
                                 values: digit_combo.clone(),
                                 sector_name: sector_name(sector),
                             },
-                            proof: Some(ProofCertificate::Basic { kind: proof_kind }),
+                            proof: Some(ProofCertificate::Basic {
+                                kind: proof_kind.into(),
+                            }),
                         });
                     }
                 }
