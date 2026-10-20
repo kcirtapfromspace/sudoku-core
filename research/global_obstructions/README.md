@@ -22,8 +22,11 @@ No historical mathematical novelty is established.
 | [Beyond per-digit weighted rank](nonrank_audit_report.md) | Exact 33-term full-board digit-template mixture survives every single-digit-valid linear inequality. Earlier 13-cell hyperhole is rejected by an exact template Farkas control. |
 | [Broader graph search](nonrank_graph_report.md) | Synthetic 27-cell five-chromatic graph with an exact fractional four-color cover and full-board template witness. Subsequent trade classification rules out its unique outside-clue realization. Includes exact rejected controls and bounded negative results. |
 | [27-cell realization audit](realization27_report.md) | Exhaustive support-trade classification rules out a unique puzzle with all 27 cells unclued. Larger explicit proofs now certify the conditional synthetic deduction; default hint-search bounds remain unchanged. |
-| [Different-obstruction campaign](different_report.md) | 33 additional unique puzzles yield eight full older-engine stalls. A mixed-digit 20-cell/85-node elimination passes the stated local/LP and bounded known-method checks; historical novelty remains unresolved. Includes a 13-cell/137-node known-composition control. |
+| [Different-obstruction campaign](different_report.md) | 33 additional unique puzzles yield eight stalls of the originally configured older engine. The mixed-digit 20-cell/85-node elimination is now a known-method benchmark. Includes a 13-cell/137-node known-composition control. |
 | [20-cell expanded novelty audit](novelty20_report.md) | The known EL12c38 tridagon plus one cell split proves the target. A separate seven-node local-only refutation also passes. Catalogue coverage and scoped Exocet/MSLS checks are recorded separately; no new solving principle is established. |
+| [Stronger baseline and joint placements](joint_research_report.md) | Candidate retention inside assumptions resolves four former stalls; persistent catalogue relations and the declared offline closure resolve the other four. Twelve fresh unique puzzles also solve. No candidate qualifies as a new family. |
+| [Exact joint-template search](joint_templates_report.md) | Full-board pair and ternary support filtering with exact certificates; 1,200 original-state and 631 corrected-state endpoint records, plus independently accepted controls. Established POM/CSP reasoning. |
+| [Independent joint and baseline audit](joint_audit_report.md) | Separate template enumeration, exact guardian/path and Junior/MSLS theorem checkers, tamper controls and a primary-source novelty audit. |
 | [Exact motif prior art](prior_art_13_report.md) | An explicit spanning seven-hyperhole and grouped-loop map explain the 13-cell obstruction by established methods. First appearance of the exact Sudoku drawing remains unresolved. |
 | [LP and prior-art audit](audit_prior_art.md) | Exact rational primal witnesses, rejected Farkas controls, certificate mutations and precise limits on method and novelty claims. |
 
@@ -54,6 +57,14 @@ python3 -S research/global_obstructions/realization27_audit_trades.py
 python3 -S research/global_obstructions/realization27_audit_export.py
 python3 -S research/global_obstructions/realization27_results_verify.py --recount-sample 10
 python3 -S research/global_obstructions/realization27_verify.py
+python3 -S research/global_obstructions/discovery_pipeline_verify.py
+python3 -S research/global_obstructions/discovery_pipeline_expand_verify.py
+python3 -S research/global_obstructions/joint_audit_verify.py --self-test
+python3 -S research/global_obstructions/joint_audit_relations.py --self-test
+python3 -S research/global_obstructions/joint_audit_patterns.py --self-test
+python3 -S research/global_obstructions/strong_baseline_verify.py --self-test
+python3 -S research/global_obstructions/joint_templates_manifest.py verify --count --replay-closures 8
+python3 -S research/global_obstructions/joint_templates_manifest.py verify --retained --count --replay-closures 4
 ```
 
 These run in dedicated CI. Numerical LP discovery can optionally use SciPy;

@@ -67,6 +67,14 @@ jobs:
           python3 -S research/global_obstructions/novelty20_triplets.py
           python3 -S research/global_obstructions/catalog630_verify.py --rescan
           python3 -S research/global_obstructions/deeper_forcing_catalogue_chain.py --mutations
+          python3 -S research/global_obstructions/discovery_pipeline_verify.py
+          python3 -S research/global_obstructions/discovery_pipeline_expand_verify.py
+          python3 -S research/global_obstructions/joint_audit_verify.py --self-test
+          python3 -S research/global_obstructions/joint_audit_relations.py --self-test
+          python3 -S research/global_obstructions/joint_audit_patterns.py --self-test
+          python3 -S research/global_obstructions/strong_baseline_verify.py --self-test
+          python3 -S research/global_obstructions/joint_templates_manifest.py verify --count --replay-closures 8
+          python3 -S research/global_obstructions/joint_templates_manifest.py verify --retained --count --replay-closures 4
 
   frozen-old-engine:
     name: Fresh forcing-inclusive older-engine comparison
@@ -95,7 +103,7 @@ jobs:
             --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
             --archive-source target/nonrank-ci-old/baseline/src/solver/mod.rs \
             --output target/different-ci-control-old.json
-      - name: Reconfirm the unclassified lead including forcing
+      - name: Reconfirm the known twenty-cell benchmark including original forcing
         run: |
           python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
             --fixture research/global_obstructions/different_lead.json \
@@ -112,4 +120,34 @@ jobs:
             target/nonrank-ci-anchored-old.json
             target/different-ci-control-old.json
             target/different-ci-lead-old.json
+          if-no-files-found: warn
+
+  retained-old-engine:
+    name: Candidate-preserving offline baseline
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.95.0
+      - name: Rebuild the frozen dispatcher with retained hypothetical candidates
+        run: |
+          python3 -S research/global_obstructions/discovery_pipeline_old.py \
+            --folder target/discovery-retained-ci
+      - name: Compare all eight unique source states with the corrected offline ladder
+        run: |
+          python3 -S research/global_obstructions/discovery_pipeline_compare.py \
+            --build-folder target/discovery-retained-ci \
+            --seconds 300 --call-seconds 30 \
+            --output target/discovery-retained-ci-results.json
+      - name: Upload retained-candidate comparison evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retained-candidate-baseline-comparison
+          path: |
+            target/discovery-retained-ci/retained_manifest.json
+            target/discovery-retained-ci-results.json
           if-no-files-found: warn

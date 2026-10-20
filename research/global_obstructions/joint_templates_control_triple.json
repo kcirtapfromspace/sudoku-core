@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "status": "refuted",
+  "cutoff_reason": null,
+  "order_limit": 3,
+  "seconds": 0.216463541,
+  "limits": {
+    "seconds": 30,
+    "max_per_digit": 2000,
+    "max_pair_checks": 20000000,
+    "max_support_checks": 20000000
+  },
+  "stats": {
+    "pair_mask_comparisons": 3174,
+    "support_checks": 1420,
+    "pair_rounds": 3,
+    "triple_rounds": 1
+  },
+  "proof": {
+    "schema_version": 1,
+    "kind": "joint-template-refutation-v1",
+    "source_hash": "792a5f9b18472574b1e9f7e391b3246c674c7d3e092deaffbc4c7c63bbb0c9cc",
+    "source_domains": [
+      256,
+      128,
+      64,
+      32,
+      16,
+      1,
+      12,
+      14,
+      10,
+      32,
+      4,
+      18,
+      130,
+      8,
+      320,
+      81,
+      209,
+      273,
+      25,
+      25,
+      27,
+      4,
+      130,
+      320,
+      32,
+      192,
+      400,
+      128,
+      32,
+      25,
+      25,
+      256,
+      2,
+      68,
+      68,
+      25,
+      25,
+      2,
+      4,
+      25,
+      64,
+      128,
+      256,
+      25,
+      32,
+      64,
+      25,
+      256,
+      25,
+      32,
+      4,
+      25,
+      130,
+      130,
+      2,
+      256,
+      25,
+      64,
+      4,
+      24,
+      128,
+      32,
+      25,
+      25,
+      64,
+      160,
+      258,
+      131,
+      56,
+      25,
+      272,
+      4,
+      4,
+      9,
+      160,
+      384,
+      129,
+      56,
+      2,
+      281,
+      64
+    ],
+    "target": {
+      "cell": 73,
+      "digit": 5,
+      "assumed": false
+    },
+    "initial": {
+      "counts": [
+        12,
+        4,
+        2,
+        16,
+        14,
+        2,
+        3,
+        5,
+        4
+      ],
+      "hashes": [
+        "7d4881b001ea5ae9e9f48a6c6d16fd4f2a4ad23bad1748b7722c6a5f7bd421ec",
+        "1394c4359d278de508d16e655db7d6da7c983e489c1a3a9d6e400f7b7468e0fd",
+        "5646383bcfb6c947d05461bf4a53cd1abb10accf6fef1ab8e49e796ed927afc8",
+        "d67a2ccfe80eabf6f5d38e3f13e95885e1abea14a4d91e01252541ca7ecd77d8",
+        "c0deb0c85a93784dea7558ffd1b5963453255067f607dafa31a1106c2425d448",
+        "32d0b4448fca72fa463dc54a251d5b17e1a209ac67528923680f2f7eafb47710",
+        "fbe186dc142bddf086c4f20cce5f3626a15627d7d25b00706f05cca9b079b5c4",
+        "3f1b85904694cf3e35d64f743817a320de22273fefe6074516081590aeec05a1",
+        "a4b78f8d168fae0564b53a4ddfcd78ccfa1a8e6d58fa8e2fc404f9598effc5cd"
+      ]
+    },
+    "pairwise_fixed_point": {
+      "event_index": 7,
+      "counts": [
+        9,
+        3,
+        2,
+        9,
+        11,
+        2,
+        3,
+        5,
+        4
+      ],
+      "hashes": [
+        "adbf87c34dfe40b7b1e3bda334f19640499730931022e75076be9db05b5ef2cb",
+        "ea4d7997514d6e05d96a4bbdd844591f7e1d5737cba6c2cb7fd55e8a86ba8232",
+        "5646383bcfb6c947d05461bf4a53cd1abb10accf6fef1ab8e49e796ed927afc8",
+        "2f1f404b3b9e00c9c75f93e36c1556fec848f7b4fab8b953b035b85b8fbbbfab",
+        "3981b33965122c68703344227f48f4afd1887f850f48867ac2c10ceda9e0208a",
+        "32d0b4448fca72fa463dc54a251d5b17e1a209ac67528923680f2f7eafb47710",
+        "fbe186dc142bddf086c4f20cce5f3626a15627d7d25b00706f05cca9b079b5c4",
+        "3f1b85904694cf3e35d64f743817a320de22273fefe6074516081590aeec05a1",
+        "a4b78f8d168fae0564b53a4ddfcd78ccfa1a8e6d58fa8e2fc404f9598effc5cd"
+      ]
+    },
+    "events": [
+      {
+        "digit": 1,
+        "partners": [
+          5
+        ],
+        "templates": [
+          [
+            5,
+            15,
+            18,
+            35,
+            39,
+            46,
+            56,
+            67,
+            79
+          ],
+          [
+            5,
+            15,
+            19,
+            35,
+            36,
+            48,
+            56,
+            67,
+            79
+          ],
+          [
+            5,
+            17,
+            19,
+            30,
+            36,
+            51,
+            56,
+            67,
+            79
+          ]
+        ]
+      },
+      {
+        "digit": 2,
+        "partners": [
+          8
+        ],
+        "templates": [
+          [
+            7,
+            12,
+            20,
+            32,
+            37,
+            53,
+            54,
+            67,
+            78
+          ]
+        ]
+      },
+      {
+        "digit": 4,
+        "partners": [
+          1
+        ],
+        "templates": [
+          [
+            6,
+            13,
+            18,
+            29,
+            43,
+            48,
+            62,
+            68,
+            73
+          ],
+          [
+            8,
+            13,
+            18,
+            29,
+            43,
+            48,
+            59,
+            69,
+            73
+          ]
+        ]
+      },
+      {
+        "digit": 4,
+        "partners": [
+          5
+        ],
+        "templates": [
+          [
+            7,
+            13,
+            18,
+            35,
+            39,
+            46,
+            56,
+            69,
+            77
+          ],
+          [
+            7,
+            13,
+            19,
+            29,
+            39,
+            51,
+            62,
+            63,
+            77
+          ],
+          [
+            7,
+            13,
+            19,
+            35,
+            36,
+            48,
+            56,
+            69,
+            77
+          ],
+          [
+            8,
+            13,
+            19,
+            30,
+            36,
+            51,
+            56,
+            68,
+            79
+          ]
+        ]
+      },
+      {
+        "digit": 5,
+        "partners": [
+          1
+        ],
+        "templates": [
+          [
+            4,
+            15,
+            20,
+            35,
+            39,
+            46,
+            59,
+            63,
+            79
+          ],
+          [
+            4,
+            17,
+            19,
+            29,
+            39,
+            51,
+            59,
+            63,
+            79
+          ]
+        ]
+      },
+      {
+        "digit": 5,
+        "partners": [
+          4
+        ],
+        "templates": [
+          [
+            4,
+            17,
+            19,
+            30,
+            36,
+            51,
+            56,
+            68,
+            79
+          ]
+        ]
+      },
+      {
+        "digit": 4,
+        "partners": [
+          5
+        ],
+        "templates": [
+          [
+            8,
+            13,
+            18,
+            30,
+            43,
+            46,
+            56,
+            69,
+            77
+          ]
+        ]
+      },
+      {
+        "digit": 1,
+        "partners": [
+          4,
+          5
+        ],
+        "templates": [
+          [
+            5,
+            15,
+            19,
+            29,
+            43,
+            48,
+            62,
+            63,
+            76
+          ],
+          [
+            5,
+            15,
+            20,
+            30,
+            43,
+            46,
+            62,
+            63,
+            76
+          ],
+          [
+            5,
+            16,
+            18,
+            29,
+            39,
+            51,
+            62,
+            67,
+            73
+          ],
+          [
+            5,
+            16,
+            18,
+            35,
+            39,
+            46,
+            56,
+            69,
+            76
+          ],
+          [
+            5,
+            16,
+            19,
+            29,
+            39,
+            51,
+            62,
+            63,
+            76
+          ],
+          [
+            5,
+            16,
+            19,
+            35,
+            36,
+            48,
+            56,
+            69,
+            76
+          ],
+          [
+            5,
+            16,
+            20,
+            30,
+            36,
+            51,
+            62,
+            67,
+            73
+          ],
+          [
+            5,
+            17,
+            18,
+            30,
+            43,
+            46,
+            56,
+            69,
+            76
+          ]
+        ]
+      },
+      {
+        "digit": 2,
+        "partners": [
+          1,
+          3
+        ],
+        "templates": [
+          [
+            8,
+            12,
+            20,
+            32,
+            37,
+            52,
+            54,
+            67,
+            78
+          ]
+        ]
+      },
+      {
+        "digit": 3,
+        "partners": [
+          1,
+          4
+        ],
+        "templates": [
+          [
+            6,
+            10,
+            21,
+            34,
+            38,
+            50,
+            58,
+            71,
+            72
+          ]
+        ]
+      },
+      {
+        "digit": 3,
+        "partners": [
+          1,
+          7
+        ],
+        "templates": [
+          [
+            7,
+            10,
+            21,
+            33,
+            38,
+            50,
+            58,
+            71,
+            72
+          ]
+        ]
+      }
+    ],
+    "contradiction_digit": 3,
+    "final": {
+      "counts": [
+        1,
+        2,
+        0,
+        9,
+        11,
+        2,
+        3,
+        5,
+        4
+      ],
+      "hashes": [
+        "c41150dceb9e3becc6e214bde7c1a0f63e4984ed13fd4fbc462ec34d151bbcd0",
+        "6e7183eacaf38059c1d69550e878c0a412b92f8294b3725aab1af5aa5148296b",
+        "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "2f1f404b3b9e00c9c75f93e36c1556fec848f7b4fab8b953b035b85b8fbbbfab",
+        "3981b33965122c68703344227f48f4afd1887f850f48867ac2c10ceda9e0208a",
+        "32d0b4448fca72fa463dc54a251d5b17e1a209ac67528923680f2f7eafb47710",
+        "fbe186dc142bddf086c4f20cce5f3626a15627d7d25b00706f05cca9b079b5c4",
+        "3f1b85904694cf3e35d64f743817a320de22273fefe6074516081590aeec05a1",
+        "a4b78f8d168fae0564b53a4ddfcd78ccfa1a8e6d58fa8e2fc404f9598effc5cd"
+      ]
+    }
+  },
+  "scope": "Known template-CSP support propagation; a fixedpoint or cutoff is not a Sudoku solution or novelty claim."
+}

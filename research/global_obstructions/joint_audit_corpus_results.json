@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "922f47af293649ab11f58fcf07486e3a1eeb40989fad7139f677ef8ced752516",
+  "accepted_controls": 16,
+  "pair_controls": 8,
+  "triple_separation_controls": 8,
+  "unique_hosts_checked": 8,
+  "givens_and_closure_replayed": true,
+  "records": [
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001132-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001132-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001132",
+      "fixture_sha256": "b7be50def7f8ea909b15418300261a921c7ef8f803c2889376a8300d450c23dd",
+      "proof_sha256": "44acf9e237343d4cd3c7abccae8de1328a386bf25a70b5e778e450e14920c002",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          16,
+          3,
+          1,
+          3,
+          6,
+          14,
+          2,
+          4,
+          3
+        ],
+        "events": 14,
+        "templates_removed": 38,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "5cce2a74a5dc174d56415a750431d0e02fde336600c36e35b77215df2990a037",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001132-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001132-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001132",
+      "fixture_sha256": "f0253b7f36c809af3c9d3fbe9e36bd7e558f3661e20dac184cbb42a449e045b3",
+      "proof_sha256": "33d708b936bd73cdc3398918885198285246c3dd76159fc838e8ff56cd0bbae4",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          16,
+          4,
+          3,
+          4,
+          16,
+          16,
+          2,
+          3,
+          2
+        ],
+        "events": 3,
+        "templates_removed": 16,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 3,
+        "separation": true,
+        "source_hash": "e3228340548981b9837a5f1932b9a26eaae47d9534aee181fba7d4b24ea79a21",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001244-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001244-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001244",
+      "fixture_sha256": "96723dabb645854ee7428f84a018625cc7d863b97a66e2b2d3b71c570c528c66",
+      "proof_sha256": "a1b61350eca502207c28cd0f13e16e9f691431c807b50dd0c83eeafbb269adfd",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          104,
+          6,
+          4,
+          9,
+          26,
+          26,
+          2,
+          3,
+          4
+        ],
+        "events": 4,
+        "templates_removed": 104,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 4,
+        "separation": true,
+        "source_hash": "5b0c3c45b1a37954b6e7450aaf5e48679a8c5e0d5eeadc19a53a58f655ab1612",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001244-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001244-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001244",
+      "fixture_sha256": "c6a40f2906a36728a7f98089c79523daf8e204818fc64fd006b2d007a404a2f6",
+      "proof_sha256": "e090358b85bb806085c16de6226c0e5ed50ea607bc8bd52940f9dd8257339047",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          26,
+          5,
+          4,
+          5,
+          17,
+          14,
+          2,
+          3,
+          4
+        ],
+        "events": 4,
+        "templates_removed": 21,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "f2ba5afd8d86536c4c4a6f1844e7dceaa4c11bf46cd70a44e5315e63b2afbc25",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001468-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001468-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-001468",
+      "fixture_sha256": "a1dd82bfbcd691ff449377cc9baf379ffdd9f54e5d65ee52bf0b651e457fa94f",
+      "proof_sha256": "2d80fd1546da558c8fd0d2ef54971212e7830bf43f7532fef308667e21bac12d",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          16,
+          21,
+          18,
+          1,
+          6,
+          1,
+          5,
+          12,
+          9
+        ],
+        "events": 2,
+        "templates_removed": 18,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 1,
+        "separation": true,
+        "source_hash": "5c784431331e61c4eb4ed7862b1e1a6899558a6374dc19a2d54611d32f04e8ab",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-001468-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-001468-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-001468",
+      "fixture_sha256": "f1f52176ab33d2e46b9053633bc0c458d7837ec3a1b0b1a8c2e4a24615d53094",
+      "proof_sha256": "30791999de2466368d836f58b750021881304ee86893095955103aacb9143808",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          6,
+          12,
+          11,
+          1,
+          4,
+          1,
+          5,
+          6,
+          4
+        ],
+        "events": 11,
+        "templates_removed": 26,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "e372c06c1078bc631d61404d79950e8b6394e66710ca330a655f11d1afe6f22d",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002283-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002283-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-002283",
+      "fixture_sha256": "e9a1e340eb60e5d6fe43ea3977fdc7534b55df7b844bef0a8033cf67fb476cfd",
+      "proof_sha256": "a36d679db0b00e119ff4e827affbc36653db1fa60982c4e86752481d970e4b84",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          20,
+          27,
+          27,
+          11,
+          3,
+          1,
+          6,
+          8,
+          10
+        ],
+        "events": 14,
+        "templates_removed": 57,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 8,
+        "separation": true,
+        "source_hash": "0b04f4a6dc5ae0a34d270eb86d6be924db17651c4ff54ad63f3ef6ca0bedf5ac",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002283-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002283-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-002283",
+      "fixture_sha256": "7fe619a10046509c7337ed914fb7449a19e99cc5f985d475622b2bf8139d821b",
+      "proof_sha256": "1b5b6fcefd1b5feaf4872b956db2335d3cbaf047e2070856f1a679316981a0e9",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          18,
+          11,
+          11,
+          4,
+          1,
+          1,
+          2,
+          3,
+          3
+        ],
+        "events": 6,
+        "templates_removed": 29,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "c851c9ba9581566ba4cce6813a2c163700bfe15637471bb370428600876e9de1",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002506-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002506-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-002506",
+      "fixture_sha256": "6904c5ab8de90fa118e59d8d7c97a3e8f9fb2a7c1fb4e0edf92b65bc743b7234",
+      "proof_sha256": "73d467597ef54e9b9359345387d4f3a568ed820173813335904118ada3a85f81",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          4,
+          6,
+          8,
+          8,
+          1,
+          20,
+          8,
+          2,
+          20
+        ],
+        "events": 9,
+        "templates_removed": 30,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 4,
+        "separation": true,
+        "source_hash": "da912d3bc35b7d9eb782a1a2714982be426207109a5bbc75ddbb3f1117867280",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-002506-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-002506-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-002506",
+      "fixture_sha256": "ad6bca00f1ded91989f2425f221e405efd872ce62909c469c04071bbc172fe9f",
+      "proof_sha256": "b99a9a77f823a5cd298eaf4aa52ee35705e8bb2c38145b88219ed1e11988e0cd",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          2,
+          6,
+          6,
+          6,
+          1,
+          4,
+          6,
+          2,
+          16
+        ],
+        "events": 4,
+        "templates_removed": 9,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "c8f8cafb83933f8741a4e4f00520847c5e9e606efe9ab362122fe19413d2e7a9",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-003066-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-003066-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-monhard-te3-003066",
+      "fixture_sha256": "d3cf81aece388195d04627270e9749ac1fffcc150d99d02f374f7240cfc57317",
+      "proof_sha256": "6588e65f7d711e7a37271c6e87ed29f14631f482607b93e08254392a804c7028",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          7,
+          15,
+          17,
+          1,
+          4,
+          4,
+          4,
+          5,
+          13
+        ],
+        "events": 13,
+        "templates_removed": 41,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 1,
+        "separation": true,
+        "source_hash": "aab6a2158a30308fa4d2deb35ada77b7e11f2622632ba87fcaae889944e592ad",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-monhard-te3-003066-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-monhard-te3-003066-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-monhard-te3-003066",
+      "fixture_sha256": "817d6bc7fa71c978058b131a50482f20018ddbdba3cd0fa5044e447c38e46c1d",
+      "proof_sha256": "69781044d46739b96922dbef57ccfffdc21b6a17a686225da0ba320f93affd18",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          4,
+          16,
+          16,
+          1,
+          4,
+          4,
+          4,
+          3,
+          11
+        ],
+        "events": 1,
+        "templates_removed": 4,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "317ba71b321f15f70d4687a1177791de9b1306972a552d95b9f2d26cdbf23f61",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000258-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000258-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-mith-minimals-000258",
+      "fixture_sha256": "c7d3661205b79eec55e7c2c267117608d0775458e3bb223648e4e90eea5078e1",
+      "proof_sha256": "e45596ad0dd5b671bbc7086d69b243947ae84b884050d7a2349845235ce00872",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          4,
+          11,
+          2,
+          1,
+          2,
+          2,
+          2,
+          18,
+          9
+        ],
+        "events": 14,
+        "templates_removed": 33,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 5,
+        "separation": true,
+        "source_hash": "a6628b9280a035842c1517d5cf4da37ce6b5844224f9aa8aa71c92c8f27c2841",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000258-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000258-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-mith-minimals-000258",
+      "fixture_sha256": "e69a0495bfd93b0d8e91d89a4bd6e39098682cd69359b3ac564d942f83cd53af",
+      "proof_sha256": "1c4b8738427731023efe4595b071e6e386854b8280c8cb72267a699aecc9c174",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          1,
+          6,
+          2,
+          1,
+          1,
+          2,
+          1,
+          10,
+          5
+        ],
+        "events": 1,
+        "templates_removed": 6,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "015e9baf8b0d8bb0db7661c8553bf7f5e14fffb3b122cdce7b7c52db6f223acb",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000515-pair-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000515-pair-refuted-proof.json",
+      "kind": "pair-refuted",
+      "host": "modern-mith-minimals-000515",
+      "fixture_sha256": "34f91765a4a9f2ddbb8cb1e45227302456450074385463d16df42b164e7693dd",
+      "proof_sha256": "01298110464ba2da1828c6ec5728e4394c6e22b5c18ad00ea89dbed92da3df1f",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          2,
+          1,
+          6,
+          16,
+          1,
+          2,
+          2,
+          12,
+          2
+        ],
+        "events": 5,
+        "templates_removed": 25,
+        "pairwise_fixed_point_checked": false,
+        "triple_events": 0,
+        "separation": false,
+        "source_hash": "a0af2ab281ebfc38ff81ce8232b56be7891c6f4c4bf12cfaa5b761ec6f8e9e2d",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    },
+    {
+      "fixture": "target/joint-templates-corpus/modern-mith-minimals-000515-triple-refuted-fixture.json",
+      "proof": "target/joint-templates-corpus/modern-mith-minimals-000515-triple-refuted-proof.json",
+      "kind": "triple-refuted",
+      "host": "modern-mith-minimals-000515",
+      "fixture_sha256": "c0f2fcf709118a049dcd2d331b823bee619d475b6dc10c2d46bc2dcb3966fe1a",
+      "proof_sha256": "bf7741d615b576bb95bef5ba27a5cf0d349f416977dc8960c0564fdd98e94cc4",
+      "verification": {
+        "accepted": true,
+        "initial_counts": [
+          2,
+          1,
+          15,
+          22,
+          2,
+          2,
+          4,
+          14,
+          2
+        ],
+        "events": 11,
+        "templates_removed": 25,
+        "pairwise_fixed_point_checked": true,
+        "triple_events": 3,
+        "separation": true,
+        "source_hash": "861a14c9ba0d14d0807530af17c5ff518c4b1731ea5b1c1c71edf9fd57034c1e",
+        "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+        "givens_and_closure_replayed": true
+      }
+    }
+  ],
+  "seconds": 0.279824375,
+  "scope": "Independent acceptance of retained16 exact controls only. Does not independently replay all1200 corpus queries or stronger baseline completion."
+}

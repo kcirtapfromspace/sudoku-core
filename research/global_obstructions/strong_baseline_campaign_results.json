@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "inputs_sha256": "cc4990926fbb2f8d00268a0d1da8613a3efc8185101ec5100792c508380b62ee",
+  "retained_comparison_sha256": "ce522883bbd6b197629a2a7523c71aae811c555c92f0483e208905ad5a2da9f4",
+  "counts": {
+    "cutoff": 2,
+    "complete": 6
+  },
+  "records": [
+    {
+      "id": "modern-mith-minimals-000515",
+      "seed_status": "solved",
+      "status": "cutoff",
+      "error": "History catalogue scope incomplete",
+      "unplaced": 0,
+      "input_state_hash": "075f20c121401c0b3e6d2bfb12a4cff4387f9c6331b1017e92f77c515faf6d48",
+      "output_state_hash": "075f20c121401c0b3e6d2bfb12a4cff4387f9c6331b1017e92f77c515faf6d48",
+      "trace_events": 1,
+      "relations": 3622,
+      "seconds": 5.283174542,
+      "result_path": "target/strong-baseline-corpus/modern-mith-minimals-000515.json",
+      "result_sha256": "5bef0d13859f15377096cf66a65a086afaca7da5b39c00a8ec591e57e2ed2214"
+    },
+    {
+      "id": "modern-mith-minimals-000258",
+      "seed_status": "solved",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "37728934be22d91727981d60d0eaa356f6c1091289855c6cb2e063be922a1660",
+      "output_state_hash": "37728934be22d91727981d60d0eaa356f6c1091289855c6cb2e063be922a1660",
+      "trace_events": 3,
+      "relations": 2001,
+      "seconds": 3.7349563330000004,
+      "result_path": "target/strong-baseline-corpus/modern-mith-minimals-000258.json",
+      "result_sha256": "aa1b58f35982ec9dcdc85888dcbd75a9c7467cd01793e35c6e49e8f5b0bddfab"
+    },
+    {
+      "id": "modern-monhard-te3-001132",
+      "seed_status": "retained-configured-fixedpoint",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "8c5e76a10cfbc878154637397adea6fcaf4eba0f946504976d9baecbc3745528",
+      "output_state_hash": "0efc73b1a880a0cede8b6a124fc3edaa95e834c289190409f0ea000ed2f7bc0b",
+      "trace_events": 8,
+      "relations": 710,
+      "seconds": 1.7912837909999997,
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-001132.json",
+      "result_sha256": "fac7840962bbd22e6c8b27369fdca2d6250a1f6a5620a7b73a2e67ac37c28311"
+    },
+    {
+      "id": "modern-monhard-te3-001244",
+      "seed_status": "retained-configured-fixedpoint",
+      "status": "cutoff",
+      "error": "History catalogue scope incomplete",
+      "unplaced": 48,
+      "input_state_hash": "2b73e009ea8aea867b321e39bf077f69ee97d269c39e3ea5b9a8989ed5c79d49",
+      "output_state_hash": "2b73e009ea8aea867b321e39bf077f69ee97d269c39e3ea5b9a8989ed5c79d49",
+      "trace_events": 1,
+      "relations": 3223,
+      "seconds": 5.163998333,
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-001244.json",
+      "result_sha256": "a704b4c7686af333742e4aa1d366e2414e88eb691482b3996105cd75b690257b"
+    },
+    {
+      "id": "modern-monhard-te3-001468",
+      "seed_status": "retained-configured-fixedpoint",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "d08b004c858ce4d04e7b05435c11e51ade8040fa7216c0ed2b30775c00f62805",
+      "output_state_hash": "1016d874ba6fc68a099b789399c6c01c51509e675740409ff685cd6a486eaed0",
+      "trace_events": 17,
+      "relations": 235,
+      "seconds": 1.8418357910000012,
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-001468.json",
+      "result_sha256": "c9af13a28bb955e862d693adf3acfe4ec47c723875c707b719f5ebca6b384dc7"
+    },
+    {
+      "id": "modern-monhard-te3-002283",
+      "seed_status": "retained-configured-fixedpoint",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "0be06e0fa3e6806348d7e76b33a0fef8d4efd43f51e882939aea9974cac7b601",
+      "output_state_hash": "545065a8384a8f906a16641aec4b74bd8a4a51a3ff59e492ca49b7a40dfa1959",
+      "trace_events": 14,
+      "relations": 2217,
+      "seconds": 5.2342727090000025,
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-002283.json",
+      "result_sha256": "56d47564373e59e4b6ec75f29872ba2d7d3476e9c6ba6bddb8d1b669f61c6856"
+    },
+    {
+      "id": "modern-monhard-te3-002506",
+      "seed_status": "solved",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "eef181be7bf2f06b77fa4628399895f21d5d0e33af4d4cb57da18b830574ca3b",
+      "output_state_hash": "eef181be7bf2f06b77fa4628399895f21d5d0e33af4d4cb57da18b830574ca3b",
+      "trace_events": 3,
+      "relations": 73,
+      "seconds": 0.992205165999998,
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-002506.json",
+      "result_sha256": "2e6b566871f449cb5d38526120cdb7fa8a77caa61b52def77363104320b6c2b1"
+    },
+    {
+      "id": "modern-monhard-te3-003066",
+      "seed_status": "solved",
+      "status": "complete",
+      "error": null,
+      "unplaced": 0,
+      "input_state_hash": "10b64b2294484e9fc06592d80f98970dfe50675df08ec3a168f9de4f2b15810f",
+      "output_state_hash": "10b64b2294484e9fc06592d80f98970dfe50675df08ec3a168f9de4f2b15810f",
+      "trace_events": 3,
+      "relations": 372,
+      "seconds": 1.3918042909999997,
+      "result_path": "target/strong-baseline-corpus/modern-monhard-te3-003066.json",
+      "result_sha256": "b2c509cfaf301d03fa5c51e971fb64b909d459132b1d3b0ec42ac470840ef069"
+    }
+  ],
+  "seconds": 25.573107167,
+  "scope": "Configured offline profile with supplied original givens-domain history. Cutoffs are inconclusive, never strengthened fixedpoints. Original unique hosts and corrected old-engine seeds are separate input provenance.",
+  "profile": {
+    "seconds": 60,
+    "catalogue_seconds": 10,
+    "catalogue_nodes": 100000
+  }
+}

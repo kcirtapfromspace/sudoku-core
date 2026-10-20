@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "controls": [
+    {
+      "accepted": true,
+      "initial_counts": [
+        2,
+        1,
+        9,
+        13,
+        1,
+        2,
+        2,
+        7,
+        2
+      ],
+      "events": 7,
+      "templates_removed": 20,
+      "pairwise_fixed_point_checked": false,
+      "triple_events": 0,
+      "separation": false,
+      "source_hash": "e4ba5685f0225867903dd1274e24bcebba342149862f89d8051df64a3a44964b",
+      "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+      "fixture": "different_lead.json",
+      "fixture_sha256": "45d6f8e79f9dfb859ba6827dadb3934a1cc5c1b1ada822537b5346b926941358",
+      "certificate": "joint_templates_lead_pair.json",
+      "certificate_sha256": "c174a1bb966e7f87ae2569e387cad6175ed432641cebf7e2598951fd162b9466",
+      "negative_mutations_rejected": 13
+    },
+    {
+      "accepted": true,
+      "initial_counts": [
+        12,
+        4,
+        2,
+        16,
+        14,
+        2,
+        3,
+        5,
+        4
+      ],
+      "events": 11,
+      "templates_removed": 25,
+      "pairwise_fixed_point_checked": true,
+      "triple_events": 4,
+      "separation": true,
+      "source_hash": "792a5f9b18472574b1e9f7e391b3246c674c7d3e092deaffbc4c7c63bbb0c9cc",
+      "scope": "Known template-CSP support propagation; exact two-versus-three support separation only when flagged.",
+      "fixture": "different_control.json",
+      "fixture_sha256": "a1e6e053c2feafd7e3565b28db5b4c37ddd630b81f220669bf3abb5d1fa7e8b5",
+      "certificate": "joint_templates_control_triple.json",
+      "certificate_sha256": "795515501ebc04eb0af372af4f6801aa99afc91f0ca00678fe6d9f8ed22fcdaa",
+      "negative_mutations_rejected": 15
+    }
+  ],
+  "blank_template_count": 46656,
+  "relation_audit": {
+    "complete_ancestor_scans_recomputed": 1,
+    "persistent_unit_snapshots_checked": 2,
+    "guardian_false_refutations_checked": 1,
+    "corruptions_rejected": 8,
+    "binary_forcing_paths_checked": 1,
+    "binary_path_edges_checked": 5,
+    "native_house_or_edges_checked": 1,
+    "scope": "Exact clause provenance and implication-step soundness; not a proof that a full forcing menu reached a fixed point."
+  },
+  "claim": "Known-method controls and exact relaxation separation; no new family or completed full-baseline corpus claim.",
+  "pattern_audit": {
+    "accepted_nonvacuous_patterns": 2,
+    "corruptions_rejected": 12,
+    "scope": "Direct basic-Junior and declared rectangular-MSLS theorem checks only."
+  },
+  "known_strong_positive": {
+    "source_path": "target/strong-baseline-known-opposite.json",
+    "source_sha256": "edcd2390da6f28f05ea42012b19622eea54df0ac0e46bfb2c5a1f77ebe926bca",
+    "verification": {
+      "events": 22,
+      "local_calls": 8,
+      "relation_inferences": 5,
+      "pattern_inferences": 0,
+      "forcing_inferences": 1,
+      "forcing_splits": 0,
+      "status": "refuted",
+      "positive_steps_exact": true,
+      "catalogue_completeness_rescanned": false,
+      "configured_fixedpoint_repeated": false,
+      "full_candidate_scope": true,
+      "configured_phase_fixedpoint_candidate": false,
+      "mandatory_strong_profile_enabled": true,
+      "configured_strong_profile_fixedpoint": false,
+      "strong_separation_candidate": false,
+      "required_external_bindings": [
+        "verified original givens history coverage",
+        "same-state corrected retained-old union fixedpoint"
+      ],
+      "limits": "Configured profile only. Historicalgivens coverage and union with retainedoldengine require callerbinding; ORkwhips are not fullyimplemented."
+    }
+  }
+}

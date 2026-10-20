@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "accessed_utc_date": "2026-10-20",
+  "queries": [
+    "Sudoku \"pattern overlay\" \"templates\" two digits",
+    "Sudoku \"multi-digit\" \"templates\" compatibility",
+    "Sudoku \"template\" \"Exocet\" pattern overlay",
+    "site.hodoku.sourceforge.net template pair templates",
+    "site.sudokuwiki.org \"Pattern Overlay Method\"",
+    "site.forum.enjoysudoku.com \"two\" \"templates\" \"2005\"",
+    "site.forum.enjoysudoku.com \"templates\" \"3 digits\"",
+    "site.forum.enjoysudoku.com \"templates\" \"arc consistency\"",
+    "Rina Dechter path consistency relational consistency three variables original paper PDF"
+  ],
+  "primary_sources": [
+    "https://www.sudokuwiki.org/Pattern_Overlay",
+    "https://homepages.cwi.nl/~aeb/games/sudoku/solving28.html",
+    "https://www.nieuwarchief.nl/serie5/pdf/naw5-2006-07-4-258.pdf",
+    "https://www.cs.ubc.ca/~mack/Publications/AI77.pdf",
+    "https://ics.uci.edu/~dechter/publications/r41-local-global-rel-consistency.pdf",
+    "https://arxiv.org/abs/1202.5074"
+  ],
+  "classification": "Known POM/template-overlay constraint model and classical local-support filtering; no historical novelty inferred from a new exact certificate or a two-versus-three relaxation separation."
+}
