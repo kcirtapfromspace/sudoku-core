@@ -11,6 +11,7 @@ mod generator;
 mod grid;
 mod hash;
 mod position;
+mod presentation;
 mod puzzle_id;
 mod solver;
 
@@ -25,6 +26,10 @@ pub use generator::{Generator, GeneratorConfig, SymmetryType};
 pub use grid::{Grid, MoveError, ValidationResult};
 pub use hash::{canonical_puzzle_hash, canonical_puzzle_hash_str};
 pub use position::Position;
+pub use presentation::{
+    EvidenceStatus, FrameKind, GridScene, HighlightRole, SceneCandidate, SceneCell, SceneEvidence,
+    SceneFrame, SceneHighlight, SceneLink, SceneLinkKind,
+};
 pub use puzzle_id::PuzzleId;
 pub use solver::{
     AlsProofDescriptor, ArithmeticCheck, ArithmeticProof, ArithmeticReplay, ArithmeticRequirement,

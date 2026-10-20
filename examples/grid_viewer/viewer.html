@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sudoku proof explorer</title>
+  <style>/* VIEWER_CSS */</style>
+</head>
+<body>
+  <header>
+    <div><p class="eyebrow">SUDOKU CORE / GRID EVIDENCE</p><h1>See why the step works.</h1>
+      <p>Inspect the pattern, follow an assumption, and find the contradiction on the board.</p></div>
+    <button id="export" type="button">Export scene JSON ↓</button>
+  </header>
+  <main>
+    <nav aria-label="Example library">
+      <h2>Example library</h2>
+      <label for="search">Find a technique or puzzle</label>
+      <input id="search" type="search" placeholder="Try forcing, fish, or invalid…">
+      <p id="coverage" class="muted"></p>
+      <div id="examples"></div>
+    </nav>
+    <section class="workspace" aria-label="Grid explanation">
+      <div class="scene-heading"><div><p id="technique" class="eyebrow"></p><h2 id="example-title"></h2></div>
+        <span id="status" class="status" role="status"></span></div>
+      <p id="evidence" class="evidence"></p>
+      <div class="explorer">
+        <div class="board-panel">
+          <div class="board-tools"><span id="board-mode">Current proof frame</span>
+            <label><input id="original" type="checkbox"> Show original givens</label></div>
+          <svg id="grid" viewBox="0 0 624 624" role="img" aria-label="Sudoku grid"></svg>
+          <div class="legend" aria-label="Highlight legend">
+            <span><i class="pattern">●</i> Pattern / ON</span><span><i class="assumption">?</i> Assumption / fin</span>
+            <span><i class="elimination">−</i> Removed / OFF</span><span><i class="placement">✓</i> Placement</span>
+            <span><i class="conflict">!</i> Conflict</span>
+          </div>
+          <p class="muted">Solid links: strong. Dashed links: weak. Select a cell to inspect its marks.</p>
+        </div>
+        <aside>
+          <p id="frame-kind" class="eyebrow"></p>
+          <h3 id="frame-title" aria-live="polite"></h3><p id="frame-description"></p>
+          <div class="controls"><button id="previous" type="button" aria-label="Previous frame">← Back</button>
+            <span id="frame-count"></span><button id="next" type="button" aria-label="Next frame">Next →</button></div>
+          <label for="timeline">Proof frame</label><input id="timeline" type="range" min="0" value="0">
+          <label for="frame-select">Go to a frame</label><select id="frame-select"></select>
+          <p id="truncated" class="notice" hidden>The display trace is limited to 256 frames. The Rust checker verified the complete certificate.</p>
+          <div class="inspection"><h4 id="cell-title">Inspect a cell</h4><p id="cell-description" aria-live="polite">Select a cell on the board.</p></div>
+          <details open><summary>Example provenance</summary><p id="origin"></p><a id="source" target="_blank" rel="noreferrer">Open the puzzle source ↗</a></details>
+          <details><summary>What does “verified” mean?</summary>
+            <p>The Rust engine checked the original native-rule certificate and its exact conclusion before this file was generated.</p>
+            <p>Candidate masks are premises. Pattern metadata does not verify a deduction. Valid placed values do not establish solvability.</p>
+            <p>This page displays exported results. It does not run a certificate checker in JavaScript. Exported scene JSON is presentation data.</p>
+          </details>
+          <details><summary>Grid text for this frame</summary><pre id="grid-text"></pre></details>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>Every Hint technique uses the same grid format. The library contains selected examples, not an example for every technique.</footer>
+  <script id="scene-data" type="application/json"><!-- SCENE_DATA --></script>
+  <script>/* VIEWER_JS */</script>
+</body>
+</html>

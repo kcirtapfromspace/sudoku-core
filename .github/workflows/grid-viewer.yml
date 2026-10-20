@@ -1,0 +1,38 @@
+name: Grid viewer
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/**', 'examples/grid_viewer*', 'examples/grid_viewer/**', 'tests/presentation.rs', 'scripts/check_grid_viewer.mjs', '.github/workflows/grid-viewer.yml']
+  pull_request:
+    branches: [main, 'codex/**']
+    paths: ['src/**', 'examples/grid_viewer*', 'examples/grid_viewer/**', 'tests/presentation.rs', 'scripts/check_grid_viewer.mjs', '.github/workflows/grid-viewer.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  grid-viewer:
+    name: Grid scenes and browser controls
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.95.0
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check scene contracts and proof results
+        run: cargo test --release --locked --test presentation
+      - name: Generate the real-puzzle viewer
+        run: cargo run --release --locked --example grid_viewer
+      - name: Install the DOM test dependency
+        run: npm install --prefix target/docs-tools --ignore-scripts --no-audit --no-fund --no-save --package-lock=false jsdom@26.1.0
+      - name: Check every example frame and its controls
+        run: node scripts/check_grid_viewer.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sudoku-grid-viewer
+          path: target/grid-viewer.html

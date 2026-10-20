@@ -12,6 +12,7 @@ flowchart TD
     B --> C[SolverState]
     C --> D[Ordered technique dispatcher]
     D --> E[Hint and available evidence]
+    E --> I[Grid scenes and evidence display]
     B --> F[Solution counter]
     F --> G[Puzzle generator]
     G --> H[Difficulty and SE ratings]
@@ -50,6 +51,16 @@ If no logical technique returns a step, the Full policy can use a solved complet
 Solver placements and assumptions remove candidates without restoring earlier eliminations.
 Edits and undo have explicit rules for candidate masks and retained guardian relations.
 The [solver-state API](docs/solver-state.md) describes those rules and the forcing proof format.
+
+`GridScene::from_hint()` exports board frames, candidate highlights, structural links, and available proof results for every technique.
+The [grid explanation guide](docs/grid-scenes.md) defines the scene format and evidence status.
+The browser example displays real puzzle states and deliberate invalidation cases.
+
+```sh
+cargo run --release --locked --example grid_viewer
+```
+
+Open `target/grid-viewer.html` to inspect the examples.
 
 Backtracking selects an empty cell with the fewest candidates.
 Each branch places a candidate and checks the constraints.

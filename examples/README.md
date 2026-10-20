@@ -1,7 +1,19 @@
 # Engine examples
 
-This repository contains four runnable Rust examples.
+This repository contains five runnable Rust examples.
 The terminal and mobile user interfaces belong to consumer projects.
+
+## Inspect technique evidence on the grid
+
+Run the browser example from the repository root.
+
+```sh
+cargo run --release --locked --example grid_viewer
+```
+
+Open `target/grid-viewer.html` in a browser.
+The library contains real puzzle states, exact proof traces, a synthetic fixture, and deliberate invalidation examples.
+The [grid explanation guide](../docs/grid-scenes.md) defines the API, controls, provenance, and verification limits.
 
 ```mermaid
 flowchart LR
@@ -9,6 +21,7 @@ flowchart LR
     A --> C[Check an arithmetic proof]
     A --> D[Check a coloring replay]
     A --> E[Measure fixed workloads]
+    A --> F[Inspect grid evidence]
 ```
 
 ## Generate and solve a puzzle

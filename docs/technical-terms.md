@@ -67,6 +67,9 @@ API identifiers and published technique names retain their original spelling.
 | completeness | The property that a method finds every result in its explicitly stated problem class. |
 | atomic application | An operation that commits the complete verified change or leaves the input unchanged. |
 | serialization | Conversion of structured data to a stored or transmitted format. |
+| scene | Portable display data for a grid explanation and its evidence status. |
+| frame | One board snapshot with related descriptions, highlights, and links. |
+| highlight role | The meaning of a cell or candidate mark, independent of its display color. |
 | provenance | The recorded source and derivation of a state or fact. |
 | prior art | Earlier work relevant to a mathematical method, pattern, or implementation claim. |
 | GAC | Generalized arc consistency: every retained candidate has support in the specified constraint. |

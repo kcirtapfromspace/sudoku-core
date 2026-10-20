@@ -357,7 +357,8 @@ pub struct Hint {
     pub explanation: String,
     /// Cells involved in the reasoning
     pub involved_cells: Vec<Position>,
-    /// Structural proof certificate (not serialized — WASM rendering only)
+    /// Evidence retained in Rust. Use `GridScene` for portable display output;
+    /// ordinary hint JSON does not include this certificate.
     #[serde(skip)]
     pub proof: Option<super::explain::ProofCertificate>,
 }
