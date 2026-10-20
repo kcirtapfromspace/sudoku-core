@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "seed": 219404,
+  "q": 4,
+  "arguments": {
+    "q": 4,
+    "samples": 1296,
+    "seconds": 60,
+    "seed": 219404,
+    "output": "research/global_obstructions/nonrank_graph_tridagon_q4_results.json",
+    "max_positives": 3,
+    "tridagon_source": "research/global_obstructions/real_Loki.json"
+  },
+  "seconds": 0.28504395800000004,
+  "counts": {
+    "presentations": 1296,
+    "house_capacity_survivors": 1296,
+    "partition_search_nodes": 7134,
+    "q_colorable": 1296
+  },
+  "positives": [],
+  "rank_rejected_controls": [],
+  "scope": "Random q cells per box in boxes1,2,4,5; repeated supports skipped; floating negatives are discovery-only"
+}

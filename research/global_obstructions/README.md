@@ -18,6 +18,9 @@ No historical mathematical novelty is established.
 | [Published tridagon cases](real_notes.md) | Independently verified unique givens from immutable author sources, exact traces, local filters and rational LP witnesses. Established patterns. |
 | Generated four-digit givens | A nonunique 19-given board reaches the obstruction beyond the checked old structural baseline. A unique 34-given control is already solved by old fish/singles. Neither is a published author-source puzzle. |
 | [Expanded unique nonforcing gap](expanded_search_report.md) | A certified 29-given unique board passes the local/native-LP filters and stalls older nonforcing plus default arithmetic. Full old Nishio still finds a step. |
+| [Full older logical engine stall](nonrank_report.md) | A unique published 28-given puzzle stalls the complete frozen logical dispatcher including forcing; current Global Coloring certifies r4c9=9 with 169 nodes. Established tridagon composition. |
+| [Beyond per-digit weighted rank](nonrank_audit_report.md) | Exact 33-term full-board digit-template mixture survives every single-digit-valid linear inequality. Earlier 13-cell hyperhole is rejected by an exact template Farkas control. |
+| [Broader graph search](nonrank_graph_report.md) | Synthetic 27-cell five-chromatic graph with an exact fractional four-color cover and full-board template witness; unique-givens realization remains unverified. Includes exact rejected controls and bounded negative results. |
 | [Exact motif prior art](prior_art_13_report.md) | An explicit spanning seven-hyperhole and grouped-loop map explain the 13-cell obstruction by established methods. First appearance of the exact Sudoku drawing remains unresolved. |
 | [LP and prior-art audit](audit_prior_art.md) | Exact rational primal witnesses, rejected Farkas controls, certificate mutations and precise limits on method and novelty claims. |
 
@@ -38,6 +41,11 @@ python3 research/global_obstructions/audit_linear_witnesses.py
 python3 research/global_obstructions/audit_global_certificates.py
 python3 research/global_obstructions/expanded_unique_verify.py
 python3 research/global_obstructions/prior_art_13_verify.py
+python3 -S research/global_obstructions/nonrank_verify.py
+python3 -S research/global_obstructions/nonrank_puzzles_verify.py
+python3 -S research/global_obstructions/nonrank_audit_template.py --self-test
+python3 -S research/global_obstructions/nonrank_graph_verify.py
+python3 -S research/global_obstructions/nonrank_graph_certificate.py --self-test
 ```
 
 These run in dedicated CI. Numerical LP discovery can optionally use SciPy;
@@ -59,9 +67,10 @@ search limits and exclusions accompany results. An older method finding a future
 step is a research result, not grounds to suppress it. A failing comparison is
 not automatically a Sudoku correctness regression.
 
-The current-engine probe checks proof construction, automatic search, JSON
+The Rust integration suite checks proof construction, automatic search, JSON
 round trips, replay application, stale rejection and input preservation for all
-six givens-derived snapshots.
+seven givens-derived snapshots. A separate CI job freshly rebuilds the frozen
+older engine and reconfirms the full logical fixed point twice.
 
 Optional discovery reruns and source-fetch commands are documented in the
 structural and real-puzzle reports. Generated clues, primary-source provenance,

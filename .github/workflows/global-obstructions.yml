@@ -44,3 +44,31 @@ jobs:
           python3 research/global_obstructions/expanded_motif_verify.py
           python3 research/global_obstructions/expanded_modern_corpus.py
           python3 research/global_obstructions/expanded_cover_verify.py
+          python3 -S research/global_obstructions/nonrank_verify.py
+          python3 -S research/global_obstructions/nonrank_puzzles_verify.py
+          python3 -S research/global_obstructions/nonrank_audit_template.py --self-test
+          python3 -S research/global_obstructions/nonrank_graph_verify.py
+          python3 -S research/global_obstructions/nonrank_graph_certificate.py --self-test
+
+  frozen-old-engine:
+    name: Fresh forcing-inclusive older-engine comparison
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.95.0
+      - name: Rebuild frozen source and confirm the live fixed point twice
+        run: |
+          python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
+            --fresh-folder target/nonrank-ci-old \
+            --output target/nonrank-ci-audit.json
+      - name: Upload fresh comparison evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frozen-old-engine-comparison
+          path: target/nonrank-ci-audit.json
+          if-no-files-found: warn

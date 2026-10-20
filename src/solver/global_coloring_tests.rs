@@ -36,6 +36,33 @@ fn certificate() -> (Grid, GlobalColoringProof) {
 }
 
 #[test]
+fn full_candidate_ladder_advances_the_frozen_old_engine_stall() {
+    let case: serde_json::Value = serde_json::from_str(include_str!(
+        "../../research/global_obstructions/nonrank_full_old_stall.json"
+    ))
+    .unwrap();
+    let state: CandidateState = serde_json::from_value(case["state"].clone()).unwrap();
+    let mut grid = state.to_grid().unwrap();
+    for (cell, byte) in case["puzzle"].as_str().unwrap().bytes().enumerate() {
+        grid.cell_mut(idx_to_pos(cell))
+            .set_given((b'1'..=b'9').contains(&byte));
+    }
+    // Use the actual logical dispatcher on retained candidates. Public get_hint
+    // rebuilds masks; the direct coloring API and replay preserve these premises.
+    let finding = Solver::new().find_first_technique(&grid).unwrap();
+    assert_eq!(finding.technique, Technique::GlobalColoring);
+    assert!(matches!(
+        finding.inference,
+        InferenceResult::Placement { cell: 35, value: 9 }
+    ));
+    let Some(ProofCertificate::GlobalColoring(proof)) = finding.proof else {
+        panic!("full ladder omitted the global certificate")
+    };
+    assert!(proof.verify(&grid));
+    assert_eq!(CandidateState::capture(&grid).unwrap(), state);
+}
+
+#[test]
 fn real_and_four_digit_obstructions_generate_checked_trees() {
     for (grid, cells, cell, digit) in [real_fixture(), four_fixture()] {
         let before = CandidateState::capture(&grid).unwrap();

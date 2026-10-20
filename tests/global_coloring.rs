@@ -4,13 +4,14 @@ use sudoku_core::{
     HintType, Position, ProofCertificate, Solver, Technique,
 };
 
-const CASES: [&str; 6] = [
+const CASES: [&str; 7] = [
     include_str!("../research/global_obstructions/real_4662_after_existing.json"),
     include_str!("../research/global_obstructions/real_4401.json"),
     include_str!("../research/global_obstructions/real_Loki.json"),
     include_str!("../research/global_obstructions/real_four_digit_candidate.json"),
     include_str!("../research/global_obstructions/real_four_digit_unique.json"),
     include_str!("../research/global_obstructions/expanded_unique_nonforcing.json"),
+    include_str!("../research/global_obstructions/nonrank_full_old_stall.json"),
 ];
 
 #[test]
@@ -101,6 +102,7 @@ fn committed_exports_verify_and_cannot_replay_after_application() {
         include_str!("../research/global_obstructions/replay_four_digit_generated.json"),
         include_str!("../research/global_obstructions/replay_four_digit_unique.json"),
         include_str!("../research/global_obstructions/replay_expanded_unique_nonforcing.json"),
+        include_str!("../research/global_obstructions/replay_nonrank_full_old_stall.json"),
     ] {
         let replay: GlobalColoringReplay = serde_json::from_str(text).unwrap();
         assert!(replay.verify());

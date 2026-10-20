@@ -197,5 +197,21 @@ Nishio r4c6!=4, so this is a unique **nonforcing gap**, not a full-old-method
 stall. The [expanded search report](../research/global_obstructions/expanded_search_report.md)
 records the broader experiment and stronger target separately.
 
+A subsequent [forcing-inclusive benchmark](../research/global_obstructions/nonrank_report.md)
+meets that stronger target: the unique 28-given Monhard T&E3 source-line-1
+puzzle reaches a retained state with 50 cells unplaced where two fresh full
+older logical-dispatcher calls return no hint. The current full ladder and
+default direct Global Coloring search certify **r4c9=9** with a 169-node,
+16-cell certificate. Backtracking is outside this logical comparison.
+
+Its opposite branch also has an independently checked 33-term rational mixture
+of full single-digit templates. This satisfies every valid single-digit linear
+inequality, including weighted rank and hyperhole capacity bounds, throughout
+the actual board domains. It does not test every multidigit cut. Exact graph
+maps explain the contradiction as an established twelve-cell tridagon with
+guardian forcing, so it establishes additional engine coverage without a
+historical novelty claim. Use the retained CandidateState and direct API or
+portable replay; importing only the derived placed grid loses prior removals.
+
 The [research index](../research/global_obstructions/README.md) lists exact
 verifiers, primary sources, rejected examples, discovery counts and limits.

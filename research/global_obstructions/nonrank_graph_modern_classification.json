@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "source_case_name": "modern-monhard-te3-000001",
+  "source_puzzle": "987......6..95.....4.......3..21.65....5.3..2....96.31.3.1...2.....6.59.....2.1.3",
+  "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+  "source_case_path": "target/nonrank-first-candidate.json",
+  "selected_cells": [
+    3,
+    17,
+    21,
+    32,
+    35,
+    40,
+    43,
+    48,
+    51,
+    58,
+    60,
+    62,
+    68,
+    71,
+    75,
+    79
+  ],
+  "base_core_opposite_domains": [
+    40,
+    200,
+    224,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    96,
+    200,
+    200,
+    200,
+    232
+  ],
+  "uniform_four_coloring": {
+    "35": 1,
+    "62": 2,
+    "71": 3,
+    "17": 4,
+    "60": 1,
+    "79": 4,
+    "58": 3,
+    "75": 1,
+    "43": 2,
+    "40": 1,
+    "51": 3,
+    "48": 2,
+    "32": 3,
+    "68": 2,
+    "3": 3,
+    "21": 4
+  },
+  "minimum_found_base_opposite_cell_cores": [
+    [
+      17,
+      32,
+      35,
+      40,
+      43,
+      48,
+      51,
+      58,
+      60,
+      62,
+      68,
+      71,
+      75,
+      79
+    ]
+  ],
+  "minimum_search_scope": "Exact all560thirteen-cell subsets plus a14-cell contradiction; this proves minimum cardinality within this16-cell support",
+  "closed_tridagon_core": [
+    32,
+    35,
+    40,
+    43,
+    48,
+    51,
+    58,
+    60,
+    68,
+    71,
+    75,
+    79
+  ],
+  "closed_core_domains": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "known_tridagon_mapping": {
+    "40": 32,
+    "43": 33,
+    "32": 40,
+    "35": 43,
+    "48": 48,
+    "51": 53,
+    "75": 57,
+    "79": 60,
+    "68": 67,
+    "71": 70,
+    "58": 77,
+    "60": 80
+  },
+  "uniform_graph_has_five_chromatic_hyperhole_subgraph": false,
+  "conclusion": "Known478tridagon after conditional elimination of secondguardian6; original16graph uniformly4colorable, so not the requested pure \u03c7>4 graph gap",
+  "minimum_cardinality_within_original_selected_cells": 14,
+  "all_thirteen_cell_subsets_colorable": 560,
+  "thirteen_subset_witness_digest": "a5d77de1ab2879358fc3c068d8b51ad6c884672d5b1a79f2123358afaf9d367b",
+  "closed_tridagon_fractional_three_cover": [
+    {
+      "cells": [
+        32,
+        43,
+        60,
+        75
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    },
+    {
+      "cells": [
+        32,
+        51,
+        58,
+        71
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    },
+    {
+      "cells": [
+        32,
+        43,
+        71,
+        75
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    },
+    {
+      "cells": [
+        35,
+        48,
+        58,
+        79
+      ],
+      "weight": [
+        2,
+        3
+      ]
+    },
+    {
+      "cells": [
+        35,
+        40,
+        60,
+        68
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    },
+    {
+      "cells": [
+        40,
+        51,
+        68,
+        79
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    },
+    {
+      "cells": [
+        43,
+        48,
+        60,
+        68
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    },
+    {
+      "cells": [
+        40,
+        51,
+        71,
+        75
+      ],
+      "weight": [
+        1,
+        3
+      ]
+    }
+  ],
+  "closed_tridagon_all_maximal_independent_sets": [
+    [
+      32,
+      43,
+      58,
+      71
+    ],
+    [
+      32,
+      43,
+      60,
+      75
+    ],
+    [
+      32,
+      43,
+      71,
+      75
+    ],
+    [
+      32,
+      51,
+      58,
+      71
+    ],
+    [
+      32,
+      51,
+      58,
+      79
+    ],
+    [
+      32,
+      51,
+      71,
+      75
+    ],
+    [
+      35,
+      40,
+      60,
+      68
+    ],
+    [
+      35,
+      40,
+      60,
+      75
+    ],
+    [
+      35,
+      40,
+      68,
+      79
+    ],
+    [
+      35,
+      48,
+      58,
+      79
+    ],
+    [
+      35,
+      48,
+      60,
+      68
+    ],
+    [
+      35,
+      48,
+      68,
+      79
+    ],
+    [
+      40,
+      51,
+      68,
+      79
+    ],
+    [
+      40,
+      51,
+      71,
+      75
+    ],
+    [
+      43,
+      48,
+      58,
+      71
+    ],
+    [
+      43,
+      48,
+      60,
+      68
+    ]
+  ]
+}

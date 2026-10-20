@@ -4,7 +4,10 @@ The expanded search found a **unique, generated 29-given puzzle** that passes
 the specified local/native-LP filters and stalls the frozen older nonforcing
 handlers plus default Arithmetic Counting. This improves on the previous
 nonunique example. It does **not** stall the full older engine: Nishio finds
-r4c6!=4. No unique case meeting the stronger forcing-inclusive target was found.
+r4c6!=4. No unique case meeting the stronger forcing-inclusive target was found
+in that experiment. The subsequent [full-old-engine benchmark](nonrank_report.md)
+does meet it, with an established tridagon composition and an exact full-board
+template witness beyond all per-digit weighted-rank bounds.
 
 The motif investigation also found a positive prior-art correspondence. The
 thirteen-cell obstruction has an explicitly mapped spanning **7-hyperhole**,

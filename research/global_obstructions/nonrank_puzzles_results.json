@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+  "source_corpus": "research/global_obstructions/expanded_modern_corpus.json",
+  "source_corpus_sha256": "2d4e569f933b34dd8ae2bb44b4cb9153f3a7ff70bc926cfd8d9d24c65a0f259d",
+  "source_order": "hard-first: Monhard TE3 then Mith TE3 then Monhard TE2",
+  "completed_cases": 6,
+  "status_counts": {
+    "full-old-stall": 5,
+    "solved": 1
+  },
+  "seconds": 116.552427458,
+  "requested_limit": 200,
+  "stopping_reason": "Stopped after the first qualifying unique full-stall/template-LP candidate was independently accepted; no all200 result is claimed.",
+  "command": "research/global_obstructions/nonrank_puzzles_search.py --seconds 960 --limit 200 --output-dir target/nonrank-puzzles-modern200",
+  "records": [
+    {
+      "id": "modern-monhard-te3-000001",
+      "puzzle": "987......6..95.....4.......3..21.65....5.3..2....96.31.3.1...2.....6.59.....2.1.3",
+      "status": "full-old-stall",
+      "old_findings": 12,
+      "calls": 14,
+      "unplaced": 50,
+      "domains_sha256": "1f1c69d3fdc3f206bf28cd1070f0cdbfd073e2d888400a25e56cf4780c473f03",
+      "trace_sha256": "e81db9759ba6c28752c869687eac04d42c01c9737d360399ccf225b94d2af0cc",
+      "seconds": 15.442112083000001
+    },
+    {
+      "id": "modern-monhard-te3-000113",
+      "puzzle": "98765....6...4.......3.....86..92....23.789...........29....86..7......3......2.7",
+      "status": "full-old-stall",
+      "old_findings": 9,
+      "calls": 11,
+      "unplaced": 45,
+      "domains_sha256": "9780b16475ba1cdd98db61818651764a84b70e024863fe1a9f84b96171e25753",
+      "trace_sha256": "6f238f2df063eec6170790d458469b17170113ec6557c0e3592c1d48709f1bfd",
+      "seconds": 18.456301500000002
+    },
+    {
+      "id": "modern-monhard-te3-000225",
+      "puzzle": "987......6..5......4.......36.27.1..12..56.7......3......7.561....3..2.7....12.53",
+      "status": "full-old-stall",
+      "old_findings": 14,
+      "calls": 16,
+      "unplaced": 47,
+      "domains_sha256": "027a000ab8a93148056e34f8c817a84b15f9d5f4e7d7fabdd63e81586e37f5a7",
+      "trace_sha256": "714a5ed35b826dca0305b2762a5b7309d7032aadc1a15ab198c8e3266c529781",
+      "seconds": 25.141615791999996
+    },
+    {
+      "id": "modern-monhard-te3-000461",
+      "puzzle": "987......6..95.....4.......3..5.261....31........96.32.1.2....3..216.5.9....3.1..",
+      "status": "full-old-stall",
+      "old_findings": 13,
+      "calls": 15,
+      "unplaced": 47,
+      "domains_sha256": "29d8d222f8a819c9de4502f11cb6f0b41a53ab3e60a0a591b09895b9546fc9ea",
+      "trace_sha256": "b50f57c1c6b74343515f4be2a974229d972e877d53d9b8a246822d9186474386",
+      "seconds": 17.921079290999998
+    },
+    {
+      "id": "modern-monhard-te3-000573",
+      "puzzle": "98.76.5..7.49......6..48...8......32.9.....1....58.4..6...5....5..89..76.7.......",
+      "status": "solved",
+      "old_findings": 71,
+      "calls": 26,
+      "unplaced": 0,
+      "domains_sha256": "fd433fdb3bc54f1a4bbe30b81ce91c546c550fa8fb3d00062b0aaa7ff35ebf3b",
+      "trace_sha256": "d9fe4e49f5290fa04c439a79c540603de79e5d590a663a4a32e3701b30ed434e",
+      "seconds": 16.627144790999992
+    },
+    {
+      "id": "modern-monhard-te3-000684",
+      "puzzle": "98.76.5..7.58.4....46.9.7..8.4..6.7.6......9..975........4...32.....84.........5.",
+      "status": "full-old-stall",
+      "old_findings": 9,
+      "calls": 11,
+      "unplaced": 49,
+      "domains_sha256": "ece7407b9211de072daa18e64556d8bff613f35410942a748bc6a203d986fbc9",
+      "trace_sha256": "7c01b85cac951bd6db96c85838d63388eb9caf5c1d8b948a16fc1092c20517a0",
+      "seconds": 22.95705695800001
+    }
+  ],
+  "manifest": {
+    "file": "nonrank_puzzles_trials.jsonl",
+    "sha256": "d4be980c3a5bb5bc409b5ba62eb8e35e42bfae70c5f72261f7c5e004b1ab1524",
+    "records": 6,
+    "bytes": 1131,
+    "array_fields": [
+      "id",
+      "puzzle",
+      "status",
+      "old_findings",
+      "unplaced",
+      "domains_sha256"
+    ],
+    "status_codes": {
+      "0": "full-old-stall",
+      "1": "solved",
+      "2": "probe-timeout",
+      "3": "invalid-or-error",
+      "4": "step-limit",
+      "5": "not-unique"
+    }
+  },
+  "classification_scope": "Bounded engine-comparison outcomes. Full traces retained under target; the promoted first fixture has separate exact acceptance and fresh-build audit."
+}

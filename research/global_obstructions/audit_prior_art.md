@@ -158,8 +158,13 @@ every recorded `replay_*.json` export.
 
 The expanded search adds a seventh export for a unique 29-given nonforcing-gap
 puzzle, with 21 selected cells and 74 proof nodes. It and ten further mutations
-are checked by the same independent script; the full current audit rejects 70
-mutations across seven exports.
+are checked by the same independent script. The subsequent
+[forcing-inclusive benchmark](nonrank_report.md) adds an eighth export, with
+16 cells and 169 nodes, bringing the current audit to 80 rejected mutations.
+It also has an independent exact full-board digit-template primal, which
+satisfies every per-digit-valid linear inequality. Exact graph maps identify
+its branch obstruction as an established tridagon composition; this does not
+create a historical novelty claim.
 
 The abstract mathematical core in
 [`verification/global_coloring.rs`](../../verification/global_coloring.rs)
