@@ -558,8 +558,7 @@ impl GlobalColoringReplay {
         let mut next = grid.deep_clone();
         let pos = idx_to_pos(self.proof.cell);
         if self.proof.value {
-            next.set_cell_unchecked(pos, Some(self.proof.digit));
-            next.update_candidates_after_move(pos, self.proof.digit);
+            next.place_solver_value(pos, self.proof.digit);
         } else {
             next.cell_mut(pos).remove_candidate(self.proof.digit);
         }
@@ -575,3 +574,322 @@ impl GlobalColoringReplay {
 #[cfg(test)]
 #[path = "global_coloring_tests.rs"]
 mod tests;
+
+/// A candidate literal in a verified guardian disjunction.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct GuardianLiteral {
+    pub cell: usize,
+    pub digit: u8,
+}
+
+/// At least one listed literal is true. The tree refutes their simultaneous
+/// negation on the selected native graph. Premises are retained for later
+/// monotone propagation; an edit or undo must invalidate the stored relation.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct GuardianProof {
+    pub version: u8,
+    pub premise: CandidateState,
+    pub cells: Vec<usize>,
+    pub guardians: Vec<GuardianLiteral>,
+    pub witness: Vec<u8>,
+    pub nodes: Vec<ColoringNode>,
+}
+impl GuardianProof {
+    pub fn from_cells(
+        grid: &Grid,
+        mut cells: Vec<usize>,
+        mut guardians: Vec<GuardianLiteral>,
+        max_nodes: usize,
+    ) -> Option<Self> {
+        if max_nodes > MAX_SEARCH_NODES || guardians.is_empty() {
+            return None;
+        }
+        cells.sort_unstable();
+        guardians.sort_unstable();
+        let premise = CandidateState::capture(grid).ok()?;
+        let first = guardians[0];
+        if !valid_target(&premise, &cells, first.cell, first.digit)
+            || guardians.len() > 288
+            || !guardians.windows(2).all(|p| p[0] < p[1])
+        {
+            return None;
+        }
+        let original: Vec<_> = cells.iter().map(|&c| premise.domains[c]).collect();
+        let mut assumed = original.clone();
+        for g in &guardians {
+            if !valid_target(&premise, &cells, g.cell, g.digit) {
+                return None;
+            }
+            restrict(
+                &mut assumed[cells.binary_search(&g.cell).ok()?],
+                g.digit,
+                false,
+            );
+        }
+        let graph = Graph::new(&cells);
+        let mut budget = Budget::new(max_nodes);
+        budget.pattern_limit = MAX_PROOF_NODES;
+        let mut nodes = Vec::new();
+        if !matches!(
+            solve(&graph, &assumed, 0, &mut nodes, &mut budget, &mut 0),
+            Outcome::Refuted(_)
+        ) {
+            return None;
+        }
+        let witness = match solve(&graph, &original, 0, &mut Vec::new(), &mut budget, &mut 0) {
+            Outcome::Supported(w) => w,
+            _ => return None,
+        };
+        let proof = Self {
+            version: VERSION,
+            premise,
+            cells,
+            guardians,
+            witness,
+            nodes,
+        };
+        proof.verify().then_some(proof)
+    }
+    pub fn verify(&self) -> bool {
+        self.check().is_some()
+    }
+    pub fn check(&self) -> Option<GlobalColoringCheck> {
+        self.premise.to_grid().ok()?;
+        if self.version != VERSION
+            || self.guardians.is_empty()
+            || self.guardians.len() > 288
+            || !self.guardians.windows(2).all(|p| p[0] < p[1])
+            || self.witness.len() != self.cells.len()
+            || self.nodes.is_empty()
+            || self.nodes.len() > MAX_PROOF_NODES
+        {
+            return None;
+        }
+        for g in &self.guardians {
+            if !valid_target(&self.premise, &self.cells, g.cell, g.digit) {
+                return None;
+            }
+        }
+        for (i, (&cell, &digit)) in self.cells.iter().zip(&self.witness).enumerate() {
+            if !(1..=9).contains(&digit) || self.premise.domains[cell] & (1 << (digit - 1)) == 0 {
+                return None;
+            }
+            for j in 0..i {
+                if peers(cell, self.cells[j]) && digit == self.witness[j] {
+                    return None;
+                }
+            }
+        }
+        if !self
+            .guardians
+            .iter()
+            .any(|g| self.witness[self.cells.binary_search(&g.cell).unwrap()] == g.digit)
+        {
+            return None;
+        }
+        let mut assumed: Vec<_> = self
+            .cells
+            .iter()
+            .map(|&c| self.premise.domains[c])
+            .collect();
+        for g in &self.guardians {
+            restrict(
+                &mut assumed[self.cells.binary_search(&g.cell).unwrap()],
+                g.digit,
+                false,
+            );
+        }
+        // Reuse only the replay checker, never the coloring search.
+        let checker = GlobalColoringProof {
+            version: VERSION,
+            state_hash: String::new(),
+            cells: self.cells.clone(),
+            cell: 0,
+            digit: 1,
+            value: true,
+            witness: vec![],
+            nodes: self.nodes.clone(),
+        };
+        let mut used = vec![false; self.nodes.len()];
+        let mut check = GlobalColoringCheck {
+            cells: self.cells.len(),
+            nodes: 0,
+            splits: 0,
+            conflicts: 0,
+        };
+        checker.check_node(self.nodes.len() - 1, &assumed, 0, &mut used, &mut check)?;
+        used.into_iter().all(|v| v).then_some(check)
+    }
+    pub(super) fn from_coloring(grid: &Grid, proof: &GlobalColoringProof) -> Option<Self> {
+        if !proof.value || !proof.verify(grid) {
+            return None;
+        }
+        Some(Self {
+            version: VERSION,
+            premise: CandidateState::capture(grid).ok()?,
+            cells: proof.cells.clone(),
+            guardians: vec![GuardianLiteral {
+                cell: proof.cell,
+                digit: proof.digit,
+            }],
+            witness: proof.witness.clone(),
+            nodes: proof.nodes.clone(),
+        })
+    }
+}
+
+/// Checked use of an older guardian relation in a descendant candidate state.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct GuardianPropagation {
+    pub relation: GuardianProof,
+    pub state: CandidateState,
+    pub cell: usize,
+    pub digit: u8,
+    pub value: bool,
+}
+impl GuardianPropagation {
+    pub fn verify(&self, grid: &Grid) -> bool {
+        self.relation.verify()
+            && CandidateState::capture(grid).ok().as_ref() == Some(&self.state)
+            && self.valid_in_state()
+    }
+    fn valid_in_state(&self) -> bool {
+        let old = &self.relation.premise;
+        let now = &self.state;
+        if now.to_grid().is_err()
+            || self.cell >= 81
+            || !(1..=9).contains(&self.digit)
+            || now.values[self.cell] != 0
+            || now.domains[self.cell] & (1 << (self.digit - 1)) == 0
+            || (0..81).any(|c| {
+                now.domains[c] & !old.domains[c] != 0
+                    || (old.values[c] != 0 && now.values[c] != old.values[c])
+            })
+        {
+            return false;
+        }
+        let active: Vec<_> = self
+            .relation
+            .guardians
+            .iter()
+            .filter(|g| now.domains[g.cell] & (1 << (g.digit - 1)) != 0)
+            .collect();
+        if active.is_empty() {
+            return false;
+        }
+        if self.value {
+            active.len() == 1 && active[0].cell == self.cell && active[0].digit == self.digit
+        } else {
+            active.iter().all(|g| {
+                conflicts(
+                    GuardianLiteral {
+                        cell: self.cell,
+                        digit: self.digit,
+                    },
+                    **g,
+                )
+            })
+        }
+    }
+    pub(super) fn finding(relation: &GuardianProof, state: &CandidateState) -> Option<Finding> {
+        let active: Vec<_> = relation
+            .guardians
+            .iter()
+            .filter(|g| state.domains[g.cell] & (1 << (g.digit - 1)) != 0)
+            .collect();
+        if active.iter().any(|g| state.values[g.cell] == g.digit) {
+            return None;
+        }
+        let target = if active.len() == 1 {
+            Some((active[0].cell, active[0].digit, true))
+        } else {
+            (0..81).filter(|&c| state.values[c] == 0).find_map(|c| {
+                (1..=9)
+                    .find(|&d| {
+                        state.domains[c] & (1 << (d - 1)) != 0
+                            && !active.is_empty()
+                            && active
+                                .iter()
+                                .all(|g| conflicts(GuardianLiteral { cell: c, digit: d }, **g))
+                    })
+                    .map(|d| (c, d, false))
+            })
+        }?;
+        let (cell, digit, value) = target;
+        let proof = Self {
+            relation: relation.clone(),
+            state: state.clone(),
+            cell,
+            digit,
+            value,
+        };
+        if !proof.valid_in_state() {
+            return None;
+        }
+        Some(Finding { technique: Technique::GlobalColoring, inference: if value { InferenceResult::Placement { cell, value: digit } } else { InferenceResult::Elimination { cell, values: vec![digit] } }, involved_cells: relation.cells.clone(), explanation: ExplanationData::Raw(format!("Retained guardian OR: {} {} at r{}c{} follows from the remaining guardian literals.", if value { "place" } else { "remove" }, digit, cell / 9 + 1, cell % 9 + 1)), proof: Some(ProofCertificate::Guardian(proof)) })
+    }
+}
+fn conflicts(a: GuardianLiteral, b: GuardianLiteral) -> bool {
+    (a.cell == b.cell && a.digit != b.digit) || (a.digit == b.digit && peers(a.cell, b.cell))
+}
+
+pub(super) fn find_guardian(
+    grid: &Grid,
+    options: &GlobalColoringSearchOptions,
+) -> Option<GuardianProof> {
+    let state = CandidateState::capture(grid).ok()?;
+    let mut tested = 0;
+    // A conservative small-pattern scan; explicit constructors allow arbitrary
+    // selected native graphs and disjunctions within the certificate limits.
+    for palette in 1u16..=511 {
+        if palette.count_ones() != 3 {
+            continue;
+        }
+        let pool: Vec<_> = (0..81)
+            .filter(|&c| {
+                state.values[c] == 0
+                    && (state.domains[c] & palette).count_ones() >= 2
+                    && (state.domains[c] & !palette).count_ones() <= 1
+            })
+            .collect();
+        let mut seen = [false; 81];
+        for &seed in &pool {
+            if seen[seed] {
+                continue;
+            }
+            let cells = component(&pool, seed);
+            for &c in &cells {
+                seen[c] = true;
+            }
+            if cells.len() < 4 || cells.len() > SEARCH_MAX_CELLS {
+                continue;
+            }
+            let guardians: Vec<_> = cells
+                .iter()
+                .filter_map(|&c| {
+                    let extra = state.domains[c] & !palette;
+                    (extra != 0).then(|| GuardianLiteral {
+                        cell: c,
+                        digit: extra.trailing_zeros() as u8 + 1,
+                    })
+                })
+                .collect();
+            if guardians.len() < 2 {
+                continue;
+            }
+            if tested >= options.max_patterns {
+                return None;
+            }
+            tested += 1;
+            // Divide a shared visit allowance conservatively between attempts.
+            let visits = options.max_nodes / options.max_patterns.max(1);
+            if let Some(p) = GuardianProof::from_cells(grid, cells, guardians, visits) {
+                return Some(p);
+            }
+        }
+    }
+    None
+}

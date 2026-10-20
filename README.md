@@ -78,6 +78,15 @@ crossing three-house checks, and the full native continuous linear relaxation.
 The search runs after Arithmetic Counting and before forcing. See the [short
 four-digit proof, API, real-game controls and limits](docs/global-coloring.md).
 
+### Retained deductions and forcing proofs
+
+Use `SolverState` for a sequence of hints that preserves solver candidates and
+verified guardian OR relations. `get_hint_with_candidates` exposes the full
+ladder on validated retained masks; ordinary `get_hint` still rebuilds from
+values. Forcing hints now carry independently replayable native-rule trees with
+explicit resource budgets. See [API usage, proof checking and edit/undo
+behavior](docs/solver-state.md).
+
 ## Difficulty Rating
 
 The engine provides two complementary rating systems.

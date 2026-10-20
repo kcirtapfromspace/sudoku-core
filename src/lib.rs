@@ -29,9 +29,12 @@ pub use puzzle_id::PuzzleId;
 pub use solver::{
     AlsProofDescriptor, ArithmeticCheck, ArithmeticProof, ArithmeticReplay, ArithmeticRequirement,
     ArithmeticSearchOptions, ArithmeticSearchResult, ArithmeticState, ArithmeticTerm,
-    ArithmeticTerminal, CandidateState, ColoringBranch, ColoringNode, Difficulty, ForcingSource,
-    GlobalColoringCheck, GlobalColoringProof, GlobalColoringReplay, GlobalColoringSearchOptions,
-    GlobalColoringSearchResult, HallObstruction, Hint, HintType, LinkType, Polarity,
-    ProofCertificate, Solver, Technique, ThreeHouseCheck, ThreeHouseProof, ThreeHouseReplay,
+    ArithmeticTerminal, CandidateState, ColoringBranch, ColoringNode, Difficulty, DomainEdit,
+    ForcingBranch, ForcingCheck, ForcingLeaf, ForcingNode, ForcingProof, ForcingPropagation,
+    ForcingSearchOptions, ForcingSearchResult, ForcingSource, ForcingStep, GlobalColoringCheck,
+    GlobalColoringProof, GlobalColoringReplay, GlobalColoringSearchOptions,
+    GlobalColoringSearchResult, GuardianLiteral, GuardianProof, GuardianPropagation,
+    HallObstruction, Hint, HintType, LinkType, Polarity, ProofCertificate, PropagationPolicy,
+    Solver, SolverState, Technique, ThreeHouseCheck, ThreeHouseProof, ThreeHouseReplay,
     ThreeHouseSearchOptions, ThreeHouseSearchResult,
 };

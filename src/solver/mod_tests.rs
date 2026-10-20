@@ -1,14 +1,10 @@
 use super::*;
 
-// A multi-step technique soundness check must preserve eliminations between
-// steps. Public get_hint intentionally recomputes from placed values; its
-// one-shot behavior is tested separately. This exercises the same dispatch
-// and fallback while retaining the candidate state being proved sound.
+// Exercise the public opt-in API on retained solver masks.
 fn retained_candidate_hint(solver: &Solver, grid: &Grid) -> Option<Hint> {
     solver
-        .find_first_technique(grid)
-        .map(|finding| finding.to_hint())
-        .or_else(|| backtrack::find_backtracking_hint(grid).map(|finding| finding.to_hint()))
+        .get_hint_with_candidates(grid)
+        .expect("valid solver state")
 }
 
 #[test]
@@ -112,8 +108,7 @@ fn test_hint_soundness() {
                         sol_val,
                         puzzle_str
                     );
-                    working.set_cell_unchecked(*pos, Some(*value));
-                    working.recalculate_candidates();
+                    working.place_solver_value(*pos, *value);
                 }
                 HintType::EliminateCandidates { pos, values } => {
                     let sol_val = solution.get(*pos).expect("Position should have solution");
@@ -201,8 +196,7 @@ fn test_hint_soundness_all_tiers() {
                         pos.row + 1, pos.col + 1, value, sol_val,
                         seed, difficulty, steps
                     );
-                    working.set_cell_unchecked(*pos, Some(*value));
-                    working.recalculate_candidates();
+                    working.place_solver_value(*pos, *value);
                 }
                 HintType::EliminateCandidates { pos, values } => {
                     let sol_val = solution.get(*pos).expect("Position should have solution");
@@ -280,8 +274,7 @@ fn test_next_placement_soundness() {
                         hint.technique, pos.row + 1, pos.col + 1, value, sol_val,
                         seed, difficulty, steps
                     );
-                    working.set_cell_unchecked(*pos, Some(*value));
-                    working.recalculate_candidates();
+                    working.place_solver_value(*pos, *value);
                 }
                 HintType::EliminateCandidates { .. } => {
                     panic!("get_next_placement returned elimination instead of placement at seed={} diff={:?} step={}", seed, difficulty, steps);
@@ -327,8 +320,7 @@ fn test_hint_carries_proof_certificate() {
 
         match &hint.hint_type {
             HintType::SetValue { pos, value } => {
-                working.set_cell_unchecked(*pos, Some(*value));
-                working.recalculate_candidates();
+                working.place_solver_value(*pos, *value);
             }
             HintType::EliminateCandidates { pos, values } => {
                 for &v in values {
@@ -503,8 +495,7 @@ fn test_technique_tier_coverage() {
 
             match &hint.hint_type {
                 HintType::SetValue { pos, value } => {
-                    working.set_cell_unchecked(*pos, Some(*value));
-                    working.recalculate_candidates();
+                    working.place_solver_value(*pos, *value);
                 }
                 HintType::EliminateCandidates { pos, values } => {
                     for &v in values {

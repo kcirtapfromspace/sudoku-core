@@ -120,11 +120,16 @@ pub enum ProofCertificate {
         /// Roof cells (cells with extra candidates).
         roof_cells: Vec<usize>,
     },
-    /// Forcing: all branches from a source lead to the same conclusion.
+    /// Legacy detector summary, not a replayable proof. Internal discovery only;
+    /// public ladder hints replace this with `ForcingProof` after checking.
     Forcing {
         source: ForcingSource,
         branches: usize,
     },
+    /// Independently replayable native-rule forcing proof.
+    ForcingProof(super::forcing::ForcingProof),
+    /// Propagation of a verified, retained guardian disjunction.
+    Guardian(super::global_coloring::GuardianPropagation),
     /// Backtracking: no human technique found.
     Backtracking,
 }
