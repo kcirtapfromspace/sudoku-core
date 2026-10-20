@@ -13,8 +13,13 @@ use sha2::{Digest, Sha256};
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
 
+#[path = "arithmetic_partition.rs"]
+mod partition;
+pub use partition::ArithmeticPartition;
+
 const LEGACY_VERSION: u8 = 1;
 const RESIDUE_VERSION: u8 = 2;
+const PARTITION_VERSION: u8 = 3;
 const SOURCE_LIMIT: usize = 6;
 const WEIGHT_LIMIT: i8 = 2;
 const RESIDUE_WEIGHT_LIMIT: i8 = 8;
@@ -89,6 +94,11 @@ pub enum ArithmeticTerminal {
     IntervalGcd,
     /// Version-two Boolean attainable remainders, with a modulus from 2 to 16.
     Residue { modulus: u8 },
+    /// Version-three remainders preserving one native exactly-one partition.
+    PartitionResidue {
+        modulus: u8,
+        partition: ArithmeticPartition,
+    },
 }
 
 impl ArithmeticTerminal {
@@ -99,8 +109,8 @@ impl ArithmeticTerminal {
 
 /// A certificate bound to the exact values and candidate masks of one grid.
 ///
-/// Both versions support at most six distinct native requirements. Version one
-/// accepts nonzero weights of magnitude at most two; version two accepts at most
+/// All versions support at most six distinct native requirements. Version one
+/// accepts nonzero weights of magnitude at most two; versions two and three accept at most
 /// eight to support parity-tail compression. These are proof format limits,
 /// not a claim that these certificates express every Sudoku deduction.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -133,6 +143,14 @@ pub enum ArithmeticCheck {
         modulus: u8,
         required_residue: u8,
         /// Recomputed from the source equations, never supplied by the proof.
+        reachable_residues: Vec<u8>,
+    },
+    PartitionResidue {
+        rhs: i32,
+        modulus: u8,
+        partition: ArithmeticPartition,
+        required_residue: u8,
+        /// Full-sum remainders under the rejected target assumption.
         reachable_residues: Vec<u8>,
     },
 }
@@ -185,10 +203,10 @@ impl ArithmeticProof {
     ) -> Option<Self> {
         let snapshot = Snapshot::from_grid(grid).ok()?;
         let proof = Self {
-            version: if terminal.is_legacy() {
-                LEGACY_VERSION
-            } else {
-                RESIDUE_VERSION
+            version: match terminal {
+                ArithmeticTerminal::IntervalGcd => LEGACY_VERSION,
+                ArithmeticTerminal::Residue { .. } => RESIDUE_VERSION,
+                ArithmeticTerminal::PartitionResidue { .. } => PARTITION_VERSION,
             },
             terminal,
             state_hash: snapshot.hash.clone(),
@@ -214,6 +232,7 @@ impl ArithmeticProof {
         let weight_limit = match (&self.terminal, self.version) {
             (ArithmeticTerminal::IntervalGcd, LEGACY_VERSION) => WEIGHT_LIMIT,
             (ArithmeticTerminal::Residue { modulus }, RESIDUE_VERSION)
+            | (ArithmeticTerminal::PartitionResidue { modulus, .. }, PARTITION_VERSION)
                 if (2..=MODULUS_LIMIT).contains(modulus) =>
             {
                 RESIDUE_WEIGHT_LIMIT
@@ -256,6 +275,15 @@ impl ArithmeticProof {
             ArithmeticTerminal::Residue { modulus } => {
                 residue_contradiction(&coefficients, rhs, target, !self.value, modulus)
             }
+            ArithmeticTerminal::PartitionResidue { modulus, partition } => partition::check(
+                snapshot,
+                &coefficients,
+                rhs,
+                target,
+                !self.value,
+                partition,
+                modulus,
+            ),
         }
     }
 
@@ -727,6 +755,15 @@ fn make_finding(snapshot: &Snapshot, proof: ArithmeticProof, check: ArithmeticCh
                 .join(", ");
             format!("the remaining sum would be {residual}, which has remainder {required_residue} modulo {modulus}, but the remaining candidates can produce only remainders {{{reachable}}}")
         }
+        ArithmeticCheck::PartitionResidue {
+            rhs,
+            modulus,
+            partition,
+            required_residue,
+            reachable_residues,
+        } => {
+            format!("choosing exactly one candidate per {} can produce only full-sum remainders {:?} modulo {modulus}, but the required sum {rhs} has remainder {required_residue}", partition.label(), reachable_residues)
+        }
     };
     let conclusion = if proof.value {
         format!(
@@ -744,6 +781,7 @@ fn make_finding(snapshot: &Snapshot, proof: ArithmeticProof, check: ArithmeticCh
         )
     };
     let mut involved = [false; 81];
+    involved[proof.cell] = true;
     for term in &proof.terms {
         for var in snapshot.requirement_variables(term.requirement.id().expect("checked source")) {
             involved[var / 9] = true;
@@ -766,18 +804,31 @@ fn make_finding(snapshot: &Snapshot, proof: ArithmeticProof, check: ArithmeticCh
 
 /// Search the current stored masks without recalculating candidates or changing the grid.
 pub fn search(grid: &Grid, options: &ArithmeticSearchOptions) -> ArithmeticSearchResult {
-    let (finding, mut result) = search_inner(grid, options);
+    let (finding, mut result) = search_inner(grid, options, None);
     result.hint = finding.map(|finding| finding.to_hint());
     result
 }
 
 pub(crate) fn find(grid: &Grid, _fab: &CandidateFabric) -> Option<Finding> {
-    search_inner(grid, &ArithmeticSearchOptions::default()).0
+    search_inner(grid, &ArithmeticSearchOptions::default(), None).0
+}
+
+/// Opt-in search using one exactly-one partition and a modulus from 2 to 16.
+pub fn search_partition(
+    grid: &Grid,
+    options: &ArithmeticSearchOptions,
+    partition: ArithmeticPartition,
+    modulus: u8,
+) -> ArithmeticSearchResult {
+    let (finding, mut result) = search_inner(grid, options, Some((partition, modulus)));
+    result.hint = finding.map(|finding| finding.to_hint());
+    result
 }
 
 fn search_inner(
     grid: &Grid,
     options: &ArithmeticSearchOptions,
+    partition_terminal: Option<(ArithmeticPartition, u8)>,
 ) -> (Option<Finding>, ArithmeticSearchResult) {
     let mut result = ArithmeticSearchResult {
         hint: None,
@@ -786,6 +837,10 @@ fn search_inner(
         beam_pruned: false,
         error: None,
     };
+    if partition_terminal.is_some_and(|(_, modulus)| !(2..=MODULUS_LIMIT).contains(&modulus)) {
+        result.error = Some("Expected partition modulus 2..16".into());
+        return (None, result);
+    }
     if !(1..=SOURCE_LIMIT).contains(&options.max_sources)
         || !(1..=WEIGHT_LIMIT).contains(&options.max_weight)
         || !(1..=512).contains(&options.beam_width)
@@ -811,6 +866,9 @@ fn search_inner(
     let sources: Vec<_> = (0..324)
         .map(|id| snapshot.requirement_variables(id))
         .collect();
+    // Partition deductions can link disjoint equations through alternative
+    // candidates in one choice group, even without a shared Boolean variable.
+    let incidence_index = |var| partition_terminal.map_or(var, |(p, _)| p.group(var));
     let mut incidence: Vec<Vec<usize>> = vec![Vec::new(); VARIABLE_COUNT];
     let mut frontier = Vec::new();
     for (id, vars) in sources.iter().enumerate() {
@@ -818,7 +876,7 @@ fn search_inner(
             continue;
         }
         for &var in vars {
-            incidence[var].push(id);
+            incidence[incidence_index(var)].push(id);
         }
         let mut coefficients = [0; VARIABLE_COUNT];
         for &var in vars {
@@ -829,6 +887,10 @@ fn search_inner(
             coefficients,
             rhs: 1,
         });
+    }
+    for neighbors in &mut incidence {
+        neighbors.sort_unstable();
+        neighbors.dedup();
     }
     let weights: &[i8] = if options.max_weight == 1 {
         &[1, -1]
@@ -853,12 +915,21 @@ fn search_inner(
                 break;
             }
             result.tested_combinations += 1;
-            if let Some(finding) = node.finding(&snapshot) {
+            let finding = match partition_terminal {
+                Some((partition, modulus)) => {
+                    partition::finding(&node, &snapshot, partition, modulus)
+                }
+                None => node.finding(&snapshot),
+            };
+            if let Some(finding) = finding {
                 // A checked parity placement can supply a small, motivated
                 // extension without widening the beam or increasing its weight
                 // range. Each distinct tail combination uses the same budget.
                 if let Some(ProofCertificate::Arithmetic(proof)) = &finding.proof {
-                    if proof.value && proof.terms.len() < options.max_sources {
+                    if partition_terminal.is_none()
+                        && proof.value
+                        && proof.terms.len() < options.max_sources
+                    {
                         let guardian = proof.cell * 9 + usize::from(proof.digit - 1);
                         for &id in &incidence[guardian] {
                             if result.tested_combinations == options.max_combinations {
@@ -906,7 +977,8 @@ fn search_inner(
         if depth == options.max_sources {
             break;
         }
-        // At most beam_width * 6 * 9 * 4 * 4 extensions are considered.
+        // Native incidence (or partition-group incidence for opt-in search)
+        // bounds adjacency by the 324 available requirements.
         // Retain at most FRONTIER_LIMIT children and their deduplication keys;
         // the configured evaluation budget never implies a large allocation.
         let mut seen = HashSet::new();
@@ -915,7 +987,7 @@ fn search_inner(
             let mut adjacent = [false; 324];
             for &(id, _) in &node.terms {
                 for &var in &sources[id] {
-                    for &neighbor in &incidence[var] {
+                    for &neighbor in &incidence[incidence_index(var)] {
                         adjacent[neighbor] = true;
                     }
                 }

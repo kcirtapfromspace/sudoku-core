@@ -59,6 +59,13 @@ contradiction. It runs after Death Blossom. `get_arithmetic_hint` and
 `search_arithmetic` also expose it directly while preserving stored candidate
 masks. See the [proof, API, examples, and search limits](docs/arithmetic-counting.md).
 
+An opt-in `search_partition_arithmetic` API additionally preserves exactly-one
+choices by cell, row/digit, column/digit, or box/digit when checking remainders.
+Its version-three certificates work with `ArithmeticReplay`. See
+[partition residue proofs, prior art, and runnable example](docs/partition-residues.md).
+This is an independently authored engine extension; historical mathematical
+novelty has not been established.
+
 ## Difficulty Rating
 
 The engine provides two complementary rating systems.
@@ -216,6 +223,10 @@ proofs for the engine's kernel:
   the certificate checker's interval, gcd, and residue-set terminals each prove
   that no Boolean assignment satisfies the weighted equation, so a verified
   certificate refutes the assumed candidate value in every completion.
+- `verification/partition_residues.rs` — the opt-in partition terminal's abstract
+  recurrence invariant: every allowed exactly-one selection reaches its sum
+  modulo the chosen modulus. This verifies the mathematical soundness argument;
+  production bitsets and group reconstruction remain tested interfaces.
 
 Run `./scripts/verify.sh` (requires a [Verus release](https://github.com/verus-lang/verus/releases)
 and its pinned Rust toolchain; see the script header). CI runs the proofs via

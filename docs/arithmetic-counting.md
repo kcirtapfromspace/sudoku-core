@@ -1,5 +1,9 @@
 # Arithmetic Counting
 
+For the opt-in version-three extension that retains exactly-one choices during
+modular checking, see [Partition residue certificates](partition-residues.md).
+The existing automatic technique ladder still uses versions one and two.
+
 `Technique::ArithmeticCounting` combines the engine's original exactly-one
 requirements with small integer weights. It returns a placement or elimination
 only when a separate certificate checker reconstructs the equations and verifies

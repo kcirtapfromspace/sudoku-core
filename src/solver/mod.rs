@@ -22,8 +22,8 @@ use explain::{Finding, InferenceResult};
 use fabric::{idx_to_pos, CandidateFabric};
 
 pub use arithmetic::{
-    ArithmeticCheck, ArithmeticProof, ArithmeticRequirement, ArithmeticSearchOptions,
-    ArithmeticSearchResult, ArithmeticTerm, ArithmeticTerminal,
+    ArithmeticCheck, ArithmeticPartition, ArithmeticProof, ArithmeticRequirement,
+    ArithmeticSearchOptions, ArithmeticSearchResult, ArithmeticTerm, ArithmeticTerminal,
 };
 pub use arithmetic_replay::{ArithmeticReplay, ArithmeticState};
 pub use explain::{AlsProofDescriptor, ForcingSource, LinkType, Polarity, ProofCertificate};
@@ -113,6 +113,20 @@ impl Solver {
         options: &ArithmeticSearchOptions,
     ) -> ArithmeticSearchResult {
         arithmetic::search(grid, options)
+    }
+
+    /// Search for a checked remainder deduction while preserving exactly-one
+    /// choices in the selected native partition. Modulus must be in 2..=16.
+    /// This opt-in path preserves stored candidates and uses the same bounded,
+    /// incomplete beam search as `search_arithmetic`; it does not change ratings.
+    pub fn search_partition_arithmetic(
+        &self,
+        grid: &Grid,
+        options: &ArithmeticSearchOptions,
+        partition: ArithmeticPartition,
+        modulus: u8,
+    ) -> ArithmeticSearchResult {
+        arithmetic::search_partition(grid, options, partition, modulus)
     }
 
     /// Get the next placement hint by chaining through elimination techniques.
