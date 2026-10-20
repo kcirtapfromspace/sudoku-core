@@ -1,0 +1,115 @@
+name: Global obstruction research
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/global_obstructions/**'
+      - 'research/nonmodular/**'
+      - 'src/solver/global_coloring*'
+      - 'src/solver/candidate_state.rs'
+      - 'verification/global_coloring.rs'
+      - 'tests/global_coloring.rs'
+      - '.github/workflows/global-obstructions.yml'
+  pull_request:
+    branches: [main, 'codex/**']
+    paths:
+      - 'research/global_obstructions/**'
+      - 'research/nonmodular/**'
+      - 'src/solver/global_coloring*'
+      - 'src/solver/candidate_state.rs'
+      - 'verification/global_coloring.rs'
+      - 'tests/global_coloring.rs'
+      - '.github/workflows/global-obstructions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: global-obstructions-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-checks:
+    name: Exact global obstruction checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify local filters, exact LP points and coloring certificates
+        run: |
+          python3 research/global_obstructions/structural_verify.py
+          python3 research/global_obstructions/real_verify.py
+          python3 research/global_obstructions/audit_linear_witnesses.py
+          python3 research/global_obstructions/audit_global_certificates.py
+          python3 research/global_obstructions/expanded_unique_verify.py
+          python3 research/global_obstructions/prior_art_13_verify.py
+          python3 research/global_obstructions/expanded_motif_verify.py
+          python3 research/global_obstructions/expanded_modern_corpus.py
+          python3 research/global_obstructions/expanded_cover_verify.py
+          python3 -S research/global_obstructions/nonrank_verify.py
+          python3 -S research/global_obstructions/nonrank_puzzles_verify.py
+          python3 -S research/global_obstructions/nonrank_audit_template.py --self-test
+          python3 -S research/global_obstructions/nonrank_graph_verify.py
+          python3 -S research/global_obstructions/nonrank_graph_certificate.py --self-test
+          python3 -S research/global_obstructions/realization27_audit_export.py
+          python3 -S research/global_obstructions/realization27_audit_trades.py
+          python3 -S research/global_obstructions/realization27_structure_verify.py --self-test
+          python3 -S research/global_obstructions/realization27_results_verify.py --recount-sample 10
+          python3 -S research/global_obstructions/realization27_verify.py
+          python3 -S research/global_obstructions/different_verify.py
+          python3 -S research/global_obstructions/different_audit_verify.py
+          python3 -S research/global_obstructions/different_structural_verify.py
+          python3 -S research/global_obstructions/different_corpus_manifest.py verify --count
+          python3 -S research/global_obstructions/deeper_forcing_verify.py --mutations
+          python3 -S research/global_obstructions/exocet_msls_verify.py
+          python3 -S research/global_obstructions/novelty20_triplets.py
+          python3 -S research/global_obstructions/catalog630_verify.py --rescan
+          python3 -S research/global_obstructions/deeper_forcing_catalogue_chain.py --mutations
+
+  frozen-old-engine:
+    name: Fresh forcing-inclusive older-engine comparison
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.95.0
+      - name: Rebuild frozen source and confirm the live fixed point twice
+        run: |
+          python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
+            --fresh-folder target/nonrank-ci-old \
+            --output target/nonrank-ci-audit.json
+      - name: Solve the anchored controls directly from their original givens
+        run: |
+          python3 -S research/global_obstructions/realization27_search_raw_old.py \
+            --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
+            --output target/nonrank-ci-anchored-old.json
+      - name: Reconfirm the known-composition search control including forcing
+        run: |
+          python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
+            --fixture research/global_obstructions/different_control.json \
+            --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
+            --archive-source target/nonrank-ci-old/baseline/src/solver/mod.rs \
+            --output target/different-ci-control-old.json
+      - name: Reconfirm the unclassified lead including forcing
+        run: |
+          python3 -S research/global_obstructions/nonrank_puzzles_audit.py \
+            --fixture research/global_obstructions/different_lead.json \
+            --binary target/nonrank-ci-old/instrumented/target/release/examples/real_existing_probe \
+            --archive-source target/nonrank-ci-old/baseline/src/solver/mod.rs \
+            --output target/different-ci-lead-old.json
+      - name: Upload fresh comparison evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frozen-old-engine-comparison
+          path: |
+            target/nonrank-ci-audit.json
+            target/nonrank-ci-anchored-old.json
+            target/different-ci-control-old.json
+            target/different-ci-lead-old.json
+          if-no-files-found: warn

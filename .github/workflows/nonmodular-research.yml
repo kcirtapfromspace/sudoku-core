@@ -10,7 +10,7 @@ on:
       - 'verification/three_house.rs'
       - '.github/workflows/nonmodular-research.yml'
   pull_request:
-    branches: [main]
+    branches: [main, 'codex/**']
     paths:
       - 'research/nonmodular/**'
       - 'src/solver/three_house*'

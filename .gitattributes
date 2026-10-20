@@ -1,0 +1,20 @@
+# Keep machine-generated proof payloads available while collapsing them in review.
+research/global_obstructions/replay_*.json linguist-generated=true
+research/global_obstructions/linear_*.json linguist-generated=true
+research/global_obstructions/*_results.json linguist-generated=true
+research/global_obstructions/expanded_modern_corpus.json linguist-generated=true
+research/global_obstructions/expanded_cover_summary.json linguist-generated=true
+research/global_obstructions/expanded_cover_*.jsonl linguist-generated=true
+research/global_obstructions/expanded_motif_classification.json linguist-generated=true
+research/global_obstructions/expanded_motif_fractional_coloring.json linguist-generated=true
+research/global_obstructions/prior_art_13_invariants.json linguist-generated=true
+research/global_obstructions/nonrank_*primal*.json linguist-generated=true
+research/global_obstructions/nonrank_audit_template_*.json linguist-generated=true
+research/global_obstructions/nonrank_puzzles_first_audit.json linguist-generated=true
+research/global_obstructions/nonrank_puzzles_trials.jsonl linguist-generated=true
+research/global_obstructions/nonrank_audit_27_*.json linguist-generated=true
+research/global_obstructions/nonrank_graph_27_*.json linguist-generated=true
+research/global_obstructions/nonrank_graph_native27_*.json linguist-generated=true
+research/global_obstructions/nonrank_audit_native27_*.json linguist-generated=true
+research/global_obstructions/realization27_*.json linguist-generated=true
+research/global_obstructions/realization27_*.jsonl linguist-generated=true

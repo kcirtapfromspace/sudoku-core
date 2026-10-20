@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "classification": "established two-level complete cell-value forcing composition; no new family evidence",
+  "target": {
+    "cell": 7,
+    "digit": 3,
+    "value": true
+  },
+  "conclusion": {
+    "cell": 7,
+    "digit": 3,
+    "value": false
+  },
+  "fixture_sha256": "45d6f8e79f9dfb859ba6827dadb3934a1cc5c1b1ada822537b5346b926941358",
+  "certificate_sha256": "268164f259e9e74d68d91bbb452bce11d05240c54074a939ec1bad3210a112b4",
+  "certificate_bytes": 15417,
+  "verification": {
+    "nodes": 7,
+    "splits": 3,
+    "hall_leaves": 1,
+    "three_house_leaves": 3,
+    "closure_events": 74,
+    "hall_blockers": 7,
+    "boundary_signatures_covered": 1260,
+    "additional_split_depth": 2,
+    "local_only_minimum_depth": 2,
+    "depth1_pivots_with_a_checked_survivor": 32,
+    "exact_verified": true,
+    "scope": "Minimum for this specified Hall/all81 local case-split calculus only; no historical novelty and no minimum over arbitrary known lemmas or rules claimed."
+  },
+  "mutations_rejected": 42,
+  "depth1_discovery": {
+    "status": "exhaustive-no-refutation-at-depth",
+    "depth": 1,
+    "stats": {
+      "calls": 46,
+      "propagation_calls": 46,
+      "hall-contradiction": 4,
+      "three-house-contradiction": 9
+    },
+    "seconds": 2.710008125
+  },
+  "depth2_discovery": {
+    "status": "refuted",
+    "depth": 2,
+    "stats": {
+      "calls": 7,
+      "propagation_calls": 7,
+      "three-house-contradiction": 3,
+      "complete_splits": 3,
+      "hall-contradiction": 1
+    },
+    "seconds": 0.202918167
+  },
+  "scope": "Minimum two additional complete cell-value split levels only in the specified Hall/all81 propagator calculus. No minimum over classic T&E, named lemmas, learned failed literals, or all known rules claimed.",
+  "baseline_comparison": "Frozen propagate_full omits arithmetic/three_house/recursiveforcing within hypotheses and recalculates candidates when pinning; this certificate preserves premises and applies Hall81 after every assumption. No engine-bug claim.",
+  "catalogue_chain": {
+    "classification": "publishedEL12c38OR1 placement followed by one complete local split refuting the actual target",
+    "certificate_sha256": "3d3ccbd34244d9e0420115523a419622a3937cfe913ead560b20fff39d59e353",
+    "certificate_bytes": 8690,
+    "verification": {
+      "nodes": 3,
+      "splits": 1,
+      "hall_leaves": 1,
+      "three_house_leaves": 1,
+      "closure_events": 26,
+      "hall_blockers": 1,
+      "boundary_signatures_covered": 420,
+      "known_catalogue_id": "EL12c38",
+      "known_placement_cell": 68,
+      "known_placement_digit": 7,
+      "base_known_closure_events": 6,
+      "target_after_known_closure_events": 11,
+      "opposite_then_known_closure_events": 7,
+      "additional_split_depth_after_known_rule": 1,
+      "actual_target_refuted": true,
+      "classification": "published catalogue OR1 plus one complete cell split and exact Hall/all81 propagation"
+    },
+    "mutations_rejected": 14,
+    "node_counting": "Three local tree nodes PLUS one separately verified published catalogue lemma; not three nodes for the entire composite proof.",
+    "minimum_scope": "The local-only minimum2 statement remains scoped to the original calculus; the known catalogue lemma is an additional inference."
+  }
+}

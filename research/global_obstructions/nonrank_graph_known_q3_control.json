@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "seed": 219404,
+  "q": 3,
+  "arguments": {
+    "q": 3,
+    "samples": 1,
+    "seconds": 10,
+    "seed": 219404,
+    "output": "research/global_obstructions/nonrank_graph_known_q3_control.json",
+    "max_positives": 1,
+    "tridagon_source": "research/global_obstructions/real_Loki.json"
+  },
+  "seconds": 0.0013149159999999993,
+  "counts": {
+    "presentations": 1,
+    "house_capacity_survivors": 1,
+    "partition_search_nodes": 8,
+    "non_q_colorable": 1,
+    "exact_fractional_q_positive": 1
+  },
+  "positives": [
+    {
+      "cells": [
+        32,
+        33,
+        40,
+        43,
+        48,
+        53,
+        57,
+        60,
+        67,
+        70,
+        77,
+        80
+      ],
+      "groups": [
+        [
+          32,
+          40,
+          48
+        ],
+        [
+          33,
+          43,
+          53
+        ],
+        [
+          57,
+          67,
+          77
+        ],
+        [
+          60,
+          70,
+          80
+        ]
+      ],
+      "q": 3,
+      "all_full_box_independent_sets": [
+        [
+          32,
+          43,
+          57,
+          80
+        ],
+        [
+          32,
+          43,
+          67,
+          60
+        ],
+        [
+          32,
+          43,
+          67,
+          80
+        ],
+        [
+          32,
+          53,
+          57,
+          70
+        ],
+        [
+          32,
+          53,
+          67,
+          60
+        ],
+        [
+          40,
+          33,
+          57,
+          70
+        ],
+        [
+          40,
+          33,
+          57,
+          80
+        ],
+        [
+          40,
+          33,
+          77,
+          70
+        ],
+        [
+          40,
+          53,
+          57,
+          70
+        ],
+        [
+          40,
+          53,
+          77,
+          60
+        ],
+        [
+          40,
+          53,
+          77,
+          70
+        ],
+        [
+          48,
+          33,
+          67,
+          80
+        ],
+        [
+          48,
+          33,
+          77,
+          70
+        ],
+        [
+          48,
+          43,
+          67,
+          60
+        ],
+        [
+          48,
+          43,
+          67,
+          80
+        ],
+        [
+          48,
+          43,
+          77,
+          60
+        ]
+      ],
+      "fractional_cover": [
+        {
+          "cells": [
+            32,
+            43,
+            57,
+            80
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            32,
+            43,
+            67,
+            60
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            40,
+            53,
+            57,
+            70
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            40,
+            53,
+            77,
+            60
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            48,
+            33,
+            67,
+            80
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        },
+        {
+          "cells": [
+            48,
+            33,
+            77,
+            70
+          ],
+          "weight": [
+            1,
+            2
+          ]
+        }
+      ],
+      "integral_refutation_nodes": 8,
+      "status": "Exact graph separation; respecting native completion and givens tests still required"
+    }
+  ],
+  "rank_rejected_controls": [],
+  "scope": "Random q cells per box in boxes1,2,4,5; repeated supports skipped; floating negatives are discovery-only"
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "strict_requested_result_achieved": false,
+  "outcome": "No unique surviving candidate; no full older-dispatcher finalist was available. Broader exact synthetic obstruction classifications are retained.",
+  "synthetic_embeddings": 18,
+  "graph_isomorphism_classes": 14,
+  "exact_chromatic_number_five": 18,
+  "exact_native_324_equation_lp_witnesses": 18,
+  "uniform_capacity_obstructions": 14,
+  "weighted_capacity_obstructions_with_fractional_chromatic_25_over_6": 4,
+  "normalized_clue_search": {
+    "seconds": 420.117269083,
+    "seed": 2198343,
+    "arguments": {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "guardians": 6,
+      "motifs_per_grid": 2,
+      "covers": 64,
+      "augment_seeds": 3,
+      "allow_core_clues": true,
+      "motif_input": [
+        "research/global_obstructions/expanded_motif_results.json",
+        "research/global_obstructions/expanded_motif_mixed_results.json"
+      ],
+      "seconds": 420,
+      "seed": 2198343,
+      "binary": "/tmp/global-real-engine-probe/target/release/examples/real_existing_probe",
+      "output": "research/global_obstructions/expanded_motif_normalized_results.json"
+    },
+    "retained_motifs_entered": 16,
+    "counts": {
+      "clue_presentations_tested": 2153,
+      "raw_clue_lp_rejected": 1186,
+      "raw_clue_lp_survivors": 967,
+      "old_engine_calls": 993,
+      "closed_lp_survivors": 729,
+      "accepted_discovery_states": 729,
+      "old_engine_forced_guardian": 185,
+      "assumed_local_rejected": 53
+    },
+    "unique_candidates": 0,
+    "full_older_dispatcher_finalists": 0,
+    "old_engine_execution_failures": 0,
+    "old_engine_completion_invalid_steps": 0,
+    "old_engine_removed_completion": 0,
+    "lp_negatives_exactly_certified": false,
+    "all_survivors_discovery_only": true
+  },
+  "saved_endpoint_summary": [
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_8.json",
+      "motif_id": 8,
+      "givens_count": 53,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_12.json",
+      "motif_id": 12,
+      "givens_count": 44,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_13.json",
+      "motif_id": 13,
+      "givens_count": 50,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_9.json",
+      "motif_id": 9,
+      "givens_count": 57,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_2.json",
+      "motif_id": 2,
+      "givens_count": 49,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_15.json",
+      "motif_id": 15,
+      "givens_count": 49,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_0.json",
+      "motif_id": 0,
+      "givens_count": 43,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_1.json",
+      "motif_id": 1,
+      "givens_count": 46,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_6.json",
+      "motif_id": 6,
+      "givens_count": 53,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    },
+    {
+      "artifact": "target/expanded-motif-raw/expanded_motif_normalized_results_candidate_7.json",
+      "motif_id": 7,
+      "givens_count": 50,
+      "solutions_capped_at_2": 2,
+      "default_arithmetic_finding": false
+    }
+  ],
+  "obsolete_probe_scope": "Earlier exploratory old-method calls converted raw singleton masks into placed values before propagating peer exclusions. Those baseline counts are superseded; apparent bad steps/panics are invalid probe premises, not demonstrated engine bugs.",
+  "raw_artifact_directory": "target/expanded-motif-raw",
+  "source_note": "Generated clue sets anchored on independently completed source puzzles; not claimed original authored-puzzle solving traces.",
+  "commands": [
+    "python3 research/global_obstructions/expanded_motif_verify.py",
+    "python3 research/global_obstructions/expanded_motif_classify.py research/global_obstructions/expanded_motif_results.json research/global_obstructions/expanded_motif_mixed_results.json --exact-role-lp"
+  ],
+  "completions_with_retained_motifs": 10,
+  "source_completed_grids_tested": 12
+}

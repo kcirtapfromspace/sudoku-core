@@ -1,0 +1,92 @@
+{
+  "positive_control": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 18,
+    "rejected_mutations": 12
+  },
+  "negative_old13_control": {
+    "result": "exact infeasible full single-digit-template LP",
+    "rhs": "-1",
+    "native_templates_enumerated": 46656,
+    "admissible_templates_per_digit": [
+      6048,
+      6048,
+      6048,
+      1728,
+      6048,
+      1728,
+      1728,
+      1728,
+      6048
+    ]
+  },
+  "real_4401": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 32,
+    "rejected_mutations": 12
+  },
+  "real_4662": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 30,
+    "rejected_mutations": 12
+  },
+  "real_Loki": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 34,
+    "rejected_mutations": 12
+  },
+  "modern_full_old_stall": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 33,
+    "rejected_mutations": 12,
+    "known_pattern": {
+      "known_family": "established twelve-cell tridagon",
+      "exact_graph_maps_checked": 3
+    }
+  },
+  "rejected27_native": {
+    "result": "exact infeasible native324 LP",
+    "terms": 237,
+    "available_columns_checked": 594,
+    "rhs": "-1"
+  },
+  "rejected27_template": {
+    "result": "exact infeasible full single-digit-template LP",
+    "rhs": "-1",
+    "native_templates_enumerated": 46656,
+    "admissible_templates_per_digit": [
+      46656,
+      46656,
+      981,
+      46656,
+      981,
+      981,
+      981,
+      46656,
+      981
+    ]
+  },
+  "synthetic_native27_positive": {
+    "result": "exact feasible full single-digit-template LP",
+    "digit_masses": 9,
+    "cell_coverages": 81,
+    "projected_native_equalities": 324,
+    "terms": 49,
+    "rejected_mutations": 12
+  }
+}

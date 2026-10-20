@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "fixture_sha256": "00bcb4881562e344001e834b6bbdc212a761d74287fc99b74efe703a3dfe697f",
+  "classification": "Four-digit list obstruction reducing, after permitted local branch closure, to an established tridagon/trivalue-oddagon graph.",
+  "historical_novelty": "Not claimed. The twelve-cell graph is isomorphic to the published Loki tridagon control.",
+  "direct_production_support": [
+    3,
+    17,
+    21,
+    32,
+    35,
+    40,
+    43,
+    48,
+    51,
+    58,
+    60,
+    62,
+    68,
+    71,
+    75,
+    79
+  ],
+  "raw_list_core": [
+    17,
+    32,
+    35,
+    40,
+    43,
+    48,
+    51,
+    58,
+    60,
+    62,
+    68,
+    71,
+    75,
+    79
+  ],
+  "raw_list_core_domains": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    96,
+    200,
+    200,
+    200,
+    232
+  ],
+  "raw_refutation_nodes": 196,
+  "closed_tridagon_core": [
+    32,
+    35,
+    40,
+    43,
+    48,
+    51,
+    58,
+    60,
+    68,
+    71,
+    75,
+    79
+  ],
+  "closed_tridagon_digits": [
+    4,
+    7,
+    8
+  ],
+  "closed_refutation_nodes": 142,
+  "isomorphism_to_published_Loki_control": [
+    [
+      32,
+      40
+    ],
+    [
+      35,
+      43
+    ],
+    [
+      40,
+      32
+    ],
+    [
+      43,
+      33
+    ],
+    [
+      48,
+      48
+    ],
+    [
+      51,
+      53
+    ],
+    [
+      58,
+      77
+    ],
+    [
+      60,
+      80
+    ],
+    [
+      68,
+      67
+    ],
+    [
+      71,
+      70
+    ],
+    [
+      75,
+      57
+    ],
+    [
+      79,
+      60
+    ]
+  ],
+  "known_control": "research/global_obstructions/real_Loki.json",
+  "known_control_primary_source": {
+    "author": "Denis Berthier",
+    "repository": "denis-berthier/CSP-Rules-Examples",
+    "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+    "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+    "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+    "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+    "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+  },
+  "primary_general_reference": "https://github.com/denis-berthier/CSP-Rules-Examples#the-tridagons-folder",
+  "scope_note": "Uniform four-colorability is not enough to reject this candidate. Its actual domain lists matter; the old uniform chi5 corpus filter missed this type."
+}

@@ -1,0 +1,1220 @@
+{
+  "schema_version": 1,
+  "name": "expanded-cover-rejected-nonunique",
+  "puzzle": "..........2.359....63..1....952.83.1.326..9..1..9.5.2..79...1......8..9.28.19.75.",
+  "solutions_capped_at_2": 2,
+  "independent_completions": [
+    "914862537728359614563471289695248371832617945147935826479523168351786492286194753",
+    "914867532827359416563421879695278341732614985148935627379542168451786293286193754"
+  ],
+  "rejection_category": "nonunique",
+  "discovery_run": "f",
+  "discovery_trial": 14,
+  "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+  "initial_domains": [
+    472,
+    25,
+    201,
+    200,
+    106,
+    106,
+    186,
+    237,
+    510,
+    200,
+    2,
+    201,
+    4,
+    16,
+    256,
+    168,
+    233,
+    232,
+    472,
+    32,
+    4,
+    200,
+    74,
+    1,
+    154,
+    200,
+    474,
+    104,
+    256,
+    16,
+    2,
+    72,
+    128,
+    4,
+    104,
+    1,
+    200,
+    4,
+    2,
+    32,
+    73,
+    72,
+    256,
+    200,
+    216,
+    1,
+    8,
+    232,
+    256,
+    76,
+    16,
+    168,
+    2,
+    232,
+    60,
+    64,
+    256,
+    24,
+    46,
+    46,
+    1,
+    172,
+    174,
+    60,
+    25,
+    41,
+    88,
+    128,
+    110,
+    42,
+    256,
+    46,
+    2,
+    128,
+    40,
+    1,
+    256,
+    44,
+    64,
+    16,
+    44
+  ],
+  "base_domains": [
+    472,
+    17,
+    201,
+    200,
+    106,
+    106,
+    154,
+    197,
+    462,
+    200,
+    2,
+    201,
+    4,
+    16,
+    256,
+    168,
+    225,
+    232,
+    472,
+    32,
+    4,
+    200,
+    74,
+    1,
+    154,
+    192,
+    458,
+    96,
+    256,
+    16,
+    2,
+    72,
+    128,
+    4,
+    104,
+    1,
+    192,
+    4,
+    2,
+    32,
+    1,
+    72,
+    256,
+    200,
+    16,
+    1,
+    8,
+    224,
+    256,
+    4,
+    16,
+    160,
+    2,
+    224,
+    60,
+    64,
+    256,
+    24,
+    42,
+    46,
+    1,
+    164,
+    174,
+    60,
+    17,
+    41,
+    88,
+    128,
+    110,
+    42,
+    256,
+    46,
+    2,
+    128,
+    40,
+    1,
+    256,
+    44,
+    64,
+    16,
+    44
+  ],
+  "base_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 4,
+      "edits": [
+        {
+          "cell": 40,
+          "before": 73,
+          "after": 1
+        },
+        {
+          "cell": 44,
+          "before": 216,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 5,
+      "edits": [
+        {
+          "cell": 47,
+          "before": 232,
+          "after": 224
+        },
+        {
+          "cell": 49,
+          "before": 76,
+          "after": 4
+        },
+        {
+          "cell": 51,
+          "before": 168,
+          "after": 160
+        },
+        {
+          "cell": 53,
+          "before": 232,
+          "after": 224
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 10,
+      "edits": [
+        {
+          "cell": 1,
+          "before": 25,
+          "after": 17
+        },
+        {
+          "cell": 64,
+          "before": 25,
+          "after": 17
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 13,
+      "edits": [
+        {
+          "cell": 58,
+          "before": 46,
+          "after": 42
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 17,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 510,
+          "after": 494
+        },
+        {
+          "cell": 26,
+          "before": 474,
+          "after": 458
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 21,
+      "edits": [
+        {
+          "cell": 27,
+          "before": 104,
+          "after": 96
+        },
+        {
+          "cell": 36,
+          "before": 200,
+          "after": 192
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 3,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 186,
+          "after": 154
+        },
+        {
+          "cell": 7,
+          "before": 237,
+          "after": 205
+        },
+        {
+          "cell": 8,
+          "before": 494,
+          "after": 462
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 34,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 205,
+          "after": 197
+        },
+        {
+          "cell": 16,
+          "before": 233,
+          "after": 225
+        },
+        {
+          "cell": 25,
+          "before": 200,
+          "after": 192
+        },
+        {
+          "cell": 61,
+          "before": 172,
+          "after": 164
+        }
+      ]
+    }
+  ],
+  "assumed_domains": [
+    256,
+    16,
+    192,
+    192,
+    8,
+    32,
+    2,
+    1,
+    4,
+    192,
+    2,
+    1,
+    4,
+    16,
+    256,
+    136,
+    32,
+    72,
+    8,
+    32,
+    4,
+    192,
+    2,
+    1,
+    16,
+    192,
+    256,
+    32,
+    256,
+    16,
+    2,
+    64,
+    128,
+    4,
+    8,
+    1,
+    192,
+    4,
+    2,
+    32,
+    1,
+    8,
+    256,
+    192,
+    16,
+    1,
+    8,
+    192,
+    256,
+    4,
+    16,
+    160,
+    2,
+    96,
+    16,
+    64,
+    256,
+    8,
+    32,
+    2,
+    1,
+    4,
+    128,
+    4,
+    1,
+    40,
+    16,
+    128,
+    64,
+    40,
+    256,
+    2,
+    2,
+    128,
+    40,
+    1,
+    256,
+    4,
+    64,
+    16,
+    40
+  ],
+  "assumption_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 11,
+          "before": 201,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 11,
+      "edits": [
+        {
+          "cell": 2,
+          "before": 201,
+          "after": 192
+        },
+        {
+          "cell": 47,
+          "before": 224,
+          "after": 192
+        },
+        {
+          "cell": 65,
+          "before": 41,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 197,
+          "after": 1
+        },
+        {
+          "cell": 61,
+          "before": 164,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 18,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 472,
+          "after": 456
+        },
+        {
+          "cell": 1,
+          "before": 17,
+          "after": 16
+        },
+        {
+          "cell": 18,
+          "before": 472,
+          "after": 456
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 20,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 154,
+          "after": 18
+        },
+        {
+          "cell": 8,
+          "before": 462,
+          "after": 4
+        },
+        {
+          "cell": 24,
+          "before": 154,
+          "after": 18
+        },
+        {
+          "cell": 26,
+          "before": 458,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 21,
+      "edits": [
+        {
+          "cell": 27,
+          "before": 96,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 24,
+      "edits": [
+        {
+          "cell": 54,
+          "before": 60,
+          "after": 20
+        },
+        {
+          "cell": 63,
+          "before": 60,
+          "after": 20
+        },
+        {
+          "cell": 64,
+          "before": 17,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 26,
+      "edits": [
+        {
+          "cell": 62,
+          "before": 174,
+          "after": 128
+        },
+        {
+          "cell": 71,
+          "before": 46,
+          "after": 42
+        },
+        {
+          "cell": 80,
+          "before": 44,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 0,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 456,
+          "after": 256
+        },
+        {
+          "cell": 4,
+          "before": 106,
+          "after": 104
+        },
+        {
+          "cell": 5,
+          "before": 106,
+          "after": 104
+        },
+        {
+          "cell": 6,
+          "before": 18,
+          "after": 2
+        },
+        {
+          "cell": 18,
+          "before": 456,
+          "after": 200
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 3,
+      "edits": [
+        {
+          "cell": 21,
+          "before": 200,
+          "after": 192
+        },
+        {
+          "cell": 22,
+          "before": 74,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 4,
+      "edits": [
+        {
+          "cell": 58,
+          "before": 42,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 6,
+      "edits": [
+        {
+          "cell": 24,
+          "before": 18,
+          "after": 16
+        },
+        {
+          "cell": 69,
+          "before": 42,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 8,
+      "edits": [
+        {
+          "cell": 17,
+          "before": 232,
+          "after": 104
+        },
+        {
+          "cell": 53,
+          "before": 224,
+          "after": 96
+        },
+        {
+          "cell": 71,
+          "before": 42,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 15,
+      "edits": [
+        {
+          "cell": 9,
+          "before": 200,
+          "after": 192
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 18,
+      "edits": [
+        {
+          "cell": 18,
+          "before": 200,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 27,
+      "edits": [
+        {
+          "cell": 34,
+          "before": 104,
+          "after": 72
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 34,
+      "edits": [
+        {
+          "cell": 16,
+          "before": 224,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 54,
+      "edits": [
+        {
+          "cell": 54,
+          "before": 20,
+          "after": 16
+        },
+        {
+          "cell": 57,
+          "before": 24,
+          "after": 8
+        },
+        {
+          "cell": 58,
+          "before": 40,
+          "after": 32
+        },
+        {
+          "cell": 59,
+          "before": 46,
+          "after": 2
+        },
+        {
+          "cell": 63,
+          "before": 20,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 57,
+      "edits": [
+        {
+          "cell": 3,
+          "before": 200,
+          "after": 192
+        },
+        {
+          "cell": 66,
+          "before": 88,
+          "after": 16
+        },
+        {
+          "cell": 68,
+          "before": 110,
+          "after": 64
+        },
+        {
+          "cell": 77,
+          "before": 44,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 58,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 104,
+          "after": 72
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 59,
+      "edits": [
+        {
+          "cell": 5,
+          "before": 104,
+          "after": 32
+        },
+        {
+          "cell": 41,
+          "before": 72,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 0,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 72,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 15,
+          "before": 168,
+          "after": 136
+        },
+        {
+          "cell": 17,
+          "before": 104,
+          "after": 72
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 4,
+      "edits": [
+        {
+          "cell": 43,
+          "before": 200,
+          "after": 192
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 13,
+      "edits": [
+        {
+          "cell": 31,
+          "before": 72,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 34,
+          "before": 72,
+          "after": 8
+        }
+      ]
+    }
+  ],
+  "state": {
+    "version": 1,
+    "domains": [
+      472,
+      17,
+      201,
+      200,
+      106,
+      106,
+      154,
+      197,
+      462,
+      200,
+      2,
+      201,
+      4,
+      16,
+      256,
+      168,
+      225,
+      232,
+      472,
+      32,
+      4,
+      200,
+      74,
+      1,
+      154,
+      192,
+      458,
+      96,
+      256,
+      16,
+      2,
+      72,
+      128,
+      4,
+      104,
+      1,
+      192,
+      4,
+      2,
+      32,
+      1,
+      72,
+      256,
+      200,
+      16,
+      1,
+      8,
+      224,
+      256,
+      4,
+      16,
+      160,
+      2,
+      224,
+      60,
+      64,
+      256,
+      24,
+      42,
+      46,
+      1,
+      164,
+      174,
+      60,
+      17,
+      41,
+      88,
+      128,
+      110,
+      42,
+      256,
+      46,
+      2,
+      128,
+      40,
+      1,
+      256,
+      44,
+      64,
+      16,
+      44
+    ],
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      3,
+      5,
+      9,
+      0,
+      0,
+      0,
+      0,
+      6,
+      3,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      9,
+      5,
+      2,
+      0,
+      8,
+      3,
+      0,
+      1,
+      0,
+      3,
+      2,
+      6,
+      1,
+      0,
+      9,
+      0,
+      5,
+      1,
+      4,
+      0,
+      9,
+      3,
+      5,
+      0,
+      2,
+      0,
+      0,
+      7,
+      9,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      8,
+      0,
+      0,
+      9,
+      0,
+      2,
+      8,
+      0,
+      1,
+      9,
+      0,
+      7,
+      5,
+      0
+    ]
+  },
+  "assumed_state": {
+    "version": 1,
+    "domains": [
+      256,
+      16,
+      192,
+      192,
+      8,
+      32,
+      2,
+      1,
+      4,
+      192,
+      2,
+      1,
+      4,
+      16,
+      256,
+      136,
+      32,
+      72,
+      8,
+      32,
+      4,
+      192,
+      2,
+      1,
+      16,
+      192,
+      256,
+      32,
+      256,
+      16,
+      2,
+      64,
+      128,
+      4,
+      8,
+      1,
+      192,
+      4,
+      2,
+      32,
+      1,
+      8,
+      256,
+      192,
+      16,
+      1,
+      8,
+      192,
+      256,
+      4,
+      16,
+      160,
+      2,
+      96,
+      16,
+      64,
+      256,
+      8,
+      32,
+      2,
+      1,
+      4,
+      128,
+      4,
+      1,
+      40,
+      16,
+      128,
+      64,
+      40,
+      256,
+      2,
+      2,
+      128,
+      40,
+      1,
+      256,
+      4,
+      64,
+      16,
+      40
+    ],
+    "values": [
+      9,
+      5,
+      0,
+      0,
+      4,
+      6,
+      2,
+      1,
+      3,
+      0,
+      2,
+      1,
+      3,
+      5,
+      9,
+      0,
+      6,
+      0,
+      4,
+      6,
+      3,
+      0,
+      2,
+      1,
+      5,
+      0,
+      9,
+      6,
+      9,
+      5,
+      2,
+      7,
+      8,
+      3,
+      4,
+      1,
+      0,
+      3,
+      2,
+      6,
+      1,
+      4,
+      9,
+      0,
+      5,
+      1,
+      4,
+      0,
+      9,
+      3,
+      5,
+      0,
+      2,
+      0,
+      5,
+      7,
+      9,
+      4,
+      6,
+      2,
+      1,
+      3,
+      8,
+      3,
+      1,
+      0,
+      5,
+      8,
+      7,
+      0,
+      9,
+      2,
+      2,
+      8,
+      0,
+      1,
+      9,
+      3,
+      7,
+      5,
+      0
+    ]
+  },
+  "target": {
+    "cell": 16,
+    "digit": 1,
+    "value": false
+  },
+  "conclusion": {
+    "cell": 16,
+    "digit": 1,
+    "value": true,
+    "kind": "placement"
+  },
+  "graph_cells": [
+    9,
+    15,
+    16,
+    17,
+    25,
+    27,
+    34,
+    36,
+    43,
+    46,
+    47,
+    51,
+    53
+  ],
+  "palette": [
+    4,
+    6,
+    7,
+    8
+  ],
+  "old_nonforcing_fixedpoint": true,
+  "uniqueness_methods_disabled": true,
+  "status": "A negative uniqueness control; no exact-LP separation acceptance is claimed.",
+  "candidates_examined": 4
+}

@@ -1,0 +1,2444 @@
+{
+  "classification": "no-checked-shallow-composition",
+  "pivots_tested": [
+    {
+      "pivot": 66,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 7,
+          "known_pattern": null,
+          "closed_domains_sha256": "2a5b15f2032df99816520733fc367ca48dd696c2da0034b86525a0dec53ccc37"
+        }
+      ]
+    },
+    {
+      "pivot": 3,
+      "branches": [
+        {
+          "digit": 4,
+          "classification": "local-contradiction",
+          "contradiction": "Hall contradiction in sector 19"
+        },
+        {
+          "digit": 8,
+          "classification": "unclassified",
+          "closure_events": 7,
+          "known_pattern": null,
+          "closed_domains_sha256": "eed86c056453325009f47d62b446d9abd4bdcb6dd2875de68f88473a494fa518"
+        }
+      ]
+    },
+    {
+      "pivot": 28,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 9"
+        },
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 16,
+          "known_pattern": null,
+          "closed_domains_sha256": "d556f2845d9467fc3c332db8647b84f8615f475b2da01171ac8926e31b991c35"
+        }
+      ]
+    },
+    {
+      "pivot": 57,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 3,
+          "known_pattern": null,
+          "closed_domains_sha256": "82fcd605ccf09c20f605e484ba18d93d2246ab40090f2717e0b820c0e1fab713"
+        }
+      ]
+    },
+    {
+      "pivot": 19,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "2e788a7bcef584590020078cfe7fae3fff28317318ef23b49d8720a14e0e4cca"
+        }
+      ]
+    },
+    {
+      "pivot": 64,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 63"
+        },
+        {
+          "digit": 4,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 63"
+        },
+        {
+          "digit": 8,
+          "classification": "unclassified",
+          "closure_events": 3,
+          "known_pattern": null,
+          "closed_domains_sha256": "3dd6b13260ad2323392cf6791bce33242fc3251d38f1a246d26179bded6e596c"
+        }
+      ]
+    },
+    {
+      "pivot": 2,
+      "branches": [
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 7,
+          "known_pattern": null,
+          "closed_domains_sha256": "eed86c056453325009f47d62b446d9abd4bdcb6dd2875de68f88473a494fa518"
+        }
+      ]
+    },
+    {
+      "pivot": 15,
+      "branches": [
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "28af5fb6876e09253bc3d2069dcd915310b48a3e5a09638c75de4472cf473f48"
+        }
+      ]
+    },
+    {
+      "pivot": 24,
+      "branches": [
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 3,
+          "known_pattern": null,
+          "closed_domains_sha256": "a713f3dd2c3039843fb99a53ed0f4846ce2fd6bb36b691ffd5b07708a33cdb1b"
+        }
+      ]
+    },
+    {
+      "pivot": 45,
+      "branches": [
+        {
+          "digit": 7,
+          "classification": "known-pattern",
+          "closure_events": 12,
+          "known_pattern": {
+            "family": "published-Loki-12-cell-tridagon",
+            "palette": [
+              3,
+              4,
+              8
+            ],
+            "cells": [
+              2,
+              3,
+              9,
+              13,
+              19,
+              23,
+              54,
+              57,
+              64,
+              68,
+              74,
+              76
+            ],
+            "known_to_candidate_mapping": [
+              [
+                32,
+                2
+              ],
+              [
+                33,
+                3
+              ],
+              [
+                40,
+                19
+              ],
+              [
+                43,
+                23
+              ],
+              [
+                48,
+                9
+              ],
+              [
+                53,
+                13
+              ],
+              [
+                57,
+                54
+              ],
+              [
+                60,
+                57
+              ],
+              [
+                67,
+                64
+              ],
+              [
+                70,
+                68
+              ],
+              [
+                77,
+                74
+              ],
+              [
+                80,
+                76
+              ]
+            ],
+            "actual_domains": [
+              8,
+              128,
+              132,
+              12,
+              132,
+              12,
+              136,
+              12,
+              136,
+              140,
+              4,
+              136
+            ],
+            "primary_source": {
+              "author": "Denis Berthier",
+              "repository": "denis-berthier/CSP-Rules-Examples",
+              "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+              "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+              "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+              "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+              "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+            },
+            "mapping_visits": 18
+          },
+          "closed_domains_sha256": "bec2eb70340b36085d962789e2203e4af5e55d604b2f980d02f26cfa7cbe7a4d",
+          "closure_trace": [
+            {
+              "kind": "house-gac",
+              "sector": 5,
+              "edits": [
+                {
+                  "cell": 46,
+                  "before": 288,
+                  "after": 32
+                },
+                {
+                  "cell": 47,
+                  "before": 160,
+                  "after": 128
+                },
+                {
+                  "cell": 48,
+                  "before": 320,
+                  "after": 256
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 9,
+              "edits": [
+                {
+                  "cell": 36,
+                  "before": 76,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 10,
+              "edits": [
+                {
+                  "cell": 28,
+                  "before": 268,
+                  "after": 256
+                },
+                {
+                  "cell": 37,
+                  "before": 13,
+                  "after": 12
+                },
+                {
+                  "cell": 55,
+                  "before": 33,
+                  "after": 1
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 11,
+              "edits": [
+                {
+                  "cell": 2,
+                  "before": 136,
+                  "after": 8
+                },
+                {
+                  "cell": 38,
+                  "before": 13,
+                  "after": 1
+                },
+                {
+                  "cell": 56,
+                  "before": 33,
+                  "after": 32
+                },
+                {
+                  "cell": 74,
+                  "before": 140,
+                  "after": 4
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 12,
+              "edits": [
+                {
+                  "cell": 30,
+                  "before": 396,
+                  "after": 140
+                },
+                {
+                  "cell": 66,
+                  "before": 204,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 18,
+              "edits": [
+                {
+                  "cell": 9,
+                  "before": 140,
+                  "after": 132
+                },
+                {
+                  "cell": 19,
+                  "before": 140,
+                  "after": 132
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 22,
+              "edits": [
+                {
+                  "cell": 41,
+                  "before": 76,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 24,
+              "edits": [
+                {
+                  "cell": 54,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 64,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 25,
+              "edits": [
+                {
+                  "cell": 68,
+                  "before": 204,
+                  "after": 140
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 0,
+              "edits": [
+                {
+                  "cell": 3,
+                  "before": 136,
+                  "after": 128
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 3,
+              "edits": [
+                {
+                  "cell": 13,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 23,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 30,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 57,
+                  "before": 140,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 72,
+              "edits": [
+                {
+                  "cell": 76,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 80,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            }
+          ],
+          "closed_domains": [
+            1,
+            2,
+            8,
+            128,
+            16,
+            32,
+            64,
+            4,
+            256,
+            132,
+            16,
+            64,
+            1,
+            12,
+            256,
+            136,
+            2,
+            32,
+            32,
+            132,
+            256,
+            2,
+            64,
+            12,
+            136,
+            16,
+            1,
+            2,
+            256,
+            16,
+            12,
+            140,
+            140,
+            1,
+            32,
+            64,
+            12,
+            12,
+            1,
+            16,
+            32,
+            64,
+            256,
+            128,
+            2,
+            64,
+            32,
+            128,
+            256,
+            2,
+            1,
+            4,
+            8,
+            16,
+            136,
+            1,
+            32,
+            12,
+            256,
+            16,
+            2,
+            64,
+            140,
+            16,
+            136,
+            2,
+            64,
+            1,
+            140,
+            32,
+            256,
+            140,
+            256,
+            64,
+            4,
+            32,
+            136,
+            2,
+            16,
+            1,
+            136
+          ]
+        },
+        {
+          "digit": 8,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 46,
+      "branches": [
+        {
+          "digit": 6,
+          "classification": "known-pattern",
+          "closure_events": 12,
+          "known_pattern": {
+            "family": "published-Loki-12-cell-tridagon",
+            "palette": [
+              3,
+              4,
+              8
+            ],
+            "cells": [
+              2,
+              3,
+              9,
+              13,
+              19,
+              23,
+              54,
+              57,
+              64,
+              68,
+              74,
+              76
+            ],
+            "known_to_candidate_mapping": [
+              [
+                32,
+                2
+              ],
+              [
+                33,
+                3
+              ],
+              [
+                40,
+                19
+              ],
+              [
+                43,
+                23
+              ],
+              [
+                48,
+                9
+              ],
+              [
+                53,
+                13
+              ],
+              [
+                57,
+                54
+              ],
+              [
+                60,
+                57
+              ],
+              [
+                67,
+                64
+              ],
+              [
+                70,
+                68
+              ],
+              [
+                77,
+                74
+              ],
+              [
+                80,
+                76
+              ]
+            ],
+            "actual_domains": [
+              8,
+              128,
+              132,
+              12,
+              132,
+              12,
+              136,
+              12,
+              136,
+              140,
+              4,
+              136
+            ],
+            "primary_source": {
+              "author": "Denis Berthier",
+              "repository": "denis-berthier/CSP-Rules-Examples",
+              "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+              "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+              "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+              "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+              "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+            },
+            "mapping_visits": 18
+          },
+          "closed_domains_sha256": "bec2eb70340b36085d962789e2203e4af5e55d604b2f980d02f26cfa7cbe7a4d",
+          "closure_trace": [
+            {
+              "kind": "house-gac",
+              "sector": 5,
+              "edits": [
+                {
+                  "cell": 45,
+                  "before": 192,
+                  "after": 64
+                },
+                {
+                  "cell": 47,
+                  "before": 160,
+                  "after": 128
+                },
+                {
+                  "cell": 48,
+                  "before": 320,
+                  "after": 256
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 9,
+              "edits": [
+                {
+                  "cell": 36,
+                  "before": 76,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 10,
+              "edits": [
+                {
+                  "cell": 28,
+                  "before": 268,
+                  "after": 256
+                },
+                {
+                  "cell": 37,
+                  "before": 13,
+                  "after": 12
+                },
+                {
+                  "cell": 55,
+                  "before": 33,
+                  "after": 1
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 11,
+              "edits": [
+                {
+                  "cell": 2,
+                  "before": 136,
+                  "after": 8
+                },
+                {
+                  "cell": 38,
+                  "before": 13,
+                  "after": 1
+                },
+                {
+                  "cell": 56,
+                  "before": 33,
+                  "after": 32
+                },
+                {
+                  "cell": 74,
+                  "before": 140,
+                  "after": 4
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 12,
+              "edits": [
+                {
+                  "cell": 30,
+                  "before": 396,
+                  "after": 140
+                },
+                {
+                  "cell": 66,
+                  "before": 204,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 18,
+              "edits": [
+                {
+                  "cell": 9,
+                  "before": 140,
+                  "after": 132
+                },
+                {
+                  "cell": 19,
+                  "before": 140,
+                  "after": 132
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 22,
+              "edits": [
+                {
+                  "cell": 41,
+                  "before": 76,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 24,
+              "edits": [
+                {
+                  "cell": 54,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 64,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 25,
+              "edits": [
+                {
+                  "cell": 68,
+                  "before": 204,
+                  "after": 140
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 0,
+              "edits": [
+                {
+                  "cell": 3,
+                  "before": 136,
+                  "after": 128
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 3,
+              "edits": [
+                {
+                  "cell": 13,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 23,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 30,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 57,
+                  "before": 140,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 72,
+              "edits": [
+                {
+                  "cell": 76,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 80,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            }
+          ],
+          "closed_domains": [
+            1,
+            2,
+            8,
+            128,
+            16,
+            32,
+            64,
+            4,
+            256,
+            132,
+            16,
+            64,
+            1,
+            12,
+            256,
+            136,
+            2,
+            32,
+            32,
+            132,
+            256,
+            2,
+            64,
+            12,
+            136,
+            16,
+            1,
+            2,
+            256,
+            16,
+            12,
+            140,
+            140,
+            1,
+            32,
+            64,
+            12,
+            12,
+            1,
+            16,
+            32,
+            64,
+            256,
+            128,
+            2,
+            64,
+            32,
+            128,
+            256,
+            2,
+            1,
+            4,
+            8,
+            16,
+            136,
+            1,
+            32,
+            12,
+            256,
+            16,
+            2,
+            64,
+            140,
+            16,
+            136,
+            2,
+            64,
+            1,
+            140,
+            32,
+            256,
+            140,
+            256,
+            64,
+            4,
+            32,
+            136,
+            2,
+            16,
+            1,
+            136
+          ]
+        },
+        {
+          "digit": 9,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 47,
+      "branches": [
+        {
+          "digit": 6,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 48,
+      "branches": [
+        {
+          "digit": 7,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 55,
+      "branches": [
+        {
+          "digit": 1,
+          "classification": "known-pattern",
+          "closure_events": 12,
+          "known_pattern": {
+            "family": "published-Loki-12-cell-tridagon",
+            "palette": [
+              3,
+              4,
+              8
+            ],
+            "cells": [
+              2,
+              3,
+              9,
+              13,
+              19,
+              23,
+              54,
+              57,
+              64,
+              68,
+              74,
+              76
+            ],
+            "known_to_candidate_mapping": [
+              [
+                32,
+                2
+              ],
+              [
+                33,
+                3
+              ],
+              [
+                40,
+                19
+              ],
+              [
+                43,
+                23
+              ],
+              [
+                48,
+                9
+              ],
+              [
+                53,
+                13
+              ],
+              [
+                57,
+                54
+              ],
+              [
+                60,
+                57
+              ],
+              [
+                67,
+                64
+              ],
+              [
+                70,
+                68
+              ],
+              [
+                77,
+                74
+              ],
+              [
+                80,
+                76
+              ]
+            ],
+            "actual_domains": [
+              8,
+              128,
+              132,
+              12,
+              132,
+              12,
+              136,
+              12,
+              136,
+              140,
+              4,
+              136
+            ],
+            "primary_source": {
+              "author": "Denis Berthier",
+              "repository": "denis-berthier/CSP-Rules-Examples",
+              "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+              "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+              "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+              "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+              "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+            },
+            "mapping_visits": 18
+          },
+          "closed_domains_sha256": "bec2eb70340b36085d962789e2203e4af5e55d604b2f980d02f26cfa7cbe7a4d",
+          "closure_trace": [
+            {
+              "kind": "house-gac",
+              "sector": 6,
+              "edits": [
+                {
+                  "cell": 56,
+                  "before": 33,
+                  "after": 32
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 10,
+              "edits": [
+                {
+                  "cell": 28,
+                  "before": 268,
+                  "after": 256
+                },
+                {
+                  "cell": 37,
+                  "before": 13,
+                  "after": 12
+                },
+                {
+                  "cell": 46,
+                  "before": 288,
+                  "after": 32
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 11,
+              "edits": [
+                {
+                  "cell": 2,
+                  "before": 136,
+                  "after": 8
+                },
+                {
+                  "cell": 38,
+                  "before": 13,
+                  "after": 1
+                },
+                {
+                  "cell": 47,
+                  "before": 160,
+                  "after": 128
+                },
+                {
+                  "cell": 74,
+                  "before": 140,
+                  "after": 4
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 18,
+              "edits": [
+                {
+                  "cell": 9,
+                  "before": 140,
+                  "after": 132
+                },
+                {
+                  "cell": 19,
+                  "before": 140,
+                  "after": 132
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 21,
+              "edits": [
+                {
+                  "cell": 36,
+                  "before": 76,
+                  "after": 12
+                },
+                {
+                  "cell": 45,
+                  "before": 192,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 24,
+              "edits": [
+                {
+                  "cell": 54,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 64,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 0,
+              "edits": [
+                {
+                  "cell": 3,
+                  "before": 136,
+                  "after": 128
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 3,
+              "edits": [
+                {
+                  "cell": 13,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 23,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 30,
+                  "before": 396,
+                  "after": 268
+                },
+                {
+                  "cell": 57,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 66,
+                  "before": 204,
+                  "after": 76
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 27,
+              "edits": [
+                {
+                  "cell": 30,
+                  "before": 268,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 30,
+              "edits": [
+                {
+                  "cell": 41,
+                  "before": 76,
+                  "after": 64
+                },
+                {
+                  "cell": 48,
+                  "before": 320,
+                  "after": 256
+                },
+                {
+                  "cell": 66,
+                  "before": 76,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 32,
+              "edits": [
+                {
+                  "cell": 68,
+                  "before": 204,
+                  "after": 140
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 72,
+              "edits": [
+                {
+                  "cell": 76,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 80,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            }
+          ],
+          "closed_domains": [
+            1,
+            2,
+            8,
+            128,
+            16,
+            32,
+            64,
+            4,
+            256,
+            132,
+            16,
+            64,
+            1,
+            12,
+            256,
+            136,
+            2,
+            32,
+            32,
+            132,
+            256,
+            2,
+            64,
+            12,
+            136,
+            16,
+            1,
+            2,
+            256,
+            16,
+            12,
+            140,
+            140,
+            1,
+            32,
+            64,
+            12,
+            12,
+            1,
+            16,
+            32,
+            64,
+            256,
+            128,
+            2,
+            64,
+            32,
+            128,
+            256,
+            2,
+            1,
+            4,
+            8,
+            16,
+            136,
+            1,
+            32,
+            12,
+            256,
+            16,
+            2,
+            64,
+            140,
+            16,
+            136,
+            2,
+            64,
+            1,
+            140,
+            32,
+            256,
+            140,
+            256,
+            64,
+            4,
+            32,
+            136,
+            2,
+            16,
+            1,
+            136
+          ]
+        },
+        {
+          "digit": 6,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 56,
+      "branches": [
+        {
+          "digit": 1,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 9,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "ba32fbcfce1768bc4c8bf6c282657fb7ea8e820fa2a2878dd4f208ec72cf78be"
+        }
+      ]
+    },
+    {
+      "pivot": 13,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "2e788a7bcef584590020078cfe7fae3fff28317318ef23b49d8720a14e0e4cca"
+        }
+      ]
+    },
+    {
+      "pivot": 23,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 8,
+          "known_pattern": null,
+          "closed_domains_sha256": "ba32fbcfce1768bc4c8bf6c282657fb7ea8e820fa2a2878dd4f208ec72cf78be"
+        }
+      ]
+    },
+    {
+      "pivot": 31,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 7,
+          "known_pattern": null,
+          "closed_domains_sha256": "b4ca609a180f1ae45bc96f7987cb139936bf5c67616b63fd6fe433ea926a8a81"
+        }
+      ]
+    },
+    {
+      "pivot": 32,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 63"
+        },
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 6,
+          "known_pattern": null,
+          "closed_domains_sha256": "b4a223bb9f9453e335c68ac16aad31a74cc0aedd7905aef22978bfeb96eafd7b"
+        }
+      ]
+    },
+    {
+      "pivot": 36,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 63"
+        },
+        {
+          "digit": 4,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 72"
+        },
+        {
+          "digit": 7,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 37,
+      "branches": [
+        {
+          "digit": 1,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 38,
+      "branches": [
+        {
+          "digit": 1,
+          "classification": "known-pattern",
+          "closure_events": 12,
+          "known_pattern": {
+            "family": "published-Loki-12-cell-tridagon",
+            "palette": [
+              3,
+              4,
+              8
+            ],
+            "cells": [
+              2,
+              3,
+              9,
+              13,
+              19,
+              23,
+              54,
+              57,
+              64,
+              68,
+              74,
+              76
+            ],
+            "known_to_candidate_mapping": [
+              [
+                32,
+                2
+              ],
+              [
+                33,
+                3
+              ],
+              [
+                40,
+                19
+              ],
+              [
+                43,
+                23
+              ],
+              [
+                48,
+                9
+              ],
+              [
+                53,
+                13
+              ],
+              [
+                57,
+                54
+              ],
+              [
+                60,
+                57
+              ],
+              [
+                67,
+                64
+              ],
+              [
+                70,
+                68
+              ],
+              [
+                77,
+                74
+              ],
+              [
+                80,
+                76
+              ]
+            ],
+            "actual_domains": [
+              8,
+              128,
+              132,
+              12,
+              132,
+              12,
+              136,
+              12,
+              136,
+              140,
+              4,
+              136
+            ],
+            "primary_source": {
+              "author": "Denis Berthier",
+              "repository": "denis-berthier/CSP-Rules-Examples",
+              "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+              "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+              "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+              "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+              "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+            },
+            "mapping_visits": 18
+          },
+          "closed_domains_sha256": "bec2eb70340b36085d962789e2203e4af5e55d604b2f980d02f26cfa7cbe7a4d",
+          "closure_trace": [
+            {
+              "kind": "house-gac",
+              "sector": 4,
+              "edits": [
+                {
+                  "cell": 37,
+                  "before": 13,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 10,
+              "edits": [
+                {
+                  "cell": 28,
+                  "before": 268,
+                  "after": 256
+                },
+                {
+                  "cell": 46,
+                  "before": 288,
+                  "after": 32
+                },
+                {
+                  "cell": 55,
+                  "before": 33,
+                  "after": 1
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 11,
+              "edits": [
+                {
+                  "cell": 2,
+                  "before": 136,
+                  "after": 8
+                },
+                {
+                  "cell": 47,
+                  "before": 160,
+                  "after": 128
+                },
+                {
+                  "cell": 56,
+                  "before": 33,
+                  "after": 32
+                },
+                {
+                  "cell": 74,
+                  "before": 140,
+                  "after": 4
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 18,
+              "edits": [
+                {
+                  "cell": 9,
+                  "before": 140,
+                  "after": 132
+                },
+                {
+                  "cell": 19,
+                  "before": 140,
+                  "after": 132
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 21,
+              "edits": [
+                {
+                  "cell": 36,
+                  "before": 76,
+                  "after": 12
+                },
+                {
+                  "cell": 45,
+                  "before": 192,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 24,
+              "edits": [
+                {
+                  "cell": 54,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 64,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 0,
+              "edits": [
+                {
+                  "cell": 3,
+                  "before": 136,
+                  "after": 128
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 3,
+              "edits": [
+                {
+                  "cell": 13,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 23,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 30,
+                  "before": 396,
+                  "after": 268
+                },
+                {
+                  "cell": 57,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 66,
+                  "before": 204,
+                  "after": 76
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 27,
+              "edits": [
+                {
+                  "cell": 30,
+                  "before": 268,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 30,
+              "edits": [
+                {
+                  "cell": 41,
+                  "before": 76,
+                  "after": 64
+                },
+                {
+                  "cell": 48,
+                  "before": 320,
+                  "after": 256
+                },
+                {
+                  "cell": 66,
+                  "before": 76,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 32,
+              "edits": [
+                {
+                  "cell": 68,
+                  "before": 204,
+                  "after": 140
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 72,
+              "edits": [
+                {
+                  "cell": 76,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 80,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            }
+          ],
+          "closed_domains": [
+            1,
+            2,
+            8,
+            128,
+            16,
+            32,
+            64,
+            4,
+            256,
+            132,
+            16,
+            64,
+            1,
+            12,
+            256,
+            136,
+            2,
+            32,
+            32,
+            132,
+            256,
+            2,
+            64,
+            12,
+            136,
+            16,
+            1,
+            2,
+            256,
+            16,
+            12,
+            140,
+            140,
+            1,
+            32,
+            64,
+            12,
+            12,
+            1,
+            16,
+            32,
+            64,
+            256,
+            128,
+            2,
+            64,
+            32,
+            128,
+            256,
+            2,
+            1,
+            4,
+            8,
+            16,
+            136,
+            1,
+            32,
+            12,
+            256,
+            16,
+            2,
+            64,
+            140,
+            16,
+            136,
+            2,
+            64,
+            1,
+            140,
+            32,
+            256,
+            140,
+            256,
+            64,
+            4,
+            32,
+            136,
+            2,
+            16,
+            1,
+            136
+          ]
+        },
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 15,
+          "known_pattern": null,
+          "closed_domains_sha256": "d556f2845d9467fc3c332db8647b84f8615f475b2da01171ac8926e31b991c35"
+        }
+      ]
+    },
+    {
+      "pivot": 41,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 9"
+        },
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 14,
+          "known_pattern": null,
+          "closed_domains_sha256": "d556f2845d9467fc3c332db8647b84f8615f475b2da01171ac8926e31b991c35"
+        }
+      ]
+    },
+    {
+      "pivot": 54,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 63"
+        },
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 4,
+          "known_pattern": null,
+          "closed_domains_sha256": "2a9fa5485f78b61b00b9ac4d90cf3d1f0d0bfa4c0214af854298d7e34deb4ea3"
+        }
+      ]
+    },
+    {
+      "pivot": 62,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 3,
+          "known_pattern": null,
+          "closed_domains_sha256": "c45c32434df2aa6d3754c07096dfc4202c8f12160e11594c2478413d52130c63"
+        }
+      ]
+    },
+    {
+      "pivot": 71,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 2,
+          "known_pattern": null,
+          "closed_domains_sha256": "e4170bb9f5dad255c0205b62cb544995d8edbc1f98a36352a1e1983584270f46"
+        }
+      ]
+    },
+    {
+      "pivot": 74,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 5,
+          "known_pattern": null,
+          "closed_domains_sha256": "949723225b47def51e84bfad2076f7dd3b3fe10402386058c4dd207aa1011b99"
+        }
+      ]
+    },
+    {
+      "pivot": 76,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 27"
+        },
+        {
+          "digit": 4,
+          "classification": "unclassified",
+          "closure_events": 3,
+          "known_pattern": null,
+          "closed_domains_sha256": "c6712972132d4f074e087caa6866f0bb0846b1f64ecf80945baaf4388c7e2652"
+        }
+      ]
+    },
+    {
+      "pivot": 80,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "unclassified",
+          "closure_events": 13,
+          "known_pattern": null,
+          "closed_domains_sha256": "d556f2845d9467fc3c332db8647b84f8615f475b2da01171ac8926e31b991c35"
+        }
+      ]
+    },
+    {
+      "pivot": 30,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Hall contradiction in sector 1"
+        },
+        {
+          "digit": 4,
+          "classification": "known-pattern",
+          "closure_events": 13,
+          "known_pattern": {
+            "family": "published-Loki-12-cell-tridagon",
+            "palette": [
+              3,
+              4,
+              8
+            ],
+            "cells": [
+              2,
+              3,
+              9,
+              13,
+              19,
+              23,
+              54,
+              57,
+              64,
+              68,
+              74,
+              76
+            ],
+            "known_to_candidate_mapping": [
+              [
+                32,
+                2
+              ],
+              [
+                33,
+                3
+              ],
+              [
+                40,
+                19
+              ],
+              [
+                43,
+                23
+              ],
+              [
+                48,
+                9
+              ],
+              [
+                53,
+                13
+              ],
+              [
+                57,
+                54
+              ],
+              [
+                60,
+                57
+              ],
+              [
+                67,
+                64
+              ],
+              [
+                70,
+                68
+              ],
+              [
+                77,
+                74
+              ],
+              [
+                80,
+                76
+              ]
+            ],
+            "actual_domains": [
+              8,
+              128,
+              132,
+              12,
+              132,
+              12,
+              136,
+              4,
+              136,
+              136,
+              4,
+              136
+            ],
+            "primary_source": {
+              "author": "Denis Berthier",
+              "repository": "denis-berthier/CSP-Rules-Examples",
+              "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+              "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+              "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+              "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+              "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+            },
+            "mapping_visits": 18
+          },
+          "closed_domains_sha256": "64fee8fc6fe50b5145c0ecba23865bf39e93b7bcaf410947b15a476ed905deda",
+          "closure_trace": [
+            {
+              "kind": "house-gac",
+              "sector": 3,
+              "edits": [
+                {
+                  "cell": 28,
+                  "before": 268,
+                  "after": 256
+                },
+                {
+                  "cell": 31,
+                  "before": 140,
+                  "after": 132
+                },
+                {
+                  "cell": 32,
+                  "before": 140,
+                  "after": 132
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 10,
+              "edits": [
+                {
+                  "cell": 37,
+                  "before": 13,
+                  "after": 12
+                },
+                {
+                  "cell": 46,
+                  "before": 288,
+                  "after": 32
+                },
+                {
+                  "cell": 55,
+                  "before": 33,
+                  "after": 1
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 12,
+              "edits": [
+                {
+                  "cell": 3,
+                  "before": 136,
+                  "after": 128
+                },
+                {
+                  "cell": 48,
+                  "before": 320,
+                  "after": 256
+                },
+                {
+                  "cell": 57,
+                  "before": 140,
+                  "after": 4
+                },
+                {
+                  "cell": 66,
+                  "before": 204,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 19,
+              "edits": [
+                {
+                  "cell": 13,
+                  "before": 140,
+                  "after": 12
+                },
+                {
+                  "cell": 23,
+                  "before": 140,
+                  "after": 12
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 21,
+              "edits": [
+                {
+                  "cell": 36,
+                  "before": 76,
+                  "after": 12
+                },
+                {
+                  "cell": 38,
+                  "before": 13,
+                  "after": 1
+                },
+                {
+                  "cell": 45,
+                  "before": 192,
+                  "after": 64
+                },
+                {
+                  "cell": 47,
+                  "before": 160,
+                  "after": 128
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 22,
+              "edits": [
+                {
+                  "cell": 41,
+                  "before": 76,
+                  "after": 64
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 24,
+              "edits": [
+                {
+                  "cell": 56,
+                  "before": 33,
+                  "after": 32
+                }
+              ]
+            },
+            {
+              "kind": "house-gac",
+              "sector": 25,
+              "edits": [
+                {
+                  "cell": 68,
+                  "before": 204,
+                  "after": 136
+                },
+                {
+                  "cell": 76,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 0,
+              "edits": [
+                {
+                  "cell": 2,
+                  "before": 136,
+                  "after": 8
+                },
+                {
+                  "cell": 9,
+                  "before": 140,
+                  "after": 132
+                },
+                {
+                  "cell": 19,
+                  "before": 140,
+                  "after": 132
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 2,
+              "edits": [
+                {
+                  "cell": 74,
+                  "before": 140,
+                  "after": 4
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 54,
+              "edits": [
+                {
+                  "cell": 54,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 62,
+                  "before": 140,
+                  "after": 136
+                },
+                {
+                  "cell": 64,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 63,
+              "edits": [
+                {
+                  "cell": 71,
+                  "before": 140,
+                  "after": 4
+                }
+              ]
+            },
+            {
+              "kind": "three-house-gac",
+              "center": 69,
+              "edits": [
+                {
+                  "cell": 80,
+                  "before": 140,
+                  "after": 136
+                }
+              ]
+            }
+          ],
+          "closed_domains": [
+            1,
+            2,
+            8,
+            128,
+            16,
+            32,
+            64,
+            4,
+            256,
+            132,
+            16,
+            64,
+            1,
+            12,
+            256,
+            136,
+            2,
+            32,
+            32,
+            132,
+            256,
+            2,
+            64,
+            12,
+            136,
+            16,
+            1,
+            2,
+            256,
+            16,
+            8,
+            132,
+            132,
+            1,
+            32,
+            64,
+            12,
+            12,
+            1,
+            16,
+            32,
+            64,
+            256,
+            128,
+            2,
+            64,
+            32,
+            128,
+            256,
+            2,
+            1,
+            4,
+            8,
+            16,
+            136,
+            1,
+            32,
+            4,
+            256,
+            16,
+            2,
+            64,
+            136,
+            16,
+            136,
+            2,
+            64,
+            1,
+            136,
+            32,
+            256,
+            4,
+            256,
+            64,
+            4,
+            32,
+            136,
+            2,
+            16,
+            1,
+            136
+          ]
+        },
+        {
+          "digit": 8,
+          "classification": "local-contradiction",
+          "contradiction": "Three-house contradiction at center 2"
+        },
+        {
+          "digit": 9,
+          "classification": "unclassified",
+          "closure_events": 9,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    },
+    {
+      "pivot": 68,
+      "branches": [
+        {
+          "digit": 3,
+          "classification": "local-contradiction",
+          "contradiction": "Hall contradiction in sector 0"
+        },
+        {
+          "digit": 4,
+          "classification": "local-contradiction",
+          "contradiction": "Hall contradiction in sector 19"
+        },
+        {
+          "digit": 7,
+          "classification": "unclassified",
+          "closure_events": 7,
+          "known_pattern": null,
+          "closed_domains_sha256": "6d531124fc8ce7620b181bcda63bdd18630bc08e542a48a61d5dc065204ee3b6"
+        }
+      ]
+    }
+  ],
+  "seconds": 3.56089475,
+  "limits": "Inconclusive: excludes only searched single additional pivot reductions, not all forcing or named-rule compositions.",
+  "pivot_scope": "all81 native cells, all effective non-singleton domains",
+  "schema_version": 1,
+  "fixture": "research/global_obstructions/different_lead.json",
+  "fixture_sha256": "45d6f8e79f9dfb859ba6827dadb3934a1cc5c1b1ada822537b5346b926941358",
+  "effective_domains_sha256": "3831d5ebc3b52a67bfc22ff19d234f8943d9125e4550bc30524ac0a6ade84565",
+  "abstract_Loki12_edge_injection_status": "exhaustive-no-match",
+  "abstract_Loki12_edge_injection_visits": 1020
+}

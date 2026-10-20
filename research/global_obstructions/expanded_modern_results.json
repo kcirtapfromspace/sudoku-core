@@ -1,0 +1,1018 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+  "corpus_sha256": "2d4e569f933b34dd8ae2bb44b4cb9153f3a7ff70bc926cfd8d9d24c65a0f259d",
+  "counts": {
+    "puzzles_tested": 200,
+    "independently_unique": 200,
+    "joint_baseline_stalled": 200,
+    "components_outside_5_to_24": 232390,
+    "component_presentations": 22855,
+    "uniform_four_colorable": 22855
+  },
+  "records": [
+    {
+      "id": "modern-monhard-te2-000001",
+      "joint_trace_events": 4,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-000685",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-000920",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-001156",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-002008",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-002244",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-002970",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-003206",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-003442",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-003678",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-003913",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-004149",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-005876",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-006112",
+      "joint_trace_events": 20,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-006347",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-006583",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-006819",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-007055",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-007290",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-007526",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-007762",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-007998",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-008233",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-008469",
+      "joint_trace_events": 4,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-008705",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-008941",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-009176",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-009412",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-009648",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-009884",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-010119",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-010355",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-010591",
+      "joint_trace_events": 20,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-010827",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-015488",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-015724",
+      "joint_trace_events": 4,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-015960",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-016196",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-016431",
+      "joint_trace_events": 21,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-016667",
+      "joint_trace_events": 23,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-016903",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-017139",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-017374",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-017610",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-017846",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-018082",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-018317",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-018553",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-018789",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-019025",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-019260",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-019496",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-019732",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-019968",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-020203",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-020439",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-020675",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-020911",
+      "joint_trace_events": 23,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-021146",
+      "joint_trace_events": 3,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-021382",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-021618",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-021854",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-022089",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-022325",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-022561",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-022797",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-023032",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-023268",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-023504",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-023740",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-023975",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-024211",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-024447",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-024683",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-024918",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-025154",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-025390",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-025626",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-025861",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-026097",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-026333",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-026569",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-026804",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-027040",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-027276",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-027512",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-027747",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-027983",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-028219",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-028455",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-028690",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-028926",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-029162",
+      "joint_trace_events": 19,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-029398",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-029633",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-029869",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-030105",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-030341",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-030576",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te2-045838",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000001",
+      "joint_trace_events": 5,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000113",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000225",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000461",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000573",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000684",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000796",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-000908",
+      "joint_trace_events": 5,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-001020",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-001132",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-001244",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-001356",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-001468",
+      "joint_trace_events": 5,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002283",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002395",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002506",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002618",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002730",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002842",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-002954",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003066",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003178",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003290",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003402",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003514",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003625",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003737",
+      "joint_trace_events": 20,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003849",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-003961",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-004073",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-004185",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-004297",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-004409",
+      "joint_trace_events": 5,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-004521",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-004633",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-005881",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-005993",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006105",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006217",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006329",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006441",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006553",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006665",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006777",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-006889",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-007000",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-007112",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-007224",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-007336",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-monhard-te3-008991",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000001",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000044",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000087",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000130",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000172",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000215",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000258",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000301",
+      "joint_trace_events": 22,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000344",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000387",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000430",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000472",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000515",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000558",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000601",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000644",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000687",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000730",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000772",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000815",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000858",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000901",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000944",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-000987",
+      "joint_trace_events": 7,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001030",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001072",
+      "joint_trace_events": 15,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001115",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001158",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001201",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001244",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001287",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001330",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001372",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001415",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001458",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001501",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001544",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001587",
+      "joint_trace_events": 19,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001630",
+      "joint_trace_events": 21,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001672",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001715",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001758",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001801",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001844",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001887",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001930",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-001972",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-002015",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-002058",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "modern-mith-minimals-002101",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    }
+  ],
+  "candidates": [],
+  "seconds": 94.85350724999999,
+  "scope": "First N specified corpus entries; joint old nonforcing/local closure; all four-digit palettes, single guardians and entire connected components of 5..24 unplaced cells; uniform non-four-colorability required. Numerical LP is discovery only."
+}

@@ -1,0 +1,1319 @@
+{
+  "schema_version": 1,
+  "name": "generated-four-digit-unique-game",
+  "puzzle": "5..476....2.3.9.....38.15...95.4.3.1.32..79.51...3..2..7..641.2...7...9...4...7.6",
+  "initial_domains": [
+    16,
+    129,
+    385,
+    8,
+    64,
+    32,
+    130,
+    133,
+    388,
+    232,
+    2,
+    225,
+    4,
+    16,
+    256,
+    168,
+    233,
+    200,
+    360,
+    40,
+    4,
+    128,
+    2,
+    1,
+    16,
+    104,
+    328,
+    224,
+    256,
+    16,
+    34,
+    8,
+    130,
+    4,
+    224,
+    1,
+    168,
+    4,
+    2,
+    33,
+    129,
+    64,
+    256,
+    168,
+    16,
+    1,
+    168,
+    224,
+    304,
+    4,
+    144,
+    168,
+    2,
+    200,
+    388,
+    64,
+    384,
+    272,
+    32,
+    8,
+    1,
+    148,
+    2,
+    166,
+    177,
+    161,
+    64,
+    147,
+    150,
+    136,
+    256,
+    140,
+    390,
+    145,
+    8,
+    275,
+    403,
+    150,
+    64,
+    148,
+    32
+  ],
+  "base_domains": [
+    16,
+    129,
+    385,
+    8,
+    64,
+    32,
+    2,
+    133,
+    388,
+    232,
+    2,
+    97,
+    4,
+    16,
+    256,
+    168,
+    233,
+    200,
+    360,
+    40,
+    4,
+    128,
+    2,
+    1,
+    16,
+    104,
+    328,
+    224,
+    256,
+    16,
+    34,
+    8,
+    130,
+    4,
+    224,
+    1,
+    168,
+    4,
+    2,
+    33,
+    129,
+    64,
+    256,
+    168,
+    16,
+    1,
+    40,
+    224,
+    256,
+    4,
+    16,
+    168,
+    2,
+    200,
+    388,
+    64,
+    384,
+    16,
+    32,
+    8,
+    1,
+    132,
+    2,
+    34,
+    16,
+    33,
+    64,
+    129,
+    134,
+    136,
+    256,
+    140,
+    134,
+    129,
+    8,
+    3,
+    256,
+    132,
+    64,
+    16,
+    32
+  ],
+  "base_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 0,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 130,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 5,
+      "edits": [
+        {
+          "cell": 48,
+          "before": 304,
+          "after": 256
+        },
+        {
+          "cell": 50,
+          "before": 144,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 12,
+      "edits": [
+        {
+          "cell": 57,
+          "before": 272,
+          "after": 16
+        },
+        {
+          "cell": 75,
+          "before": 275,
+          "after": 3
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 13,
+      "edits": [
+        {
+          "cell": 67,
+          "before": 147,
+          "after": 129
+        },
+        {
+          "cell": 76,
+          "before": 403,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 14,
+      "edits": [
+        {
+          "cell": 68,
+          "before": 150,
+          "after": 134
+        },
+        {
+          "cell": 77,
+          "before": 150,
+          "after": 134
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 2,
+      "edits": [
+        {
+          "cell": 11,
+          "before": 225,
+          "after": 97
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 54,
+      "edits": [
+        {
+          "cell": 61,
+          "before": 148,
+          "after": 132
+        },
+        {
+          "cell": 72,
+          "before": 390,
+          "after": 134
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 60,
+      "edits": [
+        {
+          "cell": 79,
+          "before": 148,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 63,
+      "edits": [
+        {
+          "cell": 64,
+          "before": 177,
+          "after": 16
+        },
+        {
+          "cell": 73,
+          "before": 145,
+          "after": 129
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 64,
+      "edits": [
+        {
+          "cell": 46,
+          "before": 168,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 66,
+      "edits": [
+        {
+          "cell": 63,
+          "before": 166,
+          "after": 34
+        },
+        {
+          "cell": 65,
+          "before": 161,
+          "after": 33
+        },
+        {
+          "cell": 77,
+          "before": 134,
+          "after": 132
+        }
+      ]
+    }
+  ],
+  "assumed_domains": [
+    16,
+    128,
+    256,
+    8,
+    64,
+    32,
+    2,
+    1,
+    4,
+    40,
+    2,
+    1,
+    4,
+    16,
+    256,
+    40,
+    128,
+    64,
+    64,
+    40,
+    4,
+    128,
+    2,
+    1,
+    16,
+    40,
+    256,
+    128,
+    256,
+    16,
+    32,
+    8,
+    2,
+    4,
+    64,
+    1,
+    40,
+    4,
+    2,
+    1,
+    128,
+    64,
+    256,
+    40,
+    16,
+    1,
+    40,
+    64,
+    256,
+    4,
+    16,
+    168,
+    2,
+    136,
+    256,
+    64,
+    128,
+    16,
+    32,
+    8,
+    1,
+    4,
+    2,
+    2,
+    16,
+    32,
+    64,
+    1,
+    4,
+    136,
+    256,
+    136,
+    4,
+    1,
+    8,
+    2,
+    256,
+    128,
+    64,
+    16,
+    32
+  ],
+  "assumption_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 11,
+          "before": 97,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 11,
+      "edits": [
+        {
+          "cell": 2,
+          "before": 385,
+          "after": 384
+        },
+        {
+          "cell": 47,
+          "before": 224,
+          "after": 64
+        },
+        {
+          "cell": 65,
+          "before": 33,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 133,
+          "after": 1
+        },
+        {
+          "cell": 61,
+          "before": 132,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 18,
+      "edits": [
+        {
+          "cell": 1,
+          "before": 129,
+          "after": 128
+        },
+        {
+          "cell": 2,
+          "before": 384,
+          "after": 256
+        },
+        {
+          "cell": 9,
+          "before": 232,
+          "after": 104
+        },
+        {
+          "cell": 18,
+          "before": 360,
+          "after": 104
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 20,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 388,
+          "after": 4
+        },
+        {
+          "cell": 26,
+          "before": 328,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 21,
+      "edits": [
+        {
+          "cell": 27,
+          "before": 224,
+          "after": 160
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 24,
+      "edits": [
+        {
+          "cell": 63,
+          "before": 34,
+          "after": 2
+        },
+        {
+          "cell": 72,
+          "before": 134,
+          "after": 132
+        },
+        {
+          "cell": 73,
+          "before": 129,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 26,
+      "edits": [
+        {
+          "cell": 71,
+          "before": 140,
+          "after": 136
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 0,
+      "edits": [
+        {
+          "cell": 54,
+          "before": 388,
+          "after": 256
+        },
+        {
+          "cell": 72,
+          "before": 132,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 2,
+      "edits": [
+        {
+          "cell": 56,
+          "before": 384,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 27,
+      "edits": [
+        {
+          "cell": 34,
+          "before": 224,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 33,
+      "edits": [
+        {
+          "cell": 53,
+          "before": 200,
+          "after": 136
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 34,
+      "edits": [
+        {
+          "cell": 16,
+          "before": 232,
+          "after": 168
+        },
+        {
+          "cell": 25,
+          "before": 104,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 35,
+      "edits": [
+        {
+          "cell": 17,
+          "before": 200,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 51,
+      "edits": [
+        {
+          "cell": 43,
+          "before": 168,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 52,
+      "edits": [
+        {
+          "cell": 16,
+          "before": 168,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 63,
+      "edits": [
+        {
+          "cell": 67,
+          "before": 129,
+          "after": 1
+        },
+        {
+          "cell": 68,
+          "before": 134,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 66,
+      "edits": [
+        {
+          "cell": 30,
+          "before": 34,
+          "after": 32
+        },
+        {
+          "cell": 39,
+          "before": 33,
+          "after": 1
+        },
+        {
+          "cell": 75,
+          "before": 3,
+          "after": 2
+        },
+        {
+          "cell": 77,
+          "before": 132,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 67,
+      "edits": [
+        {
+          "cell": 40,
+          "before": 129,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 68,
+      "edits": [
+        {
+          "cell": 32,
+          "before": 130,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 9,
+          "before": 104,
+          "after": 40
+        },
+        {
+          "cell": 15,
+          "before": 168,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 2,
+      "edits": [
+        {
+          "cell": 18,
+          "before": 104,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 3,
+      "edits": [
+        {
+          "cell": 27,
+          "before": 160,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 4,
+      "edits": [
+        {
+          "cell": 36,
+          "before": 168,
+          "after": 40
+        }
+      ]
+    }
+  ],
+  "solution": "518476239427359618963821574795248361832617945146935827379564182651782493284193756",
+  "completion": "518476239427359618963821574795248361832617945146935827379564182651782493284193756",
+  "solutions_capped_at_2": 1,
+  "graph_cells": [
+    9,
+    15,
+    16,
+    17,
+    25,
+    27,
+    34,
+    36,
+    43,
+    46,
+    47,
+    51,
+    53
+  ],
+  "palette": [
+    4,
+    6,
+    7,
+    8
+  ],
+  "target": {
+    "cell": 16,
+    "digit": 1,
+    "value": false
+  },
+  "conclusion": {
+    "cell": 16,
+    "digit": 1,
+    "value": true,
+    "kind": "placement"
+  },
+  "generation": {
+    "method": "Minimal peer cover trial132, then greedy outside-core givens preserving full native LP and local closures",
+    "random_seed": 7141,
+    "added_cells": [
+      3,
+      78,
+      58,
+      59,
+      5,
+      80,
+      31,
+      55,
+      41,
+      74,
+      66,
+      21,
+      4,
+      49,
+      62
+    ],
+    "source_completion": "Norvig top95 puzzle20 completion; this new givens puzzle was generated in this experiment and is not claimed to be a previously published puzzle."
+  },
+  "state": {
+    "version": 1,
+    "domains": [
+      16,
+      129,
+      385,
+      8,
+      64,
+      32,
+      2,
+      133,
+      388,
+      232,
+      2,
+      97,
+      4,
+      16,
+      256,
+      168,
+      233,
+      200,
+      360,
+      40,
+      4,
+      128,
+      2,
+      1,
+      16,
+      104,
+      328,
+      224,
+      256,
+      16,
+      34,
+      8,
+      130,
+      4,
+      224,
+      1,
+      168,
+      4,
+      2,
+      33,
+      129,
+      64,
+      256,
+      168,
+      16,
+      1,
+      40,
+      224,
+      256,
+      4,
+      16,
+      168,
+      2,
+      200,
+      388,
+      64,
+      384,
+      16,
+      32,
+      8,
+      1,
+      132,
+      2,
+      34,
+      16,
+      33,
+      64,
+      129,
+      134,
+      136,
+      256,
+      140,
+      134,
+      129,
+      8,
+      3,
+      256,
+      132,
+      64,
+      16,
+      32
+    ],
+    "values": [
+      5,
+      0,
+      0,
+      4,
+      7,
+      6,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      3,
+      5,
+      9,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      8,
+      2,
+      1,
+      5,
+      0,
+      0,
+      0,
+      9,
+      5,
+      0,
+      4,
+      0,
+      3,
+      0,
+      1,
+      0,
+      3,
+      2,
+      0,
+      0,
+      7,
+      9,
+      0,
+      5,
+      1,
+      0,
+      0,
+      9,
+      3,
+      5,
+      0,
+      2,
+      0,
+      0,
+      7,
+      0,
+      5,
+      6,
+      4,
+      1,
+      0,
+      2,
+      0,
+      5,
+      0,
+      7,
+      0,
+      0,
+      0,
+      9,
+      0,
+      0,
+      0,
+      4,
+      0,
+      9,
+      0,
+      7,
+      5,
+      6
+    ]
+  },
+  "assumed_state": {
+    "version": 1,
+    "domains": [
+      16,
+      128,
+      256,
+      8,
+      64,
+      32,
+      2,
+      1,
+      4,
+      40,
+      2,
+      1,
+      4,
+      16,
+      256,
+      40,
+      128,
+      64,
+      64,
+      40,
+      4,
+      128,
+      2,
+      1,
+      16,
+      40,
+      256,
+      128,
+      256,
+      16,
+      32,
+      8,
+      2,
+      4,
+      64,
+      1,
+      40,
+      4,
+      2,
+      1,
+      128,
+      64,
+      256,
+      40,
+      16,
+      1,
+      40,
+      64,
+      256,
+      4,
+      16,
+      168,
+      2,
+      136,
+      256,
+      64,
+      128,
+      16,
+      32,
+      8,
+      1,
+      4,
+      2,
+      2,
+      16,
+      32,
+      64,
+      1,
+      4,
+      136,
+      256,
+      136,
+      4,
+      1,
+      8,
+      2,
+      256,
+      128,
+      64,
+      16,
+      32
+    ],
+    "values": [
+      5,
+      8,
+      9,
+      4,
+      7,
+      6,
+      2,
+      1,
+      3,
+      0,
+      2,
+      1,
+      3,
+      5,
+      9,
+      0,
+      8,
+      7,
+      7,
+      0,
+      3,
+      8,
+      2,
+      1,
+      5,
+      0,
+      9,
+      8,
+      9,
+      5,
+      6,
+      4,
+      2,
+      3,
+      7,
+      1,
+      0,
+      3,
+      2,
+      1,
+      8,
+      7,
+      9,
+      0,
+      5,
+      1,
+      0,
+      7,
+      9,
+      3,
+      5,
+      0,
+      2,
+      0,
+      9,
+      7,
+      8,
+      5,
+      6,
+      4,
+      1,
+      3,
+      2,
+      2,
+      5,
+      6,
+      7,
+      1,
+      3,
+      0,
+      9,
+      0,
+      3,
+      1,
+      4,
+      2,
+      9,
+      8,
+      7,
+      5,
+      6
+    ]
+  },
+  "graph_edges": [
+    [
+      9,
+      15
+    ],
+    [
+      9,
+      16
+    ],
+    [
+      9,
+      17
+    ],
+    [
+      9,
+      27
+    ],
+    [
+      9,
+      36
+    ],
+    [
+      15,
+      16
+    ],
+    [
+      15,
+      17
+    ],
+    [
+      15,
+      25
+    ],
+    [
+      15,
+      51
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      16,
+      25
+    ],
+    [
+      16,
+      34
+    ],
+    [
+      16,
+      43
+    ],
+    [
+      17,
+      25
+    ],
+    [
+      17,
+      53
+    ],
+    [
+      25,
+      34
+    ],
+    [
+      25,
+      43
+    ],
+    [
+      27,
+      34
+    ],
+    [
+      27,
+      36
+    ],
+    [
+      27,
+      46
+    ],
+    [
+      27,
+      47
+    ],
+    [
+      34,
+      43
+    ],
+    [
+      34,
+      51
+    ],
+    [
+      34,
+      53
+    ],
+    [
+      36,
+      43
+    ],
+    [
+      36,
+      46
+    ],
+    [
+      36,
+      47
+    ],
+    [
+      43,
+      51
+    ],
+    [
+      43,
+      53
+    ],
+    [
+      46,
+      47
+    ],
+    [
+      46,
+      51
+    ],
+    [
+      46,
+      53
+    ],
+    [
+      47,
+      51
+    ],
+    [
+      47,
+      53
+    ],
+    [
+      51,
+      53
+    ]
+  ],
+  "independent_completions_capped_at_2": [
+    "518476239427359618963821574795248361832617945146935827379564182651782493284193756"
+  ],
+  "source": {
+    "kind": "generated-givens-puzzle",
+    "author": "This research experiment",
+    "published_completion_origin": {
+      "id": "norvig-top95-020",
+      "source_url": "https://www.norvig.com/top95.txt",
+      "source_index_1based": 20,
+      "puzzle": "..84...3....3.....9....157479...8........7..514.....2...9.6...2.5....4......9..56",
+      "source_sha256": "b16eff35fbe41fb7b122f21c5c6ba30b85861b47946d33257070df1a69cddd36",
+      "attribution": "Peter Norvig's author-hosted curated corpus; individual puzzle author unspecified"
+    },
+    "note": "Only the respecting complete Sudoku comes from the published puzzle. These new givens selections were generated here and were not published by the source author."
+  },
+  "mathematical_novelty": "The global four-color capacity argument is an instance of established graph coloring and independent-set bounds; no historical novelty is established.",
+  "prior_method_comparison": "Negative control for incremental engine value: old Finned X-Wing/Pointing then singles solve the entire puzzle.",
+  "status": "Verified givens-derived local-relaxation separation control; exact LP witness is stored separately."
+}

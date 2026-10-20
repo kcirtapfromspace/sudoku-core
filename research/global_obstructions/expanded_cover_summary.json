@@ -1,0 +1,2108 @@
+{
+  "experiment": "Expanded counterexample-guided clue-cover search",
+  "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+  "runs": [
+    {
+      "run": "a",
+      "summary": {},
+      "seed": 62841,
+      "events_sha256": "bfa8bbad90b2e61294fbbbc76e9c54bd5dcb6e7b6754154087abf3833132cb83",
+      "fully_logged_candidate_sets": 7,
+      "logged_categories": {
+        "nonunique": 7
+      },
+      "role": "discarded preliminary pilot"
+    },
+    {
+      "run": "b",
+      "summary": {
+        "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+        "seed": 62841,
+        "outside_core_only": false,
+        "stats": {
+          "milp_calls": 18,
+          "milp_timeouts": 0,
+          "milp_infeasible": 0,
+          "candidate_clue_sets": 18,
+          "unique_clue_sets": 0,
+          "alternate_solutions_seen": 136,
+          "distinct_alternate_cuts": 129,
+          "local_filter_rejections": 0,
+          "old_target_placement_rejections": 0,
+          "postclosure_lp_rejections": 0,
+          "nonforcing_gaps": 0,
+          "arithmetic_gaps": 0,
+          "full_dispatcher_stalls": 0,
+          "interrupted": true
+        },
+        "seconds": 61.626317291999996,
+        "engine_calls": 2,
+        "binary_sha256": "b28e3044c2939af89a00d246383fe154cb6b6d3996c2b4e819578155a0b70203",
+        "command": "research/global_obstructions/expanded_cover_search.py --seconds 480 --trials 1000 --milp-seconds 1 --output-dir target/expanded-cover-milp-b",
+        "limitations": [
+          "Floating MILP/LP used for discovery only; exact positive certification is separate.",
+          "No-good cuts reject exact tested sets only; time and heuristic bounds leave the search incomplete.",
+          "Full dispatcher and nonforcing results are separate tiers."
+        ]
+      },
+      "seed": 62841,
+      "events_sha256": "e325f81cc29ff01e514b2a36eba075c94ee4fcdd112e6294e729e5f26e9bf846",
+      "fully_logged_candidate_sets": 17,
+      "logged_categories": {
+        "nonunique": 17
+      },
+      "role": "bounded discovery run"
+    },
+    {
+      "run": "c",
+      "summary": {
+        "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+        "seed": 62841,
+        "outside_core_only": false,
+        "stats": {
+          "milp_calls": 129,
+          "milp_timeouts": 15,
+          "milp_infeasible": 0,
+          "candidate_clue_sets": 113,
+          "unique_clue_sets": 41,
+          "alternate_solutions_seen": 469,
+          "distinct_alternate_cuts": 469,
+          "local_filter_rejections": 2,
+          "old_target_placement_rejections": 38,
+          "postclosure_lp_rejections": 0,
+          "nonforcing_gaps": 1,
+          "arithmetic_gaps": 1,
+          "full_dispatcher_stalls": 0,
+          "enumeration_nodes": 59922,
+          "enumeration_cutoffs": 0,
+          "resumed_puzzles": 17,
+          "interrupted": true
+        },
+        "seconds": 65.607650792,
+        "engine_calls": 43,
+        "binary_sha256": "b28e3044c2939af89a00d246383fe154cb6b6d3996c2b4e819578155a0b70203",
+        "command": "research/global_obstructions/expanded_cover_search.py --seconds 360 --trials 500 --milp-seconds 0.5 --resume target/expanded-cover-milp-b --output-dir target/expanded-cover-milp-c",
+        "limitations": [
+          "Floating MILP/LP used for discovery only; exact positive certification is separate.",
+          "No-good cuts reject exact tested sets only; time and heuristic bounds leave the search incomplete.",
+          "Full dispatcher and nonforcing results are separate tiers."
+        ]
+      },
+      "seed": 62841,
+      "events_sha256": "c3f923babbd357e0e5b6ca262ad1290b7682b6a34c465e55bddaa8c276e77979",
+      "fully_logged_candidate_sets": 113,
+      "logged_categories": {
+        "nonunique": 72,
+        "old-target-placed": 38,
+        "milp_timeouts": 15,
+        "nonforcing-arithmetic-gap": 1,
+        "local-filter": 2
+      },
+      "role": "bounded discovery run"
+    },
+    {
+      "run": "d",
+      "summary": {
+        "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+        "seed": 62841,
+        "outside_core_only": false,
+        "stats": {
+          "milp_calls": 176,
+          "milp_timeouts": 55,
+          "milp_infeasible": 0,
+          "candidate_clue_sets": 121,
+          "unique_clue_sets": 62,
+          "alternate_solutions_seen": 564,
+          "distinct_alternate_cuts": 564,
+          "local_filter_rejections": 1,
+          "old_target_placement_rejections": 98,
+          "postclosure_lp_rejections": 0,
+          "nonforcing_gaps": 2,
+          "arithmetic_gaps": 2,
+          "full_dispatcher_stalls": 0,
+          "enumeration_nodes": 192028,
+          "enumeration_cutoffs": 0,
+          "resumed_puzzles": 113,
+          "minimization_trials": 1423,
+          "minimized_unique_endpoints": 102,
+          "duplicate_minimized_endpoints": 22,
+          "interrupted": true
+        },
+        "seconds": 110.29542987500001,
+        "engine_calls": 107,
+        "binary_sha256": "b28e3044c2939af89a00d246383fe154cb6b6d3996c2b4e819578155a0b70203",
+        "command": "research/global_obstructions/expanded_cover_search.py --seconds 480 --trials 1000 --milp-seconds 0.5 --resume target/expanded-cover-milp-c --output-dir target/expanded-cover-milp-d",
+        "limitations": [
+          "Floating MILP/LP used for discovery only; exact positive certification is separate.",
+          "No-good cuts reject exact tested sets only; time and heuristic bounds leave the search incomplete.",
+          "Full dispatcher and nonforcing results are separate tiers."
+        ]
+      },
+      "seed": 62841,
+      "events_sha256": "55cab0207a5bb64690bc63a4442196e476a0a78d5a75602e6961ba84632ad5f6",
+      "fully_logged_candidate_sets": 120,
+      "logged_categories": {
+        "old-target-placed": 58,
+        "nonunique": 59,
+        "milp_timeouts": 55,
+        "nonforcing-arithmetic-gap": 2,
+        "post-old-local-filter": 1
+      },
+      "role": "bounded discovery run"
+    },
+    {
+      "run": "e",
+      "summary": {
+        "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+        "seed": 62841,
+        "outside_core_only": false,
+        "stats": {
+          "milp_calls": 175,
+          "milp_timeouts": 4,
+          "milp_infeasible": 0,
+          "candidate_clue_sets": 170,
+          "unique_clue_sets": 82,
+          "alternate_solutions_seen": 585,
+          "distinct_alternate_cuts": 585,
+          "local_filter_rejections": 1,
+          "old_target_placement_rejections": 125,
+          "postclosure_lp_rejections": 0,
+          "nonforcing_gaps": 3,
+          "arithmetic_gaps": 3,
+          "full_dispatcher_stalls": 0,
+          "enumeration_nodes": 253930,
+          "enumeration_cutoffs": 0,
+          "resumed_puzzles": 120,
+          "minimization_trials": 1911,
+          "minimized_unique_endpoints": 127,
+          "duplicate_minimized_endpoints": 37,
+          "full_closure_attempts": 3,
+          "full_closure_target_placed": 3,
+          "full_closure_local_failures": 0,
+          "full_closure_lp_failures": 0,
+          "full_closure_step_limits": 0,
+          "interrupted": true
+        },
+        "seconds": 130.54765616600002,
+        "engine_calls": 144,
+        "binary_sha256": "b28e3044c2939af89a00d246383fe154cb6b6d3996c2b4e819578155a0b70203",
+        "command": "research/global_obstructions/expanded_cover_search.py --seconds 420 --trials 1000 --milp-seconds 1 --resume target/expanded-cover-milp-d --qualify target/expanded-cover-milp-c/nonforcing-arithmetic-gap-61.json --qualify target/expanded-cover-milp-d/nonforcing-arithmetic-gap-97-0.json --output-dir target/expanded-cover-milp-e",
+        "limitations": [
+          "Floating MILP/LP used for discovery only; exact positive certification is separate.",
+          "No-good cuts reject exact tested sets only; time and heuristic bounds leave the search incomplete.",
+          "Full dispatcher and nonforcing results are separate tiers."
+        ]
+      },
+      "seed": 62841,
+      "events_sha256": "3635ec1e1991978bc4e0fa761ed8310cd344a8a5a53ee43768198cc676251b5a",
+      "fully_logged_candidate_sets": 170,
+      "logged_categories": {
+        "nonunique": 88,
+        "old-target-placed": 80,
+        "local-filter": 1,
+        "milp_timeouts": 4,
+        "nonforcing-arithmetic-gap": 1
+      },
+      "role": "bounded discovery run"
+    },
+    {
+      "run": "f",
+      "summary": {
+        "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+        "seed": 98247,
+        "script_sha256": "457ddfa2bba76940274f3818f8140a41f6ba678127001b1a43665818b3965021",
+        "outside_core_only": true,
+        "stats": {
+          "milp_calls": 352,
+          "milp_timeouts": 1,
+          "milp_infeasible": 0,
+          "candidate_clue_sets": 351,
+          "unique_clue_sets": 254,
+          "alternate_solutions_seen": 710,
+          "distinct_alternate_cuts": 703,
+          "local_filter_rejections": 76,
+          "old_target_placement_rejections": 179,
+          "postclosure_lp_rejections": 0,
+          "nonforcing_gaps": 88,
+          "arithmetic_gaps": 88,
+          "full_dispatcher_stalls": 0,
+          "enumeration_nodes": 1018077,
+          "enumeration_cutoffs": 0,
+          "resumed_puzzles": 170,
+          "minimization_trials": 5511,
+          "minimized_unique_endpoints": 342,
+          "duplicate_minimized_endpoints": 166,
+          "full_closure_attempts": 88,
+          "full_closure_target_placed": 88,
+          "full_closure_local_failures": 0,
+          "full_closure_lp_failures": 0,
+          "full_closure_step_limits": 0
+        },
+        "seconds": 360.373216084,
+        "engine_calls": 1079,
+        "binary_sha256": "b28e3044c2939af89a00d246383fe154cb6b6d3996c2b4e819578155a0b70203",
+        "command": "research/global_obstructions/expanded_cover_search.py --seed 98247 --outside-core --min-clues 26 --clue-span 8 --seconds 360 --trials 1000 --milp-seconds 1 --resume target/expanded-cover-milp-e --qualify target/expanded-cover-milp-d/nonforcing-arithmetic-gap-144-0.json --output-dir target/expanded-cover-milp-f",
+        "limitations": [
+          "Floating MILP/LP used for discovery only; exact positive certification is separate.",
+          "No-good cuts reject exact tested sets only; time and heuristic bounds leave the search incomplete.",
+          "Full dispatcher and nonforcing results are separate tiers."
+        ]
+      },
+      "seed": 98247,
+      "events_sha256": "4f08ae854ddb801d5cb4be3aab83735e5d52b495361680b03f4f7345fff6641a",
+      "fully_logged_candidate_sets": 351,
+      "logged_categories": {
+        "nonunique": 97,
+        "old-target-placed": 124,
+        "nonforcing-arithmetic-gap": 63,
+        "post-old-local-filter": 49,
+        "joint-target-placed": 10,
+        "local-filter": 8,
+        "milp_timeouts": 1
+      },
+      "role": "bounded discovery run"
+    }
+  ],
+  "distinct_logged_raw_clue_sets_excluding_pilot": 767,
+  "distinct_logged_unique_raw_clue_sets": 438,
+  "distinct_evaluated_unique_endpoints": 611,
+  "distinct_endpoint_category_counts": {
+    "old-target-placed": 425,
+    "local-filter": 16,
+    "nonforcing-arithmetic-gap": 91,
+    "post-old-local-filter": 64,
+    "joint-target-placed": 15
+  },
+  "public_manifests": {
+    "trials": {
+      "file": "expanded_cover_trials.jsonl",
+      "records": 767,
+      "bytes": 67496,
+      "sha256": "691c71ab2758d5177ea4118bda473cb5a86f8dec3dce93d5a15c644da034cbea",
+      "array_fields": [
+        "puzzle",
+        "discovery_uniqueness_status"
+      ],
+      "code_maps": {
+        "discovery_uniqueness_status": {
+          "-1": "enumeration-cutoff",
+          "0": "discovery-nonunique",
+          "1": "discovery-unique"
+        }
+      },
+      "meaning": "Recorded discovery classifications only; this manifest does not independently certify every uniqueness claim or endpoint."
+    },
+    "endpoints": {
+      "file": "expanded_cover_endpoints.jsonl",
+      "records": 611,
+      "bytes": 54990,
+      "sha256": "d85ee656b635b2cd40c3bcbff40fa6e9b0ef4d411abf4f7eb435b9c560e3e37b",
+      "array_fields": [
+        "puzzle",
+        "discovery_category",
+        "forcing_outcome"
+      ],
+      "code_maps": {
+        "discovery_category": {
+          "0": "old-target-placed",
+          "1": "joint-target-placed",
+          "2": "local-filter",
+          "3": "post-old-local-filter",
+          "4": "nonforcing-arithmetic-gap"
+        },
+        "forcing_outcome": {
+          "0": "not-attempted",
+          "1": "target-placed"
+        }
+      },
+      "meaning": "Recorded discovery classifications only; this manifest does not independently certify every uniqueness claim or endpoint."
+    }
+  },
+  "category_conflicts": [],
+  "distinct_nonforcing_gap_puzzles": [
+    {
+      "puzzle": "....7.2.....359.....38.1....95...3.1.32..7..51..935.2.....6.1...5.7...9.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-c/nonforcing-arithmetic-gap-61.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 29,
+          "forcing_result": null,
+          "first_full_finding": [
+            "NishioForcingChain",
+            32,
+            [
+              4
+            ],
+            false
+          ]
+        },
+        {
+          "file": "target/expanded-cover-milp-e/nonforcing-arithmetic-gap-qualified-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 29,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            32,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5....6....2.3.96..9.38.1.....52.83.1.32...9.51..9...2....5.4...........3......75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-d/nonforcing-arithmetic-gap-144-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": null,
+          "first_full_finding": [
+            "NishioForcingChain",
+            17,
+            [
+              4
+            ],
+            false
+          ]
+        },
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-qualified-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            17,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.8....3..2...96..9....15....52.8..1......9..1.6935.2.3...6.......7.....28.....5.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-d/nonforcing-arithmetic-gap-97-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": null,
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              6
+            ],
+            false
+          ]
+        },
+        {
+          "file": "target/expanded-cover-milp-e/nonforcing-arithmetic-gap-qualified-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..84...39.2.3596.......1....952.83.1.3....9..1....5.2.3.........5...2...2...9.75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-e/nonforcing-arithmetic-gap-101-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            11,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5....6....2.3.9.....3.215...9...83.1.3...7..51..9.5.2..7.5..1........49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-84-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....7.2...2.359.....3..1....952..3.1.326.7..51..9...........1.2.5....49......3.56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-7-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...76....2.3.9.....3..15...95...3.1.32..79.51......2.......1.2.5..8.49...4.....6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-86-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4.6....2.359.....3..1....95..83.1.32...9.51......2.......1.2.5..8.49......375.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-138-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9.....3..15...9..483.1.3....9..1....5.2....5..1.......2.9.2.4...75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-258-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            5,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...76....2.3.9.....3..15...9...83.1.3..17..51..9.5.2....5..1........49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-337-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "......2...2.359....63..1....952..3.1.32..79.51.........7..641.2.....2.9.......75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-254-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            43,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....38.15...9....3.1.3...79..1....5.2.....6.1...5...249.2.....75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-41-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            8,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....38.15...9....3.1.3...7..51..9.5.2....56.1.....7...9.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-313-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            32,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4......2.359.....38.1....95..83.1.3....9.51......2..7.5..1...5...249.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-213-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....38.15...9....3.1.3...7..51..9.5.2....56.1........49.2.....7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-348-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            16,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4..2.....359.....3..1....95..83.1.3....9..1....5.2..7...41.........9.2.41..75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-235-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....38.15...9....3.1.3...7..51..9.5.2....56.1.....7..49.2.....7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-348-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            16,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "......2.....359.....3.215...95..83.1.3.6..9.51......2.....641...5.....9.2.4...7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-239-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            51,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....3..15...9.24.3.1.3.6.79.51....5.2....5..1........49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-227-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            76,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....3..15...9.24.3.1.32.179.51....5......5..1.2.......9.2.4.....6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-51-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....359.....3..1....9..4.3.1.3...79..1....5.2.......1.....7.2.9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-43-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....3..15...9...83.1.3..1....1..9.5.2.....6.1...5....49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-163-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            36,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9.....3.215...95...3.1.326.79.51......2.......1.2.5..8..9...4.....6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-86-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": ".....6....2.359....63..15...952..3.1.32..7..51..9...2....5.41.........9......37.6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-98-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9.....3.215...9...83.1.3....9.51....5.2....56.1........49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-112-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....38.15...9....3.1.3...7...1..9.5.2.....6.1.....7..49.2.....75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-128-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            16,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....7.2.....359.....3..1....9524.3.1.3.6.7..51..9...2.....6.1...5.....9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-319-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4......2.359....63.21....95..83.1.32.....51..9...2..7....1.2.......9..8...375.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-268-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....3..15...9..4.3.1.3...7...1..9.5.2.....6.1.....7.2.9.2.4...75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-340-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....3..15...9..4.3.1.3...7...1..9.5.2.......1.....7.2.9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-240-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....7.2.....359....63..1....952..3.1.3...79..1....5.2....5.41........49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-323-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.8.......2.359...9.3..1......2..3.1.3.6.7...1..9.5.2.......1.2...7...9.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-278-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            46,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63.215...95...3.1.3...7...1..9.5.2....5.41......8.49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-223-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63..15...95.4.3.1.32..7...1..9.5.2....56.1.2.....2.9.......75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-151-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            27,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.3.9....63..15...9...83.1.3......51..9.5.2....5.41......82.9.2.....7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-108-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.359.....3..1....95..83.1.3......51..9...2.....6.1...5..8.49.2....375.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-295-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            53,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.359.....3..1....95..83.1.3..1.9.51......2.....6.1...5....49.2....375.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-295-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            53,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.359.....38.1....9....3.1.3...79..1....5.2.....6.1.....7..49.2.....75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-287-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            16,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63..15...95.4.3.1.3...7...1..9.5.2....56.1.......2.9.2.....75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-151-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            27,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4.6....2.359.....3..15...95..83.1.32.....51..9...2..7....1.......2.9....1..7.6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-317-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            76,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9....63..15...9.2.83.1.3....9..1....5.2....5.41........49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-274-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.84......2.359...9.3..1......2..3.1.3...7...1..9.5.2.......1.2...7...9.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-278-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            32,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9....63..15...95.4.3.1.3...79.51......2.......1...5..8..9.2...9.7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-266-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.3.9.....3..15...9..4.3.1.3...7...1..9.5.2.....6.1.....7.2.9.2.4...75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-340-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.359.....38.1....9....3.1.32..7..51..9.5.2.....6.1.2...7...9........56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-215-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            67,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....762.....359.....3..1....95...3.1.3...7..51..9...2.......1...5..8..9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-250-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            7,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5..4......2.3.9.....3.215...9....3.1.32..79.51....5.2.......1.2.5..8.49...4.....6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-242-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9.....3..15...9..4.3.1.3...79.51....5.2....56.1.......2.9.2.4...7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-263-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....3..15...9...83.1.3.6.....1..9.5.2..7..6.1........49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-23-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...762.....3.9.....3..15...9....3.1.3..179..1....5.2..7....1.......249.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-78-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....7.....2.359...9.3..1.....5.483.1.32..7...1..9.5.2......41.2.5....49........56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-300-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....76....2.359....63.215...95...3.1.32..7...1..9.5.2....5..1.......249........56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-183-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 29,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            6,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....3..15...9...83.1.3..1....1..9.5.2......41...5....49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-259-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.3.9.....3.215...9...83.1.3.6..9..1....5.2..7..6.1.........9.2.....756",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-224-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            15,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...762.....3.9.....3..15...9...83.1.3......51..9.5.2....5..1......8249.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-156-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.3.9....63.215...9..4.3.1.3...7..51..9.5.2....5.41.........9.2.....7.6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-282-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            15,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4......2.359....63..1....952.83.1.32.....51..9...2..7...41........49......3.56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-292-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": ".....62.....359.....3..15...95.4.3.1.3...7..51..9...2.......1...5..8.49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-280-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5..4.62.....3.9.....3..15...95..83.1.3..1...51..9...2....56.1.........9.2.....7.6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-273-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            15,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.2.....3.9.....3..15...952.83.1.3.6....51..9...2....5..1........49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-349-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            76,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9....63..15...9.2..3.1.3...7..51..9.5.2.....6.1...5..8..9.2.....7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-249-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "....76....2.359....63..15...95...3.1.32.17...1..9.5.2....5..1.......249........56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-183-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 29,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              2
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2...2.3.9.....3..15...9..4.3.1.32..7...1..9.5.2.......1.....7.2.9...4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-334-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...762.....3.9.....3..15...9....3.1.3..179..1....5.2....56.1.......249.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-78-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            1,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5..4......2.3.9.....3..15...9..4.3.1.3...79.51....5.2....56.1.......2.9.2.4...7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-263-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.359....63..1....9..4.3.1.3...79..1....5.2.....6.1...5...2.9.2.....75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-117-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            27,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "......2.....359.....3..1....95.483.1.3......51..9...2.....6.1...5..8.49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-174-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.3.9.....3..15...9.24.3.1.3...79..1....5.2.....6.1.2...7...9.2.4...75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-119-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....3..15...9.2..3.1.3...7..51..9.5.2.....6.1...5..8..9.2.4.....6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-322-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            7,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4.6....2.359.....3..1....95...3.1.32.17..51..9...2.....6.1...5...2.9.......756",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-195-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            39,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": ".....62.....359.....3..15...95..83.1.3......51..9...2.......1.....7..49.28......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-241-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            4,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4.62...2.359.....3..15...95..83.1.32.....51..9...2.37....1.........9....1..7.6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-199-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            56,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63.21....95..83.1.3....9..1....5.2..7...41.........9.2.....756",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-253-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "......2.....359.....3..1....952.83.1.3.6..9..1....5.2.......1...5..82.9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-60-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5..47.....2.359.....3..1....9.2..3.1.3..17...1..9.5.2......41...5.....9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-46-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            25,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.359.....3..1....9.2.83.1.326....51..9.5.2.......1...5...249.....9..56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-318-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 29,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.3.9.....3..15...952.83.1.3......51..9...2..7..6.1........49.2.......6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-218-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63..1....952..3.1.32..7..51..9...2..7...41......82.9....1...56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-214-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            62,
+            [
+              3
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63.21....95...3.1.3...79..1....5.2......41...5...2.9.2.....756",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-351-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            15,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.........2.3.9.....3..15...95.4.3.1.32..7..51..9...2....5..1......82.9...4.....6",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-251-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            59,
+            [
+              6
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63..1....952..3.1.3...7..51..9...2..7...41......82.9.2..1...56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-214-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5...7.....2.359....63..1....9...83.1.326..9..1....5.2.......1...5...249........56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-220-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              2
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "......2.....359....63..1....95.4.3.1.3...7..51..9...2.......1.....7.2.9.2...9..56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-320-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            15,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": ".....62.....359.....3..1....952.83.1.3.6..9..1....5.2.......1...5..8..9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-60-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359....63..15...952..3.1.3...79..1....5.2....5.41......8.49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-70-1.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 28,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "......2.....359....63.21....95...3.1.3...79.51......2......41.....7...9.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-216-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 25,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "..........2.359.....3.21....95...3.1.3...79.51......2......41...5..8..9.2.4....56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-56-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            15,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5.....2.....3.9.....3..15...9.24.3.1.3...79..1....5.2.....6.1.2...7...9.2.4...75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-119-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 27,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            3,
+            [
+              8
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5..4......2.359....63..1....9...83.1.3..1.9..1....5.2....56.1.........9.2.....75.",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-81-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            4,
+            [
+              2
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "5....6....2.3.9.....3..15...9.2..3.1.3...79..1....5.2....5..1......8.49.2......56",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-176-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            9,
+            [
+              7
+            ],
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "puzzle": "...4......2.359.....3..15...95..83.1.3......51..9...2..7...41.........9.284...7..",
+      "occurrences": [
+        {
+          "file": "target/expanded-cover-milp-f/nonforcing-arithmetic-gap-168-0.json",
+          "category": "nonforcing-arithmetic-gap",
+          "givens": 26,
+          "forcing_result": "target-placed",
+          "first_full_finding": [
+            "NishioForcingChain",
+            19,
+            [
+              4
+            ],
+            false
+          ]
+        }
+      ]
+    }
+  ],
+  "distinct_gap_forcing_closure_results": {
+    "target-placed": 91
+  },
+  "full_stall_status": "No full older-dispatcher stall found in these bounded runs.",
+  "counting_notes": [
+    "Raw MILP clue sets and uniqueness-minimized endpoints are different populations.",
+    "Resumed alternate-solution cuts and requalified positive fixtures do not constitute newly generated puzzles.",
+    "Distinct counts deduplicate exact givens strings, not Sudoku symmetries.",
+    "Interrupted summaries may contain one started candidate not yet present in the fully logged counts.",
+    "The preliminary a pilot used a more restrictive debugging no-good rule and is excluded from aggregate evidence.",
+    "Per-MILP wall-time bounds make discovery trajectories hardware dependent; fixed candidate correctness checks are separate.",
+    "Floating LP/MILP feasibility is a discovery screen. Only separately exact-certified fixtures support a native-LP separation claim."
+  ]
+}

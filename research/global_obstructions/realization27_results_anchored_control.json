@@ -1,0 +1,2645 @@
+{
+  "schema_version": 1,
+  "name": "realization27_results_anchored_control",
+  "puzzle": ".6........48......7...5...9.26..7..8......4...7..8.1.64.71.3....8.2.6..7.1.......",
+  "solution": "269314785548769231731852649126437958895621473374985126457193862983246517612578394",
+  "completion": "269314785548769231731852649126437958895621473374985126457193862983246517612578394",
+  "givens": 24,
+  "solutions_capped_at_2": 1,
+  "internal_given_cell": 66,
+  "initial_domains": [
+    279,
+    32,
+    279,
+    460,
+    335,
+    395,
+    214,
+    223,
+    31,
+    279,
+    8,
+    128,
+    356,
+    359,
+    259,
+    118,
+    119,
+    23,
+    64,
+    4,
+    7,
+    172,
+    16,
+    139,
+    166,
+    175,
+    256,
+    277,
+    2,
+    32,
+    284,
+    269,
+    64,
+    276,
+    276,
+    128,
+    405,
+    276,
+    277,
+    308,
+    295,
+    275,
+    8,
+    342,
+    22,
+    276,
+    64,
+    284,
+    284,
+    128,
+    282,
+    1,
+    278,
+    32,
+    8,
+    272,
+    64,
+    1,
+    256,
+    4,
+    434,
+    434,
+    18,
+    276,
+    128,
+    276,
+    2,
+    264,
+    32,
+    276,
+    285,
+    64,
+    310,
+    1,
+    278,
+    472,
+    328,
+    408,
+    438,
+    446,
+    30
+  ],
+  "initial_state": {
+    "version": 1,
+    "values": [
+      0,
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      7,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      9,
+      0,
+      2,
+      6,
+      0,
+      0,
+      7,
+      0,
+      0,
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      7,
+      0,
+      0,
+      8,
+      0,
+      1,
+      0,
+      6,
+      4,
+      0,
+      7,
+      1,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      8,
+      0,
+      2,
+      0,
+      6,
+      0,
+      0,
+      7,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "domains": [
+      279,
+      32,
+      279,
+      460,
+      335,
+      395,
+      214,
+      223,
+      31,
+      279,
+      8,
+      128,
+      356,
+      359,
+      259,
+      118,
+      119,
+      23,
+      64,
+      4,
+      7,
+      172,
+      16,
+      139,
+      166,
+      175,
+      256,
+      277,
+      2,
+      32,
+      284,
+      269,
+      64,
+      276,
+      276,
+      128,
+      405,
+      276,
+      277,
+      308,
+      295,
+      275,
+      8,
+      342,
+      22,
+      276,
+      64,
+      284,
+      284,
+      128,
+      282,
+      1,
+      278,
+      32,
+      8,
+      272,
+      64,
+      1,
+      256,
+      4,
+      434,
+      434,
+      18,
+      276,
+      128,
+      276,
+      2,
+      264,
+      32,
+      276,
+      285,
+      64,
+      310,
+      1,
+      278,
+      472,
+      328,
+      408,
+      438,
+      446,
+      30
+    ]
+  },
+  "graph_cells": [
+    0,
+    2,
+    3,
+    8,
+    9,
+    14,
+    15,
+    16,
+    31,
+    33,
+    34,
+    38,
+    40,
+    41,
+    44,
+    45,
+    50,
+    52,
+    58,
+    63,
+    65,
+    66,
+    69,
+    74,
+    75,
+    78,
+    79
+  ],
+  "palette": [
+    2,
+    3,
+    5,
+    9
+  ],
+  "target": {
+    "cell": 41,
+    "digit": 1,
+    "value": false
+  },
+  "conclusion": {
+    "cell": 41,
+    "digit": 1,
+    "value": true,
+    "kind": "placement"
+  },
+  "local_domains": [
+    2,
+    32,
+    256,
+    4,
+    1,
+    8,
+    64,
+    128,
+    16,
+    16,
+    8,
+    128,
+    64,
+    32,
+    256,
+    2,
+    4,
+    1,
+    64,
+    4,
+    1,
+    128,
+    16,
+    2,
+    32,
+    8,
+    256,
+    1,
+    2,
+    32,
+    8,
+    4,
+    64,
+    256,
+    16,
+    128,
+    128,
+    256,
+    16,
+    32,
+    2,
+    1,
+    8,
+    64,
+    4,
+    4,
+    64,
+    8,
+    256,
+    128,
+    16,
+    1,
+    2,
+    32,
+    8,
+    16,
+    64,
+    1,
+    256,
+    4,
+    128,
+    32,
+    2,
+    256,
+    128,
+    4,
+    2,
+    8,
+    32,
+    16,
+    1,
+    64,
+    32,
+    1,
+    2,
+    16,
+    64,
+    128,
+    4,
+    256,
+    8
+  ],
+  "local_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 2,
+      "edits": [
+        {
+          "cell": 20,
+          "before": 7,
+          "after": 3
+        },
+        {
+          "cell": 21,
+          "before": 172,
+          "after": 168
+        },
+        {
+          "cell": 24,
+          "before": 166,
+          "after": 162
+        },
+        {
+          "cell": 25,
+          "before": 175,
+          "after": 171
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 4,
+      "edits": [
+        {
+          "cell": 36,
+          "before": 405,
+          "after": 128
+        },
+        {
+          "cell": 43,
+          "before": 342,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 6,
+      "edits": [
+        {
+          "cell": 55,
+          "before": 272,
+          "after": 16
+        },
+        {
+          "cell": 60,
+          "before": 434,
+          "after": 160
+        },
+        {
+          "cell": 61,
+          "before": 434,
+          "after": 160
+        },
+        {
+          "cell": 62,
+          "before": 18,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 7,
+      "edits": [
+        {
+          "cell": 67,
+          "before": 264,
+          "after": 8
+        },
+        {
+          "cell": 70,
+          "before": 285,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 9,
+      "edits": [
+        {
+          "cell": 72,
+          "before": 310,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 10,
+      "edits": [
+        {
+          "cell": 37,
+          "before": 276,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 11,
+      "edits": [
+        {
+          "cell": 47,
+          "before": 284,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 13,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 335,
+          "after": 7
+        },
+        {
+          "cell": 13,
+          "before": 359,
+          "after": 39
+        },
+        {
+          "cell": 31,
+          "before": 269,
+          "after": 5
+        },
+        {
+          "cell": 40,
+          "before": 295,
+          "after": 39
+        },
+        {
+          "cell": 76,
+          "before": 328,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 223,
+          "after": 158
+        },
+        {
+          "cell": 16,
+          "before": 119,
+          "after": 54
+        },
+        {
+          "cell": 25,
+          "before": 171,
+          "after": 170
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 17,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 31,
+          "after": 29
+        },
+        {
+          "cell": 17,
+          "before": 23,
+          "after": 21
+        },
+        {
+          "cell": 44,
+          "before": 22,
+          "after": 20
+        },
+        {
+          "cell": 80,
+          "before": 30,
+          "after": 28
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 18,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 279,
+          "after": 275
+        },
+        {
+          "cell": 2,
+          "before": 279,
+          "after": 275
+        },
+        {
+          "cell": 9,
+          "before": 279,
+          "after": 275
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 21,
+      "edits": [
+        {
+          "cell": 27,
+          "before": 277,
+          "after": 21
+        },
+        {
+          "cell": 38,
+          "before": 277,
+          "after": 21
+        },
+        {
+          "cell": 45,
+          "before": 276,
+          "after": 20
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 23,
+      "edits": [
+        {
+          "cell": 52,
+          "before": 278,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 24,
+      "edits": [
+        {
+          "cell": 63,
+          "before": 276,
+          "after": 260
+        },
+        {
+          "cell": 65,
+          "before": 276,
+          "after": 260
+        },
+        {
+          "cell": 74,
+          "before": 278,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 25,
+      "edits": [
+        {
+          "cell": 75,
+          "before": 472,
+          "after": 144
+        },
+        {
+          "cell": 77,
+          "before": 408,
+          "after": 144
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 26,
+      "edits": [
+        {
+          "cell": 78,
+          "before": 438,
+          "after": 276
+        },
+        {
+          "cell": 79,
+          "before": 446,
+          "after": 284
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 0,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 275,
+          "after": 274
+        },
+        {
+          "cell": 2,
+          "before": 275,
+          "after": 272
+        },
+        {
+          "cell": 9,
+          "before": 275,
+          "after": 274
+        },
+        {
+          "cell": 20,
+          "before": 3,
+          "after": 1
+        },
+        {
+          "cell": 27,
+          "before": 21,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 2,
+      "edits": [
+        {
+          "cell": 38,
+          "before": 21,
+          "after": 20
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 6,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 214,
+          "after": 194
+        },
+        {
+          "cell": 7,
+          "before": 158,
+          "after": 156
+        },
+        {
+          "cell": 15,
+          "before": 118,
+          "after": 98
+        },
+        {
+          "cell": 16,
+          "before": 54,
+          "after": 52
+        },
+        {
+          "cell": 25,
+          "before": 170,
+          "after": 168
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 18,
+      "edits": [
+        {
+          "cell": 23,
+          "before": 139,
+          "after": 138
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 27,
+      "edits": [
+        {
+          "cell": 30,
+          "before": 284,
+          "after": 8
+        },
+        {
+          "cell": 31,
+          "before": 5,
+          "after": 4
+        },
+        {
+          "cell": 33,
+          "before": 276,
+          "after": 272
+        },
+        {
+          "cell": 34,
+          "before": 276,
+          "after": 272
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 30,
+      "edits": [
+        {
+          "cell": 3,
+          "before": 460,
+          "after": 68
+        },
+        {
+          "cell": 12,
+          "before": 356,
+          "after": 68
+        },
+        {
+          "cell": 21,
+          "before": 168,
+          "after": 160
+        },
+        {
+          "cell": 39,
+          "before": 308,
+          "after": 304
+        },
+        {
+          "cell": 40,
+          "before": 39,
+          "after": 35
+        },
+        {
+          "cell": 41,
+          "before": 275,
+          "after": 19
+        },
+        {
+          "cell": 48,
+          "before": 284,
+          "after": 272
+        },
+        {
+          "cell": 50,
+          "before": 282,
+          "after": 18
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 31,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 7,
+          "after": 3
+        },
+        {
+          "cell": 13,
+          "before": 39,
+          "after": 35
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 33,
+      "edits": [
+        {
+          "cell": 44,
+          "before": 20,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 35,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 29,
+          "after": 25
+        },
+        {
+          "cell": 17,
+          "before": 21,
+          "after": 17
+        },
+        {
+          "cell": 80,
+          "before": 28,
+          "after": 24
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 36,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 274,
+          "after": 18
+        },
+        {
+          "cell": 9,
+          "before": 274,
+          "after": 18
+        },
+        {
+          "cell": 38,
+          "before": 20,
+          "after": 16
+        },
+        {
+          "cell": 39,
+          "before": 304,
+          "after": 32
+        },
+        {
+          "cell": 40,
+          "before": 35,
+          "after": 3
+        },
+        {
+          "cell": 41,
+          "before": 19,
+          "after": 3
+        },
+        {
+          "cell": 45,
+          "before": 20,
+          "after": 4
+        },
+        {
+          "cell": 63,
+          "before": 260,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 38,
+      "edits": [
+        {
+          "cell": 2,
+          "before": 272,
+          "after": 256
+        },
+        {
+          "cell": 65,
+          "before": 260,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 39,
+      "edits": [
+        {
+          "cell": 21,
+          "before": 160,
+          "after": 128
+        },
+        {
+          "cell": 48,
+          "before": 272,
+          "after": 256
+        },
+        {
+          "cell": 50,
+          "before": 18,
+          "after": 16
+        },
+        {
+          "cell": 75,
+          "before": 144,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 40,
+      "edits": [
+        {
+          "cell": 13,
+          "before": 35,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 41,
+      "edits": [
+        {
+          "cell": 5,
+          "before": 395,
+          "after": 267
+        },
+        {
+          "cell": 23,
+          "before": 138,
+          "after": 10
+        },
+        {
+          "cell": 77,
+          "before": 144,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 60,
+      "edits": [
+        {
+          "cell": 79,
+          "before": 284,
+          "after": 280
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 63,
+      "edits": [
+        {
+          "cell": 69,
+          "before": 276,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 69,
+      "edits": [
+        {
+          "cell": 33,
+          "before": 272,
+          "after": 256
+        },
+        {
+          "cell": 78,
+          "before": 276,
+          "after": 4
+        },
+        {
+          "cell": 79,
+          "before": 280,
+          "after": 256
+        },
+        {
+          "cell": 80,
+          "before": 24,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 70,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 156,
+          "after": 140
+        },
+        {
+          "cell": 16,
+          "before": 52,
+          "after": 36
+        },
+        {
+          "cell": 34,
+          "before": 272,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 71,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 25,
+          "after": 17
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 0,
+      "edits": [
+        {
+          "cell": 5,
+          "before": 267,
+          "after": 8
+        },
+        {
+          "cell": 6,
+          "before": 194,
+          "after": 192
+        },
+        {
+          "cell": 7,
+          "before": 140,
+          "after": 132
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 9,
+          "before": 18,
+          "after": 16
+        },
+        {
+          "cell": 12,
+          "before": 68,
+          "after": 64
+        },
+        {
+          "cell": 14,
+          "before": 259,
+          "after": 256
+        },
+        {
+          "cell": 15,
+          "before": 98,
+          "after": 2
+        },
+        {
+          "cell": 16,
+          "before": 36,
+          "after": 4
+        },
+        {
+          "cell": 17,
+          "before": 17,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 2,
+      "edits": [
+        {
+          "cell": 24,
+          "before": 162,
+          "after": 34
+        },
+        {
+          "cell": 25,
+          "before": 168,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 9,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 18,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 12,
+      "edits": [
+        {
+          "cell": 3,
+          "before": 68,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 14,
+      "edits": [
+        {
+          "cell": 23,
+          "before": 10,
+          "after": 2
+        },
+        {
+          "cell": 41,
+          "before": 3,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 15,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 192,
+          "after": 64
+        },
+        {
+          "cell": 24,
+          "before": 34,
+          "after": 32
+        },
+        {
+          "cell": 60,
+          "before": 160,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 132,
+          "after": 128
+        },
+        {
+          "cell": 25,
+          "before": 40,
+          "after": 8
+        },
+        {
+          "cell": 61,
+          "before": 160,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 17,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 17,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 19,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 3,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 22,
+      "edits": [
+        {
+          "cell": 40,
+          "before": 3,
+          "after": 2
+        }
+      ]
+    }
+  ],
+  "base_domains": [
+    2,
+    32,
+    256,
+    4,
+    1,
+    8,
+    64,
+    128,
+    16,
+    16,
+    8,
+    128,
+    64,
+    32,
+    256,
+    2,
+    4,
+    1,
+    64,
+    4,
+    1,
+    128,
+    16,
+    2,
+    32,
+    8,
+    256,
+    1,
+    2,
+    32,
+    8,
+    4,
+    64,
+    256,
+    16,
+    128,
+    128,
+    256,
+    16,
+    32,
+    2,
+    1,
+    8,
+    64,
+    4,
+    4,
+    64,
+    8,
+    256,
+    128,
+    16,
+    1,
+    2,
+    32,
+    8,
+    16,
+    64,
+    1,
+    256,
+    4,
+    128,
+    32,
+    2,
+    256,
+    128,
+    4,
+    2,
+    8,
+    32,
+    16,
+    1,
+    64,
+    32,
+    1,
+    2,
+    16,
+    64,
+    128,
+    4,
+    256,
+    8
+  ],
+  "base_trace": [
+    {
+      "kind": "house-gac",
+      "sector": 2,
+      "edits": [
+        {
+          "cell": 20,
+          "before": 7,
+          "after": 3
+        },
+        {
+          "cell": 21,
+          "before": 172,
+          "after": 168
+        },
+        {
+          "cell": 24,
+          "before": 166,
+          "after": 162
+        },
+        {
+          "cell": 25,
+          "before": 175,
+          "after": 171
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 4,
+      "edits": [
+        {
+          "cell": 36,
+          "before": 405,
+          "after": 128
+        },
+        {
+          "cell": 43,
+          "before": 342,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 6,
+      "edits": [
+        {
+          "cell": 55,
+          "before": 272,
+          "after": 16
+        },
+        {
+          "cell": 60,
+          "before": 434,
+          "after": 160
+        },
+        {
+          "cell": 61,
+          "before": 434,
+          "after": 160
+        },
+        {
+          "cell": 62,
+          "before": 18,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 7,
+      "edits": [
+        {
+          "cell": 67,
+          "before": 264,
+          "after": 8
+        },
+        {
+          "cell": 70,
+          "before": 285,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 9,
+      "edits": [
+        {
+          "cell": 72,
+          "before": 310,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 10,
+      "edits": [
+        {
+          "cell": 37,
+          "before": 276,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 11,
+      "edits": [
+        {
+          "cell": 47,
+          "before": 284,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 13,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 335,
+          "after": 7
+        },
+        {
+          "cell": 13,
+          "before": 359,
+          "after": 39
+        },
+        {
+          "cell": 31,
+          "before": 269,
+          "after": 5
+        },
+        {
+          "cell": 40,
+          "before": 295,
+          "after": 39
+        },
+        {
+          "cell": 76,
+          "before": 328,
+          "after": 64
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 223,
+          "after": 158
+        },
+        {
+          "cell": 16,
+          "before": 119,
+          "after": 54
+        },
+        {
+          "cell": 25,
+          "before": 171,
+          "after": 170
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 17,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 31,
+          "after": 29
+        },
+        {
+          "cell": 17,
+          "before": 23,
+          "after": 21
+        },
+        {
+          "cell": 44,
+          "before": 22,
+          "after": 20
+        },
+        {
+          "cell": 80,
+          "before": 30,
+          "after": 28
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 18,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 279,
+          "after": 275
+        },
+        {
+          "cell": 2,
+          "before": 279,
+          "after": 275
+        },
+        {
+          "cell": 9,
+          "before": 279,
+          "after": 275
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 21,
+      "edits": [
+        {
+          "cell": 27,
+          "before": 277,
+          "after": 21
+        },
+        {
+          "cell": 38,
+          "before": 277,
+          "after": 21
+        },
+        {
+          "cell": 45,
+          "before": 276,
+          "after": 20
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 23,
+      "edits": [
+        {
+          "cell": 52,
+          "before": 278,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 24,
+      "edits": [
+        {
+          "cell": 63,
+          "before": 276,
+          "after": 260
+        },
+        {
+          "cell": 65,
+          "before": 276,
+          "after": 260
+        },
+        {
+          "cell": 74,
+          "before": 278,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 25,
+      "edits": [
+        {
+          "cell": 75,
+          "before": 472,
+          "after": 144
+        },
+        {
+          "cell": 77,
+          "before": 408,
+          "after": 144
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 26,
+      "edits": [
+        {
+          "cell": 78,
+          "before": 438,
+          "after": 276
+        },
+        {
+          "cell": 79,
+          "before": 446,
+          "after": 284
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 0,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 275,
+          "after": 274
+        },
+        {
+          "cell": 2,
+          "before": 275,
+          "after": 272
+        },
+        {
+          "cell": 9,
+          "before": 275,
+          "after": 274
+        },
+        {
+          "cell": 20,
+          "before": 3,
+          "after": 1
+        },
+        {
+          "cell": 27,
+          "before": 21,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 2,
+      "edits": [
+        {
+          "cell": 38,
+          "before": 21,
+          "after": 20
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 6,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 214,
+          "after": 194
+        },
+        {
+          "cell": 7,
+          "before": 158,
+          "after": 156
+        },
+        {
+          "cell": 15,
+          "before": 118,
+          "after": 98
+        },
+        {
+          "cell": 16,
+          "before": 54,
+          "after": 52
+        },
+        {
+          "cell": 25,
+          "before": 170,
+          "after": 168
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 18,
+      "edits": [
+        {
+          "cell": 23,
+          "before": 139,
+          "after": 138
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 27,
+      "edits": [
+        {
+          "cell": 30,
+          "before": 284,
+          "after": 8
+        },
+        {
+          "cell": 31,
+          "before": 5,
+          "after": 4
+        },
+        {
+          "cell": 33,
+          "before": 276,
+          "after": 272
+        },
+        {
+          "cell": 34,
+          "before": 276,
+          "after": 272
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 30,
+      "edits": [
+        {
+          "cell": 3,
+          "before": 460,
+          "after": 68
+        },
+        {
+          "cell": 12,
+          "before": 356,
+          "after": 68
+        },
+        {
+          "cell": 21,
+          "before": 168,
+          "after": 160
+        },
+        {
+          "cell": 39,
+          "before": 308,
+          "after": 304
+        },
+        {
+          "cell": 40,
+          "before": 39,
+          "after": 35
+        },
+        {
+          "cell": 41,
+          "before": 275,
+          "after": 19
+        },
+        {
+          "cell": 48,
+          "before": 284,
+          "after": 272
+        },
+        {
+          "cell": 50,
+          "before": 282,
+          "after": 18
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 31,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 7,
+          "after": 3
+        },
+        {
+          "cell": 13,
+          "before": 39,
+          "after": 35
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 33,
+      "edits": [
+        {
+          "cell": 44,
+          "before": 20,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 35,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 29,
+          "after": 25
+        },
+        {
+          "cell": 17,
+          "before": 21,
+          "after": 17
+        },
+        {
+          "cell": 80,
+          "before": 28,
+          "after": 24
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 36,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 274,
+          "after": 18
+        },
+        {
+          "cell": 9,
+          "before": 274,
+          "after": 18
+        },
+        {
+          "cell": 38,
+          "before": 20,
+          "after": 16
+        },
+        {
+          "cell": 39,
+          "before": 304,
+          "after": 32
+        },
+        {
+          "cell": 40,
+          "before": 35,
+          "after": 3
+        },
+        {
+          "cell": 41,
+          "before": 19,
+          "after": 3
+        },
+        {
+          "cell": 45,
+          "before": 20,
+          "after": 4
+        },
+        {
+          "cell": 63,
+          "before": 260,
+          "after": 256
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 38,
+      "edits": [
+        {
+          "cell": 2,
+          "before": 272,
+          "after": 256
+        },
+        {
+          "cell": 65,
+          "before": 260,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 39,
+      "edits": [
+        {
+          "cell": 21,
+          "before": 160,
+          "after": 128
+        },
+        {
+          "cell": 48,
+          "before": 272,
+          "after": 256
+        },
+        {
+          "cell": 50,
+          "before": 18,
+          "after": 16
+        },
+        {
+          "cell": 75,
+          "before": 144,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 40,
+      "edits": [
+        {
+          "cell": 13,
+          "before": 35,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 41,
+      "edits": [
+        {
+          "cell": 5,
+          "before": 395,
+          "after": 267
+        },
+        {
+          "cell": 23,
+          "before": 138,
+          "after": 10
+        },
+        {
+          "cell": 77,
+          "before": 144,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 60,
+      "edits": [
+        {
+          "cell": 79,
+          "before": 284,
+          "after": 280
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 63,
+      "edits": [
+        {
+          "cell": 69,
+          "before": 276,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 69,
+      "edits": [
+        {
+          "cell": 33,
+          "before": 272,
+          "after": 256
+        },
+        {
+          "cell": 78,
+          "before": 276,
+          "after": 4
+        },
+        {
+          "cell": 79,
+          "before": 280,
+          "after": 256
+        },
+        {
+          "cell": 80,
+          "before": 24,
+          "after": 8
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 70,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 156,
+          "after": 140
+        },
+        {
+          "cell": 16,
+          "before": 52,
+          "after": 36
+        },
+        {
+          "cell": 34,
+          "before": 272,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "three-house-gac",
+      "center": 71,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 25,
+          "after": 17
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 0,
+      "edits": [
+        {
+          "cell": 5,
+          "before": 267,
+          "after": 8
+        },
+        {
+          "cell": 6,
+          "before": 194,
+          "after": 192
+        },
+        {
+          "cell": 7,
+          "before": 140,
+          "after": 132
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 1,
+      "edits": [
+        {
+          "cell": 9,
+          "before": 18,
+          "after": 16
+        },
+        {
+          "cell": 12,
+          "before": 68,
+          "after": 64
+        },
+        {
+          "cell": 14,
+          "before": 259,
+          "after": 256
+        },
+        {
+          "cell": 15,
+          "before": 98,
+          "after": 2
+        },
+        {
+          "cell": 16,
+          "before": 36,
+          "after": 4
+        },
+        {
+          "cell": 17,
+          "before": 17,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 2,
+      "edits": [
+        {
+          "cell": 24,
+          "before": 162,
+          "after": 34
+        },
+        {
+          "cell": 25,
+          "before": 168,
+          "after": 40
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 9,
+      "edits": [
+        {
+          "cell": 0,
+          "before": 18,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 12,
+      "edits": [
+        {
+          "cell": 3,
+          "before": 68,
+          "after": 4
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 14,
+      "edits": [
+        {
+          "cell": 23,
+          "before": 10,
+          "after": 2
+        },
+        {
+          "cell": 41,
+          "before": 3,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 15,
+      "edits": [
+        {
+          "cell": 6,
+          "before": 192,
+          "after": 64
+        },
+        {
+          "cell": 24,
+          "before": 34,
+          "after": 32
+        },
+        {
+          "cell": 60,
+          "before": 160,
+          "after": 128
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 16,
+      "edits": [
+        {
+          "cell": 7,
+          "before": 132,
+          "after": 128
+        },
+        {
+          "cell": 25,
+          "before": 40,
+          "after": 8
+        },
+        {
+          "cell": 61,
+          "before": 160,
+          "after": 32
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 17,
+      "edits": [
+        {
+          "cell": 8,
+          "before": 17,
+          "after": 16
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 19,
+      "edits": [
+        {
+          "cell": 4,
+          "before": 3,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "kind": "house-gac",
+      "sector": 22,
+      "edits": [
+        {
+          "cell": 40,
+          "before": 3,
+          "after": 2
+        }
+      ]
+    }
+  ],
+  "state": {
+    "version": 1,
+    "domains": [
+      2,
+      32,
+      256,
+      4,
+      1,
+      8,
+      64,
+      128,
+      16,
+      16,
+      8,
+      128,
+      64,
+      32,
+      256,
+      2,
+      4,
+      1,
+      64,
+      4,
+      1,
+      128,
+      16,
+      2,
+      32,
+      8,
+      256,
+      1,
+      2,
+      32,
+      8,
+      4,
+      64,
+      256,
+      16,
+      128,
+      128,
+      256,
+      16,
+      32,
+      2,
+      1,
+      8,
+      64,
+      4,
+      4,
+      64,
+      8,
+      256,
+      128,
+      16,
+      1,
+      2,
+      32,
+      8,
+      16,
+      64,
+      1,
+      256,
+      4,
+      128,
+      32,
+      2,
+      256,
+      128,
+      4,
+      2,
+      8,
+      32,
+      16,
+      1,
+      64,
+      32,
+      1,
+      2,
+      16,
+      64,
+      128,
+      4,
+      256,
+      8
+    ],
+    "values": [
+      2,
+      6,
+      9,
+      3,
+      1,
+      4,
+      7,
+      8,
+      5,
+      5,
+      4,
+      8,
+      7,
+      6,
+      9,
+      2,
+      3,
+      1,
+      7,
+      3,
+      1,
+      8,
+      5,
+      2,
+      6,
+      4,
+      9,
+      1,
+      2,
+      6,
+      4,
+      3,
+      7,
+      9,
+      5,
+      8,
+      8,
+      9,
+      5,
+      6,
+      2,
+      1,
+      4,
+      7,
+      3,
+      3,
+      7,
+      4,
+      9,
+      8,
+      5,
+      1,
+      2,
+      6,
+      4,
+      5,
+      7,
+      1,
+      9,
+      3,
+      8,
+      6,
+      2,
+      9,
+      8,
+      3,
+      2,
+      4,
+      6,
+      5,
+      1,
+      7,
+      6,
+      1,
+      2,
+      5,
+      7,
+      8,
+      3,
+      9,
+      4
+    ]
+  },
+  "status": "solved",
+  "full_old_comparison": {
+    "arithmetic": {
+      "beam_pruned": false,
+      "budget_exhausted": false,
+      "error": null,
+      "hint": null,
+      "seconds": 4.5041e-05,
+      "tested_combinations": 0
+    },
+    "baseline_seconds": 0.000633125,
+    "full_current_finding": null,
+    "full_current_seconds": 0.001191083,
+    "full_dispatcher_executed": true,
+    "id": "nonrank-puzzles",
+    "state": {
+      "domains": [
+        2,
+        32,
+        256,
+        4,
+        1,
+        8,
+        64,
+        128,
+        16,
+        16,
+        8,
+        128,
+        64,
+        32,
+        256,
+        2,
+        4,
+        1,
+        64,
+        4,
+        1,
+        128,
+        16,
+        2,
+        32,
+        8,
+        256,
+        1,
+        2,
+        32,
+        8,
+        4,
+        64,
+        256,
+        16,
+        128,
+        128,
+        256,
+        16,
+        32,
+        2,
+        1,
+        8,
+        64,
+        4,
+        4,
+        64,
+        8,
+        256,
+        128,
+        16,
+        1,
+        2,
+        32,
+        8,
+        16,
+        64,
+        1,
+        256,
+        4,
+        128,
+        32,
+        2,
+        256,
+        128,
+        4,
+        2,
+        8,
+        32,
+        16,
+        1,
+        64,
+        32,
+        1,
+        2,
+        16,
+        64,
+        128,
+        4,
+        256,
+        8
+      ],
+      "values": [
+        2,
+        6,
+        9,
+        3,
+        1,
+        4,
+        7,
+        8,
+        5,
+        5,
+        4,
+        8,
+        7,
+        6,
+        9,
+        2,
+        3,
+        1,
+        7,
+        3,
+        1,
+        8,
+        5,
+        2,
+        6,
+        4,
+        9,
+        1,
+        2,
+        6,
+        4,
+        3,
+        7,
+        9,
+        5,
+        8,
+        8,
+        9,
+        5,
+        6,
+        2,
+        1,
+        4,
+        7,
+        3,
+        3,
+        7,
+        4,
+        9,
+        8,
+        5,
+        1,
+        2,
+        6,
+        4,
+        5,
+        7,
+        1,
+        9,
+        3,
+        8,
+        6,
+        2,
+        9,
+        8,
+        3,
+        2,
+        4,
+        6,
+        5,
+        1,
+        7,
+        6,
+        1,
+        2,
+        5,
+        7,
+        8,
+        3,
+        9,
+        4
+      ],
+      "version": 1
+    },
+    "three_house": {
+      "centers_checked": 81,
+      "error": null,
+      "exhausted": true,
+      "hint": null
+    },
+    "trace": [],
+    "uniqueness_warranted": true
+  },
+  "old_findings": [],
+  "old_calls": 0,
+  "changed_premise": "One original support vertex is an actual given; all27-live/full-uniform pattern is NOT claimed.",
+  "strict_gap": false,
+  "source_restart": 0,
+  "source_seed": 92137,
+  "initial_selected_outside_palette_cells": [
+    0,
+    2,
+    3,
+    8,
+    9,
+    14,
+    15,
+    16,
+    31,
+    38,
+    40,
+    50,
+    75,
+    78,
+    79
+  ]
+}

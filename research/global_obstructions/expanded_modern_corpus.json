@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "modern-monhard-te2-000001",
+    "puzzle": "98.7.....6...5.8....4....3.7..9..5....3....4......2..1.6...1..2..9.........89.6..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 1,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-000685",
+    "puzzle": "987......65.7...........6...6..4..3....2.34......7.12...23....1...46.7.2.....134.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 685,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-000920",
+    "puzzle": "987......65.7...........6....43...2....16.7......243.1...2.317.....7.2.4....1..63",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 920,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-001156",
+    "puzzle": "9876.....5..8..............6.4...32.....63.41....2...8.6..14..3.2.38..64...2..81.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 1156,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-002008",
+    "puzzle": "987......6...........5.....54..3271....7..3.4...1...52..3.74..1...25..73.....124.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 2008,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-002244",
+    "puzzle": "98.76.5..7.54......4..9..8.85......66.45.9....7968.........4.3........2.........7",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 2244,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-002970",
+    "puzzle": "98.76.5..7.5.846....4..9...6.94.7.8..7.8......48.56......9.5..........32........1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 2970,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-003206",
+    "puzzle": "98.76.5..7.5....9..46...8..6.8...7..4....6..5.59...64..97.........32...7...1....8",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 3206,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-003442",
+    "puzzle": "98.76.5..7.5.846...46......8.94.7.6..7.69.....64.58......9.5..........32........1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 3442,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-003678",
+    "puzzle": "98.76.5..7.5.946....48.....6..9.7....9..8..7..4..56........8.........4.3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 3678,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-003913",
+    "puzzle": "98.76.5..7.54..6......58...6.8..5...4..69.....978.4.6...4.....3...9.7..........21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 3913,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-004149",
+    "puzzle": "98.76.5..7.54......4..5.8..6.9............73........295...47....6758...4...9.6...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 4149,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-005876",
+    "puzzle": "987......6...........85.....5.4..32..3..2..14....1.5.8...58..42...1.2.3.....431.5",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 5876,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-006112",
+    "puzzle": "98765....43.7.9......4..8..84..9....7.3.......2....3..2.....97..9....4.8.......23",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 6112,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-006347",
+    "puzzle": "987......6..85......4......3..2..81...6.....2...51.6.3.6.3..2.1...16.58.....28.3.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 6347,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-006583",
+    "puzzle": "98.76....5.4..9.....3...2....7....83...8..62.......7.9...62.......3.78......98.7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 6583,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-006819",
+    "puzzle": "987......6...........85.....4.32.81..3..41.25......3.....43.2.8...1.2.3.....85.41",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 6819,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-007055",
+    "puzzle": "98.76.5..7.48..6....5..9...6.9.5.....784.6....5..7..8......4.........9.3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 7055,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-007290",
+    "puzzle": "9876.....65....97.43..8.....7.86.......9.5.......2...5...2...97....7.8.6......52.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 7290,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-007526",
+    "puzzle": "98.76.5..7.5...8...46.8....89.54....6.4.97....57.........9.463......6.21.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 7526,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-007762",
+    "puzzle": "98.76.5..7.54......4..8.7..6.759....4....8.....8....65...9.4.........4.3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 7762,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-007998",
+    "puzzle": "98.76.5..7.5.......4...98..65....73........2.........959.4.7..6.6.85...4....96...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 7998,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-008233",
+    "puzzle": "9876.....65.............7....6.43.2...126.4.....1.7.3....4..1.6...3.1.72....2.34.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 8233,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-008469",
+    "puzzle": "987......6...........85.....4..3852....42.3.1...1.5..8..3.128.4...58.23......4.15",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 8469,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-008705",
+    "puzzle": "98.76.5..7.58.49......5....6.4.........4...3........215.9.47....6.98...7..85.....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 8705,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-008941",
+    "puzzle": "9876.....65.......43..8.....7.86.9.....9.5.7.....2.5.....5..68....2..7.9....9..52",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 8941,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-009176",
+    "puzzle": "987.........9..65.......4..89.32.....1..87.....2.....337....91..2...1.....8.9.32.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 9176,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-009412",
+    "puzzle": "987......6...........85.....4.32.81..3..14.25........3...43.2.8...2.1.3.....85.41",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 9412,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-009648",
+    "puzzle": "98.76.5..7.5.......469..8..8...76....7985.......4.9...6......32.....47.........1.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 9648,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-009884",
+    "puzzle": "98.76.5..7.45..6...........8.6..532.59....4......8....6...57....7.4........89..6.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 9884,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-010119",
+    "puzzle": "98.76.5..7.5.84.6...45.....8...75..65..94...7.....8...6.....43....49..........62.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 10119,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-010355",
+    "puzzle": "98.76....7.54.8....4..5.7..6...95....5..7..4....8.4.....9....32..8.....1...9.6...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 10355,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-010591",
+    "puzzle": "98.76.5..7.4...6...........6..5.7....5.89........46.5.5.7...32..4..........9...86",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 10591,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-010827",
+    "puzzle": "98.76.5..7.54..6...........89...........394......24...6.9.4.75..7...58.6.5.....94",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 10827,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-015488",
+    "puzzle": "98.76....5.7..8.....4..5...8.59......9..564...4.87.5..67.....4......9..3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 15488,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-015724",
+    "puzzle": "98.76.5..7.54..9...64......8.657.....5.9...7.....84....48...7........6.3.......82",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 15724,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-015960",
+    "puzzle": "987......6..8...........5..5.4.3.21....1..4.3.....2.58.3.2.584.....41.32......1..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 15960,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-016196",
+    "puzzle": "9876.....6.....9..54.78.6..7.....32....3..8.6...2...97.7.86.......9.3.......27..3",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 16196,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-016431",
+    "puzzle": "9876........95........4....89....3..6.3..72...........2.9.7.63..6.3..8.2.3.2...97",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 16431,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-016667",
+    "puzzle": "9876.....65.............4..7...3.2...6.9.4....3.27..6..7......3..9....2...34..9.7",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 16667,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-016903",
+    "puzzle": "9876.....5.....4...........8...6.37.34.2.78.6.7.....424.83..72...38..6......42...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 16903,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-017139",
+    "puzzle": "9876.....5.....4...3.......64.....952..4..7.6...56.2...7.2..95..2579.6.4..9......",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 17139,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-017374",
+    "puzzle": "98.76.5..7....9....46......56.9.7....9845......7.86.5...9...4.3...8.4.........2.1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 17374,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-017610",
+    "puzzle": "98.76.5..7.4.......5...9...6......75.....439.......2..49.8.6.....75...8.....47.6.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 17610,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-017846",
+    "puzzle": "98765....6...43......8.....89....6....2....7.....2.5..57....98.2..7...56.6......2",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 17846,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-018082",
+    "puzzle": "987......6..5......4.......7...6593.3..2.9.75.9....2...3.9.752....62.........3.6.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 18082,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-018317",
+    "puzzle": "98765....64.........3......7....5....9..2.5...2..9673...9.672.5..2.3.96........73",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 18317,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-018553",
+    "puzzle": "98765....4..3.28.....9...6.89....6.45.......7.76.4.5...5....9.8...7....6.......4.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 18553,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-018789",
+    "puzzle": "98765....4.....6...3.......56.....4.29..457.6...96.25..74.2.5...2..7.9.4.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 18789,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-019025",
+    "puzzle": "98.76.5..7.54......64.5....4..89..6.....47.5...........9.........69.532....68..7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 19025,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-019260",
+    "puzzle": "987......6..5......4........6.75.32.....136.......2.71..63.12.7..326.15.....7....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 19260,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-019496",
+    "puzzle": "9876.....54.............6..7..35.2...5..69....3.7.2.9..6....5.2..3...97........36",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 19496,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-019732",
+    "puzzle": "98.76.5..7.45..6...........8.....4...9...732....69..576....5...54.98.....7.4.6...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 19732,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-019968",
+    "puzzle": "987......6..8...........5...4.38..2..1.2.53.4.....1.85..3.2845....4..8.1.......32",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 19968,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-020203",
+    "puzzle": "987......6...........85.....4.3.821..2..1.4.3...42..58...58.32....2.1.84.....31..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 20203,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-020439",
+    "puzzle": "98.76.5..74.8.5.6.....49...8.6.9...7..7..49.8.......5.36.......2.8............4.6",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 20439,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-020675",
+    "puzzle": "9876.....54....3....2......8..35.64.6.....8.5..5....9...4.9.58....8.3......54...6",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 20675,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-020911",
+    "puzzle": "98.76.5..5..4.8.......5..9.85......4.39.4...2..2......3....2..9.4.....3.......8.5",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 20911,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-021146",
+    "puzzle": "987......65..........6.....4..32.71....7.62.4.....1.63..143...2...1.247.....67.31",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 21146,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-021382",
+    "puzzle": "98.76....7.54......64..97..59..86.....857..6...79.4.8.4.....8.3.....5.........2.1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 21382,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-021618",
+    "puzzle": "98.76.5..7.45..6.......8...64...7...5.89......794...6.4.7...8......9...3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 21618,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-021854",
+    "puzzle": "98.76.5..7.5.......4...98..65....73.......4.9.......2..9.4.6....6785...4....97.5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 21854,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-022089",
+    "puzzle": "98.76.5..7.5...6...64.8....45....96...6..97.........48...83.......6.7.......2485.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 22089,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-022325",
+    "puzzle": "98765....6..4.38...........86....72.7.9.2.5...5.....9.59.2..68.2..9...57.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 22325,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-022561",
+    "puzzle": "98.76.5..7.59.4.....6..8...6..5.9...4...76.98..78.......4............6.3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 22561,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-022797",
+    "puzzle": "98.76.5..5.74.8....4..5.8..6......8..75.9......46.5....69...........4..3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 22797,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-023032",
+    "puzzle": "98.76.54.7.5.9.....6.......4....8......37.49....24.....7.8..6...49...85......5.7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 23032,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-023268",
+    "puzzle": "98.76.5..7.5.......64.8.9..5..6..8....9..465........74...34.......2.649.....58...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 23268,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-023504",
+    "puzzle": "98.76.5..7.4.5.6.....4...7.6.894...559........47.....8...89.3.7......2.........64",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 23504,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-023740",
+    "puzzle": "987......65.9.......4......4.....63.39.....72......4.9.7..3......962.3....64.792.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 23740,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-023975",
+    "puzzle": "987......6...........85....4..58.32....3....5....21.84.4.1..2.8.1.24..53....38.1.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 23975,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-024211",
+    "puzzle": "9876.....654...............5.....63.3......98..6...2.5.9.35..62.639.25.......8...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 24211,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-024447",
+    "puzzle": "9876.....5..............4..8..73..2..7....3.6.2...478...3..6......38.67.....2..4.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 24447,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-024683",
+    "puzzle": "98.76.5..7...5.6.....4...7.6.......55.894.....47.....8..9....64...89.3.7......2..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 24683,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-024918",
+    "puzzle": "98765....64.......3........5.....96.29.36.5.7.......32.7.2....9...79..56....3....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 24918,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-025154",
+    "puzzle": "9876.....5..8...........6...4.32..81...1.42......863.4..32.18.6.....841........32",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 25154,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-025390",
+    "puzzle": "987......6..85....4.........3..821.....63.85....1...32...52..81...3..62.....165..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 25390,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-025626",
+    "puzzle": "98.76.5..7.54.89...4..9....65..87...4.8..9.7..9.5......6............4..3.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 25626,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-025861",
+    "puzzle": "98.76.5..7.45.9....6...8...89.............32........1.6...7....5.89.6..4.794....5",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 25861,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-026097",
+    "puzzle": "98.76.5..7.54..9...4.......8.4...7.....6...83......6.26.857.....5.9...7.....84...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 26097,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-026333",
+    "puzzle": "98765....4.....6...3.......5......942...6.7.5.9.54.2...7..2.94..2.97.5.6.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 26333,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-026569",
+    "puzzle": "98765....64..328.......7...49.5......78...45...6....9..6...578..5...9.64.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 26569,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-026804",
+    "puzzle": "98765....64................7.....3..52.....96.9.26.75..3.7..92...2.9.......32.6.5",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 26804,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-027040",
+    "puzzle": "9876.....5..43.......8.75..85....27.7.6.......29...6..6.....85.2.....7.9.....9.2.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 27040,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-027276",
+    "puzzle": "98.76.5..7.....69..5...4...64..5.8...7968.......4........97.3.4......2.........68",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 27276,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-027512",
+    "puzzle": "9876.....65................4..37.9...2.....6....2..4.3.4.9.273...943...2..2.67...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 27512,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-027747",
+    "puzzle": "987......6..8...........5...4.32.....1..5842......1.38..42.385.....45.13......2.4",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 27747,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-027983",
+    "puzzle": "9876.....54.........3......8...5.6..6..48.92....2......9.....42..4.6289....94.5.6",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 27983,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-028219",
+    "puzzle": "98.76.5..7.45..6......4....6...7....45.98...........5...7...89....4..3.2....96.7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 28219,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-028455",
+    "puzzle": "9876.....5.....4...3.......7..4..26.29.56.7.........59.7.2.49.5.2.79.64..........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 28455,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-028690",
+    "puzzle": "987......6..8...........5..4.32..81.....1.4.2.......53.1.3.42.....12..48....5813.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 28690,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-028926",
+    "puzzle": "987......6...........5......4.35.21....8.2.43....1.8.5..243.1.8..1.2..3......5..4",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 28926,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-029162",
+    "puzzle": "98.76.5..7.64......43...2..2...34......67..3......5..4...3..4......2.3.5.......67",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 29162,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-029398",
+    "puzzle": "98765.......4..........3...87..6.9...95.2..76..2...85.25.....9..68....27......5.8",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 29398,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-029633",
+    "puzzle": "98765....64.3.29.......8...8......5.7.9...46..54...8..5..4..79.4..8..6....6......",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 29633,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-029869",
+    "puzzle": "98765....4.........3.......8..73.52.32...5.87.7....6.3..53.6.......8..76....2..5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 29869,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-030105",
+    "puzzle": "9876.....54....3....2......8..5..43....39.8.6.......95.9..6.....6483.95...84..6..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 30105,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-030341",
+    "puzzle": "98.76.5..7.4.59............6.794....54..8..6...8....7.....7439.......2.7.......85",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 30341,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-030576",
+    "puzzle": "98.76.5..7.6.4......3....2.4..5..2..2..67.3.4............4...32...25.7.6....3..5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 30576,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te2-045838",
+    "puzzle": ".......12......3.4....15.....51......6..57.8.18.69..7..7...6....98.7....6.1.8.9..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE2/puzzles.txt",
+    "source_sha256": "c0c0640b7764a28793dd7383a6171359c38d52dd6edf10717ab53ba841b0cb19",
+    "source_index_1based": 45838,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000001",
+    "puzzle": "987......6..95.....4.......3..21.65....5.3..2....96.31.3.1...2.....6.59.....2.1.3",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 1,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000113",
+    "puzzle": "98765....6...4.......3.....86..92....23.789...........29....86..7......3......2.7",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 113,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000225",
+    "puzzle": "987......6..5......4.......36.27.1..12..56.7......3......7.561....3..2.7....12.53",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 225,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000461",
+    "puzzle": "987......6..95.....4.......3..5.261....31........96.32.1.2....3..216.5.9....3.1..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 461,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000573",
+    "puzzle": "98.76.5..7.49......6..48...8......32.9.....1....58.4..6...5....5..89..76.7.......",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 573,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000684",
+    "puzzle": "98.76.5..7.58.4....46.9.7..8.4..6.7.6......9..975........4...32.....84.........5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 684,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000796",
+    "puzzle": "98.76.5..5.............98..43....7..2.7....6...157......9.1..8....9.56.1...68..7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 796,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-000908",
+    "puzzle": "98.76.5..7.58.4....4..958..59...8....64.79.....7.5..9.....46.........43........21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 908,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-001020",
+    "puzzle": "98.76.5..7.49..6......48...85.....32.9.....1....5..4..6...57...5..89..67.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 1020,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-001132",
+    "puzzle": "987.........96.8.......5...84...7...7.3.2.4...92..3.8.4.....37.2......98...3..2.4",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 1132,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-001244",
+    "puzzle": "987.........98.76........5.8.4.3.....9.42.....32..7...37..98.2.2...4...3.48......",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 1244,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-001356",
+    "puzzle": "98.76.5..7.54.9....64..8...8......53.9....8.2......47.6........4..89..67.7.5.....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 1356,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-001468",
+    "puzzle": "98.76.5..7.59.4.....6.85...8.7.5.....9...8.7..64.9........46.........43........21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 1468,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002283",
+    "puzzle": "98.76.5..7.5..86....4.59...89........4.....32.......6.6...4....4..98..7..7.6.5...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2283,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002395",
+    "puzzle": "9876.....54.7.......3...9..29....17..1..7.2.6.......93..129.73....1.........6..2.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2395,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002506",
+    "puzzle": "987......6..8...........5..4..3..28....42..15.....13.4.4.15..32.3.2.84.1......85.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2506,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002618",
+    "puzzle": "98.76.5..7.45......6..48...8.....93..9.....2......54.66........5..89..67.7.....5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2618,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002730",
+    "puzzle": "98.76.5..7.4..96....5.48...8.....93..9.....25......4.66...5.....7........4.89..67",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2730,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002842",
+    "puzzle": "98.76.5..7.54......64..9...6.........7.5........89..76.9....8.3....8546........52",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2842,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-002954",
+    "puzzle": "98.76....7.59..6....4.58...84....73..7.....24......5.66...4.....9.....4....87...9",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 2954,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003066",
+    "puzzle": "98.76.5..7.58.4....64.9.7..89.....3....4............2145.9.8..6...57.........6...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3066,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003178",
+    "puzzle": "9876.....5...8.....4....6..3.2.4..86...3....1....2.....3...4.6..1.86..23.....1..4",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3178,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003290",
+    "puzzle": "98.76.5..7.49..6...6..48...8......32.9.....1....5..4.66...57...54.89.....7.......",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3290,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003402",
+    "puzzle": "987......65.97......4.......9.34.72..2...7.31......9.4..1..32......2..13....1.47.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3402,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003514",
+    "puzzle": "98.76....7.59..6....4.58...8.....73....4.75.6.......246...4.....9.....4....87...9",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3514,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003625",
+    "puzzle": "98.76.5..7.54..6....4..9...6......5.4..89...7.7.5......9.....32....8.4.6.......1.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3625,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003737",
+    "puzzle": "98.76.5..7...4.......5.....6.9.......74.8..5..5.....67.68...9.5...8...32...4..81.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3737,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003849",
+    "puzzle": "98.76.5..7.59.4....46.85....7.4.6.8....8....9....59....64.....3.....7..........21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3849,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-003961",
+    "puzzle": "98765....4..8......3....5..2..3..85....2..6.1....1.....6.58.21..2.1.3.68......3..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 3961,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-004073",
+    "puzzle": "9876.....54....3....2.9....4..1.5.3.3..96..14....4.6.5...4..1.3...35..69....1....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 4073,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-004185",
+    "puzzle": "98.76.5..7.45.........4....6.8......54.98..7....4.6.5..9.....6....87.3.2......1.7",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 4185,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-004297",
+    "puzzle": "98.76.5..7.59.4.....6.85....9...7.8..64.98.....7.5........46.........63........21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 4297,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-004409",
+    "puzzle": "98.76.5..7.5.4.8...46......4..95.....79..4....6..87....9.....5......6.32......6.1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 4409,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-004521",
+    "puzzle": "98.76.5..7.64.58...54..9...8..9.....6.9.47.8...58.6...4.7..........7..32........1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 4521,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-004633",
+    "puzzle": "987......6...........85....4.....32....3...58...2..4.1.2.5.4.8..1..83..4...12..3.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 4633,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-005881",
+    "puzzle": "987......6...........85.....4.32.51..3.1.4.28....8......25...41...43...5....12.3.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 5881,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-005993",
+    "puzzle": "98.76.5..7.45..6...6..49...6...57...54.89.....7........9.....3.....8.4.7.......21",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 5993,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006105",
+    "puzzle": "98.76.5..4.7....6.....4....6.....89.5.9...6.4..8....75...6.5......32..8.....189..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6105,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006217",
+    "puzzle": "987......6..8...........5...4.32.15......5.43.....18.2..31...2....2.34.5....48.1.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6217,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006329",
+    "puzzle": "98.76.5..7.5..86....4.59...89........4.....32.......6.6...47.5.4..98...6.7...5...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6329,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006441",
+    "puzzle": "98.76.5..75..496...........32.....7.1.....86......4......98.7......57.48.....695.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6441,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006553",
+    "puzzle": "9876.....5...8.....4....6..3..2.......134.86.....1.2...2.86.13....1.24.......4.8.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6553,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006665",
+    "puzzle": "987......6..85......4......3..52.81.1...862.3.......6....61.5.8...2...36....3512.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6665,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006777",
+    "puzzle": "98.76.5..7.5.84....649.....5..4.9.7....87..9.....56...4.......3..6....21.....8.5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6777,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-006889",
+    "puzzle": "987......6...........5......4.35.72..3...4.1....1.2.....2.3..41...7.123.....4.5.7",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 6889,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-007000",
+    "puzzle": "987......6...........85.....4..3.21....2.8.43.....18.5..1..3.2....42...8...1.5.34",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 7000,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-007112",
+    "puzzle": "987......6..5......4.......36.72.1..12..563.......3......36..75...2.761.....1.2.3",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 7112,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-007224",
+    "puzzle": "98.76.5..75.4.98.......5...32.......1.....6...9..4.......95..64...8..7.5....7698.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 7224,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-007336",
+    "puzzle": "98.76.5..7.5.......64......8...96...5.6....4..7.54..8..9..........98.3.2....7...1",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 7336,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-monhard-te3-008991",
+    "puzzle": "..............1.23....451.6..45......78.149..15.9.87...41.57..959......78....9...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/Monhard-until-2023-08-15-TE23/TE3/puzzles.txt",
+    "source_sha256": "0fc9e6f84f6845c249452c4d88502ea037d27647cba791c3e0bd27485358131b",
+    "source_index_1based": 8991,
+    "attribution": "Hendrik Monhard, Aug2023 minimal puzzle collection; maintained/classified by Denis Berthier in Sudoku-classif; selected source SER>=11.7"
+  },
+  {
+    "id": "modern-mith-minimals-000001",
+    "puzzle": ".2......9....89132......56..3..9.47..87.24.9....3.......8.7.....92.43....4...8..3",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000044",
+    "puzzle": "....5.78.4.......6...23.1..2..39...569..45..2.356.....34..6..9.....2.......9..5..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 44,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000087",
+    "puzzle": "1.345........8.....891....4..4.1..9..95.38....1...4.5...8....15...39.6........23.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 87,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000130",
+    "puzzle": "12......94.71....6.69...1........4.1....62.97.7..4.62......8......9.5..4792.1....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 130,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000172",
+    "puzzle": ".2.45...94......3.6.9..2...2.6....1.3.5....78...5..4..5..36........9.6..9..2.43..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 172,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000215",
+    "puzzle": "1.3.5....4.6....3..89..1................7.4.3..7.6..153....7.4.6..31..57....45..6",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 215,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000258",
+    "puzzle": ".2...6...4......63..9.37..........76.16.7.5....5...1.4.....1.4.7...45..1...36..57",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 258,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000301",
+    "puzzle": ".....6......18.2.3.9..37...2.9...8.........4.84.3..1..38....9...14..8.2.9...4....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 301,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000344",
+    "puzzle": ".234.6..94.7..9....9............4...76.3.2.9...497..2.3.6.....2...6.781.......5..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 344,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000387",
+    "puzzle": ".2.4.67......892.6...27....24.69....3.5.....8..1...4.........4.8.6...9.7...8.7..2",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 387,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000430",
+    "puzzle": "...4.6.8.........6....72.45..47.8...73.......895.......468.5.27..2.47.6.......5..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 430,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000472",
+    "puzzle": ".23......4..7......89....46.15.6..74......8.5.4.....1....8.5.6....61...88...47.51",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 472,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000515",
+    "puzzle": "12...6..9.57..9...6.92.....2.5....67...5...........34.....95.......1.6..97.6.2.1.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 515,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000558",
+    "puzzle": ".23...7.....1.9..6.....3.4529.7...1...1..8.....89...237.2.1.8......9.....3.8.....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 558,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000601",
+    "puzzle": "......78.4..1...368...7.1.4..5..8...3.1...6..79...4....348...61....41......36..7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 601,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000644",
+    "puzzle": "1..4.6.8.......2..6.8.72.1.2.5......3.9.....7..1.67.......2867......1.4.....4.1.8",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 644,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000687",
+    "puzzle": "1....678..5....2.6.....2.152..67.8.1.........87.21....56.94....78.3..........76..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 687,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000730",
+    "puzzle": "....5.78....1..2.6...7...1.....67..171.82..5.8..5.....386..5.....2......94.6.8...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 730,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000772",
+    "puzzle": "1.3.5.7....7.8..3686......5.........53...1.687.6....1......58..67...3......24..5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 772,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000815",
+    "puzzle": "...4.67.9.......3..8......526..48....7..9.4.......78...47.62.98.9......48.2......",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 815,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000858",
+    "puzzle": "..3.5678...718..3......71..24........3...5...9.....56.36...8.7..........87..3165.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 858,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000901",
+    "puzzle": "123.....9...7......8.....542.1..8....7.3.2..6.6.17......7......6...318..8..6..2..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 901,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000944",
+    "puzzle": "...4...8..5..8923..9...35.423.....98.46......9.1........2..594.....9........428.3",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 944,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-000987",
+    "puzzle": "1..4.6.894.6..91.2...21........98..6...64.9.....1.2..4..7.....169.8.......5...2..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 987,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001030",
+    "puzzle": "1...56......18....6.87.2.5.2.....973.....7..85.....42.76.........2..1..5..162.8..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1030,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001072",
+    "puzzle": "1..4.6.8.4..18.2.6....27...23....8..7....2....65...4........6....62.817...16...4.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1072,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001115",
+    "puzzle": "1..4.6.8.........68...27.1..3..7....7.5............42..7..416.....2.81....2....48",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1115,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001158",
+    "puzzle": "...4.6.8.........6....37.4121......7.4.81....9.........7..4186..6.3.8.7.......1.3",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1158,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001201",
+    "puzzle": "....56......7..123.........2.1...9...3....4...493...7.......29..1..943...7..2..14",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1201,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001244",
+    "puzzle": "...4.67.9......23..8........91..8.7..........87...416..4.9.7...71.86...49....1...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1244,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001287",
+    "puzzle": ".234......5.78....7.........14.....8...94.6.......1......69.84.6...7.9.19..1...7.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1287,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001330",
+    "puzzle": "...456.........2..86.....1..8....37..34......7.6..584.34.5.8........7....7563....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1330,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001372",
+    "puzzle": "......7.9.571...36.6937..5....6...17...5..3......916....8...9.1..2.......7..13...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1372,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001415",
+    "puzzle": "......789...1...36.89...5.1.3..91.....83......4.6.8.......6.....61..4..389...3..4",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1415,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001458",
+    "puzzle": "....56....571...3.6..3.7.1....8.59.....6.1.528......7..3......87.8.......165.8...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1458,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001501",
+    "puzzle": "....56.8...718..3.6..3.7.1.......9.....6.1..28.5....7.53......87.8.......165.....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1501,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001544",
+    "puzzle": "1.3.56....57.8....68...7....31..58..76.8.13.....6...........5.7....6394.....1..2.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1544,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001587",
+    "puzzle": ".23....8945.........932.4.5.9......334...58.2.........5..6........2.8594....74...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1587,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001630",
+    "puzzle": ".234...89.5.........932.4.5.9......334...58.2.........5.46........2.8.9.....74...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1630,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001672",
+    "puzzle": ".2.4.6.89....891.2....1..4..18.....636.89......5........4.6..91.....2...8...4..6.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1672,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001715",
+    "puzzle": "1.3....8..571...3668.............3.75.8.7..1.....6..5....5.28......341.5...71....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1715,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001758",
+    "puzzle": ".23...7.9.5.1.....689.............13.....492..1.9.34.7..27.1..4...39......1.4237.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1758,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001801",
+    "puzzle": "12....7....7.8...3.......15...83.......9615.2...5.21.858...3.21.3....8.77......5.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1801,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001844",
+    "puzzle": "......78....1.923....2...1529.8..6...716..8..8....7....1.......7.89.2....6271....",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1844,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001887",
+    "puzzle": ".23....8.4...8..3686..7....23.94........3..47...5.1...37.6.8.24...7......8....6..",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1887,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001930",
+    "puzzle": "1.3.5.7.9.........69..7...5...93..67.......12.1....4..53.71..9.7..6.3....61..5...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1930,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-001972",
+    "puzzle": ".2.45.....5......36.9...4............7.2.5.41.1..34..77.....1.2...5.1.74..1.2735.",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 1972,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-002015",
+    "puzzle": "1....6...457...2..9.....51..3.5.86......128.....63...23...6.1...........6.182.3.5",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 2015,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-002058",
+    "puzzle": "..3....8.4.7.....668.73.....6....3.8..5....47.7...465..3691.........5....482.3...",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 2058,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  },
+  {
+    "id": "modern-mith-minimals-002101",
+    "puzzle": "....567.94...8......921.....47.....65....749.96...5..33......546...3.9.7.........",
+    "source_url": "https://raw.githubusercontent.com/denis-berthier/Sudoku-classif/15c9d217b08d2d3ebf0f147d4f7c0beb5c2fcdb2/mith-158276-TE3/Sample500/minimals.txt",
+    "source_sha256": "70ab1ad899500e440e15eb70bb7e91a5b57805f6ccee7eafa658bfd173cd532a",
+    "source_index_1based": 2101,
+    "attribution": "Philip Newman (mith), post2022 T&E3 collection; minimal reconstructions and classification by Denis Berthier in Sudoku-classif Sample500/minimals.txt"
+  }
+]

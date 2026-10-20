@@ -1,0 +1,24 @@
+{
+  "relaxation": "native-single-digit-template-v1",
+  "compatible_templates_by_digit": [
+    451,
+    96,
+    96,
+    451,
+    96,
+    451,
+    451,
+    451,
+    96
+  ],
+  "template_universe_count": 46656,
+  "columns": 2639,
+  "status": "exact rational primal verified",
+  "check": {
+    "template_terms": 49,
+    "equalities": 90,
+    "implied_native_equalities": 324,
+    "max_denominator": 117294
+  },
+  "seconds": 0.32807037499999997
+}

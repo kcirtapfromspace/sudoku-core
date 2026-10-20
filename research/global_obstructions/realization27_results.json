@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "seed_start": 61481,
+  "requested_samples": 5000,
+  "seconds": 16.085117083,
+  "counts": {
+    "distinct-compatible-completions": 4999,
+    "maximal-outside-nonunique": 4999,
+    "completion-generation-attempts": 5000,
+    "duplicate-completions": 2
+  },
+  "command": "research/global_obstructions/realization27_search.py --samples 5000 --seconds 360 --output-dir target/realization27-completions",
+  "source_fixture_sha256": "45f2569ae147d08ae62e0340e3bdf62780a508486264e0cb7dc6b383b510894b",
+  "core": [
+    0,
+    2,
+    3,
+    8,
+    9,
+    14,
+    15,
+    16,
+    31,
+    33,
+    34,
+    38,
+    40,
+    41,
+    44,
+    45,
+    50,
+    52,
+    58,
+    63,
+    65,
+    66,
+    69,
+    74,
+    75,
+    78,
+    79
+  ],
+  "palette": [
+    2,
+    3,
+    5,
+    9
+  ],
+  "guardian": 41,
+  "extra": 1,
+  "scope": "All27 support cells excluded from givens; randomized domain-compatible completions, maximal54outside uniqueness test, then uniqueness-preserving clue deletion and full-old/local closure only for unique endpoints.",
+  "limitation": "Finite randomized completion sample; nonunique maximum implies impossibility only for that completion, not for every compatible completion.",
+  "public_manifest": {
+    "file": "realization27_trials.jsonl",
+    "records": 4999,
+    "bytes": 469902,
+    "sha256": "466d352122f30554a64d3d8420b01d862cf2d5f20b2721558a011471dcf275b9",
+    "array_fields": [
+      "seed_zero_means_stored_completion",
+      "compatible_completion",
+      "solutions_capped_at_2"
+    ],
+    "meaning": "Recorded discovery classifications. The checker validates completion legality and counts; it does not independently recount all4999 maximum-clue puzzles."
+  },
+  "duplicate_generation_seeds": [
+    62002,
+    63748
+  ],
+  "exact_controls": {
+    "file": "realization27_results_controls.json",
+    "sha256": "700e87220e20f880140eadbc2129c10eb4ae6bef507d8e6384a8bcc4b24cc8a6"
+  },
+  "all_unclued_unique_tier": "No candidate reached uniqueness; hence full-older-engine comparison was not eligible and no stall is claimed.",
+  "exact_full_palette_theorem": "Every outside cell sees a support cell. A palette given would remove a required support candidate, and monotone earlier deletions cannot restore it. Thus all givens omit allfourpalette symbols; their24 relabelings preserve givens and disprove uniqueness for any completion.",
+  "stronger_support_trade_result": "The separate structural exhaustive certificate proves no unique compatible completion exists for outside-only clues even when support lists shrink. Sampled negatives alone are not this universal proof."
+}

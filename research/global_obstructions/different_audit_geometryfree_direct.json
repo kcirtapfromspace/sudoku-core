@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "total_screened": 20,
+  "direct_full_state_Loki12_count": 18,
+  "key_cases": [
+    {
+      "file": "target/different-structural-screened/candidate-00.json",
+      "classification": "known-pattern",
+      "tridagon_matches": [
+        {
+          "family": "published-Loki-12-cell-tridagon",
+          "palette": [
+            6,
+            7,
+            9
+          ],
+          "cells": [
+            31,
+            35,
+            41,
+            42,
+            48,
+            52,
+            59,
+            60,
+            67,
+            70,
+            75,
+            80
+          ],
+          "known_to_candidate_mapping": [
+            [
+              32,
+              31
+            ],
+            [
+              33,
+              35
+            ],
+            [
+              40,
+              41
+            ],
+            [
+              43,
+              42
+            ],
+            [
+              48,
+              48
+            ],
+            [
+              53,
+              52
+            ],
+            [
+              57,
+              75
+            ],
+            [
+              60,
+              80
+            ],
+            [
+              67,
+              59
+            ],
+            [
+              70,
+              60
+            ],
+            [
+              77,
+              67
+            ],
+            [
+              80,
+              70
+            ]
+          ],
+          "actual_domains": [
+            288,
+            352,
+            288,
+            352,
+            64,
+            288,
+            288,
+            352,
+            64,
+            288,
+            288,
+            352
+          ],
+          "primary_source": {
+            "author": "Denis Berthier",
+            "repository": "denis-berthier/CSP-Rules-Examples",
+            "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+            "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+            "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+            "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+            "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+          },
+          "mapping_visits": 13
+        }
+      ]
+    },
+    {
+      "file": "target/different-structural-screened/candidate-12.json",
+      "classification": "known-pattern",
+      "tridagon_matches": [
+        {
+          "family": "published-Loki-12-cell-tridagon",
+          "palette": [
+            6,
+            7,
+            9
+          ],
+          "cells": [
+            31,
+            35,
+            41,
+            42,
+            48,
+            52,
+            59,
+            60,
+            67,
+            70,
+            75,
+            80
+          ],
+          "known_to_candidate_mapping": [
+            [
+              32,
+              31
+            ],
+            [
+              33,
+              35
+            ],
+            [
+              40,
+              41
+            ],
+            [
+              43,
+              42
+            ],
+            [
+              48,
+              48
+            ],
+            [
+              53,
+              52
+            ],
+            [
+              57,
+              75
+            ],
+            [
+              60,
+              80
+            ],
+            [
+              67,
+              59
+            ],
+            [
+              70,
+              60
+            ],
+            [
+              77,
+              67
+            ],
+            [
+              80,
+              70
+            ]
+          ],
+          "actual_domains": [
+            288,
+            352,
+            352,
+            352,
+            352,
+            288,
+            288,
+            352,
+            64,
+            288,
+            288,
+            352
+          ],
+          "primary_source": {
+            "author": "Denis Berthier",
+            "repository": "denis-berthier/CSP-Rules-Examples",
+            "commit": "fd9207f8dc1eb6e2e655048ba3b327d423900e1b",
+            "path": "Sudoku-a/Tridagons/Loki-11.9.clp",
+            "url": "https://github.com/denis-berthier/CSP-Rules-Examples/blob/fd9207f8dc1eb6e2e655048ba3b327d423900e1b/Sudoku-a/Tridagons/Loki-11.9.clp",
+            "sha256": "2fe5fd86766746b9045037fd7093ea7c16c1913bdf209a04dada78b25910c9d1",
+            "attribution": "Published established tridagon example and solving trace; puzzle from mith collections, as attributed in source."
+          },
+          "mapping_visits": 13
+        }
+      ]
+    }
+  ],
+  "scope": "Direct full-opposite-state motifs; these can use cells outside the selected geometry-free support."
+}

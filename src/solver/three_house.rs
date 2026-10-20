@@ -75,13 +75,13 @@ pub struct ThreeHouseSearchResult {
     pub error: Option<String>,
 }
 
-struct Layout {
+pub(super) struct Layout {
     houses: [usize; 3],
-    atoms: [Vec<usize>; 6],
-    cells: Vec<usize>,
+    pub(super) atoms: [Vec<usize>; 6],
+    pub(super) cells: Vec<usize>,
 }
 impl Layout {
-    fn new(center: usize) -> Option<Self> {
+    pub(super) fn new(center: usize) -> Option<Self> {
         if center >= 81 {
             return None;
         }
@@ -124,7 +124,7 @@ fn state_hash(state: &CandidateState) -> String {
 
 /// Visit all signatures allowed by the center domain. Returning false stops.
 /// Digit masks indexed by atom: d, A, B, U\(d+A), U\(d+B), U\(d+A+B).
-fn signatures(center: u16, mut visit: impl FnMut([u16; 6]) -> bool) -> bool {
+pub(super) fn signatures(center: u16, mut visit: impl FnMut([u16; 6]) -> bool) -> bool {
     for digit in 0..9 {
         let d = 1 << digit;
         if center & d == 0 {
@@ -370,6 +370,76 @@ fn hall_subset(cells: &[usize], domains: &[u16], digits: u16) -> Option<u8> {
         }
     }
     None
+}
+
+// Search-side native propagation shared with the forcing proof producer.
+// The forcing checker uses its own Hall-subset implementation instead of DP.
+pub(super) fn house_domain_support(domains: &[u16], sector: usize) -> Option<Vec<u16>> {
+    if sector >= 27 {
+        return None;
+    }
+    let cells = sector_cells(sector);
+    let local: Vec<_> = cells.iter().map(|&c| domains[c]).collect();
+    let matched = matching(&local, ALL)?;
+    let mut result = domains.to_vec();
+    for (&cell, mask) in cells.iter().zip(matched.support) {
+        result[cell] = mask;
+    }
+    Some(result)
+}
+
+pub(super) fn domain_support(domains: &[u16], center: usize) -> Option<Vec<u16>> {
+    let layout = Layout::new(center)?;
+    let mut matches = Matches::new(&layout, domains);
+    let mut support = domains.to_vec();
+    for &cell in &layout.cells {
+        support[cell] = 0;
+    }
+    let mut feasible = false;
+    signatures(domains[center], |sets| {
+        if (0..6).any(|atom| matches.get(atom, sets[atom]).is_none()) {
+            return true;
+        }
+        feasible = true;
+        for (atom, digits) in sets.into_iter().enumerate() {
+            for (&cell, &mask) in layout.atoms[atom]
+                .iter()
+                .zip(&matches.get(atom, digits).unwrap().support)
+            {
+                support[cell] |= mask;
+            }
+        }
+        true
+    });
+    feasible.then_some(support)
+}
+
+pub(super) fn contradiction_cover(domains: &[u16], center: usize) -> Option<Vec<HallObstruction>> {
+    let layout = Layout::new(center)?;
+    let mut matcher = Matches::new(&layout, domains);
+    let mut recorded = [[false; 512]; 6];
+    let mut blockers = Vec::new();
+    let refuted = signatures(domains[center], |sets| {
+        for atom in 1..6 {
+            let digits = sets[atom];
+            if matcher.get(atom, digits).is_none() {
+                if !recorded[atom][usize::from(digits)] {
+                    let Some(cells) = hall_subset(&layout.atoms[atom], domains, digits) else {
+                        return false;
+                    };
+                    blockers.push(HallObstruction {
+                        atom: atom as u8,
+                        digits,
+                        cells,
+                    });
+                    recorded[atom][usize::from(digits)] = true;
+                }
+                return true;
+            }
+        }
+        false
+    });
+    (refuted && domains[center] != 0).then_some(blockers)
 }
 
 fn build_proof(

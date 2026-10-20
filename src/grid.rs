@@ -244,6 +244,14 @@ impl Grid {
         self.cells[pos.row][pos.col].set_value(value);
     }
 
+    /// Place a solver deduction without restoring any previously removed candidate.
+    /// Editing and clearing remain separate operations; solver callers must use
+    /// this only for a new, candidate-supported value.
+    pub(crate) fn place_solver_value(&mut self, pos: Position, value: u8) {
+        self.set_cell_unchecked(pos, Some(value));
+        self.update_candidates_after_move(pos, value);
+    }
+
     /// Set a cell as a given (part of the puzzle)
     pub fn set_given(&mut self, pos: Position, value: u8) {
         self.cells[pos.row][pos.col] = Cell::new_given(value);

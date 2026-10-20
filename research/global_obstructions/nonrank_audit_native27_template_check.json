@@ -1,0 +1,14 @@
+{
+  "result": "exact feasible full single-digit-template LP",
+  "digit_masses": 9,
+  "cell_coverages": 81,
+  "projected_native_equalities": 324,
+  "terms": 49,
+  "mutations_rejected": 12,
+  "source_fixture": "nonrank_graph_native27_candidate.json",
+  "source_fixture_sha256": "45f2569ae147d08ae62e0340e3bdf62780a508486264e0cb7dc6b383b510894b",
+  "state_hash": "588a9088a91ceb03ae4366167bff6671d38cfc00aaccee140c656605c39c9d0e",
+  "independent_base_trace_events": 13,
+  "independent_assumption_trace_events": 4,
+  "hall_all81_fixedpoint_verified": true
+}
