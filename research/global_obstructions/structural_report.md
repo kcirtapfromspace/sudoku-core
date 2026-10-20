@@ -12,6 +12,11 @@ inequality. The exact historical status of this native 13-cell motif has not
 been established. In particular, a lack of matching search results does not
 prove priority or that higher chromatic Sudoku patterns are under-examined.
 
+The follow-up [prior-art audit](prior_art_13_report.md) identifies the entire
+necessary obstruction as a spanning seven-hyperhole with six extra native
+edges, and maps its assumed-state logic to established grouped Nice Loops.
+Those exact equivalences explain the proof without a new mathematical rule.
+
 ## Exact fixture and proof
 
 [`structural_four_digit_13.json`](structural_four_digit_13.json) records the

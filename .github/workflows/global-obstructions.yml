@@ -39,3 +39,8 @@ jobs:
           python3 research/global_obstructions/real_verify.py
           python3 research/global_obstructions/audit_linear_witnesses.py
           python3 research/global_obstructions/audit_global_certificates.py
+          python3 research/global_obstructions/expanded_unique_verify.py
+          python3 research/global_obstructions/prior_art_13_verify.py
+          python3 research/global_obstructions/expanded_motif_verify.py
+          python3 research/global_obstructions/expanded_modern_corpus.py
+          python3 research/global_obstructions/expanded_cover_verify.py

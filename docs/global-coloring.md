@@ -19,6 +19,9 @@ methods can still explain the deductions.
 Graph coloring, exhaustive refutation, guardian patterns and stable-set rank
 inequalities have substantial prior art. **Historical mathematical novelty is
 not established.** See the [independent prior-art audit](../research/global_obstructions/audit_prior_art.md).
+The [expanded motif audit](../research/global_obstructions/prior_art_13_report.md)
+identifies an exact spanning seven-hyperhole and a grouped-loop derivation of
+the thirteen-cell example; its mathematical obstruction is an established one.
 
 ## A four-digit obstruction with a short proof
 
@@ -183,6 +186,16 @@ singles methods. It is retained as a negative control for additional engine
 benefit. All these recorded states satisfy the specified local and exact LP
 filters, and the certificates do not rely on uniqueness. Neither generated
 board is presented as a published author-source puzzle.
+
+A later [29-given generated puzzle](../research/global_obstructions/expanded_unique_nonforcing.json)
+has an independently checked unique solution and retains r2c8=1 beyond the
+older nonforcing fixed point and default Arithmetic Counting. Its opposite
+branch passes the same local filters, all 2,925 triple feasibility checks, and
+an exact half-integral native LP witness. The existing Global Coloring search
+certifies the placement with a 74-node tree. The full older dispatcher finds
+Nishio r4c6!=4, so this is a unique **nonforcing gap**, not a full-old-method
+stall. The [expanded search report](../research/global_obstructions/expanded_search_report.md)
+records the broader experiment and stronger target separately.
 
 The [research index](../research/global_obstructions/README.md) lists exact
 verifiers, primary sources, rejected examples, discovery counts and limits.

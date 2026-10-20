@@ -1,0 +1,549 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "0532d63d9241a69c1fb57e9c34a1533effe1981d",
+  "corpus_sha256": "9798b08806426b58a1cf96463ce68c902666e7f5de6552b9a1b5dee6f2ced42e",
+  "counts": {
+    "puzzles_tested": 106,
+    "independently_unique": 106,
+    "joint_baseline_solved": 76,
+    "joint_baseline_stalled": 30,
+    "components_outside_5_to_24": 32107,
+    "component_presentations": 4943,
+    "uniform_four_colorable": 4943
+  },
+  "records": [
+    {
+      "id": "norvig-top95-001",
+      "joint_trace_events": 57,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-002",
+      "joint_trace_events": 57,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-003",
+      "joint_trace_events": 45,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-004",
+      "joint_trace_events": 62,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-005",
+      "joint_trace_events": 31,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-006",
+      "joint_trace_events": 54,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-007",
+      "joint_trace_events": 23,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-008",
+      "joint_trace_events": 25,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-009",
+      "joint_trace_events": 23,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-010",
+      "joint_trace_events": 25,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-011",
+      "joint_trace_events": 25,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-012",
+      "joint_trace_events": 11,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-013",
+      "joint_trace_events": 15,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-014",
+      "joint_trace_events": 36,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-015",
+      "joint_trace_events": 55,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-016",
+      "joint_trace_events": 26,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-017",
+      "joint_trace_events": 17,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-018",
+      "joint_trace_events": 63,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-019",
+      "joint_trace_events": 22,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-020",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-021",
+      "joint_trace_events": 60,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-022",
+      "joint_trace_events": 14,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-023",
+      "joint_trace_events": 52,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-024",
+      "joint_trace_events": 53,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-025",
+      "joint_trace_events": 24,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-026",
+      "joint_trace_events": 57,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-027",
+      "joint_trace_events": 54,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-028",
+      "joint_trace_events": 28,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-029",
+      "joint_trace_events": 12,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-030",
+      "joint_trace_events": 71,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-031",
+      "joint_trace_events": 18,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-032",
+      "joint_trace_events": 15,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-033",
+      "joint_trace_events": 49,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-034",
+      "joint_trace_events": 50,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-035",
+      "joint_trace_events": 9,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-036",
+      "joint_trace_events": 46,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-037",
+      "joint_trace_events": 54,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-038",
+      "joint_trace_events": 14,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-039",
+      "joint_trace_events": 17,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-040",
+      "joint_trace_events": 13,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-041",
+      "joint_trace_events": 34,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-042",
+      "joint_trace_events": 69,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-043",
+      "joint_trace_events": 44,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-044",
+      "joint_trace_events": 42,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-045",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-046",
+      "joint_trace_events": 28,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-047",
+      "joint_trace_events": 55,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-048",
+      "joint_trace_events": 17,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-049",
+      "joint_trace_events": 61,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-050",
+      "joint_trace_events": 28,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-051",
+      "joint_trace_events": 12,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-052",
+      "joint_trace_events": 22,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-053",
+      "joint_trace_events": 9,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-054",
+      "joint_trace_events": 2,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-055",
+      "joint_trace_events": 12,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-056",
+      "joint_trace_events": 7,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-057",
+      "joint_trace_events": 57,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-058",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-059",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-060",
+      "joint_trace_events": 10,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-061",
+      "joint_trace_events": 50,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-062",
+      "joint_trace_events": 56,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-063",
+      "joint_trace_events": 51,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-064",
+      "joint_trace_events": 13,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-065",
+      "joint_trace_events": 25,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-066",
+      "joint_trace_events": 20,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-067",
+      "joint_trace_events": 70,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-068",
+      "joint_trace_events": 48,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-069",
+      "joint_trace_events": 6,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-070",
+      "joint_trace_events": 12,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-071",
+      "joint_trace_events": 40,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-072",
+      "joint_trace_events": 8,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-073",
+      "joint_trace_events": 66,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-074",
+      "joint_trace_events": 57,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-075",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-076",
+      "joint_trace_events": 60,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-077",
+      "joint_trace_events": 36,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-078",
+      "joint_trace_events": 43,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-079",
+      "joint_trace_events": 70,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-080",
+      "joint_trace_events": 52,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-081",
+      "joint_trace_events": 8,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-082",
+      "joint_trace_events": 6,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-083",
+      "joint_trace_events": 31,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-084",
+      "joint_trace_events": 50,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-085",
+      "joint_trace_events": 18,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-086",
+      "joint_trace_events": 19,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-087",
+      "joint_trace_events": 10,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-088",
+      "joint_trace_events": 19,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-089",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-090",
+      "joint_trace_events": 16,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-091",
+      "joint_trace_events": 18,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-092",
+      "joint_trace_events": 16,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-093",
+      "joint_trace_events": 12,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-top95-094",
+      "joint_trace_events": 14,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-top95-095",
+      "joint_trace_events": 53,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-001",
+      "joint_trace_events": 55,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-002",
+      "joint_trace_events": 5,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-hardest-003",
+      "joint_trace_events": 17,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-hardest-004",
+      "joint_trace_events": 60,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-005",
+      "joint_trace_events": 49,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-006",
+      "joint_trace_events": 3,
+      "status": "nonforcing/local fixed point"
+    },
+    {
+      "id": "norvig-hardest-007",
+      "joint_trace_events": 33,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-008",
+      "joint_trace_events": 20,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-009",
+      "joint_trace_events": 11,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-010",
+      "joint_trace_events": 15,
+      "status": "solved by older nonforcing plus local closure"
+    },
+    {
+      "id": "norvig-hardest-011",
+      "joint_trace_events": 8,
+      "status": "nonforcing/local fixed point"
+    }
+  ],
+  "candidates": [],
+  "seconds": 43.224661999999995,
+  "scope": "First N committed Norvig corpus entries; joint old nonforcing/local closure; all four-digit palettes, single guardians and entire connected components of 5..24 unplaced cells; uniform non-four-colorability required. Numerical LP is discovery only."
+}

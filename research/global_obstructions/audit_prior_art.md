@@ -5,6 +5,12 @@ failed-literal refutation, impossible patterns with guardians, and nonlinear
 graph certificates are established methods. The purpose here is to preserve
 precise, independently checked evidence about specified finite relaxations.
 
+The follow-up [exact 13-cell motif audit](prior_art_13_report.md) goes further:
+it maps a 29-edge spanning subgraph to an established seven-hyperhole and checks
+a grouped discontinuous-loop derivation after the guardian-false assumption.
+See the [expanded search report](expanded_search_report.md) for the later unique
+nonforcing-gap puzzle and the separate, stronger full-old-engine target.
+
 ## Exact LP acceptance criterion
 
 [`linear_witness.py`](linear_witness.py) checks a rational value for every
@@ -145,10 +151,15 @@ their derivation from givens is a separate obligation.
 The original four Rust replay exports were independently checked: #4401 uses
 14 selected cells and 190 proof nodes, #4662 uses 12 and 142, Loki uses 13 and
 178, and the synthetic four-digit case uses 13 and 1,121. Two additional generated-board exports also verify. Ten evidence mutations
-per replay are rejected (60 mutations for the six committed exports), including missing/duplicate branches, invalid/reused
+per replay are rejected (60 mutations for those six initial exports), including missing/duplicate branches, invalid/reused
 child references, false conflict evidence, reversed endpoints, stale hashes,
 and malformed support witnesses. Running the checker without arguments checks
 every recorded `replay_*.json` export.
+
+The expanded search adds a seventh export for a unique 29-given nonforcing-gap
+puzzle, with 21 selected cells and 74 proof nodes. It and ten further mutations
+are checked by the same independent script; the full current audit rejects 70
+mutations across seven exports.
 
 The abstract mathematical core in
 [`verification/global_coloring.rs`](../../verification/global_coloring.rs)

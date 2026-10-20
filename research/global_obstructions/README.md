@@ -17,6 +17,8 @@ No historical mathematical novelty is established.
 | [13-cell four-digit support](structural_report.md) | A native graph with independence number 3 and chromatic number 5, exact local/LP separation, and a short four-box rank proof. Synthetic original state. |
 | [Published tridagon cases](real_notes.md) | Independently verified unique givens from immutable author sources, exact traces, local filters and rational LP witnesses. Established patterns. |
 | Generated four-digit givens | A nonunique 19-given board reaches the obstruction beyond the checked old structural baseline. A unique 34-given control is already solved by old fish/singles. Neither is a published author-source puzzle. |
+| [Expanded unique nonforcing gap](expanded_search_report.md) | A certified 29-given unique board passes the local/native-LP filters and stalls older nonforcing plus default arithmetic. Full old Nishio still finds a step. |
+| [Exact motif prior art](prior_art_13_report.md) | An explicit spanning seven-hyperhole and grouped-loop map explain the 13-cell obstruction by established methods. First appearance of the exact Sudoku drawing remains unresolved. |
 | [LP and prior-art audit](audit_prior_art.md) | Exact rational primal witnesses, rejected Farkas controls, certificate mutations and precise limits on method and novelty claims. |
 
 The positive continuous-LP result is an exact rational witness, not a numerical
@@ -34,6 +36,8 @@ python3 research/global_obstructions/structural_verify.py
 python3 research/global_obstructions/real_verify.py
 python3 research/global_obstructions/audit_linear_witnesses.py
 python3 research/global_obstructions/audit_global_certificates.py
+python3 research/global_obstructions/expanded_unique_verify.py
+python3 research/global_obstructions/prior_art_13_verify.py
 ```
 
 These run in dedicated CI. Numerical LP discovery can optionally use SciPy;
